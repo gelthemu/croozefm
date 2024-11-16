@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img src="assets/cfm-hero.png" alt="91.2 Crooze FM" width="240"/>
 
-## Getting Started
+Welcome to my **Crooze FM** repository! This project is a clone of the official [Crooze FM](https://www.croozefm.com) website. This project is built with Next.js and TypeScript.
 
-First, run the development server:
+This project aims to replicate the look and feel of the Crooze FM website; and is intended for educational purposes, showcasing web design and development skills using Next.js, TypeScript, and Tailwind CSS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request. The project is live at [https://croozefm.geltaverse.com](https://croozefm.geltaverse.com).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Skills
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Category        | Skills                             |
+| --------------- | ---------------------------------- |
+| Web Development | Next.js, TypeScript, Tailwind CSS  |
+| Design          | Canva                              |
+| Version Control | Git, GitHub                        |
+| Deployment      | Vercel                             |
+| Other           | Responsive Design, Form Submission |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If you're interested in collaborating or have any suggestions, feel free to reach out to me:
 
-## Learn More
+- **Email:** [hello@geltaverse.com](mailto:hello@geltaverse.com)
+- **𝕏 (formerly Twitter):** [@geltaverse](https://x.com/geltaverse)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thank you.
