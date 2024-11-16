@@ -44,3 +44,17 @@ body {
 audio {
   color-scheme: dark;
 }
+
+.heading-apex {
+  font-variant: small-caps;
+}
+
+.heading-apex:after {
+  content: " ";
+  display: block;
+  width: 50%;
+  height: 1px;
+  background-color: #505050;
+  padding-top: 0.5rem;
+  margin-top: 0.25rem;
+}

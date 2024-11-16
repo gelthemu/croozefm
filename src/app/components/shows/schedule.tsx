@@ -105,14 +105,14 @@ export const Schedule = () => {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full aspect-[1484/813]">
       <Image
         src={currentShow}
         alt="91.2 Crooze FM"
         width={1484}
         height={813}
         priority={true}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover aspect-[1484/813] _img_"
       />
     </div>
   );

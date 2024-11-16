@@ -44,7 +44,7 @@ export default function Hero() {
             alt="Hero Image"
             width={2295}
             height={675}
-            className="w-full aspect-[2295/675]"
+            className="w-full aspect-[2295/675] object-cover _img_"
           />
         </div>
         <div className="w-full my-12">
@@ -53,7 +53,11 @@ export default function Hero() {
               className={`bg-red/80 hover:bg-red font-semibold px-4 py-2 rounded-md flex items-center space-x-1 transition-all duration-300 ${
                 isMiniPlayerOpen ? "opacity-40" : ""
               }`}
-              onClick={() => setIsMiniPlayerOpen(true)}
+              onClick={() => {
+                setTimeout(() => {
+                  setIsMiniPlayerOpen(true);
+                }, 500);
+              }}
               disabled={isMiniPlayerOpen}
             >
               <span>Listen Live</span> <ArrowDownRight className="w-5 h-5" />
@@ -62,7 +66,7 @@ export default function Hero() {
         </div>
       </div>
       {isMiniPlayerOpen && (
-        <div className="max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300">
+        <div className="max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300 z-50">
           <div className="w-full p-1 backdrop-blur-md bg-gray/80 border border-light/20 rounded-sm">
             <div className="w-full flex items-center justify-between pb-1">
               <div className="flex justify-center items-center">
@@ -72,7 +76,6 @@ export default function Hero() {
                     onClick={handleAudioPlay}
                     aria-label="Pause audio"
                   >
-                    {/* <Pause className="w-4 h-4" /> */}
                     <i className="fa-solid fa-pause"></i>
                   </button>
                 ) : (
@@ -81,14 +84,13 @@ export default function Hero() {
                     onClick={handleAudioPlay}
                     aria-label="Play audio"
                   >
-                    {/* <Play className="w-4 h-4" /> */}
                     <i className="fa-solid fa-play"></i>
                   </button>
                 )}
                 <audio
                   ref={audioRef}
                   crossOrigin="anonymous"
-                  src="https://fmradiohub.in/play?url=http://mp.techsysug.com:21563/stream"
+                  src="https://capitalfm.cloudrad.io/stream/"
                   className="w-full rounded-none"
                 />
               </div>
