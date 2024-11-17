@@ -7,7 +7,7 @@ import Schedule from "../shows/schedule";
 
 export default function Hero() {
   const [isMiniPlayerOpen, setIsMiniPlayerOpen] = useState(false);
-  const [isStreamActive, setIsStreamActive] = useState(false);
+  const [isStreamActive, setIsStreamActive] = useState(true);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -18,18 +18,14 @@ export default function Hero() {
       audioRef.current
         .play()
         .then(() => {
-          setIsStreamActive(true);
           setIsAudioPlaying(true);
         })
-        .catch((error) => {
+        .catch(() => {
           setIsStreamActive(false);
-          setIsAudioPlaying(false);
-          console.error("Audio playback error:", error);
         });
     } else {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
-      setIsStreamActive(true);
       setIsAudioPlaying(false);
     }
   };
@@ -72,59 +68,62 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      {isMiniPlayerOpen && (
-        <div className="max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300 z-50">
-          <div className="w-full p-1 backdrop-blur-md bg-gray/80 border border-light/20 rounded-sm">
-            <div className="w-full flex items-center justify-between pb-1">
-              <div className="flex justify-center items-center">
-                {isStreamActive ? (
-                  <>
-                    {isAudioPlaying ? (
-                      <button
-                        className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
-                        onClick={handleAudioPlay}
-                        aria-label="Pause audio"
-                      >
-                        <i className="fa-solid fa-pause"></i>
-                      </button>
-                    ) : (
-                      <button
-                        className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
-                        onClick={handleAudioPlay}
-                        aria-label="Play audio"
-                      >
-                        <i className="fa-solid fa-play"></i>
-                      </button>
-                    )}{" "}
-                  </>
-                ) : (
-                  <p className="text-center text-xs text-red font-medium">
-                    <i className="fa-solid fa-exclamation-triangle mr-1"></i>
-                    Disconnected
-                  </p>
-                )}
-                <audio
-                  ref={audioRef}
-                  crossOrigin="anonymous"
-                  src="https://fmradiohub.in/play?url=http://mp.techsysug.com:21563/stream"
-                  className="w-full rounded-none"
-                />
-              </div>
-              <button
-                className="cursor-pointer p-1 hover:rotate-180 transition-transform duration-300"
-                onClick={() => {
-                  setIsMiniPlayerOpen(false);
-                  handleAudioReset();
-                }}
-                aria-label="Close player"
-              >
-                <X className="w-4 h-4" />
-              </button>
+      <div
+        className={`max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300 z-50 ${
+          isMiniPlayerOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-1/2"
+        }`}
+      >
+        <div className="w-full p-1 backdrop-blur-md bg-gray/80 border border-light/20 rounded-sm">
+          <div className="w-full flex items-center justify-between pb-1">
+            <div className="flex justify-center items-center">
+              {isStreamActive ? (
+                <>
+                  {isAudioPlaying ? (
+                    <button
+                      className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
+                      onClick={handleAudioPlay}
+                      aria-label="Pause audio"
+                    >
+                      <i className="fa-solid fa-pause"></i>
+                    </button>
+                  ) : (
+                    <button
+                      className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
+                      onClick={handleAudioPlay}
+                      aria-label="Play audio"
+                    >
+                      <i className="fa-solid fa-play"></i>
+                    </button>
+                  )}{" "}
+                </>
+              ) : (
+                <p className="text-center text-xs text-red font-medium">
+                  <i className="fa-solid fa-exclamation-triangle mr-1"></i>
+                  Disconnected
+                </p>
+              )}
+              <audio
+                ref={audioRef}
+                src="https://fmradiohub.in/play?url=http://mp.techsyxsug.com:21563/stream"
+                className="w-full rounded-none"
+              />
             </div>
-            <Schedule />
+            <button
+              className="cursor-pointer p-1 hover:rotate-180 transition-transform duration-300"
+              onClick={() => {
+                setIsMiniPlayerOpen(false);
+                handleAudioReset();
+              }}
+              aria-label="Close player"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
+          <Schedule />
         </div>
-      )}
+      </div>
     </>
   );
 }

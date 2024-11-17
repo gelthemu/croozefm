@@ -97,6 +97,22 @@ export const shows: Show[] = [
         host: "Rosh | Abou | James",
     },
     {
+        id: "crooze-farmer",
+        title: "The Crooze Farmer",
+        image: "/assets/shows/crooze-farmer.png",
+        description:
+            "A special show dedicated to farmers, featuring agricultural tips, market insights, and interviews with experts in the field.",
+        host: "Dithan Omuhinda",
+    },
+    {
+        id: "crooze-doctor",
+        title: "The Crooze Doctor",
+        image: "/assets/shows/crooze-doctor.png",
+        description:
+            "Your weekly guide to health and wellness. From expert advice to answering listener questions, we’ve got you covered.",
+        host: "Dosh, with Dr. Brian",
+    },
+    {
         id: "tgif-morning-addiction",
         title: "#TGIF - The Morning Addiction",
         image: "/assets/shows/tgif-morning-addiction.png",
@@ -206,20 +222,11 @@ export const shows: Show[] = [
         host: "John Turinawe",
     },
     {
-        id: "crooze-farmer",
-        title: "The Crooze Farmer",
-        image: "/assets/shows/crooze-farmer.png",
+        id: "total-country-show",
+        title: "The Total Country Show",
+        image: "/assets/shows/total-country-show.png",
         description:
-            "A special show dedicated to farmers, featuring agricultural tips, market insights, and interviews with experts in the field.",
-        host: "Dithan Omuhinda",
-    },
-    {
-        id: "crooze-doctor",
-        title: "The Crooze Doctor",
-        image: "/assets/shows/crooze-doctor.png",
-        description:
-            "Your weekly guide to health and wellness. From expert advice to answering listener questions, we’ve got you covered.",
-        host: "Dosh, with Dr. Brian",
+            "A show that celebrates the best of country music from around the world. After a long, busy weekend, relax with the best of country music to recharge. From the old classics to the latest hits, Crooze FM has got you covered. Country music is good for your ears.",
     },
 ];
 
