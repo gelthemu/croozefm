@@ -1,7 +1,7 @@
 import { shows } from "@/data/shows";
 import { notFound } from "next/navigation";
 import BackBtn from "@/app/components/tiny/backbtn";
-import RecordPlayer from "@/app/shows/components/record-player";
+import RecordPlayer from "@/app/c/shows/components/record-player";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
@@ -32,8 +32,8 @@ export async function generateMetadata({
       title: `${show.title} - 91.2 Crooze FM`,
       description: show.description,
       type: "website",
-      url: `https://croozefm.geltaverse.com/shows/${show.id}`,
-      images: [`https://croozefm.geltaverse.com${show.image}`],
+      url: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
+      images: [show.image],
     },
     twitter: {
       title: `${show.title} - 91.2 Crooze FM`,
@@ -41,12 +41,12 @@ export async function generateMetadata({
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",
-      images: [`https://croozefm.geltaverse.com${show.image}`],
+      images: [show.image],
     },
     alternates: {
-      canonical: `https://croozefm.geltaverse.com/shows/${show.id}`,
+      canonical: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
       languages: {
-        "en-US": "/en-US",
+        "en-US": "/c/en-US",
       },
     },
   };
@@ -104,7 +104,7 @@ export default async function ShowPage({ params }: PageProps) {
 
       <div className="flex items-center justify-center text-center mx-auto mt-8 px-6 py-2">
         <Link
-          href="/shows"
+          href="/c/shows"
           className="inline-flex items-center font-semibold hover:text-light/50 transition-colors duration-300"
         >
           View All Shows

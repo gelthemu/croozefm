@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 interface Show {
@@ -9,7 +9,7 @@ interface Show {
 
 export const Schedule = () => {
   const [currentShow, setCurrentShow] = useState<string>(
-    "/assets/shows/default.png"
+    "https://croozefm.blob.core.windows.net/images/default.png"
   );
 
   const getUgandaTime = (): Date => {
@@ -21,41 +21,141 @@ export const Schedule = () => {
 
   const schedules: Record<string, Show[]> = {
     regular: [
-      { img: "/assets/shows/the-inspiration.png", start: 5, end: 6 },
-      { img: "/assets/shows/morning-addiction.png", start: 6, end: 10 },
-      { img: "/assets/shows/coffee-break.png", start: 10, end: 11 },
-      { img: "/assets/shows/lifestyle.png", start: 11, end: 13 },
-      { img: "/assets/shows/slowdown-hour.png", start: 13, end: 14 },
-      { img: "/assets/shows/most-wanted-hits.png", start: 14, end: 16 },
-      { img: "/assets/shows/african-countdown.png", start: 16, end: 17 },
-      { img: "/assets/shows/evening-switch.png", start: 17, end: 18 },
-      { img: "/assets/shows/hot-6-at-6.png", start: 18, end: 19 },
-      { img: "/assets/shows/hits-selector.png", start: 20, end: 22 },
-      { img: "/assets/shows/sports-bwino.png", start: 22, end: 24 },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/the-inspiration.png",
+        start: 5,
+        end: 6,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/morning-addiction.png",
+        start: 6,
+        end: 10,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/coffee-break.png",
+        start: 10,
+        end: 11,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/lifestyle.png",
+        start: 11,
+        end: 13,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/slowdown-hour.png",
+        start: 13,
+        end: 14,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/most-wanted-hits.png",
+        start: 14,
+        end: 16,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/african-countdown.png",
+        start: 16,
+        end: 17,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
+        start: 17,
+        end: 18,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/hot-6-at-6.png",
+        start: 18,
+        end: 19,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/hits-selector.png",
+        start: 20,
+        end: 22,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/sports-bwino.png",
+        start: 22,
+        end: 24,
+      },
     ],
     friday: [
-      { img: "/assets/shows/tgif-morning-addiction.png", start: 6, end: 10 },
-      { img: "/assets/shows/tgif-lifestyle.png", start: 11, end: 14 },
-      { img: "/assets/shows/tgif-most-wanted-extra.png", start: 14, end: 17 },
-      { img: "/assets/shows/tgif-evening-switch.png", start: 17, end: 20 },
-      { img: "/assets/shows/fat-friday-mix.png", start: 20, end: 24 },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/tgif-morning-addiction.png",
+        start: 6,
+        end: 10,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/tgif-lifestyle.png",
+        start: 11,
+        end: 14,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/tgif-most-wanted-extra.png",
+        start: 14,
+        end: 17,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/tgif-evening-switch.png",
+        start: 17,
+        end: 20,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/fat-friday-mix.png",
+        start: 20,
+        end: 24,
+      },
     ],
     saturday: [
-      { img: "/assets/shows/urban-breakfast.png", start: 6, end: 9 },
-      { img: "/assets/shows/big-seat.png", start: 9, end: 11 },
-      { img: "/assets/shows/sports-roundup.png", start: 12, end: 14 },
-      { img: "/assets/shows/african-rhythms.png", start: 17, end: 20 },
-      { img: "/assets/shows/saturday-night.png", start: 20, end: 24 },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/urban-breakfast.png",
+        start: 6,
+        end: 9,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/big-seat.png",
+        start: 9,
+        end: 11,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
+        start: 12,
+        end: 14,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
+        start: 17,
+        end: 20,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
+        start: 20,
+        end: 24,
+      },
     ],
     sunday: [
-      { img: "/assets/shows/sunday-inspiration.png", start: 6, end: 9 },
-      { img: "/assets/shows/sunday-love.png", start: 9, end: 12 },
-      { img: "/assets/shows/enyangyi.png", start: 12, end: 14 },
-      { img: "/assets/shows/total-country-show.png", start: 19, end: 24 },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/sunday-inspiration.png",
+        start: 6,
+        end: 9,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/sunday-love.png",
+        start: 9,
+        end: 12,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/enyangyi.png",
+        start: 12,
+        end: 14,
+      },
+      {
+        img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
+        start: 19,
+        end: 24,
+      },
     ],
   };
 
-  const getCurrentShow = (): string => {
+  const getCurrentShow = useCallback((): string => {
     const ugandaTime = getUgandaTime();
     const day = ugandaTime.getDay();
 
@@ -72,8 +172,8 @@ export const Schedule = () => {
       if (croozeShow) {
         croozeShow.img =
           day === 3
-            ? "/assets/shows/crooze-farmer.png"
-            : "/assets/shows/crooze-doctor.png";
+            ? "https://croozefm.blob.core.windows.net/images/crooze-farmer.png"
+            : "https://croozefm.blob.core.windows.net/images/crooze-doctor.png";
       }
     }
 
@@ -92,8 +192,8 @@ export const Schedule = () => {
       }
     }
 
-    return "/assets/shows/default.png";
-  };
+    return "https://croozefm.blob.core.windows.net/images/default.png";
+  }, []);
 
   useEffect(() => {
     setCurrentShow(getCurrentShow());
@@ -103,7 +203,7 @@ export const Schedule = () => {
     }, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [getCurrentShow]);
 
   return (
     <div className="w-full aspect-[1484/813]">

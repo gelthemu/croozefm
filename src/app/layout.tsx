@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     type: "music.radio_station",
     url: "https://croozefm.geltaverse.com",
-    images: ["https://croozefm.geltaverse.com/assets/shows/default.png"],
+    images: ["https://croozefm.blob.core.windows.net/images/default.png"],
   },
 
   twitter: {
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@geltaverse",
     creator: "@geltaverse",
-    images: ["https://croozefm.geltaverse.com/assets/shows/default.png"],
+    images: ["https://croozefm.blob.core.windows.net/images/default.png"],
   },
 
   alternates: {

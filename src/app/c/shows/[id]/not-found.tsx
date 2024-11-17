@@ -23,7 +23,7 @@ export default function NotFound() {
 
       <div className="relative w-full md:w-4/6 mx-auto aspect-[1484/813] overflow-hidden rounded-lg">
         <Image
-          src="/assets/shows/default.png"
+          src="https://croozefm.blob.core.windows.net/images/default.png"
           alt="91.2 Crooze FM"
           width={1484}
           height={813}
@@ -34,7 +34,7 @@ export default function NotFound() {
 
       <div className="flex items-center justify-center text-center mx-auto mt-8 px-6 py-2">
         <Link
-          href="/shows"
+          href="/c/shows"
           className="inline-flex items-center font-semibold hover:text-light/50 transition-colors duration-300"
         >
           View All Shows

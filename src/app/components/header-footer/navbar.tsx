@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { id: "home", name: "Home", href: "/" },
-  { id: "headlines", name: "Headlines", href: "/headlines" },
-  { id: "shows", name: "Shows", href: "/shows" },
-  { id: "gallery", name: "Gallery", href: "/gallery" },
+  { id: "headlines", name: "Headlines", href: "/c/headlines" },
+  { id: "shows", name: "Shows", href: "/c/shows" },
+  { id: "gallery", name: "Gallery", href: "/c/gallery" },
 ];
 
 export default function Navbar() {
@@ -74,6 +74,7 @@ export default function Navbar() {
             <button
               type="button"
               className="text-sm font-medium bg-dark/40 rounded-md px-3 py-2"
+              disabled
             >
               Login
             </button>
@@ -102,9 +103,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     className={`block py-1.5 px-3  hover:bg-dark/30 rounded ${
-                      isLinkActive(link.href)
-                        ? "text-red font-semibold"
-                        : ""
+                      isLinkActive(link.href) ? "text-red font-semibold" : ""
                     } text-center transition-all duration-300`}
                     aria-current={isLinkActive(link.href) ? "page" : undefined}
                   >

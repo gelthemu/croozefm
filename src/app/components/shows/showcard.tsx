@@ -10,7 +10,7 @@ interface ShowCardProps {
 
 export const ShowCard = ({ show, featured }: ShowCardProps) => {
   return (
-    <Link href={`/shows/${show.id}`}>
+    <Link href={`/c/shows/${show.id}`}>
       <div
         className={`group grid-1 relative overflow-hidden rounded-sm border-2 border-light/10 bg-gray shadow-md transition-all hover:shadow-xl ${
           featured ? "col-span-2 row-span-2" : ""

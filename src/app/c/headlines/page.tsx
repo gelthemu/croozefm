@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function HeadlinesPage() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-16 min-h-screen">
       <div className="mb-8 flex flex-col items-center justify-center p-4 border-b border-light/20">
         <h1 className="text-3xl font-apex relative mb-4">Headlines</h1>
         <p className="text-light/80 text-center max-w-screen-sm mx-auto">
@@ -23,7 +23,7 @@ export default function HeadlinesPage() {
           className="w-full bg-[#3b3b3b] rounded-sm"
         >
           <source
-            src="https://radiostreams.blob.core.windows.net/radio-blobs/cfm-news-2024-11-14_monica-mbabazi.mp3"
+            src="https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-14_monica-mbabazi.mp3"
             type="audio/mp3"
           />
           91.2 Crooze FM Headlines

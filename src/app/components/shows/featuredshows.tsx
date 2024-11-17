@@ -22,7 +22,7 @@ export const FeaturedShows = () => {
         </div>
         <div className="flex items-center justify-end">
           <Link
-            href="/shows"
+            href="/c/shows"
             className="inline-flex items-center font-semibold hover:text-light/50 transition-colors duration-300"
           >
             View All

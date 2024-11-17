@@ -58,3 +58,20 @@ audio {
   padding-top: 0.5rem;
   margin-top: 0.25rem;
 }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.appear {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
