@@ -10,7 +10,9 @@ export default function Home() {
         <Hero />
         <FeaturedShows />
 
-        <div className="p-4 w-full border text-center">CONTENT</div>
+        <div className="p-4 w-full border text-center">
+          WEBSITE STILL UNDER CONSTRUCTION
+        </div>
       </main>
     </>
   );

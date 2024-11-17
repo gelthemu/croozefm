@@ -1,3 +1,5 @@
+import "@/app/styles/globals.css";
+
 export default function ShowsLayout({
   children,
 }: {

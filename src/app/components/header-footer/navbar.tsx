@@ -66,6 +66,7 @@ export default function Navbar() {
               alt="CroozeFM Logo"
               width={4096}
               height={1652}
+              priority={true}
               className="w-full aspect-[4096/1652] _img_"
             />
           </Link>

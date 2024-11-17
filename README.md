@@ -1,4 +1,4 @@
-<img src="assets/cfm-hero.png" alt="91.2 Crooze FM" width="240"/>
+<img src="https://croozefm.geltaverse.com/cfm-logo.png" alt="91.2 Crooze FM" width="240"/>
 
 Welcome to my **Crooze FM** repository! This project is a clone of the official [Crooze FM](https://www.croozefm.com) website. This project is built with Next.js and TypeScript.
 
