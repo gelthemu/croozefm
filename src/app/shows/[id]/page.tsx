@@ -1,9 +1,11 @@
-// @/app/shows/[id]/page.tsx
 import { shows } from "@/data/shows";
 import { notFound } from "next/navigation";
+import BackBtn from "@/app/components/tiny/backbtn";
+import RecordPlayer from "@/app/shows/components/record-player";
+import Link from "next/link";
+import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import { Metadata } from "next";
-// import { Show } from "@/types/shows";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -24,12 +26,28 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${show.title} | Crooze FM`,
+    title: show.title,
     description: show.description,
     openGraph: {
       title: show.title,
       description: show.description,
-      images: [show.image],
+      type: "website",
+      url: `https://croozefm.geltaverse.com/shows/${show.id}`,
+      images: [`https://croozefm.geltaverse.com${show.image}`],
+    },
+    twitter: {
+      title: show.title,
+      description: show.description,
+      card: "summary_large_image",
+      site: "@geltaverse",
+      creator: "@geltaverse",
+      images: [`https://croozefm.geltaverse.com${show.image}`],
+    },
+    alternates: {
+      canonical: `https://croozefm.geltaverse.com/shows/${show.id}`,
+      languages: {
+        "en-US": "/en-US",
+      },
     },
   };
 }
@@ -49,47 +67,49 @@ export default async function ShowPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-4xl mx-auto">
-        <div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden">
-          <Image
-            src={show.image}
-            alt={show.title}
-            fill
-            className="object-cover"
-            priority
-          />
+    <div className="container mx-auto px-4 py-14">
+      <div className="mb-8">
+        <BackBtn />
+      </div>
+
+      <div className="mb-12 pt-6 pb-10 border-y border-light/10">
+        <div className="flex flex-col items-center justify-center w-5/6 mx-auto text-center">
+          <h1 className="text-3xl py-5 font-apex bg-clip-text text-transparent bg-gradient-to-r from-light via-red to-light">
+            {show.title}
+          </h1>
+          <p className="text-light/80">{show.description}</p>
         </div>
+      </div>
 
-        <div className="space-y-6">
-          <h1 className="text-4xl font-apex">{show.title}</h1>
+      <div className="relative w-full md:w-5/6 mx-auto aspect-[1484/813] overflow-hidden rounded-lg">
+        <Image
+          src={show.image}
+          alt={show.title}
+          width={1484}
+          height={813}
+          priority={true}
+          className="w-full aspect-[1484/813] object-cover _img_"
+        />
+      </div>
 
-          {show.host && (
-            <div className="flex items-center gap-2">
-              <span className="text-light/60">Hosted by:</span>
-              <span className="font-medium">{show.host}</span>
-            </div>
-          )}
+      <div className="my-10 flex items-center justify-center">
+        {show.host && (
+          <div className="w-fit text-light/60 font-medium bg-gray px-4 py-2 rounded-md">
+            <span>{show.host}</span>
+          </div>
+        )}
+      </div>
 
-          <p className="text-lg text-light/80">{show.description}</p>
+      <RecordPlayer show={show} />
 
-          {show.recordings && show.recordings.length > 0 && (
-            <div className="mt-12">
-              <h2 className="text-2xl font-apex mb-4">Recent Episodes</h2>
-              <div className="space-y-4">
-                {show.recordings.map((recording) => (
-                  <div
-                    key={recording.id}
-                    className="p-4 bg-light/5 rounded-lg space-y-2"
-                  >
-                    <h3 className="font-medium">{recording.title}</h3>
-                    <audio controls className="w-full" src={recording.audio} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+      <div className="flex items-center justify-center text-center mx-auto mt-8 px-6 py-2">
+        <Link
+          href="/shows"
+          className="inline-flex items-center font-semibold hover:text-light/50 transition-colors duration-300"
+        >
+          View All Shows
+          <MoveRight className="ml-2 h-5 w-5" />
+        </Link>
       </div>
     </div>
   );

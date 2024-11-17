@@ -58,7 +58,7 @@ export const shows: Show[] = [
             {
                 id: "2024-11-14",
                 title: "The African Countdown (2024-11-14)",
-                audio: "https://radiostreams.blob.core.windows.net/radio-blobs/african-countdown.mp3",
+                audio: "https://radiostreams.blob.core.windows.net/radio-blobs/the-african-count-down_2024-11-14.mp3",
             },
         ],
     },

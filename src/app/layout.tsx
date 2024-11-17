@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "91.2 Crooze FM",
+  title: "Welcome - 91.2 Crooze FM",
   description:
     "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
   keywords:
@@ -56,6 +56,25 @@ export const metadata: Metadata = {
     apple: "/_io/apple-touch-icon.png",
   },
   manifest: "/_io/site.webmanifest",
+
+  openGraph: {
+    title: "Welcome - 91.2 Crooze FM",
+    description:
+      "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    type: "music.radio_station",
+    url: "https://croozefm.geltaverse.com",
+    images: ["https://croozefm.geltaverse.com/assets/shows/default.png"],
+  },
+
+  twitter: {
+    title: "Welcome - 91.2 Crooze FM",
+    description:
+      "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    card: "summary_large_image",
+    site: "@geltaverse",
+    creator: "@geltaverse",
+    images: ["https://croozefm.geltaverse.com/assets/shows/default.png"],
+  },
 
   alternates: {
     canonical: "https://croozefm.geltaverse.com",

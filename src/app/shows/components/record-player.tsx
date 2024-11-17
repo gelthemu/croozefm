@@ -59,8 +59,10 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
               <p className="text-sm font-medium mb-2 text-center">
                 {recording.title}
               </p>
-              {currentRecording?.id === recording.id && (
-                <div className="h-1 bg-red/50 rounded-md animate-pulse" />
+              {currentRecording?.id === recording.id ? (
+                <div className="h-1 bg-red/80 rounded-md animate-pulse" />
+              ) : (
+                <div className="h-1 bg-light/50 rounded-md" />
               )}
             </div>
           ))}

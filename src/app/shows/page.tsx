@@ -2,8 +2,9 @@ import { shows } from "@/data/shows";
 import { ShowCard } from "./components/showcard";
 
 export const metadata = {
-  title: "Shows",
-  description: "Discover our shows on 91.2 Crooze FM.",
+  title: "Shows - 91.2 Crooze FM",
+  description:
+    "Discover our shows on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
 };
 
 export default function ShowsPage() {
