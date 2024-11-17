@@ -1,7 +1,8 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import type { Metadata, Viewport } from "next";
 import { Oswald, Montserrat } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
@@ -98,6 +99,13 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
+        {
+          process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+            <GoogleAnalytics
+              ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
+            />
+          )
+        }
       </head>
       <body
         className={`${oswald.variable} ${montserrat.variable} relative antialiased`}

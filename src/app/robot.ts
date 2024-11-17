@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
                 userAgent: ["Applebot", "Bingbot", "YandexBot"],
                 allow: "/",
             }
-        ]
+        ],
+        host: "https://croozefm.geltaverse.com",
     };
 }

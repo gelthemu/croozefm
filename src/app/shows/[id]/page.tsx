@@ -29,14 +29,14 @@ export async function generateMetadata({
     title: show.title,
     description: show.description,
     openGraph: {
-      title: show.title,
+      title: `${show.title} - 91.2 Crooze FM`,
       description: show.description,
       type: "website",
       url: `https://croozefm.geltaverse.com/shows/${show.id}`,
       images: [`https://croozefm.geltaverse.com${show.image}`],
     },
     twitter: {
-      title: show.title,
+      title: `${show.title} - 91.2 Crooze FM`,
       description: show.description,
       card: "summary_large_image",
       site: "@geltaverse",
