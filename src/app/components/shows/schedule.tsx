@@ -51,6 +51,7 @@ export const Schedule = () => {
       { img: "/assets/shows/sunday-inspiration.png", start: 6, end: 9 },
       { img: "/assets/shows/sunday-love.png", start: 9, end: 12 },
       { img: "/assets/shows/enyangyi.png", start: 12, end: 14 },
+      { img: "/assets/shows/total-country-show.png", start: 19, end: 24 },
     ],
   };
 

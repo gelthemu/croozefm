@@ -18,15 +18,19 @@ export default function Hero() {
       audioRef.current
         .play()
         .then(() => {
+          setIsStreamActive(true);
           setIsAudioPlaying(true);
         })
         .catch(() => {
+          setIsAudioPlaying(false);
           setIsStreamActive(false);
+          return;
         });
     } else {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
+      setIsStreamActive(true);
     }
   };
 
@@ -106,7 +110,7 @@ export default function Hero() {
               )}
               <audio
                 ref={audioRef}
-                src="https://fmradiohub.in/play?url=http://mp.techsyxsug.com:21563/stream"
+                src="https://fmradiohub.in/play?url=http://51.255.235.165:21563/stream"
                 className="w-full rounded-none"
               />
             </div>
