@@ -22,6 +22,8 @@ const montserrat = Montserrat({
   preload: true,
 });
 
+const ga_id = "G-RLHVV5YR9Y";
+
 export const viewport: Viewport = {
   themeColor: "#151515",
   colorScheme: "dark",
@@ -99,13 +101,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
-        {
-          process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
-            <GoogleAnalytics
-              ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}
-            />
-          )
-        }
+        <GoogleAnalytics ga_id={ga_id} />
       </head>
       <body
         className={`${oswald.variable} ${montserrat.variable} relative antialiased`}
