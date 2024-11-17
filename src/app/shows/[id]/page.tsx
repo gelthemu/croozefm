@@ -3,13 +3,17 @@ import { shows } from "@/data/shows";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Metadata } from "next";
+// import { Show } from "@/types/shows";
 
-type Props = {
-  params: { id: string };
-};
+interface PageProps {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = await params.id;
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { id } = await params;
   const show = shows.find((s) => s.id === id);
 
   if (!show) {
@@ -30,14 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return shows.map((show) => ({
     id: show.id,
   }));
 }
 
-export default function ShowPage({ params }: Props) {
-  const id = params.id;
+export default async function ShowPage({ params }: PageProps) {
+  const { id } = await params;
   const show = shows.find((s) => s.id === id);
 
   if (!show) {
