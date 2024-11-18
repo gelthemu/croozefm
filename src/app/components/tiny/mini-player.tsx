@@ -1,21 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Schedule from "../shows/schedule";
 
 interface MiniPlayerProps {
   audioRef: React.RefObject<HTMLAudioElement>;
   isAudioPlaying: boolean;
+  isStreamActive: boolean;
   setIsAudioPlaying: (playing: boolean) => void;
+  setIsStreamActive: (active: boolean) => void;
 }
 
 export default function MiniPlayer({
   audioRef,
   isAudioPlaying,
+  isStreamActive,
   setIsAudioPlaying,
+  setIsStreamActive,
 }: MiniPlayerProps) {
-  const [isStreamActive, setIsStreamActive] = useState(true);
-
   const handleAudioPlay = () => {
     if (!audioRef.current) return;
 
@@ -27,7 +29,6 @@ export default function MiniPlayer({
           setIsAudioPlaying(true);
         })
         .catch(() => {
-          setIsAudioPlaying(false);
           setIsStreamActive(false);
           return;
         });
@@ -65,7 +66,7 @@ export default function MiniPlayer({
                 )}{" "}
               </>
             ) : (
-              <p className="text-center text-xs text-red font-medium">
+              <p className="text-center text-xs text-red font-medium p-1">
                 <i className="fa-solid fa-exclamation-triangle mr-1"></i>
                 Disconnected
               </p>

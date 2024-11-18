@@ -7,6 +7,7 @@ import { ArrowDownRight, X } from "lucide-react";
 
 export default function Hero() {
   const [isMiniPlayerOpen, setIsMiniPlayerOpen] = useState(false);
+  const [isStreamActive, setIsStreamActive] = useState(true);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -44,8 +45,8 @@ export default function Hero() {
       <div
         className={`max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300 z-50 ${
           isMiniPlayerOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-1/2"
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 translate-x-full"
         }`}
       >
         <button
@@ -56,6 +57,7 @@ export default function Hero() {
               audioRef.current.currentTime = 0;
             }
             setIsAudioPlaying(false);
+            setIsStreamActive(true);
             setIsMiniPlayerOpen(false);
           }}
           aria-label="Close player"
@@ -66,6 +68,8 @@ export default function Hero() {
           audioRef={audioRef}
           isAudioPlaying={isAudioPlaying}
           setIsAudioPlaying={setIsAudioPlaying}
+          isStreamActive={isStreamActive}
+          setIsStreamActive={setIsStreamActive}
         />
       </div>
     </>

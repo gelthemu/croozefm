@@ -11,7 +11,7 @@ export const FeaturedShows = () => {
     <section className="my-16">
       <div className="p-4">
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-3xl font-apex relative heading-apex">
+          <h2 className="text-3xl font-apex relative heading-apex font-variant">
             Signature Shows
           </h2>
         </div>

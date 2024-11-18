@@ -1,9 +1,11 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
+import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
 import { Oswald, Montserrat } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ToastProvider from "./providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
 import "./styles/globals.css";
@@ -107,7 +109,9 @@ export default function RootLayout({
         className={`${oswald.variable} ${montserrat.variable} relative antialiased`}
       >
         <div className="w-full font-montserrat">
+          <CookieConsent />
           <Navbar />
+          <ToastProvider />
           {children}
           <Analytics />
           <SpeedInsights />

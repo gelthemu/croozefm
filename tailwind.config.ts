@@ -22,7 +22,11 @@ const config: Config = {
       },
       backgroundImage: {
         "custom-gradient":
-          "linear-gradient(to right, #151515 0%, #252525 50%, #151515 100%)",
+          "linear-gradient(to right, #151515 0%, #282828 50%, #151515 100%)",
+        "custom-gradient-reverse":
+          "linear-gradient(to bottom right, #282828 0%, #101010 100%)",
+        "custom-gradient-btn":
+          "linear-gradient(to right, #282828 0%, #4d0000 50%, #282828 100%)",
       },
     },
   },

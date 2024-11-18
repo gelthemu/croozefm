@@ -174,7 +174,7 @@ export const shows: Show[] = [
         image: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
         description:
             "Your go-to show for all the latest highlights and commentary from the sports world.",
-        host: "Abou | Derrick",
+        host: "Abou | Derrick | Nicholas",
     },
     {
         id: "african-rhythms",
