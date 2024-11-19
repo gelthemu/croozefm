@@ -49,7 +49,7 @@ export default function MiniPlayer({
               <>
                 {isAudioPlaying ? (
                   <button
-                    className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
+                    className="px-2 cursor-pointer rounded-sm hover:bg-dark/40 transition-colors duration-300"
                     onClick={handleAudioPlay}
                     aria-label="Pause audio"
                   >
@@ -57,7 +57,7 @@ export default function MiniPlayer({
                   </button>
                 ) : (
                   <button
-                    className="px-2 cursor-pointer rounded-sm transition-colors duration-300"
+                    className="px-2 cursor-pointer hover:bg-dark/40 rounded-sm transition-colors duration-300"
                     onClick={handleAudioPlay}
                     aria-label="Play audio"
                   >

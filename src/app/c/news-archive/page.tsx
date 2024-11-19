@@ -16,21 +16,24 @@ export default function NewsArchivePage() {
         <p className="text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-red via-light to-red max-w-screen-sm mx-auto mb-2">
           We don&apos;t just break stories, we tell real stories.
         </p>
-        <p className="text-light/80 text-center max-w-lg mx-auto mb-4">
+        <p className="text-light/80 text-center max-w-lg mx-auto mb-8">
           Stay abreast of the latest developments in the world of news and
           information, broadcasting to you live on 91.2 Crooze FM.
         </p>
-        <p className="w-full text-light/80 text-center text-sm italic max-w-screen-sm mx-auto border-y border-light/20 py-4">
-          &quot;Always remember where you heard it first.&quot;
-        </p>
+        <div className="flex justify-center">
+          <XNewsButton />
+        </div>
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {news.map((item) => (
           <NewsCard key={item.id} news={item} />
         ))}
       </div>
-      <div className="flex justify-center mt-12">
-        <XNewsButton />
+
+      <div className="mt-16 w-full border-y border-light/20 py-4">
+        <p className="text-light/80 text-center text-sm italic">
+          &quot;Always remember where you heard it first.&quot;
+        </p>
       </div>
     </div>
   );

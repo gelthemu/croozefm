@@ -56,8 +56,11 @@ export const shows: Show[] = [
             "Celebrate the sounds of Africa with a countdown of the hottest tracks across the continent.",
         recordings: [
             {
+                id: "2024-11-18",
+                audio: "https://croozefm.blob.core.windows.net/audio/the-african-count-down_2024-11-18.mp3",
+            },
+            {
                 id: "2024-11-14",
-                title: "The African Countdown (2024-11-14)",
                 audio: "https://croozefm.blob.core.windows.net/audio/the-african-count-down_2024-11-14.mp3",
             },
         ],
@@ -207,8 +210,7 @@ export const shows: Show[] = [
         host: "Inyaa",
         recordings: [
             {
-                id: "0000-00-00",
-                title: "CFM Sunday Love Jingle",
+                id: "2024-01-01",
                 audio: "https://croozefm.blob.core.windows.net/audio/weekend-love.mp3",
             },
         ]

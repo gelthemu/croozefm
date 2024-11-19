@@ -6,7 +6,8 @@ import { Download, Play, Pause } from "lucide-react";
 import useDownloader from "react-use-downloader";
 import Image from "next/image";
 import { toast } from "react-toastify";
-import AudioManager from "./audiomanager";
+import AudioManager from "@/app/components/tiny/audiomanager";
+import { FormatDate } from "@/app/components/tiny/format-date";
 
 interface NewsCardProps {
   news: News;
@@ -85,25 +86,21 @@ export default function NewsCard({ news }: NewsCardProps) {
     }
   };
 
-  const formattedDate = new Date(news.aired.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-
   return (
     <div
       className={`overflow-hidden rounded-md ${
-        isPlaying ? "outline outline-red/40" : "border-2 border-light/10"
-      } bg-custom-gradient-reverse`}
+        isPlaying ? "border-2 border-red/40" : "border-2 border-light/10"
+      } bg-custom-gradient-reverse transition-all duration-200`}
     >
       <div className="p-4">
         <div className="border-b border-light/20 flex items-center justify-between pb-2 text-light/50">
           <div className="flex items-center">
-            <span className="text-sm">{formattedDate}</span>
+            <span className="text-xs">
+              <FormatDate date={news.aired.date} />
+            </span>
           </div>
           <div className="flex items-center">
-            <span className="text-sm">{news.aired.time}</span>
+            <span className="text-xs">{news.aired.time}</span>
           </div>
         </div>
 
@@ -112,16 +109,22 @@ export default function NewsCard({ news }: NewsCardProps) {
             <Image
               src={news.profileImg}
               alt={news.anchor}
-              width={3200}
-              height={3200}
-              className="rounded-full object-cover w-8 aspect-square _img_"
+              width={2168}
+              height={2168}
+              className="rounded-full object-cover w-10 aspect-square _img_ grayscale"
             />
-            <span className="font-medium">{news.anchor}</span>
+            <span className="font-medium text-sm text-light/70">
+              {news.anchor}
+            </span>
           </div>
         </div>
 
-        <div className="bg-dark/40 rounded-sm p-4 text-red/80 flex items-center justify-between relative">
-          <button onClick={handlePlay} disabled={isInProgress}>
+        <div className="bg-dark/40 p-2 rounded-sm text-red/80 flex items-center justify-between relative">
+          <button
+            onClick={handlePlay}
+            disabled={isInProgress}
+            className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
+          >
             {isPlaying ? (
               <>
                 <span className="sr-only">Pause</span>
@@ -134,20 +137,22 @@ export default function NewsCard({ news }: NewsCardProps) {
               </>
             )}
           </button>
-          <button onClick={handleDownload} disabled={isInProgress}>
+          <button
+            onClick={handleDownload}
+            disabled={isInProgress}
+            className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
+          >
             <span className="sr-only">Download</span>
             <Download className="h-4 w-4" />
           </button>
 
-          {isPlaying && (
-            <div
-              className="absolute bottom-0 left-0 right-0 h-1 w-full rounded-full bg-red/40 transition-all duration-200"
-              style={{
-                width: `${progress}%`,
-                opacity: progress > 0 ? 1 : 0,
-              }}
-            />
-          )}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-1 w-full rounded-full bg-red/40 transition-all duration-200"
+            style={{
+              width: `${progress}%`,
+              opacity: progress > 0 ? 1 : 0,
+            }}
+          />
         </div>
 
         <audio ref={audioRef} src={news.audio} preload="metadata" />
