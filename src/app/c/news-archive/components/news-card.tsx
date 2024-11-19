@@ -62,7 +62,9 @@ export default function NewsCard({ news }: NewsCardProps) {
 
   const handleDownload = async () => {
     try {
-      const filename = `croozefm-news-${news.aired.date}-${news.aired.time}.mp3`;
+      const filename = `croozefm-news_${news.aired.date.split("T")[0]}_${
+        news.aired.time
+      }.mp3`;
 
       const proxyUrl = await toast.promise(
         fetch(`/api/download?url=${encodeURIComponent(news.audio)}`),
@@ -106,13 +108,21 @@ export default function NewsCard({ news }: NewsCardProps) {
 
         <div className="py-4">
           <div className="flex items-center space-x-2">
-            <Image
-              src={news.profileImg}
-              alt={news.anchor}
-              width={2168}
-              height={2168}
-              className="rounded-full object-cover w-10 aspect-square _img_ grayscale"
-            />
+            <div className="relative w-10 h-10">
+              <span
+                className={`absolute inset-0 w-full h-full rounded-full ${
+                  isPlaying ? "animate-heartbeat bg-red" : ""
+                }`}
+              >
+                <Image
+                  src={news.profileImg}
+                  alt={news.anchor}
+                  width={2168}
+                  height={2168}
+                  className="rounded-full object-cover w-full aspect-square _img_ grayscale"
+                />
+              </span>
+            </div>
             <span className="font-medium text-sm text-light/70">
               {news.anchor}
             </span>
@@ -121,6 +131,7 @@ export default function NewsCard({ news }: NewsCardProps) {
 
         <div className="bg-dark/40 p-2 rounded-sm text-red/80 flex items-center justify-between relative">
           <button
+            aria-label={isPlaying ? "Pause" : "Play"}
             onClick={handlePlay}
             disabled={isInProgress}
             className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
@@ -138,6 +149,7 @@ export default function NewsCard({ news }: NewsCardProps) {
             )}
           </button>
           <button
+            aria-label="Download"
             onClick={handleDownload}
             disabled={isInProgress}
             className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
@@ -147,12 +159,19 @@ export default function NewsCard({ news }: NewsCardProps) {
           </button>
 
           <div
-            className="absolute bottom-0 left-0 right-0 h-1 w-full rounded-full bg-red/40 transition-all duration-200"
+            className="absolute bottom-0 left-0 right-0 h-1 w-full rounded-full bg-gray transition-all duration-200"
             style={{
-              width: `${progress}%`,
-              opacity: progress > 0 ? 1 : 0,
+              width: "100%",
+              opacity: isPlaying ? 1 : 0,
             }}
-          />
+          >
+            <div
+              className="h-full rounded-full bg-red/50"
+              style={{
+                width: `${progress}%`,
+              }}
+            />
+          </div>
         </div>
 
         <audio ref={audioRef} src={news.audio} preload="metadata" />

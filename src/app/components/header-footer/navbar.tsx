@@ -106,7 +106,7 @@ export default function Navbar() {
                       isLinkActive(link.href)
                         ? "text-red"
                         : "hover:text-light/50"
-                    } text-center font-bold transition-all duration-300`}
+                    } text-center font-semibold transition-all duration-300`}
                     aria-current={isLinkActive(link.href) ? "page" : undefined}
                   >
                     {link.name}

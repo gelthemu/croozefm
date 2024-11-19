@@ -2,9 +2,49 @@ import { News } from "@/types/news";
 
 export const news: News[] = [
     {
+        id: 202411191600,
+        aired: {
+            date: "2024-11-19T16:00:00+03:00",
+            time: "4PM",
+        },
+        anchor: "Monica Mbabazi",
+        profileImg: "/assets/avatars/momo.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_4pm.mp3",
+    },
+    {
+        id: 202411191400,
+        aired: {
+            date: "2024-11-19T14:00:00+03:00",
+            time: "2PM",
+        },
+        anchor: "Dorothy Kainembabazi",
+        profileImg: "/assets/avatars/dorothy.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_2pm.mp3",
+    },
+    {
+        id: 202411191300,
+        aired: {
+            date: "2024-11-19T13:00:00+03:00",
+            time: "1PM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_1pm.mp3",
+    },
+    {
+        id: 202411190800,
+        aired: {
+            date: "2024-11-19T08:00:00+03:00",
+            time: "8AM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_8am.mp3",
+    },
+    {
         id: 202411181600,
         aired: {
-            date: "2024-11-18",
+            date: "2024-11-18T16:00:00+03:00",
             time: "4PM",
         },
         anchor: "Monica Mbabazi",
@@ -12,9 +52,19 @@ export const news: News[] = [
         audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-18_4pm.mp3",
     },
     {
+        id: 202411151900,
+        aired: {
+            date: "2024-11-15T19:00:00+03:00",
+            time: "7PM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-15_7pm.mp3",
+    },
+    {
         id: 202411141600,
         aired: {
-            date: "2024-11-14",
+            date: "2024-11-14T16:00:00+03:00",
             time: "4PM",
         },
         anchor: "Monica Mbabazi",

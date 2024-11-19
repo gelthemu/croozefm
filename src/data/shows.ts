@@ -98,6 +98,12 @@ export const shows: Show[] = [
             "Catch up on the latest in sports, from local leagues to global championships, with expert analysis.",
         isFeatured: true,
         host: "Rosh | Abou | James",
+        recordings: [
+            {
+                id: "2024-11-19",
+                audio: "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-19_5pm.mp3",
+            },
+        ],
     },
     {
         id: "crooze-farmer",
