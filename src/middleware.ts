@@ -6,6 +6,7 @@ export async function middleware(request: NextRequest) {
     const token = await getToken({
         req: request,
         secret: process.env.NEXTAUTH_SECRET,
+        secureCookie: process.env.NODE_ENV === "production",
     });
 
     const path = request.nextUrl.pathname;
@@ -39,6 +40,7 @@ export async function middleware(request: NextRequest) {
 // Configure the middleware to run only on specific paths
 export const config = {
     matcher: [
+        "/user/dashboard", // Protect dashboard route
         "/user/dashboard/:path*", // Protect all dashboard routes
         "/c/gallery/:path*", // Protect all gallery routes
         "/user/login",

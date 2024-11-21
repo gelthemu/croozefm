@@ -56,6 +56,9 @@ const LoginForm = () => {
         redirect: false,
         username,
         password,
+
+        // Add a callbackUrl to ensure the user is redirected to the dashboard
+        callbackUrl: url,
       });
 
       if (result?.error) {
@@ -67,6 +70,7 @@ const LoginForm = () => {
         );
       } else if (result?.ok) {
         // Successfully logged in
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         router.push(url);
         router.refresh();
       }
@@ -90,6 +94,9 @@ const LoginForm = () => {
     }
 
     try {
+      const searchParams = new URLSearchParams(window.location.search);
+      const url = searchParams.get("url") || "/user/dashboard";
+
       const response = await fetch("/api/register", {
         method: "POST",
         headers: {
@@ -120,6 +127,9 @@ const LoginForm = () => {
         redirect: false,
         username,
         password,
+
+        // Add a callbackUrl to ensure the user is redirected to the dashboard
+        callbackUrl: url,
       });
 
       if (loginResult?.error) {
@@ -127,8 +137,10 @@ const LoginForm = () => {
           "Registration successful, but login failed. Please try logging in."
         );
         setIsNewUser(false);
-      } else {
-        router.push("/user/dashboard");
+      } else if (loginResult?.ok) {
+        // Wait for a moment to ensure session is set
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        router.push(url);
         router.refresh();
       }
     } catch (err) {
