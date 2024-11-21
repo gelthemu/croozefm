@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Input, Label } from "./form-utils";
-import { validateForm } from "./form-validator";
+import { validateForm, validateLoginForm } from "./form-validator";
 import { Eye, EyeOff } from "lucide-react";
 
 const LoginForm = () => {
@@ -48,6 +48,13 @@ const LoginForm = () => {
     setIsLoading(true);
     setError("");
 
+    const validationErrors = validateLoginForm(username, password);
+    if (Object.keys(validationErrors).length > 0) {
+      setError(Object.values(validationErrors).join("\n"));
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const searchParams = new URLSearchParams(window.location.search);
       const url = searchParams.get("url") || "/user/dashboard";
@@ -75,7 +82,8 @@ const LoginForm = () => {
         router.refresh();
       }
     } catch (err) {
-      setError(`An unexpected error occurred: ${err}`);
+      console.error(err);
+      setError(`An unexpected error occurred`);
     } finally {
       setIsLoading(false);
     }

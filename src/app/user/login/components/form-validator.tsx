@@ -92,19 +92,19 @@ export const validateForm = (
   return errors;
 };
 
-// export const validateLoginForm = (
-//   username: string,
-//   password: string
-// ): ValidationErrors => {
-//   const errors: ValidationErrors = {};
+export const validateLoginForm = (
+  username: string,
+  password: string
+): ValidationErrors => {
+  const errors: ValidationErrors = {};
 
-//   const usernameError = validateUsername(username);
-//   if (usernameError) {
-//     errors.username = usernameError;
-//   }
-//   const passwordError = validatePassword(password);
-//   if (passwordError) {
-//     errors.password = passwordError;
-//   }
-//   return errors;
-// };
+  const usernameError = validateUsername(username);
+  if (usernameError) {
+    errors.username = usernameError;
+  }
+  const passwordError = validatePassword(password);
+  if (passwordError) {
+    errors.password = passwordError;
+  }
+  return errors;
+};
