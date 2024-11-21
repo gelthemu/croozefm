@@ -83,9 +83,8 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             {status === "loading" ? (
-              // Show nothing or a loading spinner while session is loading
               <div className="bg-dark/40 rounded-md px-3 py-2">
-                <Loader className="w-4 h-4 animate-spin text-light/20" />
+                <Loader className="w-4 h-4 animate-spin text-light/10" />
               </div>
             ) : session?.user ? (
               <button

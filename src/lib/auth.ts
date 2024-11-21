@@ -66,7 +66,7 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
-  // only show debug logs in non-production environments
-  debug: process.env.NODE_ENV !== "production",
+  // only show debug logs if DEBUG is true
+  debug: process.env.DEBUG === "true",
 }
 
