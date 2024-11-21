@@ -70,7 +70,7 @@ const LoginForm = () => {
 
       if (result?.error) {
         // Handle error directly
-        setError(result.error);
+        setError("Invalid username or password");
       } else if (result?.ok) {
         // Successfully logged in
         await new Promise((resolve) => setTimeout(resolve, 1000));
