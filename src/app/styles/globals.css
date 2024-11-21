@@ -45,6 +45,21 @@ audio {
   color-scheme: dark;
 }
 
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+button:focus,
+button:focus-visible,
+button:active,
+button:hover,
+button:selected {
+  outline: none;
+  border: none;
+}
+
 .font-variant {
   font-variant: small-caps;
 }

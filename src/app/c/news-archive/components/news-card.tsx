@@ -8,6 +8,8 @@ import Image from "next/image";
 import { toast } from "react-toastify";
 import AudioManager from "@/app/components/tiny/audiomanager";
 import { FormatDate } from "@/app/components/tiny/format-date";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface NewsCardProps {
   news: News;
@@ -19,6 +21,8 @@ export default function NewsCard({ news }: NewsCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const audioManager = useRef(AudioManager.getInstance());
+  const router = useRouter();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -62,29 +66,57 @@ export default function NewsCard({ news }: NewsCardProps) {
 
   const handleDownload = async () => {
     try {
+      // if not logged in, redirect to login
+      if (!session) {
+        router.push("/user/login");
+        toast.error("You must be logged in", {
+          autoClose: 5000,
+        });
+        return;
+      }
+
       const filename = `croozefm-news_${news.aired.date.split("T")[0]}_${
         news.aired.time
       }.mp3`;
 
       const proxyUrl = await toast.promise(
-        fetch(`/api/download?url=${encodeURIComponent(news.audio)}`),
+        fetch(`/api/download?url=${encodeURIComponent(news.audio)}`, {
+          credentials: "include", // Include cookies for authentication
+        }),
         {
           pending: "Downloading...",
           error: "Error downloading",
           success: {
             render() {
-              return "Downloaded";
+              return "Your download will start shortly!";
             },
-            autoClose: 2000,
+            autoClose: 4000,
           },
         }
       );
+
+      if (!proxyUrl.ok) {
+        if (proxyUrl.status === 401) {
+          router.push(`/user/login?url=${encodeURIComponent(news.audio)}`);
+          toast.error("You must be logged in", {
+            autoClose: 5000,
+          });
+          return;
+        }
+        toast.error("Download failed. Please try again.", {
+          autoClose: 5000,
+        });
+        return;
+      }
 
       const response = await proxyUrl;
       const audioUrl = await response.url;
       download(audioUrl, filename);
     } catch (error) {
       console.error(error);
+      toast.error("Download failed. Please try again.", {
+        autoClose: 5000,
+      });
     }
   };
 

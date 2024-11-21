@@ -2,6 +2,26 @@ import { News } from "@/types/news";
 
 export const news: News[] = [
     {
+        id: 202411201900,
+        aired: {
+            date: "2024-11-20T08:00:00+03:00",
+            time: "8AM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-20_8am.mp3",
+    },
+    {
+        id: 202411191900,
+        aired: {
+            date: "2024-11-19T19:00:00+03:00",
+            time: "7PM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_7pm.mp3",
+    },
+    {
         id: 202411191600,
         aired: {
             date: "2024-11-19T16:00:00+03:00",

@@ -6,17 +6,22 @@ import { toast } from "react-toastify";
 import type { Show } from "@/types/shows";
 import AudioManager from "@/app/components/tiny/audiomanager";
 import { FormatDate } from "@/app/components/tiny/format-date";
-
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import useDownloader from "react-use-downloader";
 interface RecordPlayerProps {
   show: Show;
 }
 
 const RecordPlayer = ({ show }: RecordPlayerProps) => {
+  const { download } = useDownloader();
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [progress, setProgress] = useState<number[]>([]);
   const [isDownloading, setIsDownloading] = useState<boolean[]>([]);
   const audioManager = useRef(AudioManager.getInstance());
+  const router = useRouter();
+  const { data: session } = useSession();
 
   useEffect(() => {
     const length = show.recordings?.length || 0;
@@ -94,6 +99,15 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
     index: number
   ) => {
     try {
+      // if not logged in, redirect to login
+      if (!session) {
+        router.push("/user/login");
+        toast.error("You must be logged in", {
+          autoClose: 5000,
+        });
+        return;
+      }
+
       setIsDownloading((prev) => {
         const newState = [...prev];
         newState[index] = true;
@@ -104,31 +118,41 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
       const filename = `croozefm-${formatName}-${recording.id}.mp3`;
 
       const proxyUrl = await toast.promise(
-        fetch(`/api/download?url=${encodeURIComponent(recording.audio)}`),
+        fetch(`/api/download?url=${encodeURIComponent(recording.audio)}`, {
+          credentials: "include", // Include cookies for authentication
+        }),
         {
           pending: "Downloading...",
           error: "Error downloading",
           success: {
             render() {
-              return "Downloaded";
+              return "Your download will start shortly!";
             },
-            autoClose: 2000,
+            autoClose: 4000,
           },
         }
       );
 
+      if (!proxyUrl.ok) {
+        if (proxyUrl.status === 401) {
+          router.push(`/user/login?url=${encodeURIComponent(recording.audio)}`);
+          toast.error("You must be logged in", {
+            autoClose: 5000,
+          });
+          return;
+        }
+        toast.error("Download failed. Please try again.", {
+          autoClose: 5000,
+        });
+        return;
+      }
+
       const response = await proxyUrl;
       const audioUrl = await response.url;
-
-      const link = document.createElement("a");
-      link.href = audioUrl;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      download(audioUrl, filename);
     } catch (error) {
       console.error(error);
-      toast.error("Download failed");
+      toast.error("Download failed. Please try again.");
     } finally {
       setIsDownloading((prev) => {
         const newState = [...prev];

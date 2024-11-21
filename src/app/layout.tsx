@@ -1,4 +1,5 @@
 import React from "react";
+import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import CookieConsent from "./cookieconsent";
@@ -109,13 +110,15 @@ export default function RootLayout({
         className={`${oswald.variable} ${montserrat.variable} relative antialiased`}
       >
         <div className="w-full font-montserrat">
-          <CookieConsent />
-          <Navbar />
-          <ToastProvider />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-          <Footer />
+          <Providers>
+            <CookieConsent />
+            <Navbar />
+            <ToastProvider />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+            <Footer />
+          </Providers>
         </div>
       </body>
     </html>

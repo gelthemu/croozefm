@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { Loader } from "lucide-react";
 
 const navLinks = [
   { id: "home", name: "Home", href: "/" },
@@ -16,10 +18,15 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session, status } = useSession();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
-      return pathname === href;
+      return (
+        pathname === href ||
+        pathname === "/user/login" ||
+        pathname === "/user/dashboard"
+      );
     }
     return pathname.startsWith(href);
   };
@@ -56,6 +63,10 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  const handleLogin = () => {
+    window.location.href = "/user/login";
+  };
+
   return (
     <div className="w-full bg-gray sticky top-0 z-20 border-b border-light/40">
       <nav className="w-full max-w-screen-xl mx-auto">
@@ -71,13 +82,32 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              type="button"
-              className="text-sm font-semibold font-variant bg-dark/40 rounded-md px-3 py-2"
-              disabled
-            >
-              Login
-            </button>
+            {status === "loading" ? (
+              // Show nothing or a loading spinner while session is loading
+              <div className="bg-dark/40 rounded-md px-3 py-2">
+                <Loader className="w-4 h-4 animate-spin text-light/20" />
+              </div>
+            ) : session?.user ? (
+              <button
+                type="button"
+                className="text-sm text-red line-clamp-1 font-semibold bg-dark/40 rounded-md px-3 py-2"
+                onClick={() => {
+                  window.location.href = "/user/dashboard";
+                }}
+              >
+                {session?.user?.username.charAt(0).toUpperCase() +
+                  session?.user?.username.slice(1)}
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="text-sm font-semibold font-variant bg-dark/40 rounded-md px-3 py-2"
+                onClick={handleLogin}
+              >
+                Login
+              </button>
+            )}
+
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
