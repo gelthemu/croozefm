@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { FaXTwitter } from "react-icons/fa6";
 
 interface Show {
   img: string;
@@ -205,8 +206,21 @@ export const Schedule = () => {
     return () => clearInterval(interval);
   }, [getCurrentShow]);
 
+  const handleShare = () => {
+    const currentShowName = currentShow.split("/").pop()?.split(".")[0];
+
+    const text = `On-Air 📻🔥🎵\n\nWestern Uganda’s Biggest Radio Station`;
+
+    const url = `https://croozefm.geltaverse.com/c/shows/${currentShowName}`;
+
+    const shareUrl = `https://x.com/intent/post?text=${encodeURIComponent(
+      text
+    )}&url=${encodeURIComponent(url)}`;
+    window.open(shareUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <div className="w-full aspect-[1484/813]">
+    <div className="relative w-full aspect-[1484/813]">
       <Image
         src={currentShow}
         alt="91.2 Crooze FM"
@@ -215,6 +229,16 @@ export const Schedule = () => {
         priority={true}
         className="w-full h-full object-cover aspect-[1484/813] _img_"
       />
+      <button
+        onClick={handleShare}
+        className="absolute bottom-1 right-1 flex items-center bg-dark/80 border border-light/40 text-white py-1.5 px-2 rounded-sm transition-all duration-200 group"
+        aria-label="Post on X/Twitter"
+      >
+        <span className="text-sm overflow-hidden w-0 group-hover:w-fit group-hover:mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out whitespace-nowrap">
+          Post on
+        </span>
+        <FaXTwitter size={16} />
+      </button>
     </div>
   );
 };

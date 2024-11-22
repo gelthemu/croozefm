@@ -7,6 +7,7 @@ export interface Show {
     isFeatured?: boolean;
     recordings?: {
         id: string;
+        date: string;
         audio: string;
     }[];
 }

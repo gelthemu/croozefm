@@ -57,10 +57,12 @@ export const shows: Show[] = [
         recordings: [
             {
                 id: "2024-11-18",
+                date: "2024-11-18T16:00:00+03:00",
                 audio: "https://croozefm.blob.core.windows.net/audio/the-african-count-down_2024-11-18.mp3",
             },
             {
                 id: "2024-11-14",
+                date: "2024-11-14T16:00:00+03:00",
                 audio: "https://croozefm.blob.core.windows.net/audio/the-african-count-down_2024-11-14.mp3",
             },
         ],
@@ -72,7 +74,7 @@ export const shows: Show[] = [
         description:
             "Ease into the evening with feel-good music and engaging chats with our friendly hosts.",
         isFeatured: true,
-        host: "Michael",
+        host: "Michael | Antoinette",
     },
     {
         id: "hot-6-at-6",
@@ -100,7 +102,13 @@ export const shows: Show[] = [
         host: "Rosh | Abou | James",
         recordings: [
             {
+                id: "2024-11-21",
+                date: "2024-11-21T17:00:00+03:00",
+                audio: "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-21_5pm.mp3",
+            },
+            {
                 id: "2024-11-19",
+                date: "2024-11-19T17:00:00+03:00",
                 audio: "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-19_5pm.mp3",
             },
         ],
@@ -216,7 +224,8 @@ export const shows: Show[] = [
         host: "Inyaa",
         recordings: [
             {
-                id: "2024-01-01",
+                id: "2011-11-01",
+                date: "2011-11-01T00:00:00+03:00",
                 audio: "https://croozefm.blob.core.windows.net/audio/weekend-love.mp3",
             },
         ]

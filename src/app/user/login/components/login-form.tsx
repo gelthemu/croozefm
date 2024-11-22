@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { Input, Label } from "./form-utils";
 import { validateForm, validateLoginForm } from "./form-validator";
 import { Eye, EyeOff } from "lucide-react";
@@ -15,6 +16,7 @@ const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
+  const session = useSession();
   const router = useRouter();
 
   const resetForm = () => {
@@ -157,6 +159,11 @@ const LoginForm = () => {
   return (
     <>
       <div className="w-full max-w-sm mx-auto bg-dark/80 backdrop-blur-sm p-8 rounded-md">
+        {/* overlay when session is active */}
+        {session.status === "authenticated" && (
+          <div className="absolute inset-0 bg-dark/60 backdrop-blur-sm"></div>
+        )}
+
         <div className="font-light text-3xl mb-10">
           <span className="text-light/40">
             {isNewUser ? "Become a croozer!" : "Login"}

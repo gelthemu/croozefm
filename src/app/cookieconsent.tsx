@@ -19,35 +19,28 @@ export default function CookieConsent() {
     setShowConsent(false);
   };
 
-  const handleReject = () => {
-    Cookies.set("cookie_consent", "rejected", { expires: 365 });
-    setShowConsent(false);
-  };
-
   if (!showConsent) return null;
 
   return (
-    <div className="fixed bottom-2 right-2 bg-gray border border-light/20 rounded-sm text-white p-4 z-50 flex flex-row justify-between items-start max-w-xs">
-      <div className="py-1 pr-2">
+    <div
+      className="fixed bottom-2 right-2 bg-gray border border-light/20 rounded-sm text-white p-4 z-50 flex flex-row justify-between items-start max-w-xs"
+      role="dialog"
+      aria-labelledby="cookie-consent-title"
+    >
+      <div className="py-1 pr-2" aria-hidden="true">
         <Cookie className="w-6 h-6" />
       </div>
       <div>
-        <p className="text-sm mb-2">
-          Proceed to accept cookies? They&apos;re not the chewy kind, but
-          they&apos;ll stick around longer than your last diet.
+        <p className="text-sm mb-2" id="cookie-consent-title">
+          We use cookies to feed the beast. You should know that.
         </p>
-        <div className="flex space-x-2">
+        <div className="flex">
           <button
             onClick={handleAccept}
             className="bg-red/50 text-light text-sm font-medium py-1 px-3 rounded hover:bg-red/80"
+            aria-label="Accept cookies"
           >
-            Accept
-          </button>
-          <button
-            onClick={handleReject}
-            className="border-2 border-red/50 text-red text-sm font-medium py-1 px-3 rounded"
-          >
-            Reject
+            Okay
           </button>
         </div>
       </div>

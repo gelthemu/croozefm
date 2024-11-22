@@ -1,3 +1,7 @@
-User-Agent: *
-Disallow: /
-Disallow: /private/
+User-agent: Twitterbot
+Allow: /
+
+User-agent: *
+Allow: /
+Allow: https://croozefm.blob.core.windows.net/images/*
+Disallow: /api/

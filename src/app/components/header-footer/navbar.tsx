@@ -1,17 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Loader } from "lucide-react";
+import { useMiniPlayer } from "@/app/context/mini-player-context";
+import { ArrowDownRight } from "lucide-react";
 
 const navLinks = [
   { id: "home", name: "Home", href: "/" },
   { id: "shows", name: "Shows", href: "/c/shows" },
-  { id: "news-archive", name: "News Archive", href: "/c/news-archive" },
+  { id: "news-archive", name: "News-Archive", href: "/c/news-archive" },
   { id: "gallery", name: "Gallery", href: "/c/gallery" },
 ];
 
@@ -19,6 +22,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { data: session, status } = useSession();
+  const router = useRouter();
+  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
@@ -64,7 +69,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   const handleLogin = () => {
-    window.location.href = "/user/login";
+    router.push("/user/login");
   };
 
   return (
@@ -91,7 +96,7 @@ export default function Navbar() {
                 type="button"
                 className="text-sm text-red line-clamp-1 font-semibold bg-dark/40 rounded-md px-3 py-2"
                 onClick={() => {
-                  window.location.href = "/user/dashboard";
+                  router.push("/user/dashboard");
                 }}
               >
                 {session?.user?.username.charAt(0).toUpperCase() +
@@ -115,23 +120,28 @@ export default function Navbar() {
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">{isOpen ? "Close" : "Open"} menu</span>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
           <div
             className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-              isOpen ? "!block" : "hidden"
-            } absolute top-full left-0 md:static`}
+              isOpen
+                ? "translate-x-0 opacity-100"
+                : "-translate-x-full md:translate-x-0 opacity-0 md:opacity-100"
+            } absolute top-full left-0 md:static border border-light/10 md:border-0 backdrop-blur-md bg-gray/80 md:bg-transparent rounded-b-md transition-all duration-300`}
             id="navbar-absolute"
           >
-            <ul className="w-full max-w-lg mx-auto md:max-w-none md:mx-0 flex flex-col md:flex-row md:space-x-4 rtl:space-x-reverse p-4 md:p-0 font-medium border border-light/10 md:border-0 backdrop-blur-md bg-gray/80 md:bg-transparent rounded-b-md">
+            <ul className="w-full max-w-lg mx-auto md:max-w-none md:mx-0 flex flex-col space-y-4 md:divide-y-0 md:space-y-0 md:flex-row md:space-x-4 lg:space-x-6 rtl:space-x-reverse p-4 md:p-0 font-medium">
               {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
+                <li
+                  key={link.name}
+                  className="border border-light/10 md:border-b-none md:border-transparent rounded-md"
+                >
+                  <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block pb-1.5 px-1 ${
+                    className={`block p-4 md:p-0 md:pb-1.5 px-1 ${
                       isLinkActive(link.href)
                         ? "text-red"
                         : "hover:text-light/50"
@@ -139,9 +149,26 @@ export default function Navbar() {
                     aria-current={isLinkActive(link.href) ? "page" : undefined}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li className="show md:hidden rounded-md">
+                <button
+                  className={`w-full bg-red/80 hover:bg-red font-semibold p-4 rounded-md flex items-center space-x-1 transition-all duration-300 ${
+                    isMiniPlayerOpen ? "opacity-40" : ""
+                  } flex justify-center items-center`}
+                  onClick={() => {
+                    setTimeout(() => {
+                      setIsOpen(false);
+                      setIsMiniPlayerOpen(true);
+                    }, 500);
+                  }}
+                  disabled={isMiniPlayerOpen}
+                >
+                  <span>Listen Live</span>{" "}
+                  <ArrowDownRight className="w-5 h-5" />
+                </button>
+              </li>
             </ul>
           </div>
         </div>

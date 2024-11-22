@@ -68,7 +68,6 @@ export default function NewsCard({ news }: NewsCardProps) {
     try {
       // if not logged in, redirect to login
       if (!session) {
-        router.push("/user/login");
         toast.error("You must be logged in", {
           autoClose: 5000,
         });

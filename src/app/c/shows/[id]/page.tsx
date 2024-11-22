@@ -77,7 +77,9 @@ export default async function ShowPage({ params }: PageProps) {
           <h1 className="text-3xl py-5 font-apex bg-clip-text text-transparent bg-gradient-to-r from-light via-red to-light">
             {show.title}
           </h1>
-          <p className="text-light/80">{show.description}</p>
+          <p className="text-light/80 w-full md:w-5/6 mx-auto">
+            {show.description}
+          </p>
         </div>
       </div>
 

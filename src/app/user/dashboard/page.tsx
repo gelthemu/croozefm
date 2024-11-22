@@ -38,16 +38,18 @@ export default async function DashboardPage() {
       </div>
       <div className="flex flex-col space-y-4 border border-light/20 p-4 rounded-md">
         <div className="flex items-center text-light/70">
-          <p className="text-sm">
-            <span className="font-semibold">PS:</span> If you ever want to
-            delete your data from our database, please send us an email at{" "}
+          <p className="text-sm w-full max-w-screen-md">
+            <span className="font-semibold">PS:</span> In the future, if you
+            ever want to delete your data from our database, please send us an
+            email at{" "}
             <Link
               href="mailto:croozefm@geltaverse.com"
               className="text-red/60 font-semibold"
               target="_blank"
             >
               croozefm@geltaverse.com
-            </Link>
+            </Link>{" "}
+            and we will take care of it. Thank you.
           </p>
         </div>
         <SignOutBtn />

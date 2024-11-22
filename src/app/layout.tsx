@@ -9,6 +9,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import ToastProvider from "./providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
+import PersistentMiniPlayer from "./components/persistent-mini-player";
+import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
 
 const oswald = Oswald({
@@ -45,17 +47,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Gelthem Mucunguzi", url: "https://geltaverse.com" }],
   creator: "Gelthem Mucunguzi",
   publisher: "Gelthem Mucunguzi",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-      "max-snippet": -1,
-    },
-  },
   icons: {
     icon: "/_io/favicon.ico",
     shortcut: "/_io/favicon-16x16.png",
@@ -111,13 +102,16 @@ export default function RootLayout({
       >
         <div className="w-full font-montserrat">
           <Providers>
-            <CookieConsent />
-            <Navbar />
-            <ToastProvider />
-            {children}
-            <Analytics />
-            <SpeedInsights />
-            <Footer />
+            <MiniPlayerProvider>
+              <CookieConsent />
+              <Navbar />
+              <ToastProvider />
+              {children}
+              <Analytics />
+              <SpeedInsights />
+              <PersistentMiniPlayer />
+              <Footer />
+            </MiniPlayerProvider>
           </Providers>
         </div>
       </body>

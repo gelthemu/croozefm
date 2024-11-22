@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ShowsPage() {
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen">
+    <div className="container mx-auto px-4 py-16 min-h-screen overflow-hidden">
       <div className="mb-8 flex flex-col items-center justify-center p-4 border-b border-light/20">
         <h1 className="text-3xl font-apex relative mb-4">Shows</h1>
         <p className="text-light/60 text-sm">

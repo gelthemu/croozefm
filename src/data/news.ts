@@ -2,7 +2,47 @@ import { News } from "@/types/news";
 
 export const news: News[] = [
     {
-        id: 202411201900,
+        id: 202411211900,
+        aired: {
+            date: "2024-11-21T19:00:00+03:00",
+            time: "7PM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_7pm.mp3",
+    },
+    {
+        id: 202411211600,
+        aired: {
+            date: "2024-11-21T16:00:00+03:00",
+            time: "4PM",
+        },
+        anchor: "Marie Antoinettie",
+        profileImg: "/assets/avatars/antoinette.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_4pm.mp3",
+    },
+    {
+        id: 202411211000,
+        aired: {
+            date: "2024-11-21T10:00:00+03:00",
+            time: "10AM",
+        },
+        anchor: "Dorothy Kainembabazi",
+        profileImg: "/assets/avatars/dorothy.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_10am.mp3",
+    },
+    {
+        id: 202411210800,
+        aired: {
+            date: "2024-11-21T08:00:00+03:00",
+            time: "8AM",
+        },
+        anchor: "Dithan Ngabirano",
+        profileImg: "/assets/avatars/dithan.png",
+        audio: "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_8am.mp3",
+    },
+    {
+        id: 202411200800,
         aired: {
             date: "2024-11-20T08:00:00+03:00",
             time: "8AM",

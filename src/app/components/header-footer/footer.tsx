@@ -25,8 +25,8 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-center space-y-2 text-xs text-center text-light/40 font-medium">
             <p>Crooze FM is regulated by UCC</p>
             <p className=" flex items-center justify-center gap-1">
-              <Copyright className="w-3.5 h-3.5" /> {year} Crooze FM Ltd | All
-              rights reserved.
+              <Copyright className="w-3.5 h-3.5" /> 2011 - {year} Crooze FM Ltd |
+              All rights reserved.
             </p>
           </div>
         </div>

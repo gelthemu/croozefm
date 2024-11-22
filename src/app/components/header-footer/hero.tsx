@@ -1,15 +1,11 @@
 "use client";
 
-import React, { useState, useRef } from "react";
 import Image from "next/image";
-import MiniPlayer from "../tiny/mini-player";
-import { ArrowDownRight, X } from "lucide-react";
+import { useMiniPlayer } from "@/app/context/mini-player-context";
+import { ArrowDownRight } from "lucide-react";
 
 export default function Hero() {
-  const [isMiniPlayerOpen, setIsMiniPlayerOpen] = useState(false);
-  const [isStreamActive, setIsStreamActive] = useState(true);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
 
   return (
     <>
@@ -41,36 +37,6 @@ export default function Hero() {
             </button>
           </div>
         </div>
-      </div>
-      <div
-        className={`max-w-xs overflow-hidden fixed bottom-2 right-2 transition-all duration-300 z-50 ${
-          isMiniPlayerOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full"
-        }`}
-      >
-        <button
-          className="absolute top-0 right-0 z-50 cursor-pointer p-2 hover:rotate-180 transition-transform duration-300"
-          onClick={() => {
-            if (audioRef.current) {
-              audioRef.current.pause();
-              audioRef.current.currentTime = 0;
-            }
-            setIsAudioPlaying(false);
-            setIsStreamActive(true);
-            setIsMiniPlayerOpen(false);
-          }}
-          aria-label="Close player"
-        >
-          <X className="w-4 h-4" />
-        </button>
-        <MiniPlayer
-          audioRef={audioRef}
-          isAudioPlaying={isAudioPlaying}
-          setIsAudioPlaying={setIsAudioPlaying}
-          isStreamActive={isStreamActive}
-          setIsStreamActive={setIsStreamActive}
-        />
       </div>
     </>
   );

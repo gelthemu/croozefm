@@ -101,7 +101,6 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
     try {
       // if not logged in, redirect to login
       if (!session) {
-        router.push("/user/login");
         toast.error("You must be logged in", {
           autoClose: 5000,
         });
@@ -165,7 +164,7 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
   if (!show.recordings?.length) {
     return (
       <div className="flex items-center justify-center p-4">
-        <p className="text-red">No recordings available</p>
+        <p className="text-red">No recordings available, yet.</p>
       </div>
     );
   }
@@ -189,7 +188,7 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
               <div className="p-4">
                 <div className="flex items-center justify-between pb-2 text-light/50">
                   <span className="text-sm font-medium">
-                    <FormatDate date={recording.id} />
+                    <FormatDate date={recording.date} />
                   </span>
                 </div>
 
