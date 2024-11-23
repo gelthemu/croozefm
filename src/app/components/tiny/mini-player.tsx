@@ -73,7 +73,7 @@ export default function MiniPlayer({
             )}
             <audio
               ref={audioRef}
-              src="https://fmradiohub.in/play?url=http://51.255.235.165:21563/stream"
+              src="https://fmradiohub.in/play?url=http://51.255.235.165:21563"
               className="w-full rounded-none"
             />
           </div>
