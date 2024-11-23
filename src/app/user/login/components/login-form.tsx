@@ -158,12 +158,11 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="w-full max-w-sm mx-auto bg-dark/80 backdrop-blur-sm p-8 rounded-md">
-        {/* overlay when session is active */}
-        {session.status === "authenticated" && (
-          <div className="absolute inset-0 bg-dark/60 backdrop-blur-sm"></div>
-        )}
-
+      <div
+        className={`w-full max-w-sm mx-auto bg-dark/80 backdrop-blur-sm p-8 rounded-md ${
+          session.status === "authenticated" ? "blur-sm" : ""
+        }`}
+      >
         <div className="font-light text-3xl mb-10">
           <span className="text-light/40">
             {isNewUser ? "Become a croozer!" : "Login"}

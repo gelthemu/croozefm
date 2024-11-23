@@ -121,16 +121,16 @@ export const Schedule = () => {
         start: 12,
         end: 14,
       },
-      {
-        img: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
-        start: 17,
-        end: 20,
-      },
-      {
-        img: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
-        start: 20,
-        end: 24,
-      },
+      // {
+      //   img: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
+      //   start: 17,
+      //   end: 20,
+      // },
+      // {
+      //   img: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
+      //   start: 20,
+      //   end: 24,
+      // },
     ],
     sunday: [
       {
@@ -148,11 +148,11 @@ export const Schedule = () => {
         start: 12,
         end: 14,
       },
-      {
-        img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
-        start: 19,
-        end: 24,
-      },
+      // {
+      //   img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
+      //   start: 19,
+      //   end: 24,
+      // },
     ],
   };
 
@@ -175,6 +175,91 @@ export const Schedule = () => {
           day === 3
             ? "https://croozefm.blob.core.windows.net/images/crooze-farmer.png"
             : "https://croozefm.blob.core.windows.net/images/crooze-doctor.png";
+      }
+    } else if (day === 6) {
+      // Add the shows to the schedule first
+      currentSchedule.push(
+        {
+          img: "https://croozefm.blob.core.windows.net/images/default.png",
+          start: 15,
+          end: 17,
+        },
+        {
+          img: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
+          start: 17,
+          end: 20,
+        },
+        {
+          img: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
+          start: 20,
+          end: 24,
+        }
+      );
+
+      const croozeShow0 = currentSchedule.find(
+        (show) => show.start === 15 && show.end === 17
+      );
+      const croozeShow1 = currentSchedule.find(
+        (show) => show.start === 17 && show.end === 20
+      );
+      const croozeShow2 = currentSchedule.find(
+        (show) => show.start === 20 && show.end === 24
+      );
+
+      if (croozeShow0) {
+        const isDefault = false;
+        croozeShow0.img = isDefault
+          ? "https://croozefm.blob.core.windows.net/images/default.png"
+          : "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png";
+      }
+
+      if (croozeShow1) {
+        const isAfricanRhythms = false;
+        croozeShow1.img = isAfricanRhythms
+          ? "https://croozefm.blob.core.windows.net/images/african-rhythms.png"
+          : "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png";
+      }
+
+      if (croozeShow2) {
+        const isSaturdayNight = false;
+        croozeShow2.img = isSaturdayNight
+          ? "https://croozefm.blob.core.windows.net/images/saturday-night.png"
+          : "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png";
+      }
+    } else if (day === 0) {
+      // Add the shows to the schedule first
+      currentSchedule.push(
+        {
+          img: "https://croozefm.blob.core.windows.net/images/default.png",
+          start: 16,
+          end: 19,
+        },
+        {
+          img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
+          start: 19,
+          end: 24,
+        }
+      );
+
+      const croozeShow1 = currentSchedule.find(
+        (show) => show.start === 16 && show.end === 19
+      );
+      const croozeShow2 = currentSchedule.find(
+        (show) => show.start === 19 && show.end === 24
+      );
+
+      if (croozeShow1) {
+        const isDefault = false;
+        croozeShow1.img = isDefault
+          ? "https://croozefm.blob.core.windows.net/images/default.png"
+          : "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png";
+      }
+
+      if (croozeShow2) {
+        const isTotalCountryShow = false;
+        croozeShow2.img = isTotalCountryShow
+          ? "https://croozefm.blob.core.windows.net/images/total-country-show.png"
+          : "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png";
       }
     }
 
@@ -207,11 +292,20 @@ export const Schedule = () => {
   }, [getCurrentShow]);
 
   const handleShare = () => {
-    const currentShowName = currentShow.split("/").pop()?.split(".")[0];
+    const currentShowName = currentShow
+      .split("/")
+      .pop()
+      ?.split(".")?.[0]
+      ?.trim();
 
     const text = `On-Air 📻🔥🎵\n\nWestern Uganda’s Biggest Radio Station`;
 
-    const url = `https://croozefm.geltaverse.com/c/shows/${currentShowName}`;
+    let url = "" as string;
+    if (currentShowName !== "default") {
+      url = `https://croozefm.geltaverse.com/c/shows/${currentShowName}`;
+    } else {
+      url = "https://croozefm.geltaverse.com";
+    }
 
     const shareUrl = `https://x.com/intent/post?text=${encodeURIComponent(
       text

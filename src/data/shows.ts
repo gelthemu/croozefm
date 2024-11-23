@@ -245,6 +245,13 @@ export const shows: Show[] = [
         description:
             "A show that celebrates the best of country music from around the world. After a long, busy weekend, relax with the best of country music to recharge. From the old classics to the latest hits, Crooze FM has got you covered. Country music is good for your ears.",
     },
+    {
+        id: "ekisaawe-live",
+        title: "Ekisaawe Live",
+        image: "https://croozefm.blob.core.windows.net/images/ekisaawe-live.png",
+        description: "For all soccer commentary and analysis. Every Matchday, 90 minutes of non-stop action.",
+        host: "Rosh | Abou | James",
+    },
 ];
 
 export default shows;

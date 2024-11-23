@@ -123,7 +123,7 @@ export default function NewsCard({ news }: NewsCardProps) {
     <div
       className={`overflow-hidden rounded-md ${
         isPlaying ? "border-2 border-red/40" : "border-2 border-light/10"
-      } bg-custom-gradient-reverse transition-all duration-200`}
+      } hover:border-red/40 bg-custom-gradient-reverse transition-all duration-200`}
     >
       <div className="p-4">
         <div className="border-b border-light/20 flex items-center justify-between pb-2 text-light/50">
