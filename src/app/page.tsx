@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <FeaturedShows />
 
-        <div className="my-8 p-4 w-full border text-center">
+        <div className="my-8 p-4 w-full border border-dark/20 dark:border-light/10 text-center">
           THIS SITE IS UNDER CONSTRUCTION
         </div>
       </main>
