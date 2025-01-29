@@ -1,32 +1,24 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { Play, Pause, Download } from "lucide-react";
 import { toast } from "react-toastify";
 import type { Show } from "@/types/shows";
 import AudioManager from "@/app/components/tiny/audiomanager";
 import { FormatDate } from "@/app/components/tiny/format-date";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import useDownloader from "react-use-downloader";
+
 interface RecordPlayerProps {
   show: Show;
 }
 
 const RecordPlayer = ({ show }: RecordPlayerProps) => {
-  const { download } = useDownloader();
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [progress, setProgress] = useState<number[]>([]);
-  const [isDownloading, setIsDownloading] = useState<boolean[]>([]);
   const audioManager = useRef(AudioManager.getInstance());
-  const router = useRouter();
-  const { data: session } = useSession();
 
   useEffect(() => {
     const length = show.recordings?.length || 0;
     setProgress(new Array(length).fill(0));
-    setIsDownloading(new Array(length).fill(false));
   }, [show.recordings]);
 
   useEffect(() => {
@@ -94,73 +86,6 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
     }
   };
 
-  const handleDownload = async (
-    recording: NonNullable<Show["recordings"]>[number],
-    index: number
-  ) => {
-    try {
-      // if not logged in, redirect to login
-      if (!session) {
-        toast.error("You must be logged in", {
-          autoClose: 5000,
-        });
-        return;
-      }
-
-      setIsDownloading((prev) => {
-        const newState = [...prev];
-        newState[index] = true;
-        return newState;
-      });
-
-      const formatName = show.title.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
-      const filename = `croozefm-${formatName}-${recording.id}.mp3`;
-
-      const proxyUrl = await toast.promise(
-        fetch(`/api/download?url=${encodeURIComponent(recording.audio)}`, {
-          credentials: "include", // Include cookies for authentication
-        }),
-        {
-          pending: "Downloading...",
-          error: "Error downloading",
-          success: {
-            render() {
-              return "Your download will start shortly!";
-            },
-            autoClose: 4000,
-          },
-        }
-      );
-
-      if (!proxyUrl.ok) {
-        if (proxyUrl.status === 401) {
-          router.push(`/user/login?url=${encodeURIComponent(recording.audio)}`);
-          toast.error("You must be logged in", {
-            autoClose: 5000,
-          });
-          return;
-        }
-        toast.error("Download failed. Please try again.", {
-          autoClose: 5000,
-        });
-        return;
-      }
-
-      const response = await proxyUrl;
-      const audioUrl = await response.url;
-      download(audioUrl, filename);
-    } catch (error) {
-      console.error(error);
-      toast.error("Download failed. Please try again.");
-    } finally {
-      setIsDownloading((prev) => {
-        const newState = [...prev];
-        newState[index] = false;
-        return newState;
-      });
-    }
-  };
-
   if (!show.recordings?.length) {
     return (
       <div className="flex items-center justify-center p-4">
@@ -170,63 +95,75 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
   }
 
   return (
-    <div className="py-10 border-y border-light/10">
+    <div className="border-y border-gray/40 dark:border-light/10 px-2 py-8">
       <div className="w-full md:w-5/6 mx-auto">
-        <h2 className="text-xl text-red/80 font-light mb-4 border-l-2 border-red/40 pl-4">
+        <h4 className="text-xl text-red/80 text-sm font-normal mb-4 border-l-2 border-red/80 pl-4">
           Recordings Available
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        </h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {show.recordings.map((recording, index) => (
             <div
               key={recording.id}
-              className={`overflow-hidden rounded-md ${
+              className={`overflow-hidden rounded-sm ${
                 playingIndex === index
-                  ? "border-2 border-red/40"
-                  : "border-2 border-light/10"
-              } bg-custom-gradient-reverse transition-all duration-200 shadow-sm`}
+                  ? "border-2 border-red/80 dark:border-red/60"
+                  : "border-2 border-red/0"
+              } bg-dark/20 dark:bg-gray/60 transition-all duration-200`}
             >
               <div className="p-4">
-                <div className="flex items-center justify-between pb-2 text-light/50">
-                  <span className="text-sm font-medium">
+                <div className="flex flex-row-reverse items-center justify-between pb-3">
+                  <span className="text-xs text-gray/60 dark:text-light/40 font-medium">
                     <FormatDate date={recording.date} />
+                  </span>
+                  <span className="text-xs text-gray/90 dark:text-light/80 font-medium">
+                    {show.title}
                   </span>
                 </div>
 
-                <div className="bg-dark/40 p-2 rounded-sm text-red/80 flex items-center justify-between relative border border-light/10">
+                <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
                   <button
+                    aria-label={playingIndex ? "Pause" : "Play"}
                     onClick={() => handlePlay(index)}
-                    className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
-                    disabled={isDownloading[index]}
+                    className="px-4 py-2 transition-all duration-200 rounded-sm"
                   >
                     {playingIndex === index ? (
                       <>
                         <span className="sr-only">Pause</span>
-                        <Pause className="h-4 w-4" />
+                        <i className="fa-solid fa-pause"></i>
                       </>
                     ) : (
                       <>
                         <span className="sr-only">Play</span>
-                        <Play className="h-4 w-4" />
+                        <i className="fa-solid fa-play"></i>
                       </>
                     )}
                   </button>
 
                   <button
-                    onClick={() => handleDownload(recording, index)}
-                    disabled={isDownloading[index]}
-                    className="p-2 hover:bg-light/5 transition-all duration-200 rounded-sm"
+                    aria-label="Download"
+                    onClick={() =>
+                      toast.info(
+                        "The file download feature is currently unavailable...",
+                        {
+                          autoClose: 4000,
+                        }
+                      )
+                    }
+                    className="px-4 py-2 transition-all duration-200 rounded-sm"
                   >
                     <span className="sr-only">Download</span>
-                    <Download className="h-4 w-4" />
+                    <i className="fa-solid fa-download"></i>
                   </button>
 
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-1 w-full bg-red/40 transition-all duration-200 rounded-full"
-                    style={{
-                      width: `${progress[index]}%`,
-                      opacity: progress[index] > 0 ? 1 : 0,
-                    }}
-                  />
+                  <div className="absolute bottom-0 left-2 right-2 h-1">
+                    <div
+                      className="bg-red/60 w-full h-full"
+                      style={{
+                        width: `${progress[index]}%`,
+                        opacity: progress[index] > 0 ? 1 : 0,
+                      }}
+                    />
+                  </div>
                 </div>
 
                 <audio

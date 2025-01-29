@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Schedule from "../shows/schedule";
+import Schedule from "../../c/shows/components/schedule";
 
 interface MiniPlayerProps {
   audioRef: React.RefObject<HTMLAudioElement>;
@@ -42,7 +42,7 @@ export default function MiniPlayer({
 
   return (
     <>
-      <div className="w-full p-1 backdrop-blur-md bg-gray/80 border border-light/20 rounded-sm">
+      <div className="w-full p-1 backdrop-blur-md bg-red/70 dark:bg-red/40 border border-dark/20 dark:border-light/20 rounded-sm">
         <div className="w-full flex items-center justify-between pb-1">
           <div className="flex justify-center items-center">
             {isStreamActive ? (
@@ -73,7 +73,7 @@ export default function MiniPlayer({
             )}
             <audio
               ref={audioRef}
-              src="https://fmradiohub.in/play?url=http://51.255.235.165:21563"
+              src="https://fmradiohub.in/play?url=http://15.235.80.190/vyxwdk08apxtv"
               className="w-full rounded-none"
             />
           </div>

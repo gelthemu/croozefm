@@ -1,5 +1,4 @@
-import { news } from "@/data/news";
-import NewsCard from "./components/news-card";
+import NewsArchive from "./components/news-archive";
 import XNewsButton from "./components/news-btn";
 import Image from "next/image";
 
@@ -11,30 +10,24 @@ export const metadata = {
 
 export default function NewsArchivePage() {
   return (
-    <div className="container mx-auto px-4 py-16 bg-custom-gradient min-h-screen">
-      <div className="mb-10 flex flex-col items-center justify-center p-2 md:p-4 border-b border-light/10 bg-[url('/assets/news-archive-bg.png')] bg-contain bg-center bg-no-repeat bg-aspect-[1484/813] bg-opacity-40">
+    <div className="container mx-auto px-4 py-16 text-center text-dark dark:text-light min-h-screen overflow-hidden">
+      <div className="mb-12 flex flex-col items-center justify-center p-4 border-b border-dark/20 dark:border-light/20">
         <h1 className="text-3xl font-apex relative mb-4">News Archive</h1>
-        <p className="text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-red via-light to-red max-w-screen-sm mx-auto mb-2">
-          We don&apos;t just break stories, we tell real stories.
-        </p>
-        <p className="text-light/80 text-center max-w-lg mx-auto mb-4">
-          Stay abreast of the latest developments in the world of news and
-          information, broadcasting to you live on 91.2 Crooze FM.
-        </p>
-        <p className="text-light/80 text-center text-sm italic mb-4">
-          &quot;Always remember where you heard it first.&quot;
+        <p className="max-w-lg mx-auto mb-4">
+          We don&apos;t just break stories, we tell real stories. Stay abreast
+          of the latest developments in the world of news and information.
         </p>
         <div className="flex justify-center mb-4">
           <XNewsButton />
         </div>
-      </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {news.map((item) => (
-          <NewsCard key={item.id} news={item} />
-        ))}
+        <p className="font-semibold text-sm text-red italic mb-4">
+          &quot;Always remember where you heard it first.&quot;
+        </p>
       </div>
 
-      <div className="mt-16 w-full border-y border-light/5 py-4">
+      <NewsArchive />
+
+      <div className="mt-12 w-full border-y border-dark/40 dark:border-light/20 py-4">
         <Image
           src="/assets/news-archive-banner.png"
           alt="News Archive Banner"

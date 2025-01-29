@@ -1,11 +1,11 @@
 import React from "react";
-import Providers from "./providers";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
 import { Oswald, Montserrat } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ThemeProviders } from "./providers/theme-provider";
 import ToastProvider from "./providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
@@ -89,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -98,10 +98,10 @@ export default function RootLayout({
         <GoogleAnalytics ga_id={ga_id} />
       </head>
       <body
-        className={`${oswald.variable} ${montserrat.variable} relative antialiased`}
+        className={`${oswald.variable} ${montserrat.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
       >
-        <div className="w-full font-montserrat">
-          <Providers>
+        <ThemeProviders>
+          <div className="w-full font-montserrat">
             <MiniPlayerProvider>
               <CookieConsent />
               <Navbar />
@@ -112,8 +112,8 @@ export default function RootLayout({
               <PersistentMiniPlayer />
               <Footer />
             </MiniPlayerProvider>
-          </Providers>
-        </div>
+          </div>
+        </ThemeProviders>
       </body>
     </html>
   );

@@ -1,9 +1,8 @@
 import { shows } from "@/data/shows";
 import { notFound } from "next/navigation";
 import BackBtn from "@/app/components/tiny/backbtn";
+import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecordPlayer from "@/app/c/shows/components/record-player";
-import Link from "next/link";
-import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import { Metadata } from "next";
 
@@ -26,7 +25,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: show.title,
+    title: `${show.title} - 91.2 Crooze FM`,
     description: show.description,
     openGraph: {
       title: `${show.title} - 91.2 Crooze FM`,
@@ -67,23 +66,21 @@ export default async function ShowPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-14">
+    <div className="container mx-auto px-4 py-14 text-dark dark:text-light">
       <div className="mb-8">
         <BackBtn />
       </div>
 
-      <div className="mb-12 pt-6 pb-10 border-y border-light/10">
-        <div className="flex flex-col items-center justify-center w-5/6 mx-auto text-center">
-          <h1 className="text-3xl py-5 font-apex bg-clip-text text-transparent bg-gradient-to-r from-light via-red to-light">
+      <div className="mb-12 pt-6 pb-10 border-y border-gray/40 dark:border-light/10">
+        <div className="flex flex-col items-center justify-center w-full md:w-5/6 mx-auto text-center">
+          <h1 className="text-3xl py-5 font-apex bg-clip-text text-transparent bg-gradient-to-r from-red via-gray to-red">
             {show.title}
           </h1>
-          <p className="text-light/80 w-full md:w-5/6 mx-auto">
-            {show.description}
-          </p>
+          <p className="w-full">{show.description}</p>
         </div>
       </div>
 
-      <div className="relative w-full md:w-5/6 mx-auto aspect-[1484/813] overflow-hidden rounded-lg">
+      <div className="relative w-full md:w-5/6 mx-auto aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/40">
         <Image
           src={show.image}
           alt={show.title}
@@ -96,22 +93,17 @@ export default async function ShowPage({ params }: PageProps) {
 
       <div className="my-10 flex items-center justify-center">
         {show.host && (
-          <div className="w-fit text-light/60 font-medium bg-gray px-4 py-2 rounded-md">
-            <span>{show.host}</span>
+          <div className="w-fit text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray px-4 py-2 rounded-md">
+            <span className="sr-only">Hosted by</span>
+            <i className="fa-solid fa-microphone-lines mr-1"></i> {show.host}
           </div>
         )}
       </div>
 
       <RecordPlayer show={show} />
 
-      <div className="flex items-center justify-center text-center mx-auto mt-8 px-6 py-2">
-        <Link
-          href="/c/shows"
-          className="inline-flex items-center font-semibold hover:text-light/50 transition-colors duration-300"
-        >
-          View All Shows
-          <MoveRight className="ml-2 h-5 w-5" />
-        </Link>
+      <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
+        <ViewAllBtn href="/c/shows" text="View All Shows" />
       </div>
     </div>
   );

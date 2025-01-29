@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        light: "#ffffff",
-        red: "#ff0000",
-        gray: "#252525",
+        light: "#F5F5F5",
+        red: "#B71C1C",
+        gray: "#303030",
         dark: "#151515",
       },
       fontFamily: {
@@ -22,6 +22,8 @@ const config: Config = {
       },
       backgroundImage: {
         "custom-gradient":
+          "linear-gradient(to right, #f5f5f5 0%,#a4a4a4 50%, #f5f5f5 100%)",
+        "dark-custom-gradient":
           "linear-gradient(to right, #151515 0%, #282828 50%, #151515 100%)",
         "custom-gradient-reverse":
           "linear-gradient(to bottom right, #282828 0%, #101010 100%)",

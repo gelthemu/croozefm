@@ -19,9 +19,6 @@ export default function ToastProvider() {
       theme="dark"
       transition={Flip}
       limit={1}
-      style={{
-        color: "#fcfaee",
-      }}
     />
   );
 }

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Hero from "./components/header-footer/hero";
-import FeaturedShows from "./components/shows/featuredshows";
+import FeaturedShows from "./c/shows/components/featuredshows";
 
 export const metadata: Metadata = {
   title: "Home - 91.2 Crooze FM",
@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2">
+      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-1.5 text-dark dark:text-light">
         <Hero />
         <FeaturedShows />
 
-        <div className="p-4 w-full border text-center">
-          WEBSITE STILL UNDER CONSTRUCTION
+        <div className="my-8 p-4 w-full border text-center">
+          THIS SITE IS UNDER CONSTRUCTION
         </div>
       </main>
     </>

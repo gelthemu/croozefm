@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
 @font-face {
   font-family: "Apex Regular";
   src: url("/fonts/apex-regular.ttf");
@@ -9,26 +15,29 @@
   font-display: swap;
 }
 
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  img[loading="lazy"] {
+    clip-path: inset(0.6px);
+  }
+}
+
 *,
 html {
   scroll-behavior: smooth;
+  transition-duration: 0s;
 }
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #4422226b;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #442222b1;
+  background-color: #5b5b5bb8;
 }
 
 body {
   font-family: var(--font-montserrat);
-  background-color: #151515;
+  /* background-color: #151515; */
   color: #ffffff;
 }
 
@@ -76,15 +85,15 @@ button:selected {
 @keyframes heartbeat {
   0% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 0 #ff0000;
+    box-shadow: 0 0 0 0 #fc2a2a;
   }
   50% {
     transform: scale(1);
-    box-shadow: 0 0 0 5px #442a27;
+    box-shadow: 0 0 0 4px #a31300;
   }
   75% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 0 #442727;
+    box-shadow: 0 0 0 0 #f53a3a;
   }
 }
 

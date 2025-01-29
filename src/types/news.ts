@@ -4,6 +4,7 @@ export interface News {
         date: string;
         time: string;
     };
+    headline?: string;
     anchor: string;
     profileImg: string;
     audio: string;

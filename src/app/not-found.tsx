@@ -1,29 +1,19 @@
-"use client";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page Not Found - 91.2 Crooze FM",
+  description:
+    "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+};
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen px-4">
-      <div className="w-full max-w-xs text-center space-y-4">
-        <div className="space-y-2">
-          <h1 className="text-6xl font-bold text-red">404</h1>
-          <p className="text-xl font-semibold">Page Not Found</p>
-        </div>
-
-        <div className="flex flex-col gap-4 justify-center items-center text-sm">
-          <Link
-            href="/"
-            className="w-full p-3 bg-gray hover:bg-dark border border-light/60 rounded-md"
-          >
-            Return Home
-          </Link>
-          <button
-            onClick={() => window.history.back()}
-            className="w-full p-3 border border-light/60 rounded-md"
-          >
-            Go Back
-          </button>
-        </div>
+    <div className="w-full flex flex-col justify-center items-center mx-auto min-h-screen">
+      <div className="p-2 text-dark dark:text-light text-center">
+        <h1 className="text-3xl pb-4 font-oswald text-red">Page Not Found</h1>
+        <p className="text-sm">
+          The page you&apos;re trying to find is not available.
+        </p>
       </div>
     </div>
   );
