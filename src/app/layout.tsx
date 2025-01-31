@@ -9,7 +9,7 @@ import { ThemeProviders } from "./providers/theme-provider";
 import ToastProvider from "./providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
-import PersistentMiniPlayer from "./components/persistent-mini-player";
+import MiniPlayer from "./stream/components/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
 
@@ -101,7 +101,7 @@ export default function RootLayout({
         className={`${oswald.variable} ${montserrat.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
       >
         <ThemeProviders>
-          <div className="w-full font-montserrat">
+          <div className="w-full font-montserrat overflow-x-hidden">
             <MiniPlayerProvider>
               <CookieConsent />
               <Navbar />
@@ -109,7 +109,7 @@ export default function RootLayout({
               {children}
               <Analytics />
               <SpeedInsights />
-              <PersistentMiniPlayer />
+              <MiniPlayer />
               <Footer />
             </MiniPlayerProvider>
           </div>

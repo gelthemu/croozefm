@@ -6,7 +6,6 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { ArrowDownRight } from "lucide-react";
 import SocialLinks from "../tiny/socials";
 
 const navLinks = [
@@ -19,11 +18,14 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
+  const { isMiniPlayerOpen } = useMiniPlayer();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
-      return pathname === href;
+      const matchesOtherPaths = navLinks
+        .filter((link) => link.href !== "/")
+        .some((link) => pathname.startsWith(link.href));
+      return pathname === "/" || !matchesOtherPaths;
     }
     return pathname.startsWith(href);
   };
@@ -75,18 +77,20 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              className={`w-full font-semibold text-sm p-2 rounded-md ${
-                isMiniPlayerOpen ? "opacity-0" : "bg-dark/20 hover:bg-dark/10"
-              } flex justify-center items-center space-x-1 transition-all duration-300 md:hidden`}
+            <Link
+              href="/stream"
+              aria-label="Listen Live, Now"
+              className={`w-full font-semibold md:font-medium text-sm px-2 py-1.5 rounded-md bg-dark/20 hover:bg-dark/10 border border-light/20 ${
+                isMiniPlayerOpen || pathname === "/stream"
+                  ? "opacity-0"
+                  : "opacity-100"
+              } flex justify-center items-center space-x-1 transition-all duration-700`}
               onClick={() => {
                 setIsOpen(false);
-                setIsMiniPlayerOpen(true);
               }}
-              disabled={isMiniPlayerOpen}
             >
-              <span>Listen Live</span> <ArrowDownRight className="w-4 h-4" />
-            </button>
+              <span>Listen Live</span>
+            </Link>
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
@@ -104,7 +108,7 @@ export default function Navbar() {
               isOpen
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-full md:translate-x-0 opacity-0 md:opacity-100"
-            } absolute top-full left-0 md:static border-2 border-dark/20 dark:border-light/10 md:border-0 backdrop-blur-md bg-dark/60 dark:bg-red/40 md:bg-transparent rounded-b-md transition-all duration-300`}
+            } absolute top-full left-0 md:static border-2 border-dark/20 dark:border-light/10 md:border-0 backdrop-blur-md bg-dark/80 dark:bg-red/40 md:bg-transparent rounded-b-md transition-all duration-300`}
             id="navbar-absolute"
           >
             <ul className="w-full mx-auto md:max-w-none md:mx-0 flex flex-col space-y-4 md:divide-y-0 md:space-y-0 md:flex-row md:space-x-4 lg:space-x-6 rtl:space-x-reverse p-4 md:p-0 font-medium">
@@ -128,9 +132,6 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="flex items-center justify-center p-4 md:hidden">
-                <span className="mr-2 font-light dark:text-light/80">
-                  Follow us:
-                </span>
                 <span onClick={() => setIsOpen(false)}>
                   <SocialLinks />
                 </span>

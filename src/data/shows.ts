@@ -63,7 +63,6 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
     description:
       "The Evening Switch with Nkuta Michael is your daily evening ritual, blending music and infotainment to ease you from work to home comfort on Western Uganda's Biggest Radio.",
-    isFeatured: true,
     host: "Michael | Antoinette",
   },
   {
@@ -72,6 +71,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/hits-selector.png",
     description:
       "Join the interactive DJ experience every Monday to Thursday, where your song requests shape the evening playlist; call, tweet, or message to get your music on air.",
+    isFeatured: true,
     host: "Dosh",
   },
   {
@@ -160,6 +160,11 @@ export const shows: Show[] = [
       "Celebrate love with romantic tunes and heartfelt stories to brighten your Sunday.",
     host: "Inyaa",
     recordings: [
+      {
+        id: "2025-01-26",
+        date: "2025-01-26T10:05:00+03:00",
+        audio: "https://croozefm.blob.core.windows.net/audio/linc-&-veve.mp3",
+      },
       {
         id: "2011-11-01",
         date: "2011-11-01T00:00:00+03:00",
