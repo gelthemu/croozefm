@@ -32,7 +32,7 @@ export default function MiniPlayer() {
     };
   }, [audioRef, handleAudioError]);
 
-  const handleAudioPlay = () => {
+  const handleAudioPlay = useCallback(() => {
     if (!audioRef.current) return;
 
     if (audioRef.current.paused) {
@@ -44,7 +44,6 @@ export default function MiniPlayer() {
         })
         .catch(() => {
           setIsStreamActive(false);
-          return;
         });
     } else {
       audioRef.current.pause();
@@ -52,7 +51,7 @@ export default function MiniPlayer() {
       setIsAudioPlaying(false);
       setIsStreamActive(true);
     }
-  };
+  }, [audioRef, setIsAudioPlaying, setIsStreamActive]);
 
   const handleClose = () => {
     if (audioRef.current) {
@@ -63,6 +62,12 @@ export default function MiniPlayer() {
     setIsStreamActive(true);
     setIsMiniPlayerOpen(false);
   };
+
+  useEffect(() => {
+    if (isMiniPlayerOpen) {
+      handleAudioPlay();
+    }
+  }, [isMiniPlayerOpen, handleAudioPlay]);
 
   return (
     <div
@@ -102,7 +107,7 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
-        <div className="text-sm md:text-xs md:font-light px-1 pt-1.5 border-t border-light/40">
+        <div className="text-left text-sm md:text-xs md:font-light px-1 pt-1.5 border-t border-light/40">
           <span>
             Call Us:{" "}
             <strong className="font-medium">

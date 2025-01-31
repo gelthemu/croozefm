@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useMiniPlayer } from "@/app/context/mini-player-context";
 import SocialLinks from "../tiny/socials";
 
 const navLinks = [
@@ -18,7 +17,6 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { isMiniPlayerOpen } = useMiniPlayer();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
@@ -80,16 +78,12 @@ export default function Navbar() {
             <Link
               href="/stream"
               aria-label="Listen Live, Now"
-              className={`w-full font-semibold md:font-medium text-sm px-2 py-1.5 rounded-md bg-dark/20 hover:bg-dark/10 border border-light/20 ${
-                isMiniPlayerOpen || pathname === "/stream"
-                  ? "opacity-0"
-                  : "opacity-100"
-              } flex justify-center items-center space-x-1 transition-all duration-700`}
+              className="w-full  px-2 py-1.5 rounded-md bg-dark/20 hover:bg-dark/10 border border-light/30 transition-all duration-700"
               onClick={() => {
                 setIsOpen(false);
               }}
             >
-              <span>Listen Live</span>
+              <span className="font-semibold md:font-medium text-sm">Listen Live</span>
             </Link>
             <button
               data-collapse-toggle="navbar-absolute"
