@@ -12,7 +12,7 @@ export const FormatDate = ({ date }: { date: string }) => {
     return `${minutesDifference}m ago`;
   } else if (hoursDifference < 24) {
     return `${hoursDifference}h ago`;
-  } else if (daysDifference < 10) {
+  } else if (daysDifference < 8) {
     return `${daysDifference}d ago`;
   } else if (now.getFullYear() === aired.getFullYear()) {
     return `${aired.toLocaleString("en-US", {

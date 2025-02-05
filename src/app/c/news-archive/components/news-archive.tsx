@@ -185,6 +185,13 @@ export default function NewsArchive() {
             } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/30 dark:border-b-dark/60`}
           >
             <div>
+              <div
+                className={`w-fit mb-1.5 text-light/80 bg-red/80 dark:bg-red/60 py-0 px-1.5 ${
+                  sortedNews.indexOf(item) === 0 ? "show" : "hidden"
+                }`}
+              >
+                <small>Recently Archived</small>
+              </div>
               <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
                 <span className="line-clamp-2 md:line-clamp-1">
                   {item.headline}

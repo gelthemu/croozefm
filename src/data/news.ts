@@ -55,6 +55,19 @@ export const news: News[] = [
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-03_8am.mp3",
   },
   {
+    id: 202412110800,
+    aired: {
+      date: "2024-12-11T08:00:00+03:00",
+      time: "8AM",
+    },
+    headline:
+      "Kenya's Law Society Threatens to Halt Admissions of Ugandan Lawyers",
+    anchor: "Dithan Ngabirano",
+    profileImg: "/assets/avatars/dithan.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-11_8am.mp3",
+  },
+  {
     id: 202502050800,
     aired: {
       date: "2025-02-05T08:00:00+03:00",
@@ -104,6 +117,58 @@ export const news: News[] = [
     profileImg: "/assets/avatars/dorothy.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-28_10am.mp3",
+  },
+  {
+    id: 202501131000,
+    aired: {
+      date: "2025-01-13T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "Mbarara Grapples with Escalating Crisis of Abandoned Children, Highlighting Urgent Social and Economic Issues",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_10am.mp3",
+  },
+  {
+    id: 202412161000,
+    aired: {
+      date: "2024-12-16T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "President Museveni Announces Government Scrutiny of Healing Claims by Pastors and Religious Leaders",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-16_10am.mp3",
+  },
+  {
+    id: 202412051000,
+    aired: {
+      date: "2024-12-05T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "South Korean Police Probe President Yoon for Alleged Insurrection",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-05_10am.mp3",
+  },
+  {
+    id: 202502051000,
+    aired: {
+      date: "2025-02-05T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "20% of Candidates who Passed 2024 PLE Exams Stranded as Secondary School Admission Falls Short",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_10am.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 1PM = = = = = = = = = = = = = = = = = = = = = =
   {
@@ -157,6 +222,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-30_1pm.mp3",
   },
+  {
+    id: 202502051300,
+    aired: {
+      date: "2025-02-05T13:00:00+03:00",
+      time: "1PM",
+    },
+    headline:
+      "Kidney Patients at Mulago Hospital Voice Concerns Over Inadequate Nighttime Medical Services",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_1pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 2PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191400,
@@ -182,6 +260,45 @@ export const news: News[] = [
     profileImg: "/assets/avatars/dorothy.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-25_2pm.mp3",
+  },
+  {
+    id: 202412101400,
+    aired: {
+      date: "2024-12-10T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "China Initiates Probe into Nvidia Following U.S. Export Control Announcements, Alleging Antimonopoly Law Violations",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-10_2pm.mp3",
+  },
+  {
+    id: 202501301400,
+    aired: {
+      date: "2025-01-30T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Uganda's Exports Largely Dependent on Middle East, Now Top Destination for Goods, Says Finance Ministry Report",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-30_2pm.mp3",
+  },
+  {
+    id: 202501231400,
+    aired: {
+      date: "2025-01-23T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Church of Uganda Engages Inspire Africa Group to Enhance Coffee Cultivation and Value Addition",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-23_2pm.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
@@ -248,6 +365,45 @@ export const news: News[] = [
     profileImg: "/assets/avatars/momo.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-25_4pm.mp3",
+  },
+  {
+    id: 202501131600,
+    aired: {
+      date: "2025-01-13T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Court Martial Adds Treachery Charges to Besigye and Co-Accused in Today's Hearing",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_4pm.mp3",
+  },
+  {
+    id: 202412131600,
+    aired: {
+      date: "2024-12-13T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Mysterious 'Dancing Disease' in Bundibugyo Causes Uncontrollable Shaking, Fever, and Paralysis in Hundreds",
+    anchor: "Marie Antoinettie",
+    profileImg: "/assets/avatars/antoinette.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-13_4pm.mp3",
+  },
+  {
+    id: 202502031600,
+    aired: {
+      date: "2025-02-03T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Low Turnout in Mbarara UPE Schools as Parents Struggle with School Requirements",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-03_4pm.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 7PM = = = = = = = = = = = = = = = = = = = = = =
   {
