@@ -41,6 +41,32 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_8am.mp3",
   },
+  {
+    id: 202412030800,
+    aired: {
+      date: "2024-12-03T08:00:00+03:00",
+      time: "8AM",
+    },
+    headline:
+      "New Lower Curriculum Textbooks Distributed to 25 Secondary Schools in Kitagwenda",
+    anchor: "Dithan Ngabirano",
+    profileImg: "/assets/avatars/dithan.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-03_8am.mp3",
+  },
+  {
+    id: 202502050800,
+    aired: {
+      date: "2025-02-05T08:00:00+03:00",
+      time: "8AM",
+    },
+    headline:
+      "Nine Arrested in Connection with Bank of Uganda Heist Involving Billions in Shillings",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_8am.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 10AM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411211000,
@@ -87,7 +113,7 @@ export const news: News[] = [
       time: "1PM",
     },
     headline:
-      "On the anniversary of the November riots, families are demanding justice",
+      "On the Anniversary of the November riots, Families are Demanding Justice",
     anchor: "Dithan Ngabirano",
     profileImg: "/assets/avatars/dithan.png",
     audio:
@@ -117,6 +143,19 @@ export const news: News[] = [
     profileImg: "/assets/avatars/dithan.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_1pm.mp3",
+  },
+  {
+    id: 202501301300,
+    aired: {
+      date: "2025-01-30T13:00:00+03:00",
+      time: "1PM",
+    },
+    headline:
+      "Tragic Mid-Air Collision Over Washington: American Airlines Jet and Military Helicopter Crash into Potomac",
+    anchor: "Dithan Ngabirano",
+    profileImg: "/assets/avatars/dithan.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-30_1pm.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 2PM = = = = = = = = = = = = = = = = = = = = = =
   {

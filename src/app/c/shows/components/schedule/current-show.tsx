@@ -92,7 +92,7 @@ const schedules: Record<string, Show[]> = {
       name: "The Evening Switch",
       img: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
       start: 17,
-      end: 19,
+      end: 20,
     },
     {
       name: "Fat Friday Mix",
