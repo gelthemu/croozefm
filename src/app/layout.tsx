@@ -9,7 +9,7 @@ import { ThemeProviders } from "./providers/theme-provider";
 import ToastProvider from "./providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
-import MiniPlayer from "./stream/components/mini-player";
+import MiniPlayer from "./components/stream/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
 

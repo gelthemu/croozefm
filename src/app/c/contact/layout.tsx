@@ -1,6 +1,6 @@
 import "@/app/styles/globals.css";
 
-export default function StreamLayout({
+export default function ContactLayout({
   children,
 }: {
   children: React.ReactNode;

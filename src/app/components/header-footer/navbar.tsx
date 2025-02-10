@@ -75,16 +75,6 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link
-              href="/stream"
-              aria-label="Listen Live, Now"
-              className="w-full  px-2 py-1.5 rounded-md bg-dark/20 hover:bg-dark/10 border border-light/30 transition-all duration-700"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              <span className="font-semibold md:font-medium text-sm">Listen Live</span>
-            </Link>
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
