@@ -84,7 +84,7 @@ const UgTime = () => {
     };
 
     updateDateTime();
-    const interval = setInterval(updateDateTime, 30000);
+    const interval = setInterval(updateDateTime, 10000);
 
     return () => clearInterval(interval);
   }, []);

@@ -16,7 +16,17 @@ const config: Config = {
         dark: "#151515",
       },
       fontFamily: {
-        apex: ["Apex Regular", "var(--font-oswald)"],
+        sans: [
+          "Canva Sans",
+          "Noto Sans Variable",
+          "Noto Sans",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Helvetica",
+          "Arial",
+          "sans-serif"
+        ],
         oswald: ["var(--font-oswald)"],
         montserrat: ["var(--font-montserrat)"],
       },

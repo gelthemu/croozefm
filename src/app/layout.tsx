@@ -12,6 +12,7 @@ import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
+import "./styles/app.14082000.css";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -101,7 +102,7 @@ export default function RootLayout({
         className={`${oswald.variable} ${montserrat.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
       >
         <ThemeProviders>
-          <div className="w-full font-montserrat overflow-x-hidden">
+          <div className="w-full font-sans overflow-x-hidden">
             <MiniPlayerProvider>
               <CookieConsent />
               <Navbar />

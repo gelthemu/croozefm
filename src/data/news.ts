@@ -170,6 +170,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_10am.mp3",
   },
+  {
+    id: 202502131000,
+    aired: {
+      date: "2025-02-13T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "Voters Alarmed as Electoral Commission Removes Polling Stations in Masaka",
+    anchor: "Dorothy Kainembabazi",
+    profileImg: "/assets/avatars/dorothy.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-13_10am.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 1PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191300,

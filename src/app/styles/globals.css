@@ -8,13 +8,6 @@
   }
 }
 
-@font-face {
-  font-family: "Apex Regular";
-  src: url("/fonts/apex-regular.ttf");
-  font-style: normal;
-  font-display: swap;
-}
-
 @supports (font: -apple-system-body) and (-webkit-appearance: none) {
   img[loading="lazy"] {
     clip-path: inset(0.6px);
@@ -68,18 +61,10 @@ button:selected {
   border: none;
 }
 
-.font-variant {
-  font-variant: small-caps;
-}
-
-.heading-apex:after {
-  content: " ";
-  display: block;
-  width: 50%;
-  height: 1px;
-  background-color: #505050;
-  padding-top: 0.5rem;
-  margin-top: 0.25rem;
+h1 {
+  font-family: Canva Sans, Noto Sans Variable, Noto Sans, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+    font-weight: 700 !important;
 }
 
 @keyframes heartbeat {

@@ -206,7 +206,7 @@ export const useCurrentShow = () => {
 
     const interval = setInterval(() => {
       setCurrentShow(getCurrentShow());
-    }, 30000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);

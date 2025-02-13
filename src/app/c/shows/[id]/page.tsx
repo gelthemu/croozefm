@@ -73,7 +73,7 @@ export default async function ShowPage({ params }: PageProps) {
 
       <div className="mb-12 pt-6 pb-10 border-y border-gray/40 dark:border-light/10">
         <div className="flex flex-col items-center justify-center w-full md:w-5/6 mx-auto text-center">
-          <h1 className="text-3xl py-5 font-apex bg-clip-text text-transparent bg-gradient-to-r from-red via-gray to-red">
+          <h1 className="text-3xl py-5 text-red">
             {show.title}
           </h1>
           <p className="w-full">{show.description}</p>

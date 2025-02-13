@@ -16,10 +16,10 @@ export default function Home() {
       <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 text-dark dark:text-light">
         <div className="container mx-auto pt-16 text-center text-dark dark:text-light min-h-screen overflow-hidden">
           <div className="mb-2 flex flex-col items-center justify-center p-0">
-            <h1 className="text-3xl text-red font-apex relative mb-4">
+            <h1 className="text-3xl text-red relative mb-4">
               91.2 Crooze FM
             </h1>
-            <p>
+            <p className="font-sans font-light">
               We are Western Uganda&rsquo;s Biggest Radio Station. Great Music.
               Great Friends.
             </p>
