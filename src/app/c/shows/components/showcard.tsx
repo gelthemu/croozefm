@@ -27,8 +27,8 @@ export const ShowCard = ({ show }: ShowCardProps) => {
             <Image
               src={show.image}
               alt={show.title}
-              width={1484}
-              height={813}
+              width={2968}
+              height={1626}
               priority={true}
               className="h-full w-full object-cover aspect-[1484/813] transition-transform duration-300 group-hover:scale-105 _img_"
             />

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 text-dark dark:text-light">
-        <div className="container mx-auto pt-16 text-center text-dark dark:text-light min-h-screen overflow-hidden">
+      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 overflow-hidden">
+        <div className="container mx-auto pt-16 text-center min-h-screen">
           <Hero />
           <OnAir />
           <section className="p-2">

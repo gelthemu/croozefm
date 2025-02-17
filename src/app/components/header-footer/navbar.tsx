@@ -78,11 +78,15 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
-              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
+              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-md flex items-center space-x-1 transition-all duration-500 ${
                 isMiniPlayerOpen || pathname === "/"
                   ? "opacity-0 pointer-events-none"
                   : "opacity-100"
-              } bg-gray/10 hover:bg-red border border-light/40 _912cfm`}
+              } border border-light/40 _912cfm`}
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right,rgba(40, 40, 40, 0.15) 0%,rgb(139, 18, 18) 50%, rgba(40, 40, 40, 0.15) 100%)",
+              }}
               onClick={() => {
                 setIsOpen(false);
                 setTimeout(() => {
@@ -96,7 +100,7 @@ export default function Navbar() {
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
-              className="inline-flex items-center justify-center p-1 md:hidden"
+              className="inline-flex items-center justify-center text-light p-1 md:hidden"
               aria-controls="navbar-absolute"
               aria-expanded={isOpen}
               onClick={() => setIsOpen(!isOpen)}

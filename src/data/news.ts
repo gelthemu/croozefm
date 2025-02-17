@@ -313,6 +313,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-23_2pm.mp3",
   },
+  {
+    id: 202502171400,
+    aired: {
+      date: "2025-02-17T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Uganda National Lottery Marks Seven Months of Growth, Introduces Digital Ticketing",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_2pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411141600,
@@ -418,6 +431,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-03_4pm.mp3",
   },
+  {
+    id: 202502171600,
+    aired: {
+      date: "2025-02-17T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Bushenyi Protesters Demand Besigye's Release Amid Health Concerns",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_4pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 7PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411151900,
@@ -483,5 +509,18 @@ export const news: News[] = [
     profileImg: "/assets/avatars/dithan.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-29_7pm.mp3",
+  },
+  {
+    id: 202502171900,
+    aired: {
+      date: "2025-02-17T19:00:00+03:00",
+      time: "7PM",
+    },
+    headline:
+      "Mbarara Emyooga SACCO Leaders Warned: Conduct Annual General Meetings or Face Funding Cuts",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_7pm.mp3",
   },
 ];

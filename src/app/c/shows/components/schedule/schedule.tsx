@@ -5,9 +5,28 @@ import { useCurrentShow } from "./current-show";
 import Link from "next/link";
 import Image from "next/image";
 import { FaLink } from "react-icons/fa6";
+import { shows } from "@/data/shows";
+
+const getShowUrl = (imgPath: string) => {
+  const imgFileName = imgPath.split("/").pop()?.split(".")?.[0]?.trim();
+
+  if (!imgFileName) return "/c/shows";
+
+  const matchingShow = shows.find((show) => {
+    const showImgFileName = show.image
+      .split("/")
+      .pop()
+      ?.split(".")?.[0]
+      ?.trim();
+    return showImgFileName === imgFileName;
+  });
+
+  return matchingShow ? `/c/shows/${imgFileName}` : "/c/shows";
+};
 
 const Schedule = () => {
   const currentShow = useCurrentShow();
+  const showUrl = getShowUrl(currentShow.img);
 
   return (
     <div className="relative w-full aspect-[1484/813] group">
@@ -17,20 +36,11 @@ const Schedule = () => {
         width={1484}
         height={813}
         priority={true}
-        className="w-full h-full object-cover aspect-[1484/813] _img_"
+        className="w-full h-full object-cover aspect-[1484/813] border-2 border-gray rounded-sm _img_"
       />
       <Link
-        href={
-          currentShow.img.split("/").pop()?.split(".")?.[0]?.trim() !==
-          "default"
-            ? `/c/shows/${currentShow.img
-                .split("/")
-                .pop()
-                ?.split(".")?.[0]
-                ?.trim()}`
-            : "/c/shows"
-        }
-        className="absolute bottom-1.5 right-1.5 flex items-center justify-center bg-dark/60 border border-light/60 text-light p-1.5 rounded-sm"
+        href={showUrl}
+        className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/60 border border-light/60 text-light p-1.5 rounded-sm"
         aria-label="View Details"
       >
         <FaLink
@@ -44,10 +54,13 @@ const Schedule = () => {
 
 const Show = () => {
   const currentShow = useCurrentShow();
+  const showUrl = getShowUrl(currentShow.img);
 
   return (
-    <div className="text-left uppercase mb-2.5 font-semibold">
-      <p>{currentShow.name}</p>
+    <div className="mb-4">
+      <Link href={showUrl} className="text-left font-light _912cfm">
+        <p className="line-clamp-1">{currentShow.name}</p>
+      </Link>
     </div>
   );
 };
@@ -84,12 +97,16 @@ const UgTime = () => {
     };
 
     updateDateTime();
-    const interval = setInterval(updateDateTime, 10000);
+    const interval = setInterval(updateDateTime, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="w-fit px-1.5 py-1 text-sm">{dateTime}</div>;
+  return (
+    <div className="w-fit px-1.5 py-1 text-sm text-dark/80 dark:text-light/80">
+      {dateTime}
+    </div>
+  );
 };
 
 export { Schedule, Show, UgTime };

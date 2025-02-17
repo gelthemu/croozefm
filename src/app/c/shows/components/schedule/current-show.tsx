@@ -15,6 +15,12 @@ interface CurrentShow {
 const schedules: Record<string, Show[]> = {
   regular: [
     {
+      name: "The Inspiration",
+      img: "https://croozefm.blob.core.windows.net/images/the-inspiration.png",
+      start: 5,
+      end: 6,
+    },
+    {
       name: "The Morning Addiction",
       img: "https://croozefm.blob.core.windows.net/images/morning-addiction.png",
       start: 6,
@@ -30,6 +36,12 @@ const schedules: Record<string, Show[]> = {
       name: "The Lifestyle Show",
       img: "https://croozefm.blob.core.windows.net/images/lifestyle.png",
       start: 11,
+      end: 13,
+    },
+    {
+      name: "The Slowdown Hour",
+      img: "https://croozefm.blob.core.windows.net/images/slowdown-hour.png",
+      start: 13,
       end: 14,
     },
     {
@@ -48,6 +60,12 @@ const schedules: Record<string, Show[]> = {
       name: "The Evening Switch",
       img: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
       start: 17,
+      end: 18,
+    },
+    {
+      name: "The Hot6@6 on the Evening Switch",
+      img: "https://croozefm.blob.core.windows.net/images/hot-6-at-6.png",
+      start: 18,
       end: 19,
     },
     {
@@ -65,8 +83,8 @@ const schedules: Record<string, Show[]> = {
   ],
   friday: [
     {
-      name: "The Morning Addiction",
-      img: "https://croozefm.blob.core.windows.net/images/morning-addiction.png",
+      name: "The Morning Addiction - TGIF Edition",
+      img: "https://croozefm.blob.core.windows.net/images/tgif-morning-addiction.png",
       start: 6,
       end: 10,
     },
@@ -77,8 +95,8 @@ const schedules: Record<string, Show[]> = {
       end: 11,
     },
     {
-      name: "The Lifestyle Show",
-      img: "https://croozefm.blob.core.windows.net/images/lifestyle.png",
+      name: "The Lifestyle Show - TGIF Edition",
+      img: "https://croozefm.blob.core.windows.net/images/tgif-lifestyle.png",
       start: 11,
       end: 14,
     },
@@ -89,13 +107,13 @@ const schedules: Record<string, Show[]> = {
       end: 17,
     },
     {
-      name: "The Evening Switch",
-      img: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
+      name: "The Evening Switch - TGIF Edition",
+      img: "https://croozefm.blob.core.windows.net/images/tgif-evening-switch.png",
       start: 17,
       end: 20,
     },
     {
-      name: "Fat Friday Mix",
+      name: "The Fat Friday Mix",
       img: "https://croozefm.blob.core.windows.net/images/fat-friday-mix.png",
       start: 20,
       end: 24,
@@ -119,6 +137,12 @@ const schedules: Record<string, Show[]> = {
       img: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
       start: 12,
       end: 14,
+    },
+    {
+      name: "The African Rhythms",
+      img: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
+      start: 17,
+      end: 20,
     },
     {
       name: "Saturday Night Live",
@@ -145,6 +169,12 @@ const schedules: Record<string, Show[]> = {
       img: "https://croozefm.blob.core.windows.net/images/enyangyi.png",
       start: 12,
       end: 14,
+    },
+    {
+      name: "The Total Country Show",
+      img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
+      start: 20,
+      end: 24,
     },
   ],
 };
@@ -191,14 +221,14 @@ export const getCurrentShow = (): CurrentShow => {
 
   return {
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "Great Music. Great Friends.",
+    name: "Now Playing: Great Music, for Great Friends",
   };
 };
 
 export const useCurrentShow = () => {
   const [currentShow, setCurrentShow] = useState<CurrentShow>({
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "Great Music. Great Friends.",
+    name: "Now Playing: Great Music, for Great Friends",
   });
 
   useEffect(() => {
@@ -206,7 +236,7 @@ export const useCurrentShow = () => {
 
     const interval = setInterval(() => {
       setCurrentShow(getCurrentShow());
-    }, 10000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);

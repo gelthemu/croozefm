@@ -92,10 +92,10 @@ export default function RootLayout({
         <GoogleAnalytics ga_id={ga_id} />
       </head>
       <body
-        className={`${sans.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
+        className={`${sans.variable} relative antialiased bg-light dark:bg-dark`}
       >
         <ThemeProviders>
-          <div className="w-full font-sans overflow-x-hidden">
+          <div className="w-full font-sans text-dark dark:text-light">
             <MiniPlayerProvider>
               <CookieConsent />
               <Navbar />

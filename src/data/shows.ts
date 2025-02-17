@@ -145,6 +145,14 @@ export const shows: Show[] = [
     host: "Abou | Derrick | Nicholas",
   },
   {
+    id: "african-rhythms",
+    title: "The African Rhythms",
+    image: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
+    description:
+        "Immerse yourself in the vibrant and diverse sounds of African music every Saturday evening.",
+    host: "Starcent DJ",
+},
+  {
     id: "saturday-night",
     title: "Saturday Night Live",
     image: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
@@ -179,6 +187,14 @@ export const shows: Show[] = [
     description:
       "A cultural showcase of traditional music and stories, celebrating heritage every Sunday.",
     host: "John Turinawe",
+  },
+  {
+    id: "total-country-show",
+    title: "The Total Country Show",
+    image:
+      "https://croozefm.blob.core.windows.net/images/total-country-show.png",
+    description:
+      "A show that celebrates the best of country music from around the world. After a long, busy weekend, relax with the best of country music to recharge. From the old classics to the latest hits, Crooze FM has got you covered. Country music is good for your ears.",
   },
 ];
 

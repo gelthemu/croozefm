@@ -76,7 +76,7 @@ export default async function ShowPage({ params }: PageProps) {
           <h1 className="text-3xl py-5 text-red _912cfm">
             {show.title}
           </h1>
-          <p className="w-full">{show.description}</p>
+          <p className="w-full max-w-2xl mx-auto">{show.description}</p>
         </div>
       </div>
 
@@ -84,8 +84,8 @@ export default async function ShowPage({ params }: PageProps) {
         <Image
           src={show.image}
           alt={show.title}
-          width={1484}
-          height={813}
+          width={2968}
+          height={1626}
           priority={true}
           className="w-full aspect-[1484/813] object-cover _img_"
         />
