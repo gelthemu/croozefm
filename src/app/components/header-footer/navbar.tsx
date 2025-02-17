@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowDownRight } from "lucide-react";
+import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { usePathname } from "next/navigation";
 import SocialLinks from "../tiny/socials";
 
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
@@ -68,13 +70,29 @@ export default function Navbar() {
             <Image
               src="/cfm-logo-2.png"
               alt="CroozeFM Logo"
-              width={4096}
-              height={1652}
+              width={8192}
+              height={3304}
               priority={true}
               className="w-full aspect-[1024/413] _img_"
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button
+              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
+                isMiniPlayerOpen || pathname === "/"
+                  ? "opacity-0 pointer-events-none"
+                  : "opacity-100"
+              } bg-gray/10 hover:bg-red border border-light/40 _912cfm`}
+              onClick={() => {
+                setIsOpen(false);
+                setTimeout(() => {
+                  setIsMiniPlayerOpen(true);
+                }, 200);
+              }}
+              disabled={isMiniPlayerOpen}
+            >
+              <span>Stream Live</span> <ArrowDownRight className="w-4 h-4" />
+            </button>
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"

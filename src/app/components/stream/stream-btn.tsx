@@ -9,15 +9,13 @@ export default function StreamBtn() {
 
   return (
     <button
-      className={`text-light text-sm font-semibold md:font-medium px-4 py-2 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
-        isMiniPlayerOpen
-          ? "bg-gray/80 dark:bg-gray/100"
-          : "bg-red"
-      }`}
+      className={`text-light text-sm font-semibold px-4 py-2 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
+        isMiniPlayerOpen ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
+      } _912cfm`}
       onClick={() => {
         setTimeout(() => {
           setIsMiniPlayerOpen(true);
-        }, 500);
+        }, 200);
       }}
       disabled={isMiniPlayerOpen}
     >

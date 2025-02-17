@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/GoogleAnalytics";
 import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
-import { Oswald, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProviders } from "./providers/theme-provider";
 import ToastProvider from "./providers/toastprovider";
@@ -12,19 +12,12 @@ import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
-import "./styles/app.14082000.css";
 
-const oswald = Oswald({
-  subsets: ["latin"],
-  variable: "--font-oswald",
+const sans = localFont({
+  src: "./fonts/cfm912cfm912.woff2",
+  variable: "--fonts-sans",
   display: "swap",
-  preload: true,
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  display: "swap",
+  style: "normal",
   preload: true,
 });
 
@@ -99,7 +92,7 @@ export default function RootLayout({
         <GoogleAnalytics ga_id={ga_id} />
       </head>
       <body
-        className={`${oswald.variable} ${montserrat.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
+        className={`${sans.variable} relative antialiased bg-light dark:bg-dark overflow-x-hidden`}
       >
         <ThemeProviders>
           <div className="w-full font-sans overflow-x-hidden">

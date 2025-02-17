@@ -1,31 +1,15 @@
-"use client";
-
-import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { ArrowDownRight } from "lucide-react";
+import StreamBtn from "../stream/stream-btn";
 
 export default function Hero() {
-  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
-
   return (
     <div>
-      <div className="w-full my-12 border border-dark">
-        <div className="w-full h-full flex justify-center items-center">
-          <button
-            className={`text-light text-sm font-semibold px-4 py-2 rounded-sm hidden md:flex items-center space-x-1 transition-all duration-300 ${
-              isMiniPlayerOpen
-                ? "bg-gray/80 dark:bg-gray/100"
-                : "bg-red/80 hover:bg-red"
-            }`}
-            onClick={() => {
-              setTimeout(() => {
-                setIsMiniPlayerOpen(true);
-              }, 500);
-            }}
-            disabled={isMiniPlayerOpen}
-          >
-            <span>Listen Live</span> <ArrowDownRight className="w-4 h-4" />
-          </button>
-        </div>
+      <div className="mb-2 flex flex-col items-center justify-center p-0">
+        <h1 className="text-3xl text-red relative mb-4 _912cfm">91.2 Crooze FM</h1>
+        <p>Western Uganda&rsquo;s Biggest Radio Station.</p>
+        <p>Great Music. Great Friends.</p>
+      </div>
+      <div className="flex items-center justify-center p-4">
+        <StreamBtn />
       </div>
     </div>
   );

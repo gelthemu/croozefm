@@ -8,12 +8,6 @@
   }
 }
 
-@supports (font: -apple-system-body) and (-webkit-appearance: none) {
-  img[loading="lazy"] {
-    clip-path: inset(0.6px);
-  }
-}
-
 *,
 html {
   scroll-behavior: smooth;
@@ -29,8 +23,6 @@ html {
 }
 
 body {
-  font-family: var(--font-montserrat);
-  /* background-color: #151515; */
   color: #ffffff;
 }
 
@@ -61,10 +53,17 @@ button:selected {
   border: none;
 }
 
-h1 {
-  font-family: Canva Sans, Noto Sans Variable, Noto Sans, -apple-system,
-    BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
-    font-weight: 700 !important;
+h1,
+h2 {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  overflow-wrap: break-word;
+  font-weight: 900 !important;
+}
+
+._912cfm {
+  font-feature-settings: "ss02", "ss03";
+  font-variation-settings: "opsz" 500;
 }
 
 @keyframes heartbeat {

@@ -89,7 +89,7 @@ const UgTime = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="w-fit px-1.5 py-1 text-sm font-light">{dateTime}</div>;
+  return <div className="w-fit px-1.5 py-1 text-sm">{dateTime}</div>;
 };
 
 export { Schedule, Show, UgTime };

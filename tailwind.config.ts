@@ -17,28 +17,15 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          "Canva Sans",
-          "Noto Sans Variable",
-          "Noto Sans",
+          "var(--fonts-sans)",
+          "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
           "Helvetica",
           "Arial",
-          "sans-serif"
+          "sans-serif",
         ],
-        oswald: ["var(--font-oswald)"],
-        montserrat: ["var(--font-montserrat)"],
-      },
-      backgroundImage: {
-        "custom-gradient":
-          "linear-gradient(to right, #f5f5f5 0%,#a4a4a4 50%, #f5f5f5 100%)",
-        "dark-custom-gradient":
-          "linear-gradient(to right, #151515 0%, #282828 50%, #151515 100%)",
-        "custom-gradient-reverse":
-          "linear-gradient(to bottom right, #282828 0%, #101010 100%)",
-        "custom-gradient-btn":
-          "linear-gradient(to right, #282828 0%, #4d0000 50%, #282828 100%)",
       },
     },
   },

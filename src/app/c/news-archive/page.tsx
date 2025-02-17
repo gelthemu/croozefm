@@ -12,7 +12,7 @@ export default function NewsArchivePage() {
   return (
     <div className="container mx-auto px-4 py-16 text-center text-dark dark:text-light min-h-screen overflow-hidden">
       <div className="mb-12 flex flex-col items-center justify-center p-4 border-b border-dark/20 dark:border-light/20">
-        <h1 className="text-3xl font-apex relative mb-4">News Archive</h1>
+        <h1 className="text-3xl font-apex relative mb-4 _912cfm">News Archive</h1>
         <p className="max-w-lg mx-auto mb-4">
           We don&apos;t just break stories, we tell real stories. Stay abreast
           of the latest developments in the world of news and information.
