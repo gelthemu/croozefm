@@ -3,7 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["croozefm.com", "pbs.twimg.com"],
     remotePatterns: [
       {
         protocol: "https",
@@ -14,11 +13,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "pbs.twimg.com",
         pathname: "/media/**",
-      },
-      {
-        protocol: "https",
-        hostname: "croozefm.com",
-        pathname: "/wp-content/uploads/**",
       },
     ],
   },

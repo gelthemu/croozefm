@@ -44,6 +44,15 @@ body {
   -ms-user-select: none;
 }
 
+.profile-image {
+  aspect-ratio: 570 / 696;
+  background-image: url("https://croozefm.blob.core.windows.net/images/profile-bg-image.png");
+  background-size: cover;
+  background-position: center top;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+}
+
 audio {
   color-scheme: dark;
 }

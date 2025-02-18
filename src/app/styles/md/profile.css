@@ -20,7 +20,7 @@
 }
 
 .prose a {
-  @apply font-normal hover:underline;
+  @apply font-semibold text-red;
 }
 
 .prose img {
@@ -32,5 +32,5 @@
 }
 
 .prose ul {
-  @apply list-disc space-y-2;
+  @apply list-disc list-inside space-y-4;
 }

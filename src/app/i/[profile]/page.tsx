@@ -84,8 +84,8 @@ export default async function ProfilePage({
       </div>
 
       <div className="w-full overflow-hidden">
-        <div className="w-full sm:w-[90%] mx-auto lg:flex">
-          <div className="h-full w-[90%] sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20">
+        <div className="w-full sm:w-[90%] mx-auto flex flex-col lg:flex-row">
+          <div className="h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20">
             <Image
               src={profile.imageLink}
               alt={profile.name}
@@ -96,7 +96,7 @@ export default async function ProfilePage({
             />
           </div>
 
-          <div className="lg:w-full p-6 pt-24 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0">
+          <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0">
             <div className="pb-6 flex flex-col lg:flex-row lg:justify-between border-b border-gray/40 dark:border-light/20">
               <div>
                 <h1 className="text-3xl pb-2.5 text-red _912cfm">
@@ -114,20 +114,25 @@ export default async function ProfilePage({
               <Markdown>{profile.description}</Markdown>
             </div>
 
-            <div className="flex-grow p-2 pt-10 border-t border-gray/20 dark:border-light/20 grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {profile.gallery.map((photo, index) => (
-                <div key={index} className="aspect-w-1 aspect-h-1">
-                  <Image
-                    src={photo}
-                    width={2280}
-                    height={2784}
-                    priority={true}
-                    alt={`${profile.name}'s gallery item ${index + 1}`}
-                    className="w-full h-full object-cover aspect-[570/696] rounded-sm _img_"
-                  />
-                </div>
-              ))}
-            </div>
+            {profile.gallery?.length > 0 && (
+              <div className="flex-grow p-2 pt-10 border-t border-gray/20 dark:border-light/20 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {profile.gallery.map((photo, index) => (
+                  <div
+                    key={index}
+                    className="w-full profile-image overflow-hidden"
+                  >
+                    <Image
+                      src={photo}
+                      width={2280}
+                      height={2784}
+                      priority={true}
+                      alt={`${profile.name}'s gallery - ${index + 1}`}
+                      className="w-full h-full object-cover aspect-[570/696] rounded-sm _img_"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

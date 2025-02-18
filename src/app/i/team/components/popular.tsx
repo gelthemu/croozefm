@@ -15,9 +15,9 @@ export default function PopularProfiles() {
           <Link
             href={`/i/${profile.id}`}
             key={profile.id}
-            className="relative group snap-start flex flex-col bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
+            className="relative group snap-start bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
           >
-            <div className="w-full aspect-[16/9] bg-profile-image bg-cover bg-center">
+            <div className="w-full profile-image overflow-hidden">
               <Image
                 src={profile.imageLink}
                 alt={profile.name}
@@ -30,9 +30,13 @@ export default function PopularProfiles() {
             <div className="absolute top-2 right-2 text-light/50">
               <Flame size={16} />
             </div>
-            <div className="p-3.5 flex-grow text-left opacity-80">
-              <h3 className="font-semibold mb-1">{profile.name}</h3>
-              <p className="text-sm font-light">{profile.showHosted}</p>
+            <div className="p-3.5 absolute w-full bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
+              <h3 className="text-light font-bold mb-1 line-clamp-1 opacity-80">
+                {profile.name}
+              </h3>{" "}
+              <p className="text-light/60 text-sm font-light line-clamp-1 opacity-80">
+                {profile.showHosted}
+              </p>
             </div>
           </Link>
         ))}
