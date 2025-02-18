@@ -9,16 +9,12 @@ import SocialLinks from "../team/components/socials";
 import { Metadata } from "next";
 import "@/app/styles/md/profile.css";
 
-interface ProfilePageProps {
-  params: {
-    profile: string;
-  };
-}
-
 export async function generateMetadata({
   params,
-}: ProfilePageProps): Promise<Metadata> {
-  const profile = await getProfileData(params.profile);
+}: {
+  params: Promise<{ profile: string }>;
+}): Promise<Metadata> {
+  const profile = await getProfileData((await params).profile);
 
   if (!profile) {
     return {
@@ -70,8 +66,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProfilePage({ params }: ProfilePageProps) {
-  const profile = await getProfileData(params.profile);
+export default async function ProfilePage({
+  params,
+}: {
+  params: Promise<{ profile: string }>;
+}) {
+  const profile = await getProfileData((await params).profile);
 
   if (!profile) {
     return notFound();
