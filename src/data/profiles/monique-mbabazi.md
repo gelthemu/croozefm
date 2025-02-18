@@ -1,17 +1,23 @@
 ---
 name: "Monique Mbabazi"
 show-hosted: "The Morning Addiction"
-image-link: "https://croozefm.com/wp-content/uploads/2025/01/monique-570x696.jpg"
+image-link: "https://croozefm.blob.core.windows.net/images/monique-mbabazi.png"
 isPopular: true
 social-links:
   x: "https://x.com/23Mbabazi"
   fb: "https://www.facebook.com/monicki.minaj"
   insta: "https://www.instagram.com/monica_mbabazi_/"
+gallery:
+  [
+    "https://croozefm.blob.core.windows.net/images/monique-mbabazi-1.jpg",
+    "https://croozefm.blob.core.windows.net/images/monique-mbabazi-2.jpg",
+  ]
 ---
 
-Monique Mbabazi is a dynamic Ugandan media professional with a wealth of experience in both television and radio. Currently, I serve as the Chief News Editor with English news at 4:00 PM and host of The Morning Addiction on 91.2 Crooze FM, airing weekdays from 6:00 AM to 10:00 AM.
+Monique Mbabazi is a lively Ugandan media star known for her work in both TV and radio. She's the Chief News Editor at 91.2 Crooze FM, where she delivers the English news at 4:00 PM and hosts "The Morning Addiction" from 6:00 AM to 10:00 AM on weekdays.
 
-In addition to my radio work, I am a versatile voice-over artist, emcee, content writer, and creative. My career has spanned several prestigious media platforms, including Top Media Consortium, STV, and BTM TV. I’ve also contributed to Campus Bee and other prominent outlets.
-Armed with a Bachelor’s Degree in Journalism and Mass Communication from Ndejje University, my expertise covers radio and TV production, public speaking, scriptwriting, and social media management.
+Besides her radio gigs, Monique is a talented voice-over artist, emcee, content writer, and creative mind. She's worked with big names like Top Media Consortium, STV, and BTM TV, and has also been involved with Campus Bee.
 
-Beyond my professional skills, I’m known for being friendly, joyful, and full of energy. I bring a vibrant, high-energy presence wherever I go, so miss me at your own risk!
+Monique graduated with a Bachelor’s Degree in Journalism and Mass Communication from Ndejje University. She's skilled in radio and TV production, public speaking, scriptwriting, and managing social media.
+
+Known for her friendly, joyful, and energetic personality, Monique lights up any room she enters. You wouldn't want to miss out on her vibrant energy!

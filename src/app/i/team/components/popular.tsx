@@ -17,7 +17,7 @@ export default function PopularProfiles() {
             key={profile.id}
             className="relative group snap-start flex flex-col bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
           >
-            <div className="h-80 w-full overflow-hidden">
+            <div className="w-full aspect-[16/9] bg-profile-image bg-cover bg-center">
               <Image
                 src={profile.imageLink}
                 alt={profile.name}

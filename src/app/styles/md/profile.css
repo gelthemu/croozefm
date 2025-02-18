@@ -30,3 +30,7 @@
 .prose video {
   @apply w-full aspect-auto;
 }
+
+.prose ul {
+  @apply list-disc space-y-2;
+}

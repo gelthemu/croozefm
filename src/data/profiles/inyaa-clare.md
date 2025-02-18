@@ -1,15 +1,22 @@
 ---
 name: "Inyaa Clare"
 show-hosted: "The Life Style Show"
-image-link: "https://croozefm.com/wp-content/uploads/2024/09/Inyaa-clare-570x696.jpg"
+image-link: "https://croozefm.blob.core.windows.net/images/inyaa-clare.png"
 isPopular: true
 social-links:
   x: "https://x.com/inyaaclare"
   insta: "https://www.instagram.com/inyaaclara/"
+gallery:
+  [
+    "https://croozefm.blob.core.windows.net/images/inyaa-clare-1.jpg",
+    "https://croozefm.blob.core.windows.net/images/inyaa-clare-2.jpg",
+  ]
 ---
 
-Inyaa is a charismatic radio host and seasoned voice-over artist with over 10 years of experience in informing, entertaining, and inspiring her audience. Her vibrant personality and engaging style have made her a beloved voice on the airwaves.
+Inyaa Clare is the charismatic voice that lights up the airwaves on Crooze FM. With over a decade of experience, she's not just a radio host but a seasoned voice-over artist who has mastered the art of informing, entertaining, and inspiring her audience.
 
-She currently hosts The Lifestyle Show from Monday to Friday, 11:00 AM to 2:00 PM, where she connects with listeners through lively conversations, trending topics, and feel-good music. On Sundays, she brings warmth and soul to Sunday Love from 9:00 AM to 12:00 PM, offering the perfect weekend vibes.
+Every weekday, from 11 AM to 2 PM, Inyaa takes the helm of "The Lifestyle Show," where she connects with her audience through dynamic discussions, the latest trends, and a playlist of feel-good music that keeps you tuned in.
 
-Inyaa’s dedication to her craft and her ability to connect with listeners keep her at the forefront of radio entertainment.
+But Inyaa's magic doesn't stop there. On Sundays, from 9 AM to 12 PM, she hosts "Sunday Love," transforming your morning into a soulful journey with music and stories that warm the heart. It's the perfect way to wrap up your weekend, leaving you with a smile and a sense of connection.
+
+Inyaa's commitment to her craft is evident in every show. Her knack for creating an inclusive, lively atmosphere makes her not just a voice on the radio, but a friend in your living room or car.

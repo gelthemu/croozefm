@@ -1,14 +1,23 @@
 ---
 name: "Abou Champion"
-show-hosted: "Sports Bwino"
-image-link: "https://croozefm.com/wp-content/uploads/2024/09/abou-champion-570x696.jpg"
+show-hosted: "The Weekly Sports Roundup"
+image-link: "https://croozefm.blob.core.windows.net/images/da-problem-child.png"
 isPopular: true
 social-links:
   x: "https://x.com/AbouChampion8"
   fb: "https://www.facebook.com/rutaro.Absolom"
   insta: "https://www.instagram.com/championabou/"
+gallery:
+  [
+    "https://croozefm.blob.core.windows.net/images/abou-champion-1.jpg",
+    "https://croozefm.blob.core.windows.net/images/da-abou-champion-2.jpg",
+  ]
 ---
 
-Abou Champion is a seasoned radio presenter and sports pundit with over a decade of experience in the industry. Renowned for his witty humour and detailed analysis, Abou’s expertise spans football, basketball, tennis, rugby, and athletics, making him one of the most versatile figures in sports media.
+Abou Champion is a super cool radio host and sports expert with tons of experience. He knows everything about football, basketball, tennis, rugby, and athletics! His shows are the best:
 
-He hosts Sports Bwino every Monday to Thursday from 10:00 PM to midnight, alongside Ronald Rosh and James MunaMasaka, delivering expert commentary and lively debate. He also collaborates with them on Ekisaawe and teams up with Derrick for The Weekly Sports Round-Up from 12:00 PM to 2:00 PM. Whether breaking down key moments or delivering play-by-play coverage, Abou brings a unique blend of insight and entertainment to every broadcast, keeping fans engaged and informed.
+- Sports Bwino with Ronald Rosh and James MunaMasaka, every Monday to Thursday from 10 PM to midnight, where they chat about all things sports with lots of laughs and smart talk.
+- Ekisaawe, where he teams up with the same awesome crew every match-day.
+- The Weekly Sports Round-Up with Derrick, on Saturdays, keeping you updated on all the sports news.
+
+Abou makes sports fun and easy to understand, so you'll never want to miss his shows!

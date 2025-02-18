@@ -27,6 +27,10 @@ const config: Config = {
           "sans-serif",
         ],
       },
+      backgroundImage: {
+        "profile-image":
+          "url('https://croozefm.geltaverse.com/assets/bg-image-uehdsj843%74%67udhw9%700.jpg')",
+      },
     },
   },
   plugins: [],
