@@ -1,0 +1,32 @@
+@tailwind base;
+
+@layer base {
+  ._img_ {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+.prose p {
+  @apply my-6;
+}
+
+.prose strong {
+  @apply font-normal;
+}
+
+.prose a {
+  @apply font-normal hover:underline;
+}
+
+.prose img {
+  @apply w-full aspect-auto _img_;
+}
+
+.prose video {
+  @apply w-full aspect-auto;
+}

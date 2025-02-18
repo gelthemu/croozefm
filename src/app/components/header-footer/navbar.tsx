@@ -11,6 +11,7 @@ import SocialLinks from "../tiny/socials";
 const navLinks = [
   { id: "home", name: "Home", href: "/" },
   { id: "shows", name: "Shows", href: "/c/shows" },
+  { id: "presenters", name: "Presenters", href: "/i/team" },
   { id: "news-archive", name: "News-Archive", href: "/c/news-archive" },
   { id: "gallery", name: "Gallery", href: "/c/gallery" },
 ];
@@ -78,7 +79,7 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
-              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-md flex items-center space-x-1 transition-all duration-500 ${
+              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
                 isMiniPlayerOpen || pathname === "/"
                   ? "opacity-0 pointer-events-none"
                   : "opacity-100"
@@ -117,7 +118,7 @@ export default function Navbar() {
             } absolute top-full left-0 md:static border-2 border-dark/20 dark:border-light/10 md:border-0 backdrop-blur-md bg-dark/80 dark:bg-red/40 md:bg-transparent rounded-b-md transition-all duration-300`}
             id="navbar-absolute"
           >
-            <ul className="w-full mx-auto md:max-w-none md:mx-0 flex flex-col space-y-4 md:divide-y-0 md:space-y-0 md:flex-row md:space-x-4 lg:space-x-6 rtl:space-x-reverse p-4 md:p-0 font-medium">
+            <ul className="w-full mx-auto md:max-w-none md:mx-0 flex flex-col space-y-4 md:divide-y-0 md:space-y-0 md:flex-row md:space-x-3 lg:space-x-6 rtl:space-x-reverse p-4 md:p-0 font-medium">
               {navLinks.map((link) => (
                 <li
                   key={link.name}

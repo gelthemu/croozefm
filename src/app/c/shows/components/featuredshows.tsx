@@ -13,7 +13,7 @@ export const FeaturedShows = () => {
           <ShowCard key={show.id} show={show} />
         ))}
       </div>
-      <div className="flex items-center justify-center md:justify-end mx-auto mt-5 md:mt-2.5 p-2">
+      <div className="flex items-center justify-end mx-auto my-5 md:mt-2.5 p-2">
         <ViewAllBtn href="/c/shows" text="View All Shows" />
       </div>
     </>

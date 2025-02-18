@@ -66,7 +66,7 @@ export default async function ShowPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-14 text-dark dark:text-light">
+    <div className="w-full max-w-screen-lg mx-auto min-h-screen px-4 py-10 overflow-hidden">
       <div className="mb-8">
         <BackBtn />
       </div>

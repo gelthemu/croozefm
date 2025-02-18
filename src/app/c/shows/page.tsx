@@ -1,5 +1,4 @@
-import { shows } from "@/data/shows";
-import { ShowCard } from "./components/showcard";
+import ShowsPagination from "./components/pagination";
 
 export const metadata = {
   title: "Shows - 91.2 Crooze FM",
@@ -9,19 +8,15 @@ export const metadata = {
 
 export default function ShowsPage() {
   return (
-    <div className="container mx-auto px-4 py-16 text-center text-dark dark:text-light min-h-screen overflow-hidden">
+    <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">
       <div className="mb-8 flex flex-col items-center justify-center pb-4 border-b border-dark/40 dark:border-light/20">
-        <h1 className="text-3xl font-apex relative mb-4 _912cfm">Shows</h1>
+        <h1 className="text-3xl relative mb-4 _912cfm">Shows</h1>
         <p className="text-sm">
           Click to view in detail. Some shows have ad-free recordings you might
           enjoy.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {shows.map((show) => (
-          <ShowCard key={show.id} show={show} />
-        ))}
-      </div>
+      <ShowsPagination />
     </div>
   );
 }
