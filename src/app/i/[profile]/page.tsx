@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import BackBtn from "@/app/components/tiny/backbtn";
@@ -111,7 +112,24 @@ export default async function ProfilePage({
             </div>
 
             <div className="prose prose-lg max-w-none mt-5">
-              <Markdown>{profile.description}</Markdown>
+              <Markdown
+                components={{
+                  a: ({ href, children }) =>
+                    href?.startsWith("/") ? (
+                      <Link href={href}>{children}</Link>
+                    ) : (
+                      <a
+                        href={href ?? "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {children}
+                      </a>
+                    ),
+                }}
+              >
+                {profile.description}
+              </Markdown>
             </div>
 
             {profile.gallery?.length > 0 && (
