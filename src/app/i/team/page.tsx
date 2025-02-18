@@ -1,6 +1,7 @@
 import React from "react";
 import { getAllProfiles } from "@/lib/profiles";
 import PresenterCard from "./components/profile-card";
+import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export const metadata = {
   title: "Our Team - 91.2 Crooze FM",
@@ -10,6 +11,8 @@ export const metadata = {
 
 export default async function PresentersPage() {
   const profiles = await getAllProfiles();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const allProfiles = useShuffledArray(profiles);
 
   return (
     <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">
@@ -22,11 +25,9 @@ export default async function PresentersPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 text-left">
-        {profiles
-          .sort(() => Math.random() - 0.5)
-          .map((profile) => (
-            <PresenterCard key={profile.id} profile={profile} />
-          ))}
+        {allProfiles.map((profile) => (
+          <PresenterCard key={profile.id} profile={profile} />
+        ))}
       </div>
     </div>
   );

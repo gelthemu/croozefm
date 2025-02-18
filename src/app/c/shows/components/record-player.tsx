@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { toast } from "react-toastify";
 import type { Show } from "@/types/shows";
 import AudioManager from "@/app/components/tiny/audiomanager";
+import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
 
 interface RecordPlayerProps {
@@ -15,6 +16,7 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [progress, setProgress] = useState<number[]>([]);
   const audioManager = useRef(AudioManager.getInstance());
+  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
 
   useEffect(() => {
     const length = show.recordings?.length || 0;
@@ -74,6 +76,16 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
     };
   }, [show.recordings]);
 
+  useEffect(() => {
+    if (isMiniPlayerOpen && playingIndex !== null) {
+      const audio = audioRefs.current[playingIndex];
+      if (audio) {
+        audio.pause();
+        setPlayingIndex(null);
+      }
+    }
+  }, [isMiniPlayerOpen, playingIndex]);
+
   const handlePlay = (index: number) => {
     const audio = audioRefs.current[index];
     if (!audio) return;
@@ -81,8 +93,21 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
     if (playingIndex === index) {
       audio.pause();
       audioManager.current.pause();
+      setPlayingIndex(null);
     } else {
+      if (isMiniPlayerOpen) {
+        setIsMiniPlayerOpen(false);
+      }
+
+      if (playingIndex !== null) {
+        const currentAudio = audioRefs.current[playingIndex];
+        if (currentAudio) {
+          currentAudio.pause();
+        }
+      }
+
       audioManager.current.play(audio);
+      setPlayingIndex(index);
     }
   };
 
@@ -122,8 +147,10 @@ const RecordPlayer = ({ show }: RecordPlayerProps) => {
 
                 <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
                   <button
-                    aria-label={playingIndex ? "Pause" : "Play"}
-                    onClick={() => handlePlay(index)}
+                    aria-label={playingIndex === index ? "Pause" : "Play"}
+                    onClick={() => {
+                      handlePlay(index);
+                    }}
                     className="px-4 py-2 transition-all duration-200 rounded-sm"
                   >
                     {playingIndex === index ? (

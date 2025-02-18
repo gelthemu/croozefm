@@ -4,9 +4,11 @@ import Link from "next/link";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getPopularProfiles } from "@/lib/profiles";
 import { Flame } from "lucide-react";
+import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export default function PopularProfiles() {
-  const popularProfiles = getPopularProfiles().sort(() => Math.random() - 0.5);
+  const profiles = getPopularProfiles();
+  const popularProfiles = fisherYatesShuffle(profiles);
 
   return (
     <>

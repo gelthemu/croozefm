@@ -2,14 +2,16 @@ import React from "react";
 import ShowCard from "./showcard";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { shows } from "@/data/shows";
+import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export const FeaturedShows = () => {
   const featuredShows = shows.filter((show) => show.isFeatured);
+  const popularShows = fisherYatesShuffle(featuredShows);
 
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 justify-center items-center">
-        {featuredShows.map((show) => (
+        {popularShows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}
       </div>
