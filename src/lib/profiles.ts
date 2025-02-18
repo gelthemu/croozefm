@@ -41,6 +41,9 @@ export function getProfileData(id: string): PresenterProfile {
       fb: matterResult.data["social-links"]?.fb,
       insta: matterResult.data["social-links"]?.insta,
     },
+    gallery: Array.isArray(matterResult.data.gallery)
+      ? matterResult.data.gallery
+      : [],
   };
 
   return {

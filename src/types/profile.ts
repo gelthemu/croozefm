@@ -12,4 +12,5 @@ export interface PresenterProfile {
   isPopular: boolean;
   socialLinks: SocialLinks;
   description: string;
+  gallery: string[];
 }

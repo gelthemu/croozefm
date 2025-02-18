@@ -30,8 +30,8 @@ export default function PopularProfiles() {
             <div className="absolute top-2 right-2 text-light/50">
               <Flame size={16} />
             </div>
-            <div className="p-3.5 flex-grow text-left">
-              <h3 className="font-bold mb-1">{profile.name}</h3>
+            <div className="p-3.5 flex-grow text-left opacity-80">
+              <h3 className="font-semibold mb-1">{profile.name}</h3>
               <p className="text-sm font-light">{profile.showHosted}</p>
             </div>
           </Link>
@@ -39,7 +39,7 @@ export default function PopularProfiles() {
       </div>
 
       <div className="flex items-center justify-end mx-auto my-5 md:mt-2.5 p-2">
-        <ViewAllBtn href="/i/team" text="View The Entire Team" />
+        <ViewAllBtn href="/i/team" text="Meet The Entire Team" />
       </div>
     </>
   );

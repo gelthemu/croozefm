@@ -7,6 +7,7 @@ social-links:
   x: "https://x.com/deejaystingerug"
   fb: "https://www.facebook.com/DJSTINGER"
   insta: "https://www.instagram.com/stinger.dj/"
+gallery: ["https://croozefm.com/wp-content/uploads/2025/01/dj-stinger-570x696.jpg", "https://croozefm.com/wp-content/uploads/2025/01/dj-stinger-570x696.jpg"]
 ---
 
 DJ Stinger is a rising star in both the radio and club scenes, known for his high-energy sets and crowd-pleasing playlists. He spins a mix of chart-topping hits and classic bangers, creating an electric atmosphere wherever he performs.

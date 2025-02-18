@@ -2,7 +2,7 @@
 name: "Derrick Ashiimwe"
 show-hosted: "The Morning Addiction"
 image-link: "https://croozefm.com/wp-content/uploads/2024/04/Derrick-570x696.jpg"
-isPopular: false
+isPopular: true
 social-links:
   x: "https://x.com/DerrickAshimwe"
 ---

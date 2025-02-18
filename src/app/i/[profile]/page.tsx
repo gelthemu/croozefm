@@ -83,9 +83,9 @@ export default async function ProfilePage({
         <BackBtn />
       </div>
 
-      <div className="w-full overflow-hidden relative">
+      <div className="w-full overflow-hidden">
         <div className="w-full sm:w-[90%] mx-auto lg:flex">
-          <div className="relative h-full w-[90%] sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%]">
+          <div className="h-full w-[90%] sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20">
             <Image
               src={profile.imageLink}
               alt={profile.name}
@@ -113,12 +113,27 @@ export default async function ProfilePage({
             <div className="prose prose-lg max-w-none mt-5">
               <Markdown>{profile.description}</Markdown>
             </div>
+
+            <div className="flex-grow p-2 pt-10 border-t border-gray/20 dark:border-light/20 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {profile.gallery.map((photo, index) => (
+                <div key={index} className="aspect-w-1 aspect-h-1">
+                  <Image
+                    src={photo}
+                    width={2280}
+                    height={2784}
+                    priority={true}
+                    alt={`${profile.name}'s gallery item ${index + 1}`}
+                    className="w-full h-full object-cover aspect-[570/696] rounded-sm _img_"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <div className="flex items-center justify-center lg:justify-end mx-auto mt-10 lg:mr-10 px-6 py-2">
-        <ViewAllBtn href="/i/team" text="View The Entire Team" />
+        <ViewAllBtn href="/i/team" text="Meet The Entire Team" />
       </div>
     </div>
   );

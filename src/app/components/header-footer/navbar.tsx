@@ -22,10 +22,18 @@ export default function Navbar() {
   const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
 
   const isLinkActive = (href: string) => {
+    if (href === "/i/team" && pathname.startsWith("/i/")) {
+      return true;
+    }
     if (href === "/") {
       const matchesOtherPaths = navLinks
         .filter((link) => link.href !== "/")
-        .some((link) => pathname.startsWith(link.href));
+        .some((link) => {
+          if (pathname.startsWith("/i/") && link.href === "/i/team") {
+            return true;
+          }
+          return pathname.startsWith(link.href);
+        });
       return pathname === "/" || !matchesOtherPaths;
     }
     return pathname.startsWith(href);
