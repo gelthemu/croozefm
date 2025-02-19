@@ -9,17 +9,25 @@ type MiniPlayerContextType = {
   setIsStreamActive: (value: boolean) => void;
   isAudioPlaying: boolean;
   setIsAudioPlaying: (value: boolean) => void;
+  currentSource: string | undefined;
+  setCurrentSource: (source: string | undefined) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
 };
 
-const MiniPlayerContext = createContext<MiniPlayerContextType | undefined>(undefined);
+const MiniPlayerContext = createContext<MiniPlayerContextType | undefined>(
+  undefined
+);
 
-export function MiniPlayerProvider({ children }: { children: React.ReactNode }) {
+export function MiniPlayerProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isMiniPlayerOpen, setIsMiniPlayerOpen] = useState(false);
   const [isStreamActive, setIsStreamActive] = useState(true);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [currentSource, setCurrentSource] = useState<string | undefined>();
   const audioRef = useRef<HTMLAudioElement>(null);
-
 
   return (
     <MiniPlayerContext.Provider
@@ -30,6 +38,8 @@ export function MiniPlayerProvider({ children }: { children: React.ReactNode }) 
         setIsStreamActive,
         isAudioPlaying,
         setIsAudioPlaying,
+        currentSource,
+        setCurrentSource,
         audioRef,
       }}
     >

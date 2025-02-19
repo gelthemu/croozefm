@@ -39,23 +39,35 @@ const SocialLinks = () => {
   ];
 
   return (
-    <div className="relative flex justify-center items-center space-x-1 text-khaki/80">
-      {socialLinks.map((social, index) => (
-        <div key={index} className="flex justify-center items-center">
-          <a
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="focus:outline-none rounded-sm bg-light/10 hover:bg-red/10 transition-colors duration-300"
-            aria-label={social.label}
-          >
-            <div className="p-2 cursor-pointer text-light/80 hover:text-light/100 transition-colors duration-300">
-              {social.icon}
-            </div>
-          </a>
+    <>
+      <div className="text-light/80 flex flex-col-reverse items-center justify-center">
+        <div className="text-sm mt-4 py-2 border-y border-light/10">
+          <span>
+            Call Us:{" "}
+            <strong className="font-medium">
+              0752-912912{" • "}0780-912910
+            </strong>
+          </span>
         </div>
-      ))}
-    </div>
+        <div className="relative flex justify-center items-center space-x-1 text-khaki/80">
+          {socialLinks.map((social, index) => (
+            <div key={index} className="flex justify-center items-center">
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus:outline-none rounded-sm bg-light/10 hover:bg-red/10 transition-colors duration-300"
+                aria-label={social.label}
+              >
+                <div className="p-2 cursor-pointer text-light/80 hover:text-light/100 transition-colors duration-300">
+                  {social.icon}
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 

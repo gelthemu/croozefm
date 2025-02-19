@@ -1,4 +1,5 @@
 "use client";
+
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { useEffect, useCallback } from "react";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
@@ -9,9 +10,11 @@ export default function MiniPlayer() {
     isStreamActive,
     isAudioPlaying,
     audioRef,
+    currentSource,
     setIsMiniPlayerOpen,
     setIsStreamActive,
     setIsAudioPlaying,
+    setCurrentSource,
   } = useMiniPlayer();
 
   const handleAudioError = useCallback(() => {
@@ -47,7 +50,7 @@ export default function MiniPlayer() {
         });
     } else {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+      // audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
       setIsStreamActive(true);
     }
@@ -61,13 +64,17 @@ export default function MiniPlayer() {
     setIsAudioPlaying(false);
     setIsStreamActive(true);
     setIsMiniPlayerOpen(false);
+    setCurrentSource(undefined);
   };
 
   useEffect(() => {
-    if (isMiniPlayerOpen) {
+    if (isMiniPlayerOpen && currentSource) {
+      if (audioRef.current) {
+        audioRef.current.src = currentSource;
+      }
       handleAudioPlay();
     }
-  }, [isMiniPlayerOpen, handleAudioPlay]);
+  }, [isMiniPlayerOpen, currentSource, handleAudioPlay, audioRef]);
 
   return (
     <div
@@ -107,18 +114,14 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
-        <div className="text-left text-sm md:text-xs md:font-light px-1 pt-1.5 border-t border-light/40">
+        <div className="text-light/80 text-left text-sm md:text-xs md:font-light px-1 pt-1.5 border-t border-light/40">
           <span>
-            Call Us:{" "}
-            <strong className="font-medium">
-              0752-912912{" • "}0780-912910
+            <strong className="font-medium line-clamp-1">
+              Great Music. Great Friends.
             </strong>
           </span>
         </div>
-        <audio
-          ref={audioRef}
-          src="https://fmradiohub.in/play?url=http://15.235.80.190/vyxwdk08apxtv"
-        />
+        <audio ref={audioRef} src={currentSource} preload="metadata" />
       </div>
     </div>
   );

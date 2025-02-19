@@ -1,3 +1,5 @@
+// C:\Users\gelth\Desktop\Next\croozefm\src\app\c\shows\components\record-player.tsx
+
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";

@@ -32,7 +32,7 @@ export default function Home() {
               <h2 className="w-fit text-2xl relative mb-2 _912cfm">
                 Meet Our Team
               </h2>
-              <p className="mb-4">Click to view in detail.</p>
+              <p className="mb-4">Swipe, or click to view in detail.</p>
             </div>
             <PopularProfiles />
           </section>

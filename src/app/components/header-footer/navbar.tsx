@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, ArrowDownRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { usePathname } from "next/navigation";
 import SocialLinks from "../tiny/socials";
+import { NavStreamBtn } from "../stream/stream-btn";
 
 const navLinks = [
   { id: "home", name: "Home", href: "/" },
@@ -19,7 +20,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { isMiniPlayerOpen, setIsMiniPlayerOpen } = useMiniPlayer();
+  useMiniPlayer();
 
   const isLinkActive = (href: string) => {
     if (href === "/i/team" && pathname.startsWith("/i/")) {
@@ -86,26 +87,7 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button
-              className={`text-light text-sm font-semibold px-2.5 py-1.5 rounded-sm flex items-center space-x-1 transition-all duration-500 ${
-                isMiniPlayerOpen || pathname === "/"
-                  ? "opacity-0 pointer-events-none"
-                  : "opacity-100"
-              } border border-light/40 _912cfm`}
-              style={{
-                backgroundImage:
-                  "linear-gradient(to right,rgba(40, 40, 40, 0.15) 0%,rgb(139, 18, 18) 50%, rgba(40, 40, 40, 0.15) 100%)",
-              }}
-              onClick={() => {
-                setIsOpen(false);
-                setTimeout(() => {
-                  setIsMiniPlayerOpen(true);
-                }, 200);
-              }}
-              disabled={isMiniPlayerOpen}
-            >
-              <span>Stream Live</span> <ArrowDownRight className="w-4 h-4" />
-            </button>
+            <NavStreamBtn setIsOpen={setIsOpen} />
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
