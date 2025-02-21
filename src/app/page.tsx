@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Hero from "./components/header-footer/hero";
 import OnAir from "./components/stream/on-air";
+import ImmediateRelease from "./components/announcement/for-immediate-release";
 import FeaturedShows from "./c/shows/components/featuredshows";
 import PopularProfiles from "./i/team/components/popular";
 
@@ -16,8 +17,12 @@ export default function Home() {
       <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 overflow-hidden">
         <div className="container mx-auto pt-16 text-center min-h-screen">
           <Hero />
+
           <OnAir />
-          <section className="p-2 border-b border-dark/40 dark:border-light/40">
+
+          <ImmediateRelease />
+
+          <section className="p-2 mt-8 border-b border-dark/20 dark:border-light/20">
             <div className="flex flex-col justify-between text-left">
               <h2 className="w-fit text-2xl relative mb-2 _912cfm">
                 Popular Shows
@@ -27,7 +32,7 @@ export default function Home() {
             <FeaturedShows />
           </section>
 
-          <section className="p-2 mt-8">
+          <section className="p-2 mt-8 border-b border-dark/20 dark:border-light/20">
             <div className="flex flex-col justify-between text-left">
               <h2 className="w-fit text-2xl relative mb-2 _912cfm">
                 Meet Our Team
@@ -38,7 +43,7 @@ export default function Home() {
           </section>
         </div>
 
-        <div className="my-8 p-4 w-full border border-dark/20 dark:border-light/10 text-center">
+        <div className="my-8 p-4 w-full text-center">
           THIS SITE IS UNDER CONSTRUCTION
         </div>
       </main>

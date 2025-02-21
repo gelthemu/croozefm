@@ -39,7 +39,7 @@ const schedules: Record<string, Show[]> = {
       end: 13,
     },
     {
-      name: "The Slowdown Hour",
+      name: "The Slowdown Hour on the Lifestyle Show",
       img: "https://croozefm.blob.core.windows.net/images/slowdown-hour.png",
       start: 13,
       end: 14,
@@ -69,7 +69,7 @@ const schedules: Record<string, Show[]> = {
       end: 19,
     },
     {
-      name: "The Hits Selector",
+      name: "The Hits Selector Request Show",
       img: "https://croozefm.blob.core.windows.net/images/hits-selector.png",
       start: 20,
       end: 22,
@@ -133,7 +133,7 @@ const schedules: Record<string, Show[]> = {
       end: 11,
     },
     {
-      name: "The Weekly Sports Roundup Show",
+      name: "The Weekly Sports Roundup",
       img: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
       start: 12,
       end: 14,
@@ -187,15 +187,10 @@ export const getUgandaTime = (): Date => {
 export const getCurrentShow = (): CurrentShow => {
   const ugandaTime = getUgandaTime();
   const day = ugandaTime.getDay();
-  const hour = ugandaTime.getHours();
 
   let currentSchedule: Show[];
   if (day === 5) {
-    if ((hour >= 14 && hour < 17) || (hour >= 20 && hour < 24)) {
-      currentSchedule = schedules.friday;
-    } else {
-      currentSchedule = schedules.regular;
-    }
+    currentSchedule = schedules.friday;
   } else if (day === 6) {
     currentSchedule = schedules.saturday;
   } else if (day === 0) {
@@ -221,14 +216,14 @@ export const getCurrentShow = (): CurrentShow => {
 
   return {
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "Now Playing: Great Music, for Great Friends",
+    name: "NP: Great Music, for Great Friends",
   };
 };
 
 export const useCurrentShow = () => {
   const [currentShow, setCurrentShow] = useState<CurrentShow>({
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "Now Playing: Great Music, for Great Friends",
+    name: "NP: Great Music, for Great Friends",
   });
 
   useEffect(() => {

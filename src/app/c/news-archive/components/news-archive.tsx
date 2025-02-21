@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { News } from "@/types/news";
 import { news } from "@/data/news";
 import Image from "next/image";
 import { toast } from "react-toastify";
-import AudioManager from "@/app/components/tiny/audiomanager";
+import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
 
 export default function NewsArchive() {
@@ -15,63 +15,35 @@ export default function NewsArchive() {
   );
 
   const [selectedNews, setSelectedNews] = useState<News>(sortedNews[0]);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const audioManager = useRef(AudioManager.getInstance());
+  const {
+    setIsMiniPlayerOpen,
+    setCurrentSource,
+    setTagLine,
+    setIsStreaming,
+    currentSource,
+    isAudioPlaying,
+    isMiniPlayerOpen,
+  } = useMiniPlayer();
 
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    setProgress(0);
-    audio.currentTime = 0;
-
-    if (!isInitialLoad) {
-      audioManager.current.play(audio);
-      setIsPlaying(true);
-    }
-
-    const handleTimeUpdate = () => {
-      const progressPercent = (audio.currentTime / audio.duration) * 100;
-      setProgress(progressPercent);
-    };
-
-    const handleEnded = () => {
-      setIsPlaying(false);
-      setProgress(0);
-    };
-
-    audio.addEventListener("timeupdate", handleTimeUpdate);
-    audio.addEventListener("ended", handleEnded);
-
-    const unsubscribe = audioManager.current.addListener((currentAudio) => {
-      setIsPlaying(currentAudio === audio);
-    });
-
-    return () => {
-      audio.removeEventListener("timeupdate", handleTimeUpdate);
-      audio.removeEventListener("ended", handleEnded);
-      unsubscribe();
-    };
-  }, [selectedNews, isInitialLoad]);
+  const isPlaying =
+    isMiniPlayerOpen && isAudioPlaying && currentSource === selectedNews.audio;
 
   const handlePlay = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-      audioManager.current.pause();
-    } else {
-      audioManager.current.play(audio);
-    }
+    setCurrentSource(selectedNews.audio);
+    setTagLine(`#CroozeFMNews - ${selectedNews.anchor}`);
+    setIsStreaming(false);
+    setIsMiniPlayerOpen(true);
   };
 
   const handleNewsSelect = (item: News) => {
-    setIsInitialLoad(false);
     setSelectedNews(item);
+
+    if (item.audio !== currentSource) {
+      setCurrentSource(item.audio);
+      setTagLine(`#CroozeFMNews - ${item.anchor}`);
+      setIsStreaming(false);
+      setIsMiniPlayerOpen(true);
+    }
   };
 
   return (
@@ -102,6 +74,7 @@ export default function NewsArchive() {
                   : "border-2 border-red/80"
               }`}
             >
+              {" "}
               <Image
                 src={selectedNews.profileImg}
                 alt={selectedNews.anchor}
@@ -120,9 +93,22 @@ export default function NewsArchive() {
 
         <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
           <button
-            aria-label={isPlaying ? "Pause" : "Play"}
+            aria-label={
+              isPlaying
+                ? "Currently Playing in Miniplayer"
+                : "Play in Miniplayer"
+            }
             onClick={handlePlay}
-            className="px-4 py-2 transition-all duration-200 rounded-sm"
+            className={`px-4 py-2 transition-all duration-200 rounded-sm ${
+              (isMiniPlayerOpen || isPlaying) &&
+              currentSource === selectedNews.audio
+                ? "text-red/80"
+                : ""
+            }`}
+            disabled={
+              (isMiniPlayerOpen || isPlaying) &&
+              currentSource === selectedNews.audio
+            }
           >
             {isPlaying ? (
               <>
@@ -136,7 +122,6 @@ export default function NewsArchive() {
               </>
             )}
           </button>
-
           <button
             aria-label="Download"
             onClick={() =>
@@ -150,19 +135,7 @@ export default function NewsArchive() {
             <span className="sr-only">Download</span>
             <i className="fa-solid fa-download"></i>
           </button>
-
-          <div className="absolute bottom-0 left-2 right-2 h-1">
-            <div
-              className="bg-red/60 w-full h-full"
-              style={{
-                width: `${progress}%`,
-                opacity: progress > 0 ? 1 : 0,
-              }}
-            />
-          </div>
         </div>
-
-        <audio ref={audioRef} src={selectedNews.audio} preload="metadata" />
       </div>
 
       <div className="bg-gray/20 dark:bg-light/10 backdrop-blur-md">
@@ -173,41 +146,52 @@ export default function NewsArchive() {
       </div>
 
       <div className="h-[40vh] md:h-[60vh] overflow-x-hidden overflow-y-scroll">
-        {sortedNews.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => handleNewsSelect(item)}
-            disabled={selectedNews.id === item.id}
-            className={`w-full text-left p-4 transition-all duration-200 ${
-              selectedNews.id === item.id
-                ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60"
-                : ""
-            } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/30 dark:border-b-dark/60`}
-          >
-            <div>
-              <div
-                className={`w-fit mb-1.5 text-light/80 bg-red/80 dark:bg-red/60 py-0 px-1.5 ${
-                  sortedNews.indexOf(item) === 0 ? "show" : "hidden"
-                }`}
-              >
-                <small>Recently Archived</small>
+        {sortedNews.map((item) => {
+          const isItemPlaying =
+            isMiniPlayerOpen && isAudioPlaying && currentSource === item.audio;
+
+          return (
+            <button
+              key={item.id}
+              onClick={() => handleNewsSelect(item)}
+              disabled={selectedNews.id === item.id}
+              className={`w-full text-left p-4 transition-all duration-200 ${
+                selectedNews.id === item.id
+                  ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60"
+                  : ""
+              } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/30 dark:border-b-dark/60`}
+            >
+              <div>
+                <div
+                  className={`w-fit mb-1.5 text-light/80 bg-red/80 dark:bg-red/60 py-0 px-1.5 ${
+                    sortedNews.indexOf(item) === 0 ? "show" : "hidden"
+                  }`}
+                >
+                  <small>Recently Archived</small>
+                </div>
+                <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
+                  <span className="line-clamp-2 md:line-clamp-1">
+                    {item.headline}
+                  </span>
+                </div>
+                <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/20">
+                  <small className="flex-1 flex flex-row items-center line-clamp-1">
+                    <span
+                      className={`line-clamp-1 ${
+                        isItemPlaying ? "text-red/80" : ""
+                      }`}
+                    >
+                      {item.anchor}
+                    </span>
+                  </small>
+                  <small>
+                    <FormatDate date={item.aired.date} />
+                  </small>
+                </div>
               </div>
-              <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
-                <span className="line-clamp-2 md:line-clamp-1">
-                  {item.headline}
-                </span>
-              </div>
-              <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/20">
-                <small className="flex-1 flex flex-row items-center line-clamp-1">
-                  <span className="line-clamp-1">{item.anchor}</span>
-                </small>
-                <small>
-                  <FormatDate date={item.aired.date} />
-                </small>
-              </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

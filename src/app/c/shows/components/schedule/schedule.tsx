@@ -93,7 +93,7 @@ const UgTime = () => {
         timeOptions
       ).format(now);
 
-      setDateTime(`${formattedDate} • ${formattedTime.toUpperCase()}`);
+      setDateTime(`${formattedDate} • ${formattedTime.toUpperCase()} (UG)`);
     };
 
     updateDateTime();

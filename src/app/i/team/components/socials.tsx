@@ -1,5 +1,5 @@
-// components/presenters/SocialLinks.tsx
 import React from "react";
+import Link from "next/link";
 import { SocialLinks as SocialLinksType } from "@/types/profile";
 import { FaXTwitter, FaFacebookF, FaSquareInstagram } from "react-icons/fa6";
 
@@ -12,7 +12,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, className = "" }) => {
   return (
     <div className={`flex space-x-1 opacity-[0.75] ${className}`}>
       {links.x && (
-        <a
+        <Link
           href={links.x}
           target="_blank"
           rel="noopener noreferrer"
@@ -20,11 +20,11 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, className = "" }) => {
           className="p-0.5 hover:text-[#000] transition-colors"
         >
           <FaXTwitter size={16} />
-        </a>
+        </Link>
       )}
 
       {links.fb && (
-        <a
+        <Link
           href={links.fb}
           target="_blank"
           rel="noopener noreferrer"
@@ -32,11 +32,11 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, className = "" }) => {
           className="p-0.5 hover:text-[#3b5998] transition-colors"
         >
           <FaFacebookF size={15} />
-        </a>
+        </Link>
       )}
 
       {links.insta && (
-        <a
+        <Link
           href={links.insta}
           target="_blank"
           rel="noopener noreferrer"
@@ -44,7 +44,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({ links, className = "" }) => {
           className="p-0.5 hover:text-[#dd2a7b] transition-colors"
         >
           <FaSquareInstagram size={16} />
-        </a>
+        </Link>
       )}
     </div>
   );

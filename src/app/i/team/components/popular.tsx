@@ -26,19 +26,21 @@ export default function PopularProfiles() {
                 width={2280}
                 height={2784}
                 priority={true}
-                className="w-full h-full object-cover aspect-[570/696] group-hover:scale-105 transition-transform duration-300 _img_"
+                className="w-full h-full object-cover aspect-[570/696] group-hover:scale-105 transition-transform duration-300 grayscale-[0.75] _img_"
               />
             </div>
             <div className="absolute top-2 right-2 text-light/50">
               <Flame size={16} />
             </div>
-            <div className="p-3.5 absolute w-full bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
-              <h3 className="text-light font-bold mb-1 line-clamp-1 opacity-80">
-                {profile.name}
-              </h3>{" "}
-              <p className="text-light/60 text-sm font-light line-clamp-1 opacity-80">
-                {profile.showHosted}
-              </p>
+            <div className="p-3.5 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
+              <div className="h-full w-full flex flex-col items-start justify-end">
+                <h3 className="text-light font-bold mb-1 line-clamp-1 opacity-80">
+                  {profile.name}
+                </h3>{" "}
+                <p className="text-light/60 text-sm font-light line-clamp-1 opacity-80">
+                  {profile.showHosted}
+                </p>
+              </div>
             </div>
           </Link>
         ))}

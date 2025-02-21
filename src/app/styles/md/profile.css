@@ -20,7 +20,7 @@
 }
 
 .prose a {
-  @apply font-semibold text-red;
+  @apply font-normal text-red;
 }
 
 .prose img {

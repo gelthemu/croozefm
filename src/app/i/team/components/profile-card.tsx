@@ -21,14 +21,20 @@ const PresenterCard: React.FC<PresenterCardProps> = ({ profile }) => {
               width={2280}
               height={2784}
               priority={true}
-              className="w-full object-center-top aspect-[570/696] group-hover:scale-105 transition-transform duration-200 _img_"
+              className="w-full object-center-top aspect-[570/696] group-hover:scale-105 transition-transform duration-200 grayscale-[0.75] _img_"
             />
           </div>
-          <div className="p-3 absolute w-full bottom-0 left-0 text-light bg-gradient-to-t from-dark to-transparent">
-            <h3 className="font-bold mb-1 line-clamp-1 opacity-80">{profile.name}</h3>{" "}
-            <p className="text-sm font-light line-clamp-1 opacity-80">
-              {profile.showHosted}
-            </p>
+          <div className="p-3.5 absolute w-full h-[35%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
+            <div className="h-full w-full flex flex-col items-start justify-end">
+              <div className="w-full flex flex-col pl-2.5 border-l-2 border-light/10">
+                <h3 className="text-light font-bold mb-1 line-clamp-1 opacity-80">
+                  {profile.name}
+                </h3>{" "}
+                <p className="text-light/60 text-sm font-light line-clamp-1 opacity-80">
+                  {profile.showHosted}
+                </p>
+              </div>
+            </div>{" "}
           </div>
         </Link>
       </div>

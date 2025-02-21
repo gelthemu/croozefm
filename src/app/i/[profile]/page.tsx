@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
-import BackBtn from "@/app/components/tiny/backbtn";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getAllProfileIds, getProfileData } from "@/lib/profiles";
 import SocialLinks from "../team/components/socials";
 import { Metadata } from "next";
+import ProfileGallery from "../team/components/gallery";
 import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
@@ -80,10 +80,6 @@ export default async function ProfilePage({
 
   return (
     <div className="w-full max-w-screen-lg mx-auto min-h-screen px-4 py-10 overflow-hidden">
-      <div className="mb-8">
-        <BackBtn />
-      </div>
-
       <div className="w-full overflow-hidden">
         <div className="w-full sm:w-[90%] mx-auto flex flex-col lg:flex-row">
           <div className="h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20">
@@ -93,7 +89,7 @@ export default async function ProfilePage({
               width={2280}
               height={2784}
               priority={true}
-              className="w-full h-full object-cover aspect-[570/696] rounded-sm _img_"
+              className="w-full h-full object-cover aspect-[570/696] rounded-sm grayscale-[0.75] _img_"
             />
           </div>
 
@@ -132,25 +128,7 @@ export default async function ProfilePage({
               </Markdown>
             </div>
 
-            {profile.gallery?.length > 0 && (
-              <div className="flex-grow p-2 pt-10 border-t border-gray/20 dark:border-light/20 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {profile.gallery.map((photo, index) => (
-                  <div
-                    key={index}
-                    className="w-full profile-image overflow-hidden"
-                  >
-                    <Image
-                      src={photo}
-                      width={2280}
-                      height={2784}
-                      priority={true}
-                      alt={`${profile.name}'s gallery - ${index + 1}`}
-                      className="w-full h-full object-cover aspect-[570/696] rounded-sm _img_"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
+            <ProfileGallery gallery={profile.gallery} name={profile.name} />
           </div>
         </div>
       </div>

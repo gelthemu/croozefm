@@ -103,3 +103,22 @@ h2 {
 .animate-heartbeat {
   animation: heartbeat 1.5s ease-in-out infinite;
 }
+
+@keyframes stream {
+  0% {
+    width: 0%;
+    opacity: 0.5;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0%;
+    opacity: 0.5;
+  }
+}
+
+.animate-stream {
+  animation: stream 4s ease-in-out infinite;
+}

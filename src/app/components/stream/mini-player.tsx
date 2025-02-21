@@ -1,20 +1,25 @@
 "use client";
 
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 
 export default function MiniPlayer() {
+  const [progress, setProgress] = useState(0);
   const {
     isMiniPlayerOpen,
     isStreamActive,
+    isStreaming,
     isAudioPlaying,
     audioRef,
     currentSource,
+    tagLine,
     setIsMiniPlayerOpen,
     setIsStreamActive,
+    setIsStreaming,
     setIsAudioPlaying,
     setCurrentSource,
+    setTagLine,
   } = useMiniPlayer();
 
   const handleAudioError = useCallback(() => {
@@ -22,18 +27,28 @@ export default function MiniPlayer() {
     setIsAudioPlaying(false);
   }, [setIsStreamActive, setIsAudioPlaying]);
 
+  const handleTimeUpdate = useCallback(() => {
+    if (audioRef.current) {
+      const percentage =
+        (audioRef.current.currentTime / audioRef.current.duration) * 100 || 0;
+      setProgress(isNaN(percentage) ? 0 : percentage);
+    }
+  }, [audioRef]);
+
   useEffect(() => {
     const currentAudio = audioRef.current;
     if (currentAudio) {
       currentAudio.onerror = handleAudioError;
+      currentAudio.ontimeupdate = handleTimeUpdate;
     }
 
     return () => {
       if (currentAudio) {
         currentAudio.onerror = null;
+        currentAudio.ontimeupdate = null;
       }
     };
-  }, [audioRef, handleAudioError]);
+  }, [audioRef, handleAudioError, handleTimeUpdate]);
 
   const handleAudioPlay = useCallback(() => {
     if (!audioRef.current) return;
@@ -47,25 +62,39 @@ export default function MiniPlayer() {
         })
         .catch(() => {
           setIsStreamActive(false);
+          setIsStreaming(false);
         });
     } else {
       audioRef.current.pause();
       // audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
       setIsStreamActive(true);
+      setIsStreaming(false);
     }
-  }, [audioRef, setIsAudioPlaying, setIsStreamActive]);
+  }, [audioRef, setIsAudioPlaying, setIsStreamActive, setIsStreaming]);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     }
+    setProgress(0);
     setIsAudioPlaying(false);
     setIsStreamActive(true);
+    setIsStreaming(false);
     setIsMiniPlayerOpen(false);
     setCurrentSource(undefined);
-  };
+    setTagLine("...");
+  }, [
+    audioRef,
+    setProgress,
+    setCurrentSource,
+    setIsAudioPlaying,
+    setIsMiniPlayerOpen,
+    setIsStreamActive,
+    setIsStreaming,
+    setTagLine,
+  ]);
 
   useEffect(() => {
     if (isMiniPlayerOpen && currentSource) {
@@ -74,7 +103,11 @@ export default function MiniPlayer() {
       }
       handleAudioPlay();
     }
-  }, [isMiniPlayerOpen, currentSource, handleAudioPlay, audioRef]);
+
+    if (!isMiniPlayerOpen && currentSource) {
+      handleClose();
+    }
+  }, [isMiniPlayerOpen, currentSource, handleAudioPlay, audioRef, handleClose]);
 
   return (
     <div
@@ -85,7 +118,7 @@ export default function MiniPlayer() {
       }`}
     >
       <div>
-        <div className="flex flex-row items-center justify-between space-x-1.5 pb-2">
+        <div className="relative flex flex-row items-center justify-between space-x-1.5">
           {isStreamActive ? (
             <button
               type="button"
@@ -114,13 +147,27 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
-        <div className="text-light/80 text-left text-sm md:text-xs md:font-light px-1 pt-1.5 border-t border-light/40">
-          <span>
-            <strong className="font-medium line-clamp-1">
-              Great Music. Great Friends.
-            </strong>
-          </span>
-        </div>
+        {isStreamActive && isAudioPlaying && (
+          <>
+            <div className="w-full h-1 bg-dark/40 border border-light/20 mt-2">
+              <div
+                className={`w-full h-full transition-all duration-500 ${
+                  isStreaming ? "animate-stream" : ""
+                } bg-red/80`}
+                style={{
+                  width: isStreaming ? "100%" : `${progress}%`,
+                }}
+              />
+            </div>
+            <div className="text-light/60 text-left text-sm md:text-xs md:font-light px-1 pt-1.5">
+              <span>
+                <strong className="font-medium md:font-normal line-clamp-1">
+                  {tagLine}
+                </strong>
+              </span>
+            </div>
+          </>
+        )}
         <audio ref={audioRef} src={currentSource} preload="metadata" />
       </div>
     </div>
