@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { StreamButton } from "../../stream/stream-btn";
+import useDownloader from "react-use-downloader";
 
 const MIXTAPE_URL =
   "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
@@ -14,49 +14,41 @@ const getFilenameFromUrl = (url: string) => {
 };
 
 const DownloadMixtapeBtn = () => {
+  const { download } = useDownloader();
+
   const handleClick = async () => {
     try {
-      const downloadPromise = async () => {
-        const response = await axios.get(
-          `/api/download?url=${encodeURIComponent(MIXTAPE_URL)}`,
-          {
-            responseType: "blob",
-          }
-        );
+      const filename = `${getFilenameFromUrl(MIXTAPE_URL)}.mp3`;
 
-        const blob = new Blob([response.data]);
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-
-        const filename = `${getFilenameFromUrl(MIXTAPE_URL)}.mp3`;
-        link.setAttribute("download", filename);
-
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-
-        return response;
-      };
-
-      await toast.promise(downloadPromise(), {
-        pending: `Downloading. Please wait...`,
-        success: {
-          render() {
-            return "Downloaded successfully...";
+      const proxyUrl = await toast.promise(
+        fetch(`/api/download?url=${encodeURIComponent(MIXTAPE_URL)}`, {
+          credentials: "include",
+        }),
+        {
+          pending: "Downloading. Please wait...",
+          error: "Error downloading",
+          success: {
+            render() {
+              return "Your download will start shortly!";
+            },
+            autoClose: 4000,
           },
+        }
+      );
+
+      if (!proxyUrl.ok) {
+        toast.error("Download failed. Please try again.", {
           autoClose: 5000,
-        },
-        error: {
-          render() {
-            return "Failed to download.";
-          },
-          autoClose: 5000,
-        },
-      });
+        });
+        return;
+      }
+
+      const response = proxyUrl;
+      const audioUrl = response.url;
+      download(audioUrl, filename);
     } catch (error) {
-      console.error("Download error:", error);
+      console.error(error);
+      toast.error("Download failed. Please try again.");
     }
   };
 

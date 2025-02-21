@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getAllProfileIds, getProfileData } from "@/lib/profiles-parser";
 import SocialLinks from "../team/components/socials";
@@ -109,6 +110,7 @@ export default async function ProfilePage({
 
             <div className="prose prose-lg max-w-none mt-5">
               <Markdown
+                rehypePlugins={[rehypeRaw]}
                 components={{
                   a: ({ href, children }) =>
                     href?.startsWith("/") ? (
@@ -122,6 +124,14 @@ export default async function ProfilePage({
                         {children}
                       </a>
                     ),
+                  iframe: ({ node, ...props }) => (
+                    <div className="relative w-full aspect-[16/9] overflow-hidden flex flex-col">
+                      <iframe
+                        {...props}
+                        className="absolute top-0 left-0 w-full h-full border-2 border-gray dark:border-light/60"
+                      />
+                    </div>
+                  ),
                 }}
               >
                 {profile.description}
