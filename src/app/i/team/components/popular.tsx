@@ -17,7 +17,7 @@ export default function PopularProfiles() {
           <Link
             href={`/i/${profile.id}`}
             key={profile.id}
-            className="relative group snap-start bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
+            className="relative group snap-center bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
           >
             <div className="w-full profile-image overflow-hidden">
               <Image

@@ -124,7 +124,7 @@ export default async function ProfilePage({
                         {children}
                       </a>
                     ),
-                  iframe: ({ node, ...props }) => (
+                  iframe: ({ ...props }) => (
                     <div className="relative w-full aspect-[16/9] overflow-hidden flex flex-col">
                       <iframe
                         {...props}
