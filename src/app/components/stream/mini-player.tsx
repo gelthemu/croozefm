@@ -69,7 +69,6 @@ export default function MiniPlayer() {
       // audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
       setIsStreamActive(true);
-      setIsStreaming(false);
     }
   }, [audioRef, setIsAudioPlaying, setIsStreamActive, setIsStreaming]);
 
@@ -147,7 +146,7 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
-        {isStreamActive && isAudioPlaying && (
+        {isStreamActive && (
           <>
             <div className="w-full h-1 bg-dark/40 border border-light/20 mt-2">
               <div
@@ -159,7 +158,7 @@ export default function MiniPlayer() {
                 }}
               />
             </div>
-            <div className="text-light/60 text-left text-sm md:text-xs md:font-light px-1 pt-1.5">
+            <div className="text-light/80 text-left text-sm md:text-xs md:font-light px-1 pt-1.5">
               <span>
                 <strong className="font-medium md:font-normal line-clamp-1">
                   {tagLine}
