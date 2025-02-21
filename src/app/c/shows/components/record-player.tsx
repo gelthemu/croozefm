@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
