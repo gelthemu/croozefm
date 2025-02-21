@@ -35,20 +35,42 @@ export default function MiniPlayer() {
     }
   }, [audioRef]);
 
+  const handleEnded = useCallback(() => {
+    if (audioRef.current) {
+      setProgress(100);
+      // audioRef.current.currentTime = 0;
+      setIsAudioPlaying(false);
+
+      setTimeout(() => {
+        audioRef.current?.play()
+          .then(() => {
+            setIsStreamActive(true);
+            setIsAudioPlaying(true);
+          })
+          .catch(() => {
+            setIsStreamActive(false);
+            setIsStreaming(false);
+          });
+      }, 2500);
+    }
+  }, [audioRef, setIsStreamActive, setIsAudioPlaying, setIsStreaming]);
+
   useEffect(() => {
     const currentAudio = audioRef.current;
     if (currentAudio) {
       currentAudio.onerror = handleAudioError;
       currentAudio.ontimeupdate = handleTimeUpdate;
+      currentAudio.onended = handleEnded;
     }
 
     return () => {
       if (currentAudio) {
         currentAudio.onerror = null;
         currentAudio.ontimeupdate = null;
+        currentAudio.onended = null;
       }
     };
-  }, [audioRef, handleAudioError, handleTimeUpdate]);
+  }, [audioRef, handleAudioError, handleTimeUpdate, handleEnded]);
 
   const handleAudioPlay = useCallback(() => {
     if (!audioRef.current) return;
@@ -110,7 +132,7 @@ export default function MiniPlayer() {
 
   return (
     <div
-      className={`fixed bottom-1.5 left-1.5 right-1.5 md:left-auto md:right-1.5 md:w-[320px] p-2.5 text-center text-light backdrop-blur-md bg-gray/80 border-2 border-red/80 rounded-sm transition-all duration-500 overflow-hidden z-50 ${
+      className={`fixed bottom-1.5 left-1.5 right-1.5 md:left-auto md:right-1.5 md:w-[320px] lg:w-[400px] p-2.5 text-center text-light backdrop-blur-md bg-gray/80 border-2 border-red/80 rounded-sm transition-all duration-500 overflow-hidden z-50 ${
         isMiniPlayerOpen
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-full"
@@ -148,9 +170,9 @@ export default function MiniPlayer() {
         </div>
         {isStreamActive && (
           <>
-            <div className="w-full h-1 bg-dark/40 border border-light/20 mt-2">
+            <div className="w-full h-fit bg-dark/40 border border-light/20 mt-2">
               <div
-                className={`w-full h-full transition-all duration-500 ${
+                className={`w-full h-[4px] transition-all duration-500 ${
                   isStreaming ? "animate-stream" : ""
                 } bg-red/80`}
                 style={{
