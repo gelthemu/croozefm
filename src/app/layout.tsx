@@ -1,6 +1,6 @@
 import React from "react";
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/lib/GoogleAnalytics";
+import GoogleAnalytics from "@/lib/google-analytics";
 import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
@@ -14,7 +14,7 @@ import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
 
 const sans = localFont({
-  src: "./fonts/cfm912cfm912.woff2",
+  src: "./fonts/croozefm-geltaverse-912912912912.woff2",
   variable: "--fonts-sans",
   display: "swap",
   style: "normal",

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import type { Show } from "@/types/shows";
+import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
 

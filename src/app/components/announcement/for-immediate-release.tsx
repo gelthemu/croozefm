@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MixtapeBtn } from "../stream/stream-btn";
+import { DownloadMixtapeBtn } from "./components/download-btn";
 
 export default function ImmediateRelease() {
   return (
@@ -33,7 +34,9 @@ export default function ImmediateRelease() {
                 </Link>
               </p>
             </div>
-            <MixtapeBtn />
+            <div className="flex flex-row space-x-3">
+              <MixtapeBtn /> <DownloadMixtapeBtn />
+            </div>
           </div>
           <div className="w-full md:w-[75%] lg:w-[80%] h-full lg:self-end overflow-hidden">
             <Image

@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Show } from "@/types/shows";
+import { Show } from "@/types/show";
 
 interface ShowCardProps {
   show: Show;

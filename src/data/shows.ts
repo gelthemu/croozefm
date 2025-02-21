@@ -1,4 +1,4 @@
-import { Show } from "@/types/shows";
+import { Show } from "@/types/show";
 
 export const shows: Show[] = [
   {
@@ -149,9 +149,9 @@ export const shows: Show[] = [
     title: "The African Rhythms",
     image: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
     description:
-        "Immerse yourself in the vibrant and diverse sounds of African music every Saturday evening.",
+      "Immerse yourself in the vibrant and diverse sounds of African music every Saturday evening.",
     host: "Starcent DJ",
-},
+  },
   {
     id: "saturday-night",
     title: "Saturday Night Live",

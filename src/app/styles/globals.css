@@ -100,7 +100,26 @@ h2 {
   }
 }
 
+@-moz-keyframes heartbeat {
+  0% {
+    transform: scale(1.05);
+    -moz-box-shadow: 0 0 0 0 #fc2a2a;
+    box-shadow: 0 0 0 0 #fc2a2a;
+  }
+  50% {
+    transform: scale(1);
+    -moz-box-shadow: 0 0 0 4px #a31300;
+    box-shadow: 0 0 0 4px #a31300;
+  }
+  75% {
+    transform: scale(1.05);
+    -moz-box-shadow: 0 0 0 0 #f53a3a;
+    box-shadow: 0 0 0 0 #f53a3a;
+  }
+}
+
 .animate-heartbeat {
+  -moz-animation: heartbeat 1.5s ease-in-out infinite;
   animation: heartbeat 1.5s ease-in-out infinite;
 }
 
@@ -119,6 +138,22 @@ h2 {
   }
 }
 
+@-moz-keyframes stream {
+  0% {
+    width: 0%;
+    opacity: 0.5;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0%;
+    opacity: 0.5;
+  }
+}
+
 .animate-stream {
-  animation: stream 4s ease-in-out infinite;
+  -moz-animation: heartbeat 1.5s ease-in-out infinite;
+  animation: stream 3s ease-in-out infinite;
 }

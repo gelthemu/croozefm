@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllProfiles } from "@/lib/profiles";
+import { getAllProfiles } from "@/lib/profiles-parser";
 import PresenterCard from "./components/profile-card";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 

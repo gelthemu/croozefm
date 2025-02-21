@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import { getPopularProfiles } from "@/lib/profiles";
+import { getPopularProfiles } from "@/lib/profiles-parser";
 import { Flame } from "lucide-react";
 import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
 

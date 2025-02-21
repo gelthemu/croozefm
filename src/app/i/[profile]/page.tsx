@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import { getAllProfileIds, getProfileData } from "@/lib/profiles";
+import { getAllProfileIds, getProfileData } from "@/lib/profiles-parser";
 import SocialLinks from "../team/components/socials";
 import { Metadata } from "next";
 import ProfileGallery from "../team/components/gallery";

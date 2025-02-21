@@ -30,7 +30,11 @@ export default function NewsArchive() {
 
   const handlePlay = () => {
     setCurrentSource(selectedNews.audio);
-    setTagLine(`#CroozeFMNews - ${selectedNews.anchor}`);
+    setTagLine(
+      `#CroozeFMNews${" "}(${selectedNews.aired.time})${" • "}${
+        selectedNews.anchor
+      }`
+    );
     setIsStreaming(false);
     setIsMiniPlayerOpen(true);
   };
@@ -40,7 +44,9 @@ export default function NewsArchive() {
 
     if (item.audio !== currentSource) {
       setCurrentSource(item.audio);
-      setTagLine(`#CroozeFMNews - ${item.anchor}`);
+      setTagLine(
+        `#CroozeFMNews${" "}(${item.aired.time})${" • "}${item.anchor}`
+      );
       setIsStreaming(false);
       setIsMiniPlayerOpen(true);
     }

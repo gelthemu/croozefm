@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, Download } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const STREAM_URL =
@@ -15,6 +15,7 @@ interface StreamButtonProps {
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
+  isDownload?: boolean;
   isActive?: boolean;
 }
 
@@ -23,6 +24,7 @@ const StreamButton: React.FC<StreamButtonProps> = ({
   className = "",
   style = {},
   onClick,
+  isDownload = false,
   isActive = false,
 }) => {
   return (
@@ -32,7 +34,15 @@ const StreamButton: React.FC<StreamButtonProps> = ({
       onClick={onClick}
       disabled={isActive}
     >
-      <span>{text}</span> <ArrowDownRight className="w-4 h-4" />
+      {isDownload ? (
+        <>
+          <span>{text}</span> <Download className="w-4 h-4" />
+        </>
+      ) : (
+        <>
+          <span>{text}</span> <ArrowDownRight className="w-4 h-4" />
+        </>
+      )}
     </button>
   );
 };
@@ -62,43 +72,12 @@ const StreamBtn = () => {
   return (
     <StreamButton
       text="Start Streaming, Now"
-      className={`px-4 py-2  ${
+      className={`px-4 py-2 ${
         isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
       }`}
       onClick={handleClick}
       isActive={isActive}
-    />
-  );
-};
-
-const MixtapeBtn = () => {
-  const {
-    isMiniPlayerOpen,
-    setIsMiniPlayerOpen,
-    currentSource,
-    setCurrentSource,
-    setTagLine,
-  } = useMiniPlayer();
-  const isActive = isMiniPlayerOpen && currentSource === MIXTAPE_URL;
-
-  const handleClick = () => {
-    if (isActive) {
-      setIsMiniPlayerOpen(false);
-    } else {
-      setCurrentSource(MIXTAPE_URL);
-      setTagLine("CFM Weekly Mixtape (DJ EmmaVol 1)");
-      setIsMiniPlayerOpen(true);
-    }
-  };
-
-  return (
-    <StreamButton
-      text="Listen Now"
-      className={`px-4 py-2  ${
-        isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
-      }`}
-      onClick={handleClick}
-      isActive={isActive}
+      isDownload={false}
     />
   );
 };
@@ -117,12 +96,12 @@ const NavStreamBtn = ({
     setIsStreaming,
     setTagLine,
   } = useMiniPlayer();
-  const isActive = isMiniPlayerOpen && currentSource! === STREAM_URL;
+  const isActive = isMiniPlayerOpen && currentSource === STREAM_URL;
 
   return (
     <StreamButton
       text="Live Radio"
-      className={`px-2.5 py-1.5  ${
+      className={`px-2.5 py-1.5 ${
         isActive || pathname === "/"
           ? "opacity-0 pointer-events-none"
           : "opacity-100"
@@ -139,8 +118,44 @@ const NavStreamBtn = ({
         setIsMiniPlayerOpen(true);
       }}
       isActive={isActive}
+      isDownload={false}
     />
   );
 };
 
-export { StreamBtn, MixtapeBtn, NavStreamBtn };
+const MixtapeBtn = () => {
+  const {
+    isMiniPlayerOpen,
+    setIsMiniPlayerOpen,
+    currentSource,
+    setCurrentSource,
+    setIsStreaming,
+    setTagLine,
+  } = useMiniPlayer();
+  const isActive = isMiniPlayerOpen && currentSource === MIXTAPE_URL;
+
+  const handleClick = () => {
+    if (isActive) {
+      setIsMiniPlayerOpen(false);
+    } else {
+      setCurrentSource(MIXTAPE_URL);
+      setIsStreaming(false);
+      setTagLine("CFM Weekly Mixtape (DJ EmmaVol 1)");
+      setIsMiniPlayerOpen(true);
+    }
+  };
+
+  return (
+    <StreamButton
+      text="Listen Now"
+      className={`px-4 py-2 ${
+        isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
+      }`}
+      onClick={handleClick}
+      isActive={isActive}
+      isDownload={false}
+    />
+  );
+};
+
+export { StreamButton, StreamBtn, NavStreamBtn, MixtapeBtn };
