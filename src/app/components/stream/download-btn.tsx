@@ -64,8 +64,6 @@ export default function MixtapeDownloadBtn() {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-
-      toast.success("Download completed!", { autoClose: 5000 });
     } catch (error) {
       console.error(error);
       toast.error("Download failed... sorry!!!", { autoClose: 2000 });
@@ -91,7 +89,7 @@ export default function MixtapeDownloadBtn() {
             : "Download Mixtape"}
         </span>{" "}
         {isDownloading ? (
-          <Download className="w-4 h-4" />
+          <Download className="w-4 h-4 fa-bounce" />
         ) : isActive ? (
           <Check className="w-4 h-4" />
         ) : (
