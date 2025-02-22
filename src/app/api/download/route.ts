@@ -8,9 +8,8 @@ export async function GET(request: NextRequest) {
     }
 
     try {
-        // Add timeout to fetch request
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
 
         const response = await fetch(url, {
             signal: controller.signal
@@ -21,11 +20,9 @@ export async function GET(request: NextRequest) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // Get content length if available
         const contentLength = response.headers.get('content-length');
         const contentType = response.headers.get('content-type') || 'application/octet-stream';
 
-        // Create response headers
         const headers = new Headers();
         headers.set('Content-Type', contentType);
         headers.set('Content-Disposition', 'attachment');
@@ -35,7 +32,6 @@ export async function GET(request: NextRequest) {
             headers.set('Content-Length', contentLength);
         }
 
-        // Stream the response
         const stream = response.body;
         if (!stream) {
             throw new Error('No response body');

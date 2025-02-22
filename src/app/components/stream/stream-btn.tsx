@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const STREAM_URL =
   "https://fmradiohub.in/play?url=https://stream-176.zeno.fm/vyxwdk08apxtv";
 const MIXTAPE_URL =
-  "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
+  "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
 
 interface StreamButtonProps {
   text: string;
