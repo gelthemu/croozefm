@@ -86,6 +86,7 @@ const UgTime = () => {
         timeZone: "Africa/Kampala",
         hour: "numeric",
         minute: "numeric",
+        second: "numeric",
         hour12: true,
       };
       const formattedTime = new Intl.DateTimeFormat(
@@ -97,7 +98,7 @@ const UgTime = () => {
     };
 
     updateDateTime();
-    const interval = setInterval(updateDateTime, 1000);
+    const interval = setInterval(updateDateTime, 500);
 
     return () => clearInterval(interval);
   }, []);
