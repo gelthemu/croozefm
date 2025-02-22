@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { StreamButton } from "./stream-btn";
+import { Download, Check } from "lucide-react";
 
 export default function MixtapeDownloadBtn() {
   const DOWNLOAD_MIXTAPE_URL =
-    "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
+    "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-03_8am.mp3";
 
   const {
     isMiniPlayerOpen,
@@ -41,7 +42,7 @@ export default function MixtapeDownloadBtn() {
     try {
       setIsDownloading(true);
 
-      setTagLine("Downloading...");
+      setTagLine(`Downloading: ${MIXTAPE_NAME}`);
 
       const response = await fetch(
         `/api/download?url=${encodeURIComponent(DOWNLOAD_MIXTAPE_URL)}`,
@@ -64,7 +65,7 @@ export default function MixtapeDownloadBtn() {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      toast.success("Download completed!", { autoClose: 4000 });
+      toast.success("Download completed!", { autoClose: 5000 });
     } catch (error) {
       console.error(error);
       toast.error("Download failed... sorry!!!", { autoClose: 2000 });
@@ -77,15 +78,26 @@ export default function MixtapeDownloadBtn() {
 
   return (
     <StreamButton
-      text={isDownloading ? "Downloading..." : "Download Mixtape"}
-      className={`px-4 py-2 ${
-        isDownloading || isActive
-          ? "bg-gray/80 dark:bg-gray/100"
-          : "bg-[#3eac75] dark:bg-[#3eac75]/60"
-      } `}
+      className="text-[#3eac75] px-3 py-1 bg-transparent border border-[#3eac75] dark:border-[#3eac75]/80"
       onClick={handleDownload}
-      isDownload={true}
-      isActive={isActive}
-    />
+      isActive={isDownloading || isActive}
+    >
+      <>
+        <span>
+          {isDownloading
+            ? "Downloading..."
+            : isActive
+            ? "Downloaded"
+            : "Download Mixtape"}
+        </span>{" "}
+        {isDownloading ? (
+          <Download className="w-4 h-4" />
+        ) : isActive ? (
+          <Check className="w-4 h-4" />
+        ) : (
+          <Download className="w-4 h-4" />
+        )}
+      </>
+    </StreamButton>
   );
 }

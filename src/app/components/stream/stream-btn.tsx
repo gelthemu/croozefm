@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { ArrowDownRight, Download } from "lucide-react";
+import { ArrowDownRight, Headphones } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const STREAM_URL =
@@ -11,38 +11,28 @@ const MIXTAPE_URL =
   "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
 
 interface StreamButtonProps {
-  text: string;
   className?: string;
   style?: React.CSSProperties;
   onClick?: () => void;
-  isDownload?: boolean;
   isActive?: boolean;
+  children?: React.ReactNode;
 }
 
 const StreamButton: React.FC<StreamButtonProps> = ({
-  text,
   className = "",
   style = {},
   onClick,
-  isDownload = false,
   isActive = false,
+  children,
 }) => {
   return (
     <button
-      className={`text-light text-sm font-semibold flex items-center space-x-1 transition-all duration-500 rounded-sm ${className} _912cfm`}
+      className={`text-sm font-semibold flex items-center space-x-1 transition-all duration-500 rounded-sm ${className} _912cfm`}
       style={style}
       onClick={onClick}
       disabled={isActive}
     >
-      {isDownload ? (
-        <>
-          <span>{text}</span> <Download className="w-4 h-4" />
-        </>
-      ) : (
-        <>
-          <span>{text}</span> <ArrowDownRight className="w-4 h-4" />
-        </>
-      )}
+      {children}
     </button>
   );
 };
@@ -71,14 +61,16 @@ const StreamBtn = () => {
 
   return (
     <StreamButton
-      text="Start Streaming, Now"
-      className={`px-4 py-2 ${
+      className={`text-light px-4 py-2 ${
         isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
       }`}
       onClick={handleClick}
       isActive={isActive}
-      isDownload={false}
-    />
+    >
+      <>
+        <span>Start Streaming, Now</span> <ArrowDownRight className="w-4 h-4" />
+      </>
+    </StreamButton>
   );
 };
 
@@ -100,8 +92,7 @@ const NavStreamBtn = ({
 
   return (
     <StreamButton
-      text="Live Radio"
-      className={`px-2.5 py-1.5 ${
+      className={`text-light px-2.5 py-1.5 ${
         isActive || pathname === "/"
           ? "opacity-0 pointer-events-none"
           : "opacity-100"
@@ -118,8 +109,11 @@ const NavStreamBtn = ({
         setIsMiniPlayerOpen(true);
       }}
       isActive={isActive}
-      isDownload={false}
-    />
+    >
+      <>
+        <span>Live Radio</span> <ArrowDownRight className="w-4 h-4" />
+      </>
+    </StreamButton>
   );
 };
 
@@ -147,14 +141,16 @@ const MixtapeBtn = () => {
 
   return (
     <StreamButton
-      text="Listen Now"
-      className={`px-4 py-2 ${
+      className={`text-light px-4 py-2 ${
         isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
       }`}
       onClick={handleClick}
       isActive={isActive}
-      isDownload={false}
-    />
+    >
+      <>
+        <span>Listen Now</span> <Headphones className="w-4 h-4" />
+      </>
+    </StreamButton>
   );
 };
 
