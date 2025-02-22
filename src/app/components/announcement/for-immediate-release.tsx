@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MixtapeBtn } from "../stream/stream-btn";
-import MixtapeDownloadBtn from "./components/download-btn";
+import MixtapeDownloadBtn from "../stream/download-btn";
 
 export default function ImmediateRelease() {
   return (
