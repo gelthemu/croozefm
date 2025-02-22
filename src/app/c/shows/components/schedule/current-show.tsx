@@ -133,6 +133,12 @@ const schedules: Record<string, Show[]> = {
       end: 11,
     },
     {
+      name: "The Certified Top 10 Countdown",
+      img: "https://croozefm.blob.core.windows.net/images/certified-countdown.png",
+      start: 11,
+      end: 12,
+    },
+    {
       name: "The Weekly Sports Roundup",
       img: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
       start: 12,

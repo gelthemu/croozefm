@@ -183,6 +183,20 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-13_10am.mp3",
   },
+  // = = = = = = = = = = = = = = = = = = = 11AM = = = = = = = = = = = = = = = = = = = = = =
+  {
+    id: 202502221100,
+    aired: {
+      date: "2025-02-22T11:00:00+03:00",
+      time: "11AM",
+    },
+    headline:
+      "East African Court Set to Adjudicate Case on East African Crude Oil Pipeline (EACOP)",
+    anchor: "Marie Antoinettie",
+    profileImg: "/assets/avatars/antoinette.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-22_11am.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 1PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191300,

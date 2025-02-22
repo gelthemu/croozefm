@@ -138,7 +138,7 @@ export const shows: Show[] = [
   },
   {
     id: "sports-roundup",
-    title: "Weekly Sports Roundup",
+    title: "Weekly Sports RoundUp",
     image: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
     description:
       "Your go-to show for all the latest highlights and commentary from the sports world.",

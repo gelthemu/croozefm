@@ -1,6 +1,6 @@
 ---
 name: "Abou Champion"
-show-hosted: "The Weekly Sports Roundup"
+show-hosted: "The Weekly Sports RoundUp"
 image-link: "https://croozefm.blob.core.windows.net/images/abou-champion.png"
 isPopular: true
 social-links:
@@ -18,6 +18,6 @@ Abou Champion is a super cool radio host and sports expert with tons of experien
 
 - [Sports Bwino](/c/shows/sports-bwino) every Monday to Thursday from 10 PM to midnight, where they chat about all things sports with lots of laughs and smart talk.
 - Ekisaawe, where he teams up with [Ronald Rosh](/i/ronald-rosh) and James MunaMasaka, every match-day.
-- The [Weekly Sports Roundup](/c/shows/sports-roundup) show with [Derrick](/i/derrick-ashiimwe), on Saturdays from 12:00 PM, keeping you updated on all the sports news.
+- The [Weekly Sports RoundUp](/c/shows/sports-roundup) show with [Derrick](/i/derrick-ashiimwe), on Saturdays from 12:00 PM, keeping you updated on all the sports news.
 
 Abou makes sports fun and easy to understand, so you'll never want to miss his shows!
