@@ -183,6 +183,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-13_10am.mp3",
   },
+  {
+    id: 202502201000,
+    aired: {
+      date: "2025-02-20T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "Public University Employees Launch Strike Due to Postponed Salary Increases",
+      anchor: "Marie Antoinettie",
+      profileImg: "/assets/avatars/antoinette.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-20_10am.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 11AM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202502221100,
@@ -262,6 +275,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_1pm.mp3",
   },
+  {
+    id: 202502211300,
+    aired: {
+      date: "2025-02-21T13:00:00+03:00",
+      time: "1PM",
+    },
+    headline:
+      "Mbarara Councilors Probe 1.2 Billion UGX Debt in Road Project Standoff Between MBJ Technologies and Multiplex",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-21_1pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 2PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191400,
@@ -339,6 +365,19 @@ export const news: News[] = [
     profileImg: "/assets/avatars/momo.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_2pm.mp3",
+  },
+  {
+    id: 202502181400,
+    aired: {
+      date: "2025-02-18T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Coffee Theft Crisis Sparks Unified Action at Bufunda Community Baraza",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_2pm.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
@@ -458,6 +497,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_4pm.mp3",
   },
+  {
+    id: 202502211600,
+    aired: {
+      date: "2025-02-21T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Besigye Ends Hunger Strike Following Transfer of Case to Civilian Court",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-21_4pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 7PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411151900,
@@ -536,5 +588,18 @@ export const news: News[] = [
     profileImg: "/assets/avatars/oscar.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_7pm.mp3",
+  },
+  {
+    id: 202502181900,
+    aired: {
+      date: "2025-02-18T19:00:00+03:00",
+      time: "7PM",
+    },
+    headline:
+      "Kizza Besigye Detention: President Museveni Digs in, and Accuses Besigye for Seeking Public Sympathy",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_7pm.mp3",
   },
 ];

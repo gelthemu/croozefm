@@ -139,7 +139,7 @@ const schedules: Record<string, Show[]> = {
       end: 12,
     },
     {
-      name: "The Weekly Sports Roundup",
+      name: "The Weekly Sports RoundUp",
       img: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
       start: 12,
       end: 14,
