@@ -8,7 +8,7 @@ import { Download, Check } from "lucide-react";
 
 export default function MixtapeDownloadBtn() {
   const DOWNLOAD_MIXTAPE_URL =
-    "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-03_8am.mp3";
+    "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
 
   const {
     isMiniPlayerOpen,
