@@ -85,8 +85,6 @@ const UgTime = () => {
       const timeOptions: Intl.DateTimeFormatOptions = {
         timeZone: "Africa/Kampala",
         hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
         hour12: true,
       };
       const formattedTime = new Intl.DateTimeFormat(

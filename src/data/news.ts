@@ -191,10 +191,23 @@ export const news: News[] = [
     },
     headline:
       "Public University Employees Launch Strike Due to Postponed Salary Increases",
-      anchor: "Marie Antoinettie",
-      profileImg: "/assets/avatars/antoinette.png",
+    anchor: "Marie Antoinettie",
+    profileImg: "/assets/avatars/antoinette.png",
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-20_10am.mp3",
+  },
+  {
+    id: 202502241000,
+    aired: {
+      date: "2025-02-24T10:00:00+03:00",
+      time: "10AM",
+    },
+    headline:
+      "NUP Weighs Legal Challenge Against Security Forces Following Raid",
+    anchor: "Marie Antoinettie",
+    profileImg: "/assets/avatars/antoinette.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_10am.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 11AM = = = = = = = = = = = = = = = = = = = = = =
   {
