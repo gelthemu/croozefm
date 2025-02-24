@@ -4,6 +4,7 @@ import React, { useEffect, useRef, forwardRef } from "react";
 import { useCurrentShow } from "@/app/c/shows/components/schedule/current-show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { ArrowDownRight, Headphones } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const STREAM_URL =
   "https://fmradiohub.in/play?url=https://stream-176.zeno.fm/vyxwdk08apxtv";
@@ -104,6 +105,7 @@ const NavStreamBtn = ({
 }: {
   setIsOpen: (open: boolean) => void;
 }) => {
+  const pathname = usePathname();
   const {
     isMiniPlayerOpen,
     isStreamBtnVisible,
@@ -127,7 +129,7 @@ const NavStreamBtn = ({
   return (
     <StreamButton
       className={`text-light px-2.5 py-1.5 ${
-        isActive || isStreamBtnVisible
+        (pathname === "/" && isStreamBtnVisible) || isActive
           ? "opacity-0 pointer-events-none"
           : "opacity-100"
       } border border-light/40`}

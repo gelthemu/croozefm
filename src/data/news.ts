@@ -405,6 +405,18 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_2pm.mp3",
   },
+  {
+    id: 202502241400,
+    aired: {
+      date: "2025-02-24T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline: "Trade war uncertainty may impact Uganda's 2025 economic growth",
+    anchor: "Monica Mbabazi",
+    profileImg: "/assets/avatars/momo.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_2pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411141600,

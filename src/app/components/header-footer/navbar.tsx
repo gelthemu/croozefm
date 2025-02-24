@@ -87,7 +87,7 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <NavStreamBtn setIsOpen={setIsOpen}  />
+            <NavStreamBtn setIsOpen={setIsOpen} />
             <button
               data-collapse-toggle="navbar-absolute"
               type="button"
