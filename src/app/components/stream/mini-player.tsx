@@ -42,7 +42,8 @@ export default function MiniPlayer() {
       setIsAudioPlaying(false);
 
       setTimeout(() => {
-        audioRef.current?.play()
+        audioRef.current
+          ?.play()
           .then(() => {
             setIsStreamActive(true);
             setIsAudioPlaying(true);
@@ -105,7 +106,7 @@ export default function MiniPlayer() {
     setIsStreaming(false);
     setIsMiniPlayerOpen(false);
     setCurrentSource(undefined);
-    setTagLine("...");
+    setTagLine("Great Music. Great Friends");
   }, [
     audioRef,
     setProgress,
@@ -136,7 +137,7 @@ export default function MiniPlayer() {
         isMiniPlayerOpen
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-full"
-      }`}
+      } shadow-lg`}
     >
       <div>
         <div className="relative flex flex-row items-center justify-between space-x-1.5">
@@ -156,7 +157,7 @@ export default function MiniPlayer() {
           ) : (
             <p className="text-center text-sm md:text-xs text-red font-medium">
               <i className="fa-solid fa-exclamation-triangle mr-1"></i>
-              Stream Error
+              {!isAudioPlaying && isStreaming ? "Stream Error" : "Unavailable"}
             </p>
           )}
           <button

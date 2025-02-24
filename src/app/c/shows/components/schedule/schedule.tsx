@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useCurrentShow } from "./current-show";
 import Link from "next/link";
 import Image from "next/image";
@@ -68,44 +68,66 @@ const Show = () => {
 const UgTime = () => {
   const [dateTime, setDateTime] = useState("");
 
+  const dateOptions = useMemo(
+    (): Intl.DateTimeFormatOptions => ({
+      timeZone: "Africa/Kampala",
+      month: "short",
+      day: "numeric",
+    }),
+    []
+  );
+
+  const timeOptions = useMemo(
+    (): Intl.DateTimeFormatOptions => ({
+      timeZone: "Africa/Kampala",
+      hour: "numeric",
+      hour12: true,
+    }),
+    []
+  );
+
+  const dateFormatter = useMemo(
+    () => new Intl.DateTimeFormat("en-US", dateOptions),
+    [dateOptions]
+  );
+
+  const timeFormatter = useMemo(
+    () => new Intl.DateTimeFormat("en-US", timeOptions),
+    [timeOptions]
+  );
+
+  const updateDateTime = useCallback(() => {
+    const now = new Date();
+    const newFormattedDate = dateFormatter.format(now);
+    const newFormattedTime = timeFormatter.format(now).toUpperCase();
+    const newDateTime = `${newFormattedDate} • ${newFormattedTime} (UG)`;
+
+    setDateTime((prevDateTime) => {
+      if (prevDateTime !== newDateTime) {
+        return newDateTime;
+      }
+      return prevDateTime;
+    });
+  }, [dateFormatter, timeFormatter]);
+
   useEffect(() => {
-    const updateDateTime = () => {
-      const now = new Date();
-
-      const dateOptions: Intl.DateTimeFormatOptions = {
-        timeZone: "Africa/Kampala",
-        month: "short",
-        day: "numeric",
-      };
-      const formattedDate = new Intl.DateTimeFormat(
-        "en-US",
-        dateOptions
-      ).format(now);
-
-      const timeOptions: Intl.DateTimeFormatOptions = {
-        timeZone: "Africa/Kampala",
-        hour: "numeric",
-        hour12: true,
-      };
-      const formattedTime = new Intl.DateTimeFormat(
-        "en-US",
-        timeOptions
-      ).format(now);
-
-      setDateTime(`${formattedDate} • ${formattedTime.toUpperCase()} (UG)`);
-    };
-
     updateDateTime();
-    const interval = setInterval(updateDateTime, 500);
+
+    const interval = setInterval(updateDateTime, 10000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [updateDateTime]);
 
-  return (
-    <div className="w-fit px-1.5 py-1 text-sm text-dark/80 dark:text-light/80">
-      {dateTime}
-    </div>
+  return useMemo(
+    () => (
+      <div className="w-fit px-1.5 py-1 text-sm text-dark/80 dark:text-light/80">
+        {dateTime}
+      </div>
+    ),
+    [dateTime]
   );
 };
 
-export { Schedule, Show, UgTime };
+const MemoizedUgTime = React.memo(UgTime);
+
+export { Schedule, Show, MemoizedUgTime as UgTime };

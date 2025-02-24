@@ -301,6 +301,19 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-21_1pm.mp3",
   },
+  {
+    id: 202502241300,
+    aired: {
+      date: "2025-02-24T13:00:00+03:00",
+      time: "1PM",
+    },
+    headline:
+      "Kasese Deputy RDC Detains Another Individual for Misusing PDM Funds",
+    anchor: "Oscar Confidence Abangira",
+    profileImg: "/assets/avatars/oscar.png",
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_1pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 2PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191400,

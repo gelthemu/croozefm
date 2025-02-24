@@ -4,6 +4,7 @@ import BackBtn from "@/app/components/tiny/backbtn";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecordPlayer from "@/app/c/shows/components/record-player";
 import Image from "next/image";
+import Link from "next/link";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -73,9 +74,7 @@ export default async function ShowPage({ params }: PageProps) {
 
       <div className="mb-12 pt-6 pb-10 border-y border-gray/40 dark:border-light/10">
         <div className="flex flex-col items-center justify-center w-full md:w-5/6 mx-auto text-center">
-          <h1 className="text-3xl py-5 text-red _912cfm">
-            {show.title}
-          </h1>
+          <h1 className="text-3xl py-5 text-red _912cfm">{show.title}</h1>
           <p className="w-full max-w-2xl mx-auto">{show.description}</p>
         </div>
       </div>
@@ -92,10 +91,27 @@ export default async function ShowPage({ params }: PageProps) {
       </div>
 
       <div className="my-10 flex items-center justify-center">
-        {show.host && (
-          <div className="w-fit text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray px-4 py-2 rounded-md">
+        {show.hosts && (
+          <div className="w-fit flex flex-row items-center justify-center text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray rounded-md">
             <span className="sr-only">Hosted by</span>
-            <i className="fa-solid fa-microphone-lines mr-1"></i> {show.host}
+            <i className="fa-solid fa-microphone-lines px-3 py-2"></i>
+            <div className="flex flex-row divide-x divide-light/40 dark:divide-light/20">
+              {show.hosts.map((host, index) =>
+                host.link ? (
+                  <Link
+                    key={index}
+                    href={host.link}
+                    className="relative px-3 py-2 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
+                  >
+                    {host.name}
+                  </Link>
+                ) : (
+                  <span key={index} className="px-3 py-2">
+                    {host.name}
+                  </span>
+                )
+              )}
+            </div>
           </div>
         )}
       </div>

@@ -1,4 +1,4 @@
-import {StreamBtn} from "../stream/stream-btn";
+import { StreamBtn } from "../stream/stream-btn";
 
 export default function Hero() {
   return (

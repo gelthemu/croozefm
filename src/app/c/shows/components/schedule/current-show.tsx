@@ -233,11 +233,19 @@ export const useCurrentShow = () => {
   });
 
   useEffect(() => {
-    setCurrentShow(getCurrentShow());
+    const updateShow = () => {
+      const newShow = getCurrentShow();
+      setCurrentShow((prev) => {
+        if (prev.name !== newShow.name) {
+          return newShow;
+        }
+        return prev;
+      });
+    };
 
-    const interval = setInterval(() => {
-      setCurrentShow(getCurrentShow());
-    }, 500);
+    updateShow();
+
+    const interval = setInterval(updateShow, 10000);
 
     return () => clearInterval(interval);
   }, []);

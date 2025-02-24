@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useState, useRef } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+} from "react";
+import { useCurrentShow } from "../c/shows/components/schedule/current-show";
 
 type MiniPlayerContextType = {
   isMiniPlayerOpen: boolean;
@@ -16,6 +23,8 @@ type MiniPlayerContextType = {
   tagLine: string | undefined;
   setTagLine: (source: string | undefined) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
+  isStreamBtnVisible: boolean;
+  setIsStreamBtnVisible: (visible: boolean) => void;
 };
 
 const MiniPlayerContext = createContext<MiniPlayerContextType | undefined>(
@@ -33,26 +42,36 @@ export function MiniPlayerProvider({
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [currentSource, setCurrentSource] = useState<string | undefined>();
   const [tagLine, setTagLine] = useState<string | undefined>();
+  const [isStreamBtnVisible, setIsStreamBtnVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const currentShow = useCurrentShow();
+
+  useEffect(() => {
+    if (isStreaming) {
+      setTagLine(currentShow.name);
+    }
+  }, [currentShow.name, isStreaming]);
+
+  const value = {
+    isMiniPlayerOpen,
+    setIsMiniPlayerOpen,
+    isStreamActive,
+    setIsStreamActive,
+    isStreaming,
+    setIsStreaming,
+    isAudioPlaying,
+    setIsAudioPlaying,
+    currentSource,
+    setCurrentSource,
+    tagLine,
+    setTagLine,
+    isStreamBtnVisible,
+    setIsStreamBtnVisible,
+    audioRef,
+  };
 
   return (
-    <MiniPlayerContext.Provider
-      value={{
-        isMiniPlayerOpen,
-        setIsMiniPlayerOpen,
-        isStreamActive,
-        setIsStreamActive,
-        isStreaming,
-        setIsStreaming,
-        isAudioPlaying,
-        setIsAudioPlaying,
-        currentSource,
-        setCurrentSource,
-        tagLine,
-        setTagLine,
-        audioRef,
-      }}
-    >
+    <MiniPlayerContext.Provider value={value}>
       {children}
     </MiniPlayerContext.Provider>
   );

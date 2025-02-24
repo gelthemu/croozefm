@@ -9,7 +9,11 @@ export const shows: Show[] = [
     description:
       "The Morning Addiction is your 6 AM wake-up call with humor, great music, and winning opportunities, minus the morning gibberish.",
     isFeatured: true,
-    host: "Belga | Monique | Derrick",
+    hosts: [
+      { name: "Belga" },
+      { name: "Monique", link: "/i/monique-mbabazi" },
+      { name: "Derrick", link: "/i/derrick-ashiimwe" },
+    ],
   },
   {
     id: "coffee-break",
@@ -25,7 +29,7 @@ export const shows: Show[] = [
     description:
       "Join Inyaa Clare on The Lifestyle Show for a comforting, soul-soothing experience every weekday at 11am, where life's soundtrack meets its advisor.",
     isFeatured: true,
-    host: "Inyaa",
+    hosts: [{ name: "Inyaa Clare", link: "/i/inyaa-clare" }],
   },
   {
     id: "most-wanted-hits",
@@ -33,7 +37,10 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/most-wanted-hits.png",
     description:
       "Starcent DJ 'the crowd hyper' delivers two hours of non-stop hits with minimal ads, featuring 'Sing for Cash'.",
-    host: "Inyaa | Starcent DJ",
+    hosts: [
+      { name: "Inyaa Clare", link: "/i/inyaa-clare" },
+      { name: "Starcent DJ" },
+    ],
   },
   {
     id: "african-countdown",
@@ -63,7 +70,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
     description:
       "The Evening Switch with Nkuta Michael is your daily evening ritual, blending music and infotainment to ease you from work to home comfort on Western Uganda's Biggest Radio.",
-    host: "Michael | Antoinette",
+    hosts: [{ name: "Michael" }],
   },
   {
     id: "hits-selector",
@@ -72,7 +79,7 @@ export const shows: Show[] = [
     description:
       "Join the interactive DJ experience every Monday to Thursday, where your song requests shape the evening playlist; call, tweet, or message to get your music on air.",
     isFeatured: true,
-    host: "Dosh",
+    hosts: [{ name: "Dosh" }],
   },
   {
     id: "sports-bwino",
@@ -81,7 +88,11 @@ export const shows: Show[] = [
     description:
       "End your day with 'Soccer Talk' on Western Uganda's airwaves, where Ronald Rosh and his team dive deep into the world of football, covering every detail from local talents to global stars.",
     isFeatured: true,
-    host: "Rosh | Abou | James",
+    hosts: [
+      { name: "Rosh" },
+      { name: "Abou", link: "/i/abou-champion" },
+      { name: "James" },
+    ],
     recordings: [
       {
         id: "2024-11-25",
@@ -110,7 +121,10 @@ export const shows: Show[] = [
       "https://croozefm.blob.core.windows.net/images/tgif-most-wanted-extra.png",
     description:
       "Friday gets even better with extended hits and fan-favorite tracks.",
-    host: "Problem Child | DJ Modern",
+    hosts: [
+      { name: "Da Problem Child", link: "/i/da-problem-child" },
+      { name: "DJ Modern" },
+    ],
   },
   {
     id: "fat-friday-mix",
@@ -118,7 +132,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/fat-friday-mix.png",
     description:
       "End your Friday night with a bang! A special mix to keep you dancing into the night.",
-    host: "Belga MC | Deejay Emma",
+    hosts: [{ name: "Belga MC" }, { name: "Deejay Emma" }],
   },
   {
     id: "urban-breakfast",
@@ -126,15 +140,18 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/urban-breakfast.png",
     description:
       "Wake up to the freshest beats and urban vibes every Saturday morning.",
-    host: "Dosh | DJ Stinger",
+    hosts: [
+      { name: "Dosh" },
+      { name: "Deejay Stinger", link: "/i/deejay-stinger" },
+    ],
   },
   {
     id: "big-seat",
-    title: "The BIG SEAT",
+    title: "The BIG Seat",
     image: "https://croozefm.blob.core.windows.net/images/big-seat.png",
     description:
       "A Saturday morning talk show with influential guests and insightful conversations.",
-    host: "Wesige Banyagi",
+    hosts: [{ name: "Wesige Banyagi", link: "/i/wesige-banyagi" }],
   },
   {
     id: "sports-roundup",
@@ -142,7 +159,11 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/sports-roundup.png",
     description:
       "Your go-to show for all the latest highlights and commentary from the sports world.",
-    host: "Abou | Derrick | Nicholas",
+    hosts: [
+      { name: "Abou", link: "/i/abou-champion" },
+      { name: "Derrick", link: "/i/derrick-ashiimwe" },
+      { name: "Nicholas" },
+    ],
   },
   {
     id: "african-rhythms",
@@ -150,7 +171,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/african-rhythms.png",
     description:
       "Immerse yourself in the vibrant and diverse sounds of African music every Saturday evening.",
-    host: "Starcent DJ",
+    hosts: [{ name: "Starcent DJ" }],
   },
   {
     id: "saturday-night",
@@ -158,7 +179,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/saturday-night.png",
     description:
       "Keep the Saturday vibe alive with the best music for your night out or chill time at home.",
-    host: "MC Kacheche | Deejay Emma",
+    hosts: [{ name: "MC Kacheche" }, { name: "Deejay Emma" }],
   },
   {
     id: "sunday-love",
@@ -166,7 +187,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/sunday-love.png",
     description:
       "Celebrate love with romantic tunes and heartfelt stories to brighten your Sunday.",
-    host: "Inyaa",
+    hosts: [{ name: "Inyaa Clare", link: "/i/inyaa-clare" }],
     recordings: [
       {
         id: "2025-01-26",
@@ -186,7 +207,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/enyangyi.png",
     description:
       "A cultural showcase of traditional music and stories, celebrating heritage every Sunday.",
-    host: "John Turinawe",
+    hosts: [{ name: "John Tulinawe" }],
   },
   {
     id: "total-country-show",
