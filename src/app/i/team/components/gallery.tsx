@@ -29,15 +29,15 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name }) => {
       {gallery.map((photo, index) => (
         <div
           key={index}
-          className="relative w-full profile-image overflow-hidden"
+          className="relative w-full profile-image rounded-md overflow-hidden"
         >
           <Image
             src={photo}
             width={2280}
             height={2784}
             priority={true}
-            alt={`${name}'s Photo - ${index + 1}`}
-            className="w-full h-full object-cover aspect-[570/696] rounded-sm grayscale-[1] _img_"
+            alt={`${name} - ${index + 1}`}
+            className="w-full h-full object-cover aspect-[570/696] grayscale-[1] _img_"
           />
           {selectedPhotoIndex !== index && (
             <button
