@@ -96,21 +96,15 @@ export default async function ShowPage({ params }: PageProps) {
             <span className="sr-only">Hosted by</span>
             <i className="fa-solid fa-microphone-lines px-3 py-2"></i>
             <div className="flex flex-row divide-x divide-light/40 dark:divide-light/20">
-              {show.hosts.map((host, index) =>
-                host.link ? (
-                  <Link
-                    key={index}
-                    href={host.link}
-                    className="relative px-3 py-2 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
-                  >
-                    {host.name}
-                  </Link>
-                ) : (
-                  <span key={index} className="px-3 py-2">
-                    {host.name}
-                  </span>
-                )
-              )}
+              {show.hosts.map((host, index) => (
+                <Link
+                  key={index}
+                  href={host.link ? host.link : "/i/team"}
+                  className="relative px-3 py-2 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
+                >
+                  {host.name}
+                </Link>
+              ))}
             </div>
           </div>
         )}
