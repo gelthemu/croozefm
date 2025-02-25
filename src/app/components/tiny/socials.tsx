@@ -40,15 +40,8 @@ const SocialLinks = () => {
 
   return (
     <>
-      <div className="text-light/80 flex flex-col-reverse items-center justify-center">
-        <div className="text-sm mt-4 py-2 border-y border-light/10">
-          <span>
-            Call Us:{" "}
-            <strong className="font-medium">
-              0752-912912{" • "}0780-912910
-            </strong>
-          </span>
-        </div>
+      <div className="text-light/80 flex flex-col items-center justify-center">
+        <p className="text-sm mb-2.5">Follow us for a cookie!</p>
         <div className="relative flex justify-center items-center space-x-1 text-khaki/80">
           {socialLinks.map((social, index) => (
             <div key={index} className="flex justify-center items-center">

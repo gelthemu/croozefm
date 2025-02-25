@@ -66,9 +66,9 @@ export default function RecentlyPlayed() {
           <h2 className="text-lg mb-2.5 _912cfm">Recently Played</h2>
 
           {currentTrack && (
-            <div className="w-full mx-auto mb-2 text-left">
+            <div className="w-full mx-auto mb-2.5 text-left">
               <div className="bg-gray/0 rounded-sm p-2.5 shadow shadow-gray/40 dark:shadow-light/20 flex items-end">
-                <div className="flex-shrink-0 w-12 h-12 relative profile-image aspect-square rounded-sm overflow-hidden">
+                <div className="flex-shrink-0 w-20 h-20 relative profile-image aspect-square rounded-sm overflow-hidden">
                   {currentTrack.track_image ? (
                     <Image
                       src={currentTrack.track_image}
@@ -78,7 +78,7 @@ export default function RecentlyPlayed() {
                       className="w-full h-full object-cover rounded-sm aspect-square _img_"
                     />
                   ) : (
-                    <div className="bg-dark/20 w-12 h-12 flex items-center justify-center">
+                    <div className="bg-dark/20 w-20 h-20 flex items-center justify-center">
                       <span className="text-light">
                         <MdLibraryMusic />
                       </span>
@@ -109,7 +109,7 @@ export default function RecentlyPlayed() {
                   key={index}
                   className="w-64 snap-center bg-gray/10 dark:bg-gray/40 rounded-sm p-1.5 flex-shrink-0 flex items-end"
                 >
-                  <div className="flex-shrink-0 w-20 h-20 relative profile-image aspect-square rounded-sm overflow-hidden">
+                  <div className="flex-shrink-0 w-16 h-16 relative profile-image aspect-square rounded-sm overflow-hidden">
                     {track.track_image ? (
                       <Image
                         src={track.track_image}
@@ -119,7 +119,7 @@ export default function RecentlyPlayed() {
                         className="w-full h-full object-cover rounded-sm aspect-square _img_"
                       />
                     ) : (
-                      <div className="bg-dark/40 w-20 h-20 flex items-center justify-center">
+                      <div className="bg-dark/40 w-16 h-16 flex items-center justify-center">
                         <Image
                           src="/cfm-logo-2.png"
                           alt="CroozeFM Logo"
@@ -130,7 +130,7 @@ export default function RecentlyPlayed() {
                       </div>
                     )}
                   </div>
-                  <div className="flex-grow flex flex-col text-sm p-2">
+                  <div className="flex-grow flex flex-col text-sm ml-2">
                     <h4 className="font-medium line-clamp-1">
                       {track.track_title}
                     </h4>

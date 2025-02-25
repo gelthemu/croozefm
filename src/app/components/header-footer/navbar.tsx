@@ -101,11 +101,11 @@ export default function Navbar() {
             </button>
           </div>
           <div
-            className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+            className={`items-center justify-between w-full min-h-screen md:min-h-0 md:flex md:w-auto md:order-1 ${
               isOpen
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-full md:translate-x-0 opacity-0 md:opacity-100"
-            } absolute top-full left-0 md:static border-2 border-dark/20 dark:border-light/10 md:border-0 backdrop-blur-md bg-dark/80 dark:bg-red/40 md:bg-transparent rounded-b-md transition-all duration-300`}
+            } absolute top-full left-0 md:static border-2 border-dark/20 dark:border-light/10 md:border-0 backdrop-blur-md bg-dark/80 dark:bg-gray/60 md:bg-transparent md:dark:bg-transparent  rounded-b-md transition-all duration-300`}
             id="navbar-absolute"
           >
             <ul className="w-full mx-auto md:max-w-none md:mx-0 flex flex-col space-y-4 md:divide-y-0 md:space-y-0 md:flex-row md:space-x-3 lg:space-x-6 rtl:space-x-reverse p-4 md:p-0 font-medium">
@@ -128,10 +128,18 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="flex items-center justify-center p-4 md:hidden">
+              <li className="flex  flex-col items-center justify-center p-4 md:hidden">
                 <span onClick={() => setIsOpen(false)}>
                   <SocialLinks />
                 </span>
+                <div className="text-sm mt-4 py-2 border-y border-light/10">
+                  <span>
+                    Call Us:{" "}
+                    <strong className="font-medium">
+                      0752-912912{" • "}0780-912910
+                    </strong>
+                  </span>
+                </div>
               </li>
             </ul>
           </div>

@@ -17,10 +17,10 @@ export default function OnAir() {
         </div>
         <Show />
         <div className="w-full md:flex md:items-end md:space-x-5">
-          <div className="w-full md:w-[40%]">
+          <div className="w-full md:w-[42%]">
             <Schedule />
           </div>
-          <div className="w-full md:w-[60%]">
+          <div className="w-full md:w-[58%]">
             <RecentlyPlayed />
           </div>
         </div>
