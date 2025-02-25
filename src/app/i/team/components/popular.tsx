@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getPopularProfiles } from "@/lib/profiles-parser";
-import { Flame } from "lucide-react";
+// import { Flame } from "lucide-react";
 import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export default function PopularProfiles() {
@@ -30,7 +30,7 @@ export default function PopularProfiles() {
               />
             </div>
             <div className="absolute top-2 right-2 text-light/50">
-              <Flame size={16} />
+              {/* <Flame size={16} /> */} 🔥
             </div>
             <div className="p-3.5 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
               <div className="h-full w-full flex flex-col items-start justify-end">

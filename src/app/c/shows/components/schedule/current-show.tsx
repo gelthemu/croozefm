@@ -222,14 +222,14 @@ export const getCurrentShow = (): CurrentShow => {
 
   return {
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "NP: Great Music, for Great Friends",
+    name: "Great Music, for Great Friends",
   };
 };
 
 export const useCurrentShow = () => {
   const [currentShow, setCurrentShow] = useState<CurrentShow>({
     img: "https://croozefm.blob.core.windows.net/images/default.png",
-    name: "NP: Great Music, for Great Friends",
+    name: "Great Music, for Great Friends",
   });
 
   useEffect(() => {

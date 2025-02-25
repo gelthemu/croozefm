@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         hostname: "pbs.twimg.com",
         pathname: "/media/**",
       },
+      {
+        protocol: "https",
+        hostname: "coverart.instant.audio",
+        pathname: "/images/**",
+      },
     ],
   },
 };
