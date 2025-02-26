@@ -113,7 +113,7 @@ const UgTime = () => {
   useEffect(() => {
     updateDateTime();
 
-    const interval = setInterval(updateDateTime, 10000);
+    const interval = setInterval(updateDateTime, 1000);
 
     return () => clearInterval(interval);
   }, [updateDateTime]);

@@ -16,11 +16,10 @@ const getTimeAgo = (timestamp: number) => {
 
 const usePlaylistData = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const fetchPlaylist = async () => {
     try {
-      setIsLoading(true);
       const response = await fetch(
         "https://api.instant.audio/data/playlist/132/91-2-crooze-fm"
       );
@@ -33,36 +32,37 @@ const usePlaylistData = () => {
 
       if (data.success && data.result && data.result.length > 0) {
         setTracks(data.result);
+        setIsSuccess(true);
       } else {
+        setIsSuccess(false);
         return;
       }
     } catch (err) {
       console.error(err);
-    } finally {
-      setIsLoading(false);
+      setIsSuccess(false);
     }
   };
 
   useEffect(() => {
     fetchPlaylist();
 
-    const interval = setInterval(fetchPlaylist, 90000);
+    const interval = setInterval(fetchPlaylist, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  return { tracks, isLoading, fetchPlaylist };
+  return { tracks, isSuccess, fetchPlaylist };
 };
 
 export default function RecentlyPlayed() {
-  const { tracks, isLoading } = usePlaylistData();
-  const currentTrack = tracks.length > 0 ? tracks[0] : null;
+  const { tracks, isSuccess } = usePlaylistData();
+  const currentTrack = tracks[0];
   const recentTracks = tracks.slice(1);
 
   return (
     <>
-      {!isLoading && (
-        <div className="w-full mt-4 md:mt-0">
+      {isSuccess && (
+        <div className="w-full mt-6 md:mt-0">
           <h2 className="text-lg mb-2.5 _912cfm">Recently Played</h2>
 
           {currentTrack && (
@@ -130,16 +130,18 @@ export default function RecentlyPlayed() {
                       </div>
                     )}
                   </div>
-                  <div className="flex-grow flex flex-col text-sm ml-2">
+                  <div className="flex-grow text-sm mx-2">
                     <h4 className="font-medium line-clamp-1">
                       {track.track_title}
                     </h4>
-                    <p className="text-xs line-clamp-1 opacity-80">
-                      {track.track_artist}
-                    </p>
-                    <p className="text-xs flex-shrink-0 opacity-50">
-                      {getTimeAgo(track.track_played)}
-                    </p>
+                    <div className="flex items-center justify-between">
+                      <p className="line-clamp-1 opacity-80">
+                        {track.track_artist}
+                      </p>
+                      <p className="text-xs flex-shrink-0 opacity-50">
+                        {getTimeAgo(track.track_played)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
