@@ -3,7 +3,7 @@ import {
   Show,
   UgTime,
 } from "@/app/c/shows/components/schedule/schedule";
-import RecentlyPlayed from "./recently-played";
+import Tracklist from "./tracklist";
 
 export default function OnAir() {
   return (
@@ -21,7 +21,7 @@ export default function OnAir() {
             <Schedule />
           </div>
           <div className="w-full md:w-[58%]">
-            <RecentlyPlayed />
+            <Tracklist />
           </div>
         </div>
       </div>
