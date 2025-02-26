@@ -1,59 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Track } from "@/types/track";
 import { MdLibraryMusic } from "react-icons/md";
 import Carousel from "../tiny/carousel";
-
-const getTimeAgo = (timestamp: number) => {
-  const seconds = Math.floor(Date.now() / 1000 - timestamp);
-
-  if (seconds < 60) return `${seconds} seconds ago`;
-  if (seconds < 3600) return `${Math.floor(seconds / 60)} mins ago`;
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)} hours ago`;
-  return `${Math.floor(seconds / 86400)} days ago`;
-};
-
-const usePlaylistData = () => {
-  const [tracks, setTracks] = useState<Track[]>([]);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const fetchPlaylist = async () => {
-    try {
-      const response = await fetch(
-        "https://api.instant.audio/data/playlist/132/91-2-crooze-fm"
-      );
-
-      if (!response.ok) {
-        throw new Error(`${response.status}`);
-      }
-
-      const data = await response.json();
-
-      if (data.success && data.result && data.result.length > 0) {
-        setTracks(data.result);
-        setIsSuccess(true);
-      } else {
-        setIsSuccess(false);
-        return;
-      }
-    } catch (err) {
-      console.error(err);
-      setIsSuccess(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchPlaylist();
-
-    const interval = setInterval(fetchPlaylist, 10000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return { tracks, isSuccess, fetchPlaylist };
-};
+import {
+  usePlaylistData,
+  getTimeAgo,
+} from "@/app/c/shows/components/schedule/playlist-data";
 
 export default function Tracklist() {
   const { tracks, isSuccess } = usePlaylistData();
@@ -108,8 +61,8 @@ export default function Tracklist() {
               <div className="relative overflow-hidden">
                 <Carousel
                   className="gap-2 snap-x snap-mandatory"
-                  btnClass="text-red bg-light/80 dark:bg-dark/80"
-                  itemWidth={260}
+                  btnClass="bg-light/80 dark:bg-dark/80"
+                  itemWidth={10}
                 >
                   {recentTracks.map((track, index) => (
                     <div

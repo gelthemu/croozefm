@@ -16,7 +16,7 @@ export default function PopularProfiles() {
         <Carousel
           className="gap-2 snap-x snap-mandatory"
           btnClass="text-light/80 bg-dark/60"
-          itemWidth={260}
+          itemWidth={320}
         >
           {popularProfiles.map((profile) => (
             <Link

@@ -170,7 +170,7 @@ const MixtapeBtn = () => {
 
   return (
     <StreamButton
-      className={`text-light px-4 py-2 ${
+      className={`flex-shrink-0 text-light px-4 py-2 ${
         isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
       }`}
       onClick={handleClick}

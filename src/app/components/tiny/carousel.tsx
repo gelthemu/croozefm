@@ -27,7 +27,7 @@ export default function Carousel({
 
     setShowLeftControl(scrollLeft > 0);
 
-    setShowRightControl(scrollLeft < scrollWidth - clientWidth - 5);
+    setShowRightControl(scrollLeft < scrollWidth - clientWidth - 10);
   };
 
   const scrollLeft = () => {
