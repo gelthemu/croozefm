@@ -245,7 +245,7 @@ export const useCurrentShow = () => {
 
     updateShow();
 
-    const interval = setInterval(updateShow, 1000);
+    const interval = setInterval(updateShow, 10000);
 
     return () => clearInterval(interval);
   }, []);

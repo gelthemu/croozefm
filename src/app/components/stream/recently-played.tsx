@@ -46,7 +46,7 @@ const usePlaylistData = () => {
   useEffect(() => {
     fetchPlaylist();
 
-    const interval = setInterval(fetchPlaylist, 1000);
+    const interval = setInterval(fetchPlaylist, 10000);
 
     return () => clearInterval(interval);
   }, []);
