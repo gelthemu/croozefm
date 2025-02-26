@@ -63,7 +63,7 @@ export default function RecentlyPlayed() {
     <>
       {isSuccess && (
         <div className="w-full mt-6 md:mt-0">
-          <h2 className="text-lg mb-2.5 _912cfm">Recently Played</h2>
+          <h2 className="text-lg mb-2.5 _912cfm">Tracklist</h2>
 
           {currentTrack && (
             <div className="w-full mx-auto mb-2.5 text-left">
@@ -85,7 +85,7 @@ export default function RecentlyPlayed() {
                     </div>
                   )}
                 </div>
-                <div className="flex-grow px-2.5">
+                <div className="flex-grow pl-2.5 pr-1.5">
                   <h4 className="font-semibold line-clamp-1">
                     {currentTrack.track_title}
                   </h4>
@@ -130,7 +130,7 @@ export default function RecentlyPlayed() {
                       </div>
                     )}
                   </div>
-                  <div className="flex-grow text-sm mx-2">
+                  <div className="flex-grow text-sm ml-2 mr-1">
                     <h4 className="font-medium line-clamp-1">
                       {track.track_title}
                     </h4>
@@ -138,7 +138,7 @@ export default function RecentlyPlayed() {
                       <p className="line-clamp-1 opacity-80">
                         {track.track_artist}
                       </p>
-                      <p className="text-xs flex-shrink-0 opacity-50">
+                      <p className="ml-1 text-xs flex-shrink-0 opacity-50">
                         {getTimeAgo(track.track_played)}
                       </p>
                     </div>
