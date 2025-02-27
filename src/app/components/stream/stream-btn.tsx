@@ -3,13 +3,11 @@
 import React, { useEffect, useRef, forwardRef } from "react";
 import { useCurrentShow } from "@/app/c/shows/components/schedule/current-show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { ArrowDownRight, Headphones } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const STREAM_URL =
   "https://fmradiohub.in/play?url=https://stream-176.zeno.fm/vyxwdk08apxtv";
-const MIXTAPE_URL =
-  "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
 
 interface StreamButtonProps {
   className?: string;
@@ -146,40 +144,4 @@ const NavStreamBtn = ({
   );
 };
 
-const MixtapeBtn = () => {
-  const {
-    isMiniPlayerOpen,
-    setIsMiniPlayerOpen,
-    currentSource,
-    setCurrentSource,
-    setIsStreaming,
-    setTagLine,
-  } = useMiniPlayer();
-  const isActive = isMiniPlayerOpen && currentSource === MIXTAPE_URL;
-
-  const handleClick = () => {
-    if (isActive) {
-      setIsMiniPlayerOpen(false);
-    } else {
-      setCurrentSource(MIXTAPE_URL);
-      setIsStreaming(false);
-      setTagLine("CFM Weekly Mixtape (DJ EmmaVol 1)");
-      setIsMiniPlayerOpen(true);
-    }
-  };
-
-  return (
-    <StreamButton
-      className={`flex-shrink-0 text-light px-4 py-2 ${
-        isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-red"
-      }`}
-      onClick={handleClick}
-      isActive={isActive}
-    >
-      <span>Listen Now</span>
-      <Headphones className="w-4 h-4" />
-    </StreamButton>
-  );
-};
-
-export { StreamButton, StreamBtn, NavStreamBtn, MixtapeBtn };
+export { StreamButton, StreamBtn, NavStreamBtn };

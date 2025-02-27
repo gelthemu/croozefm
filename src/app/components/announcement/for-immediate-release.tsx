@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MixtapeBtn } from "../stream/stream-btn";
-import MixtapeDownloadBtn from "../stream/download-btn";
+import MixtapeBtn from "./components/mixtape-btn";
 
 export default function ImmediateRelease() {
   return (
@@ -20,8 +19,7 @@ export default function ImmediateRelease() {
               <p className="mb-3">
                 Brace yourself for uplifting vibes and awesome tunes! Western
                 Uganda&apos;s Biggest Radio Station brings you the Crooze FM
-                Weekly Mixtape every Wednesday, starting strong with the
-                incredible Married Dj, Deejay Emma.{" "}
+                Weekly Mixtape every Wednesday.{" "}
                 <Link
                   href="https://x.com/hashtag/CFMWeeklyMixtapes?src=hashtag_click&f=live"
                   target="_blank"
@@ -36,7 +34,6 @@ export default function ImmediateRelease() {
             </div>
             <div className="flex flex-row space-x-3">
               <MixtapeBtn />
-              <MixtapeDownloadBtn />
             </div>
           </div>
           <div className="w-full md:w-[75%] lg:w-[80%] h-full lg:self-end overflow-hidden">
