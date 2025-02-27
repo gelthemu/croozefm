@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { News } from "@/types/news";
 import { news } from "@/data/news";
 import Image from "next/image";
@@ -26,20 +26,23 @@ export default function NewsArchive() {
     isMiniPlayerOpen,
   } = useMiniPlayer();
 
-  const updateDisplayOrder = (selected: News) => {
-    const selectedIndex = sortedNews.findIndex(
-      (item) => item.id === selected.id
-    );
+  const updateDisplayOrder = useCallback(
+    (selected: News) => {
+      const selectedIndex = sortedNews.findIndex(
+        (item) => item.id === selected.id
+      );
 
-    if (selectedIndex !== 0) {
-      const newOrder = [...sortedNews];
-      const selectedItem = newOrder.splice(selectedIndex, 1)[0];
-      newOrder.splice(1, 0, selectedItem);
-      return newOrder;
-    } else {
-      return [...sortedNews];
-    }
-  };
+      if (selectedIndex !== 0) {
+        const newOrder = [...sortedNews];
+        const selectedItem = newOrder.splice(selectedIndex, 1)[0];
+        newOrder.splice(1, 0, selectedItem);
+        return newOrder;
+      } else {
+        return [...sortedNews];
+      }
+    },
+    [sortedNews]
+  );
 
   useEffect(() => {
     if (isMiniPlayerOpen && currentSource) {
@@ -51,7 +54,13 @@ export default function NewsArchive() {
         setDisplayOrder(updateDisplayOrder(currentlyPlayingNews));
       }
     }
-  }, [isMiniPlayerOpen, currentSource, sortedNews, selectedNews.id, updateDisplayOrder]);
+  }, [
+    isMiniPlayerOpen,
+    currentSource,
+    sortedNews,
+    selectedNews.id,
+    updateDisplayOrder,
+  ]);
 
   const isNewsItemPlaying = (audioSource: string): boolean => {
     return isMiniPlayerOpen && isAudioPlaying && currentSource === audioSource;
