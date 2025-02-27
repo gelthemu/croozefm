@@ -10,7 +10,7 @@ import SocialLinks from "../tiny/socials";
 import { NavStreamBtn } from "../stream/stream-btn";
 
 const navLinks = [
-  { id: "home", name: "Home", href: "/" },
+  { id: "home", name: "Home", href: "/home" },
   { id: "shows", name: "Shows", href: "/c/shows" },
   { id: "presenters", name: "Presenters", href: "/i/team" },
   { id: "news-archive", name: "News-Archive", href: "/c/news-archive" },
@@ -26,16 +26,16 @@ export default function Navbar() {
     if (href === "/i/team" && pathname.startsWith("/i/")) {
       return true;
     }
-    if (href === "/") {
+    if (href === "/home") {
       const matchesOtherPaths = navLinks
-        .filter((link) => link.href !== "/")
+        .filter((link) => link.href !== "/home")
         .some((link) => {
           if (pathname.startsWith("/i/") && link.href === "/i/team") {
             return true;
           }
           return pathname.startsWith(link.href);
         });
-      return pathname === "/" || !matchesOtherPaths;
+      return pathname === "/home" || !matchesOtherPaths;
     }
     return pathname.startsWith(href);
   };
@@ -76,7 +76,7 @@ export default function Navbar() {
     <div className="w-full bg-red sticky top-0 z-20 border-b border-dark/50 dark:border-light/50">
       <nav className="w-full max-w-screen-xl mx-auto">
         <div className="flex flex-wrap items-center justify-between p-4 md:px-8">
-          <Link href="/" className="flex items-center w-24 md:w-28">
+          <Link href="/home" className="flex items-center w-24 md:w-28">
             <Image
               src="/cfm-logo-2.png"
               alt="CroozeFM Logo"

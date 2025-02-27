@@ -2,13 +2,14 @@
 
 import React from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { Headphones } from "lucide-react";
 import { StreamButton } from "../../stream/stream-btn";
+import { Mixtape } from "@/types/mixtape";
 
-const MIXTAPE_URL =
-  "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3";
+interface MixtapeProps {
+  mixtape: Mixtape;
+}
 
-export default function MixtapeBtn() {
+export default function MixtapeBtn({ mixtape }: MixtapeProps) {
   const {
     isMiniPlayerOpen,
     setIsMiniPlayerOpen,
@@ -17,15 +18,15 @@ export default function MixtapeBtn() {
     setIsStreaming,
     setTagLine,
   } = useMiniPlayer();
-  const isActive = isMiniPlayerOpen && currentSource === MIXTAPE_URL;
+  const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
   const handleClick = () => {
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {
-      setCurrentSource(MIXTAPE_URL);
+      setCurrentSource(mixtape.url);
       setIsStreaming(false);
-      setTagLine("CFM Weekly Mixtape (DJ EmmaVol 1)");
+      setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
       setIsMiniPlayerOpen(true);
     }
   };
@@ -39,7 +40,7 @@ export default function MixtapeBtn() {
       isActive={isActive}
     >
       <span>Listen Now</span>
-      <Headphones className="w-4 h-4" />
+      <i className="fa-solid fa-headphones pl-1.5"></i>
     </StreamButton>
   );
 }

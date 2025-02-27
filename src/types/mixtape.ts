@@ -6,5 +6,5 @@ export interface Mixtape {
   dj?: {
     name: string;
     link?: string;
-  }[];
+  };
 }

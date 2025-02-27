@@ -57,7 +57,7 @@ const Show = () => {
   const showUrl = getShowUrl(currentShow.img);
 
   return (
-    <div className="mb-4">
+    <div className="w-fit mb-4">
       <Link href={showUrl} className="text-left font-light _912cfm">
         <p className="line-clamp-1">{currentShow.name}</p>
       </Link>

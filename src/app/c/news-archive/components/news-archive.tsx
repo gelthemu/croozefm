@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { News } from "@/types/news";
 import { news } from "@/data/news";
 import Image from "next/image";
@@ -15,6 +15,7 @@ export default function NewsArchive() {
   );
 
   const [selectedNews, setSelectedNews] = useState<News>(sortedNews[0]);
+  const [displayOrder, setDisplayOrder] = useState<News[]>(sortedNews);
   const {
     setIsMiniPlayerOpen,
     setCurrentSource,
@@ -25,8 +26,36 @@ export default function NewsArchive() {
     isMiniPlayerOpen,
   } = useMiniPlayer();
 
-  const isPlaying =
-    isMiniPlayerOpen && isAudioPlaying && currentSource === selectedNews.audio;
+  const updateDisplayOrder = (selected: News) => {
+    const selectedIndex = sortedNews.findIndex(
+      (item) => item.id === selected.id
+    );
+
+    if (selectedIndex !== 0) {
+      const newOrder = [...sortedNews];
+      const selectedItem = newOrder.splice(selectedIndex, 1)[0];
+      newOrder.splice(1, 0, selectedItem);
+      return newOrder;
+    } else {
+      return [...sortedNews];
+    }
+  };
+
+  useEffect(() => {
+    if (isMiniPlayerOpen && currentSource) {
+      const currentlyPlayingNews = sortedNews.find(
+        (item) => item.audio === currentSource
+      );
+      if (currentlyPlayingNews && currentlyPlayingNews.id !== selectedNews.id) {
+        setSelectedNews(currentlyPlayingNews);
+        setDisplayOrder(updateDisplayOrder(currentlyPlayingNews));
+      }
+    }
+  }, [isMiniPlayerOpen, currentSource, sortedNews, selectedNews.id]);
+
+  const isNewsItemPlaying = (audioSource: string): boolean => {
+    return isMiniPlayerOpen && isAudioPlaying && currentSource === audioSource;
+  };
 
   const handlePlay = () => {
     setCurrentSource(selectedNews.audio);
@@ -40,17 +69,22 @@ export default function NewsArchive() {
   };
 
   const handleNewsSelect = (item: News) => {
-    setSelectedNews(item);
+    if (selectedNews.id !== item.id) {
+      setSelectedNews(item);
+      setDisplayOrder(updateDisplayOrder(item));
 
-    if (item.audio !== currentSource) {
-      setCurrentSource(item.audio);
-      setTagLine(
-        `#CroozeFMNews${" "}(${item.aired.time})${" • "}${item.anchor}`
-      );
-      setIsStreaming(false);
-      setIsMiniPlayerOpen(true);
+      if (item.audio !== currentSource) {
+        setCurrentSource(item.audio);
+        setTagLine(
+          `#CroozeFMNews${" "}(${item.aired.time})${" • "}${item.anchor}`
+        );
+        setIsStreaming(false);
+        setIsMiniPlayerOpen(true);
+      }
     }
   };
+
+  const isPlaying = isNewsItemPlaying(selectedNews.audio);
 
   return (
     <div className="max-w-xl mx-auto bg-dark/20 dark:bg-gray/60 rounded-sm border border-dark/20 dark:border-light/20">
@@ -106,15 +140,11 @@ export default function NewsArchive() {
             }
             onClick={handlePlay}
             className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-              (isMiniPlayerOpen || isPlaying) &&
-              currentSource === selectedNews.audio
+              isMiniPlayerOpen && currentSource === selectedNews.audio
                 ? "text-red/80"
                 : ""
             }`}
-            disabled={
-              (isMiniPlayerOpen || isPlaying) &&
-              currentSource === selectedNews.audio
-            }
+            disabled={isMiniPlayerOpen && currentSource === selectedNews.audio}
           >
             {isPlaying ? (
               <>
@@ -147,14 +177,13 @@ export default function NewsArchive() {
       <div className="bg-gray/20 dark:bg-light/10 backdrop-blur-md">
         <div className="flex items-center justify-between px-4 py-2">
           <small>In this PLAYLIST</small>
-          <small>{sortedNews.length} Episodes</small>
+          <small>{displayOrder.length} Episodes</small>
         </div>
       </div>
 
       <div className="h-[40vh] md:h-[60vh] overflow-x-hidden overflow-y-scroll">
-        {sortedNews.map((item) => {
-          const isItemPlaying =
-            isMiniPlayerOpen && isAudioPlaying && currentSource === item.audio;
+        {displayOrder.map((item, index) => {
+          const isItemPlaying = isNewsItemPlaying(item.audio);
 
           return (
             <button
@@ -170,7 +199,7 @@ export default function NewsArchive() {
               <div>
                 <div
                   className={`w-fit mb-1.5 text-light/80 bg-red/80 dark:bg-red/60 py-0 px-1.5 ${
-                    sortedNews.indexOf(item) === 0 ? "show" : "hidden"
+                    index === 0 ? "show" : "hidden"
                   }`}
                 >
                   <small>Recently Archived</small>

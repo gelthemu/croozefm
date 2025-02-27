@@ -2,15 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import type { Show } from "@/types/show";
+import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { FormatDate } from "@/app/components/tiny/format-date";
+import { FormatEpochDate } from "@/app/components/tiny/format-date";
 
-interface RecordPlayerProps {
-  show: Show;
+interface MixtapePlayerProps {
+  mixtapes: Mixtape[];
 }
 
-export default function RecordPlayer({ show }: RecordPlayerProps) {
+export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
   const {
     isAudioPlaying,
     isMiniPlayerOpen,
@@ -23,58 +23,55 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    if (isMiniPlayerOpen && currentSource && show.recordings?.length) {
-      const foundIndex = show.recordings.findIndex(
-        (rec) => rec.audio === currentSource
-      );
-      if (foundIndex !== -1) {
-        setPlayingIndex(foundIndex);
+    if (isMiniPlayerOpen && currentSource && mixtapes?.length > 0) {
+      const index = mixtapes.findIndex((mixtape) => mixtape.url === currentSource);
+      if (index !== -1) {
+        setPlayingIndex(index);
       }
     }
-  }, [isMiniPlayerOpen, currentSource, show.recordings]);
+  }, [currentSource, isMiniPlayerOpen, mixtapes]);
 
-  const isRecordingActive = (recordingAudio: string): boolean => {
-    return isMiniPlayerOpen && currentSource === recordingAudio;
-  };
+  const handlePlay = (index: number) => {
+    if (!mixtapes || mixtapes.length === 0) return;
 
-  const handlePlay = (index: number): void => {
-    if (!show.recordings || !show.recordings[index]) return;
-
-    const recording = show.recordings[index];
-    const isActive = isRecordingActive(recording.audio);
+    const mixtape = mixtapes[index];
+    const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {
-      setCurrentSource(recording.audio);
+      setCurrentSource(mixtape.url);
       setIsStreaming(false);
-      setTagLine(`${show.title} - ${FormatDate({ date: recording.date })}`);
+      setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
       setIsMiniPlayerOpen(true);
       setPlayingIndex(index);
     }
   };
 
-  if (!show.recordings?.length) {
+  if (!mixtapes || mixtapes.length === 0) {
     return (
-      <div className="flex items-center justify-center p-4">
-        <p className="text-red">No recordings available, yet.</p>
+      <div className="mt-10 flex items-center justify-center p-4">
+        <p className="text-red">No mixtapes available, yet.</p>
       </div>
     );
   }
 
   return (
     <div className="border-y border-gray/40 dark:border-light/10 px-2 py-8">
-      <div className="w-full md:w-5/6 mx-auto">
-        <h4 className="text-xl text-red/80 text-sm font-normal mb-4 border-l-2 border-red/80 pl-4">
-          Recordings Available
-        </h4>
+      <div className="w-full md:w-4/6 mx-auto">
+        <div className="mb-4">
+          <div className="flex items-center justify-between text-red/80 font-normal">
+            <p>In this PLAYLIST</p>
+            <small>{mixtapes.length} Episodes</small>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {show.recordings?.map((recording, index) => {
-            const isActive = isRecordingActive(recording.audio);
+          {mixtapes.map((mixtape, index) => {
+            const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
             return (
               <div
-                key={recording.id}
+                key={mixtape.id}
                 className={`overflow-hidden rounded-sm ${
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
@@ -84,10 +81,11 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                 <div className="p-4">
                   <div className="flex flex-row-reverse items-center justify-between pb-3">
                     <span className="text-xs text-gray/60 dark:text-light/40 font-medium">
-                      <FormatDate date={recording.date} />
+                      <FormatEpochDate epoch={mixtape.id} />
                     </span>
                     <span className="text-xs text-gray/90 dark:text-light/80 font-medium">
-                      {show.title}
+                      <i className="fa-solid fa-headphones pr-1.5"></i>{" "}
+                      {mixtape.dj?.name}
                     </span>
                   </div>
                   <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
@@ -101,7 +99,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
                         isActive ? "text-red/80" : ""
                       }`}
-                      disabled={isActive}
+                      disabled={isActive && isAudioPlaying}
                     >
                       {isAudioPlaying && isActive ? (
                         <>

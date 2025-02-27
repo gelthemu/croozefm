@@ -1,18 +1,18 @@
 import { Mixtape } from "@/types/mixtape";
 
-export const shows: Mixtape[] = [
+export const mixtapes: Mixtape[] = [
   {
     id: 1739941200,
-    title: "crooze-fm-weekly-mixtapes-dj-emma-vol-1-19th-feb-2025_01",
+    title: "Deejay Emma Vol 1",
     image: "",
     url: "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3",
-    dj: [{ name: "Deejay Emma" }],
+    dj: { name: "Deejay Emma" },
   },
   {
     id: 1740545820,
-    title: "crooze-fm-weekly-mixtapes-dj-banx-vol-1",
+    title: "DJ Banx Vol 1",
     image: "",
     url: "https://fmradiohub.in/play?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Banx-Vol-1.mp3",
-    dj: [{ name: "DJ Banx" }],
+    dj: { name: "DJ Banx" },
   },
 ];
