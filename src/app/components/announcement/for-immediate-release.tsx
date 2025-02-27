@@ -38,6 +38,9 @@ export default function ImmediateRelease() {
               <MixtapeBtn />
               <MixtapeDownloadBtn />
             </div>
+            <Link href="/api/audio?url=https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3">
+  Download Mixtape
+</Link>
           </div>
           <div className="w-full md:w-[75%] lg:w-[80%] h-full lg:self-end overflow-hidden">
             <Image
