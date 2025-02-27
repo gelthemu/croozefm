@@ -51,7 +51,7 @@ export default function NewsArchive() {
         setDisplayOrder(updateDisplayOrder(currentlyPlayingNews));
       }
     }
-  }, [isMiniPlayerOpen, currentSource, sortedNews, selectedNews.id]);
+  }, [isMiniPlayerOpen, currentSource, sortedNews, selectedNews.id, updateDisplayOrder]);
 
   const isNewsItemPlaying = (audioSource: string): boolean => {
     return isMiniPlayerOpen && isAudioPlaying && currentSource === audioSource;

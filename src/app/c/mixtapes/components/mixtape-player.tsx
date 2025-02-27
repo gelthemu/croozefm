@@ -24,7 +24,9 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
 
   useEffect(() => {
     if (isMiniPlayerOpen && currentSource && mixtapes?.length > 0) {
-      const index = mixtapes.findIndex((mixtape) => mixtape.url === currentSource);
+      const index = mixtapes.findIndex(
+        (mixtape) => mixtape.url === currentSource
+      );
       if (index !== -1) {
         setPlayingIndex(index);
       }
@@ -35,7 +37,10 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     if (!mixtapes || mixtapes.length === 0) return;
 
     const mixtape = mixtapes[index];
-    const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
+    const isActive =
+      isMiniPlayerOpen &&
+      currentSource === mixtape.url &&
+      playingIndex === index;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);

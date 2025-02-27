@@ -41,7 +41,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     if (!show.recordings || !show.recordings[index]) return;
 
     const recording = show.recordings[index];
-    const isActive = isRecordingActive(recording.audio);
+    const isActive = isRecordingActive(recording.audio) && playingIndex === index;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);
