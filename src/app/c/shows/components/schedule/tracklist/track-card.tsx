@@ -65,7 +65,7 @@ export default function TrackCard({
           <p className="text-sm line-clamp-1 opacity-80">
             {track.track_artist}
           </p>
-          <p className="ml-1 text-xs flex-shrink-0 opacity-50">
+          <p className="ml-2 text-xs flex-shrink-0 opacity-50">
             {getTimeAgo(track.track_played)}
           </p>
         </div>

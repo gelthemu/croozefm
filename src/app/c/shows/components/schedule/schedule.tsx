@@ -68,39 +68,45 @@ const Show = () => {
 const UgTime = () => {
   const [dateTime, setDateTime] = useState("");
 
-  const dateOptions = useMemo(
+  const options = useMemo(
     (): Intl.DateTimeFormatOptions => ({
       timeZone: "Africa/Kampala",
+      weekday: "short",
       month: "short",
       day: "numeric",
-    }),
-    []
-  );
-
-  const timeOptions = useMemo(
-    (): Intl.DateTimeFormatOptions => ({
-      timeZone: "Africa/Kampala",
       hour: "numeric",
+      minute: "numeric",
       hour12: true,
     }),
     []
   );
 
-  const dateFormatter = useMemo(
-    () => new Intl.DateTimeFormat("en-US", dateOptions),
-    [dateOptions]
-  );
-
-  const timeFormatter = useMemo(
-    () => new Intl.DateTimeFormat("en-US", timeOptions),
-    [timeOptions]
+  const formatter = useMemo(
+    () => new Intl.DateTimeFormat("en-US", options),
+    [options]
   );
 
   const updateDateTime = useCallback(() => {
     const now = new Date();
-    const newFormattedDate = dateFormatter.format(now);
-    const newFormattedTime = timeFormatter.format(now).toUpperCase();
-    const newDateTime = `${newFormattedDate} • ${newFormattedTime} (UG)`;
+
+    const formattedParts = formatter.formatToParts(now);
+
+    const weekday =
+      formattedParts.find((part) => part.type === "weekday")?.value || "";
+    const month =
+      formattedParts.find((part) => part.type === "month")?.value || "";
+    const day = formattedParts.find((part) => part.type === "day")?.value || "";
+
+    const minute =
+      formattedParts.find((part) => part.type === "minute")?.value || "";
+    const hour =
+      formattedParts.find((part) => part.type === "hour")?.value || "";
+    const dayPeriod =
+      formattedParts
+        .find((part) => part.type === "dayPeriod")
+        ?.value.toUpperCase() || "";
+
+    const newDateTime = `${weekday}, ${month} ${day} • ${hour}:${minute} ${dayPeriod} (UG)`;
 
     setDateTime((prevDateTime) => {
       if (prevDateTime !== newDateTime) {
@@ -108,7 +114,7 @@ const UgTime = () => {
       }
       return prevDateTime;
     });
-  }, [dateFormatter, timeFormatter]);
+  }, [formatter]);
 
   useEffect(() => {
     updateDateTime();
