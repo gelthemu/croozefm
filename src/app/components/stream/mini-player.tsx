@@ -6,6 +6,9 @@ import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
 
 export default function MiniPlayer() {
   const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState("0:00");
+  const [duration, setDuration] = useState("0:00");
+
   const {
     isMiniPlayerOpen,
     isStreamActive,
@@ -22,6 +25,22 @@ export default function MiniPlayer() {
     setTagLine,
   } = useMiniPlayer();
 
+  const formatTime = (timeInSeconds: number) => {
+    if (isNaN(timeInSeconds)) return "0:00";
+
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+    } else {
+      return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+    }
+  };
+
   const handleAudioError = useCallback(() => {
     setIsStreamActive(false);
     setIsAudioPlaying(false);
@@ -32,13 +51,19 @@ export default function MiniPlayer() {
       const percentage =
         (audioRef.current.currentTime / audioRef.current.duration) * 100 || 0;
       setProgress(isNaN(percentage) ? 0 : percentage);
+      setCurrentTime(formatTime(audioRef.current.currentTime));
+    }
+  }, [audioRef]);
+
+  const handleLoadedMetadata = useCallback(() => {
+    if (audioRef.current) {
+      setDuration(formatTime(audioRef.current.duration));
     }
   }, [audioRef]);
 
   const handleEnded = useCallback(() => {
     if (audioRef.current) {
       setProgress(100);
-      // audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
 
       setTimeout(() => {
@@ -61,6 +86,7 @@ export default function MiniPlayer() {
     if (currentAudio) {
       currentAudio.onerror = handleAudioError;
       currentAudio.ontimeupdate = handleTimeUpdate;
+      currentAudio.onloadedmetadata = handleLoadedMetadata;
       currentAudio.onended = handleEnded;
     }
 
@@ -68,10 +94,17 @@ export default function MiniPlayer() {
       if (currentAudio) {
         currentAudio.onerror = null;
         currentAudio.ontimeupdate = null;
+        currentAudio.onloadedmetadata = null;
         currentAudio.onended = null;
       }
     };
-  }, [audioRef, handleAudioError, handleTimeUpdate, handleEnded]);
+  }, [
+    audioRef,
+    handleAudioError,
+    handleTimeUpdate,
+    handleLoadedMetadata,
+    handleEnded,
+  ]);
 
   const handleAudioPlay = useCallback(() => {
     if (!audioRef.current) return;
@@ -89,7 +122,6 @@ export default function MiniPlayer() {
         });
     } else {
       audioRef.current.pause();
-      // audioRef.current.currentTime = 0;
       setIsAudioPlaying(false);
       setIsStreamActive(true);
     }
@@ -101,6 +133,8 @@ export default function MiniPlayer() {
       audioRef.current.currentTime = 0;
     }
     setProgress(0);
+    setCurrentTime("0:00");
+    setDuration("0:00");
     setIsAudioPlaying(false);
     setIsStreamActive(true);
     setIsStreaming(false);
@@ -169,6 +203,13 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
+        <div className="text-light/80 text-left text-sm md:text-xs md:font-light pt-1.5 pb-0">
+          <span>
+            <strong className="font-medium md:font-normal line-clamp-1">
+              {tagLine}
+            </strong>
+          </span>
+        </div>
         {isStreamActive && (
           <>
             <div className="w-full h-fit bg-dark/40 border border-light/20 mt-2">
@@ -181,12 +222,9 @@ export default function MiniPlayer() {
                 }}
               />
             </div>
-            <div className="text-light/80 text-left text-sm md:text-xs md:font-light px-1 pt-1.5">
-              <span>
-                <strong className="font-medium md:font-normal line-clamp-1">
-                  {tagLine}
-                </strong>
-              </span>
+            <div className="flex items-center justify-between text-xs text-light/60 mt-1 px-1">
+              <span>{currentTime}</span>
+              <span>{isStreaming ? "LIVE" : duration}</span>
             </div>
           </>
         )}

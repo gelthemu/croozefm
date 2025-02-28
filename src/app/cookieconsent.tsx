@@ -23,7 +23,7 @@ export default function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-2 right-2 bg-gray border border-light/20 rounded-sm text-white p-4 z-50 flex flex-row justify-between items-start max-w-xs"
+      className="fixed bottom-1.5 right-1.5 bg-gray border border-light/20 rounded-sm text-white p-4 z-50 flex flex-row justify-between items-start max-w-xs"
       role="dialog"
       aria-labelledby="cookie-consent-title"
     >
@@ -32,7 +32,8 @@ export default function CookieConsent() {
       </div>
       <div>
         <p className="text-sm mb-2" id="cookie-consent-title">
-          We use cookies to feed the beast. You should know that.
+          <span className="block">We use cookies to feed the beast.</span>
+          <span className="block">You should know that...</span>
         </p>
         <div className="flex">
           <button

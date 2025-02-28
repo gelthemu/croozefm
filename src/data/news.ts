@@ -3,6 +3,7 @@ import { Anchor, News } from "@/types/news";
 const anchors: Record<string, Anchor> = {
   dithan: {
     name: "Dithan Ngabirano",
+    link: "/i/dithan-ngabirano",
     img: "/assets/avatars/dithan.png",
   },
   dorothy: {
@@ -17,10 +18,12 @@ const anchors: Record<string, Anchor> = {
   },
   antoinette: {
     name: "Marie Antoinettie",
+    link: "/i/marie-antoinette",
     img: "/assets/avatars/antoinette.png",
   },
   oscar: {
     name: "Oscar Confidence Abangira",
+    link: "/i/oscar-confidence",
     img: "/assets/avatars/oscar.png",
   },
 };

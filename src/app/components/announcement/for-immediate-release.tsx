@@ -33,6 +33,11 @@ export default function ImmediateRelease() {
                   #CFMWeeklyMixtapes
                 </Link>
               </p>
+              <p className="mb-2 flex items-center">
+                <span className="font-medium text-sm uppercase">Current:</span>{" "}
+                <span>{sortedMixtapes[0].title}</span>
+                <span>{"🔥🎶"}</span>
+              </p>
             </div>
             <div className="flex flex-row space-x-3">
               <MixtapeBtn mixtape={sortedMixtapes[0]} />

@@ -20,8 +20,9 @@ export async function generateMetadata({
 
   if (!profile) {
     return {
-      title: "Profile Not Found",
-      description: "The profile you are looking for does not exist.",
+      title: "Page Not Found - 91.2 Crooze FM",
+      description:
+        "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     };
   }
 
@@ -75,7 +76,7 @@ export default async function ProfilePage({
 }) {
   const profile = await getProfileData((await params).profile);
 
-  if (!profile) {
+  if (!profile || profile === null) {
     return notFound();
   }
 

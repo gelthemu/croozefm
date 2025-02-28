@@ -6,65 +6,84 @@ import { PresenterProfile } from "@/types/profile";
 const profilesDirectory = path.join(process.cwd(), "src", "data", "profiles");
 
 export function getAllProfileIds() {
-  const fileNames = fs.readdirSync(profilesDirectory);
+  try {
+    const fileNames = fs.readdirSync(profilesDirectory);
 
-  return fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
+    return fileNames.map((fileName) => {
+      const id = fileName.replace(/\.md$/, "");
 
-    return {
-      profile: id,
-    };
-  });
+      return {
+        profile: id,
+      };
+    });
+  } catch (error) {
+    console.error("Error reading profile directory:", error);
+    return [];
+  }
 }
 
-export function getProfileData(id: string): PresenterProfile {
+export function getProfileData(id: string): PresenterProfile | null {
   const fullPath = path.join(profilesDirectory, `${id}.md`);
 
   if (!fs.existsSync(fullPath)) {
-    throw new Error(
-      `Profile not found: ${id}. File does not exist at path: ${fullPath}`
-    );
+    // Return null instead of throwing an error
+    return null;
   }
 
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const matterResult = matter(fileContents);
 
-  const matterResult = matter(fileContents);
+    const frontmatter = {
+      id,
+      name: matterResult.data.name || "",
+      showHosted: matterResult.data["show-hosted"] || "",
+      imageLink: matterResult.data["image-link"] || "",
+      isPopular: matterResult.data.isPopular || false,
+      socialLinks: {
+        x: matterResult.data["social-links"]?.x || "",
+        fb: matterResult.data["social-links"]?.fb || "",
+        insta: matterResult.data["social-links"]?.insta || "",
+      },
+      gallery: Array.isArray(matterResult.data.gallery)
+        ? matterResult.data.gallery
+        : [],
+    };
 
-  const frontmatter = {
-    id,
-    name: matterResult.data.name,
-    showHosted: matterResult.data["show-hosted"],
-    imageLink: matterResult.data["image-link"],
-    isPopular: matterResult.data.isPopular || false,
-    socialLinks: {
-      x: matterResult.data["social-links"]?.x,
-      fb: matterResult.data["social-links"]?.fb,
-      insta: matterResult.data["social-links"]?.insta,
-    },
-    gallery: Array.isArray(matterResult.data.gallery)
-      ? matterResult.data.gallery
-      : [],
-  };
-
-  return {
-    ...frontmatter,
-    description: matterResult.content,
-  };
+    return {
+      ...frontmatter,
+      description: matterResult.content,
+    };
+  } catch (error) {
+    console.error(`Error reading profile data for ${id}:`, error);
+    return null;
+  }
 }
 
 export function getAllProfiles(): PresenterProfile[] {
-  const fileNames = fs.readdirSync(profilesDirectory);
+  try {
+    const fileNames = fs.readdirSync(profilesDirectory);
 
-  const allProfilesData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, "");
+    const allProfilesData = fileNames
+      .map((fileName) => {
+        const id = fileName.replace(/\.md$/, "");
+        return getProfileData(id);
+      })
+      .filter((profile): profile is PresenterProfile => profile !== null);
 
-    return getProfileData(id);
-  });
-
-  return allProfilesData;
+    return allProfilesData;
+  } catch (error) {
+    console.error("Error getting all profiles:", error);
+    return [];
+  }
 }
 
 export function getPopularProfiles(): PresenterProfile[] {
-  const allProfiles = getAllProfiles();
-  return allProfiles.filter((profile) => profile.isPopular);
+  try {
+    const allProfiles = getAllProfiles();
+    return allProfiles.filter((profile) => profile.isPopular);
+  } catch (error) {
+    console.error("Error getting popular profiles:", error);
+    return [];
+  }
 }
