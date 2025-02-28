@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { News } from "@/types/news";
 import { news } from "@/data/news";
 import Image from "next/image";
