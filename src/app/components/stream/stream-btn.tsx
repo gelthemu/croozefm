@@ -73,7 +73,8 @@ const StreamBtn = () => {
           setIsStreamBtnVisible(entry.isIntersecting);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1,
+      rootMargin: '200px 0px'}
     );
 
     observer.observe(buttonElement);
@@ -127,7 +128,7 @@ const NavStreamBtn = ({
   return (
     <StreamButton
       className={`text-light px-2.5 py-1.5 ${
-        (pathname === "/" && isStreamBtnVisible) || isActive
+        (pathname === "/home" && isStreamBtnVisible) || isActive
           ? "opacity-0 pointer-events-none"
           : "opacity-100"
       } border border-light/40`}

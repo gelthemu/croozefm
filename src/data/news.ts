@@ -1,4 +1,29 @@
-import { News } from "@/types/news";
+import { Anchor, News } from "@/types/news";
+
+const anchors: Record<string, Anchor> = {
+  dithan: {
+    name: "Dithan Ngabirano",
+    img: "/assets/avatars/dithan.png",
+  },
+  dorothy: {
+    name: "Dorothy Kainembabazi",
+    link: "/i/baby-dosh",
+    img: "/assets/avatars/dorothy.png",
+  },
+  monica: {
+    name: "Monica Mbabazi",
+    link: "/i/monique-mbabazi",
+    img: "/assets/avatars/momo.png",
+  },
+  antoinette: {
+    name: "Marie Antoinettie",
+    img: "/assets/avatars/antoinette.png",
+  },
+  oscar: {
+    name: "Oscar Confidence Abangira",
+    img: "/assets/avatars/oscar.png",
+  },
+};
 
 export const news: News[] = [
   // = = = = = = = = = = = = = = = = = = = 8AM = = = = = = = = = = = = = = = = = = = = = =
@@ -10,8 +35,7 @@ export const news: News[] = [
     },
     headline:
       "President Museveni begins a tour in Teso to promote wealth creation initiatives",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_8am.mp3",
   },
@@ -23,8 +47,7 @@ export const news: News[] = [
     },
     headline:
       "Mbarara Leaders Express Concern Over Domestic Violence Linked to Land Disputes",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-20_8am.mp3",
   },
@@ -36,8 +59,7 @@ export const news: News[] = [
     },
     headline:
       "Dr. Kizza Besigye and Hajji Lutale Detained for Alleged Arms and Ammunition Possession",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_8am.mp3",
   },
@@ -49,8 +71,7 @@ export const news: News[] = [
     },
     headline:
       "New Lower Curriculum Textbooks Distributed to 25 Secondary Schools in Kitagwenda",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-03_8am.mp3",
   },
@@ -62,8 +83,7 @@ export const news: News[] = [
     },
     headline:
       "Kenya's Law Society Threatens to Halt Admissions of Ugandan Lawyers",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-11_8am.mp3",
   },
@@ -75,8 +95,7 @@ export const news: News[] = [
     },
     headline:
       "Nine Arrested in Connection with Bank of Uganda Heist Involving Billions in Shillings",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_8am.mp3",
   },
@@ -89,8 +108,7 @@ export const news: News[] = [
     },
     headline:
       "Health Minister Aceng cautions that condoms do not offer protection against Mpox in Uganda",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_10am.mp3",
   },
@@ -101,8 +119,7 @@ export const news: News[] = [
       time: "10AM",
     },
     headline: "Uganda Airlines Suspends Service to Kinshasa",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-29_10am.mp3",
   },
@@ -113,8 +130,7 @@ export const news: News[] = [
       time: "10AM",
     },
     headline: "American Tourist Killed in Nasty Road Accident in Kanungu",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-28_10am.mp3",
   },
@@ -126,8 +142,7 @@ export const news: News[] = [
     },
     headline:
       "Mbarara Grapples with Escalating Crisis of Abandoned Children, Highlighting Urgent Social and Economic Issues",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_10am.mp3",
   },
@@ -139,8 +154,7 @@ export const news: News[] = [
     },
     headline:
       "President Museveni Announces Government Scrutiny of Healing Claims by Pastors and Religious Leaders",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-16_10am.mp3",
   },
@@ -152,8 +166,7 @@ export const news: News[] = [
     },
     headline:
       "South Korean Police Probe President Yoon for Alleged Insurrection",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-05_10am.mp3",
   },
@@ -165,8 +178,7 @@ export const news: News[] = [
     },
     headline:
       "20% of Candidates who Passed 2024 PLE Exams Stranded as Secondary School Admission Falls Short",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_10am.mp3",
   },
@@ -178,8 +190,7 @@ export const news: News[] = [
     },
     headline:
       "Voters Alarmed as Electoral Commission Removes Polling Stations in Masaka",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-13_10am.mp3",
   },
@@ -191,8 +202,7 @@ export const news: News[] = [
     },
     headline:
       "Public University Employees Launch Strike Due to Postponed Salary Increases",
-    anchor: "Marie Antoinettie",
-    profileImg: "/assets/avatars/antoinette.png",
+    anchor: anchors.antoinette,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-20_10am.mp3",
   },
@@ -204,8 +214,7 @@ export const news: News[] = [
     },
     headline:
       "NUP Weighs Legal Challenge Against Security Forces Following Raid",
-    anchor: "Marie Antoinettie",
-    profileImg: "/assets/avatars/antoinette.png",
+    anchor: anchors.antoinette,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_10am.mp3",
   },
@@ -218,8 +227,7 @@ export const news: News[] = [
     },
     headline:
       "East African Court Set to Adjudicate Case on East African Crude Oil Pipeline (EACOP)",
-    anchor: "Marie Antoinettie",
-    profileImg: "/assets/avatars/antoinette.png",
+    anchor: anchors.antoinette,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-22_11am.mp3",
   },
@@ -232,8 +240,7 @@ export const news: News[] = [
     },
     headline:
       "On the Anniversary of the November riots, Families are Demanding Justice",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_1pm.mp3",
   },
@@ -245,8 +252,7 @@ export const news: News[] = [
     },
     headline:
       "Police scattered fans of Alien Skin who were assembled outside Makindye Court",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-25_1pm.mp3",
   },
@@ -257,8 +263,7 @@ export const news: News[] = [
       time: "1PM",
     },
     headline: "NWSC urges relevant officials to act to protect River Rwiizi",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_1pm.mp3",
   },
@@ -270,8 +275,7 @@ export const news: News[] = [
     },
     headline:
       "Tragic Mid-Air Collision Over Washington: American Airlines Jet and Military Helicopter Crash into Potomac",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-30_1pm.mp3",
   },
@@ -283,8 +287,7 @@ export const news: News[] = [
     },
     headline:
       "Kidney Patients at Mulago Hospital Voice Concerns Over Inadequate Nighttime Medical Services",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-05_1pm.mp3",
   },
@@ -296,8 +299,7 @@ export const news: News[] = [
     },
     headline:
       "Mbarara Councilors Probe 1.2 Billion UGX Debt in Road Project Standoff Between MBJ Technologies and Multiplex",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-21_1pm.mp3",
   },
@@ -309,8 +311,7 @@ export const news: News[] = [
     },
     headline:
       "Kasese Deputy RDC Detains Another Individual for Misusing PDM Funds",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_1pm.mp3",
   },
@@ -322,8 +323,7 @@ export const news: News[] = [
       time: "2PM",
     },
     headline: "UCDA Still Fully Operational Until New Bill is Signed into Law",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_2pm.mp3",
   },
@@ -335,8 +335,7 @@ export const news: News[] = [
     },
     headline:
       "The elevated price of molasses has impacted local waragi vendors in Busoga",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-25_2pm.mp3",
   },
@@ -348,8 +347,7 @@ export const news: News[] = [
     },
     headline:
       "China Initiates Probe into Nvidia Following U.S. Export Control Announcements, Alleging Antimonopoly Law Violations",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-10_2pm.mp3",
   },
@@ -361,8 +359,7 @@ export const news: News[] = [
     },
     headline:
       "Uganda's Exports Largely Dependent on Middle East, Now Top Destination for Goods, Says Finance Ministry Report",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-30_2pm.mp3",
   },
@@ -374,8 +371,7 @@ export const news: News[] = [
     },
     headline:
       "Church of Uganda Engages Inspire Africa Group to Enhance Coffee Cultivation and Value Addition",
-    anchor: "Dorothy Kainembabazi",
-    profileImg: "/assets/avatars/dorothy.png",
+    anchor: anchors.dorothy,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-23_2pm.mp3",
   },
@@ -387,8 +383,7 @@ export const news: News[] = [
     },
     headline:
       "Uganda National Lottery Marks Seven Months of Growth, Introduces Digital Ticketing",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_2pm.mp3",
   },
@@ -400,8 +395,7 @@ export const news: News[] = [
     },
     headline:
       "Coffee Theft Crisis Sparks Unified Action at Bufunda Community Baraza",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_2pm.mp3",
   },
@@ -412,8 +406,7 @@ export const news: News[] = [
       time: "2PM",
     },
     headline: "Trade war uncertainty may impact Uganda's 2025 economic growth",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_2pm.mp3",
   },
@@ -426,8 +419,7 @@ export const news: News[] = [
     },
     headline:
       "Nutrition Experts in Uganda Introduce App to Combat False Information",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-14_4pm.mp3",
   },
@@ -439,8 +431,7 @@ export const news: News[] = [
     },
     headline:
       "Concern Rises as Mbarara Hospital Reports 100 Premature Babies Born Each Month",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-18_4pm.mp3",
   },
@@ -452,8 +443,7 @@ export const news: News[] = [
     },
     headline:
       "Markhan Singh landlords plan to build a 40 billion shilling market in Mbarara",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_4pm.mp3",
   },
@@ -465,8 +455,7 @@ export const news: News[] = [
     },
     headline:
       "According to a police report, 32 people died in accidents involving boda bodas last week",
-    anchor: "Marie Antoinettie",
-    profileImg: "/assets/avatars/antoinette.png",
+    anchor: anchors.antoinette,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_4pm.mp3",
   },
@@ -478,8 +467,7 @@ export const news: News[] = [
     },
     headline:
       "Mbarara City has entered into an MOU with the UPDF to repair the Katete Bridge",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-25_4pm.mp3",
   },
@@ -491,8 +479,7 @@ export const news: News[] = [
     },
     headline:
       "Court Martial Adds Treachery Charges to Besigye and Co-Accused in Today's Hearing",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-13_4pm.mp3",
   },
@@ -504,8 +491,7 @@ export const news: News[] = [
     },
     headline:
       "Mysterious 'Dancing Disease' in Bundibugyo Causes Uncontrollable Shaking, Fever, and Paralysis in Hundreds",
-    anchor: "Marie Antoinettie",
-    profileImg: "/assets/avatars/antoinette.png",
+    anchor: anchors.antoinette,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-12-13_4pm.mp3",
   },
@@ -517,8 +503,7 @@ export const news: News[] = [
     },
     headline:
       "Low Turnout in Mbarara UPE Schools as Parents Struggle with School Requirements",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-03_4pm.mp3",
   },
@@ -530,8 +515,7 @@ export const news: News[] = [
     },
     headline:
       "Bushenyi Protesters Demand Besigye's Release Amid Health Concerns",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_4pm.mp3",
   },
@@ -543,8 +527,7 @@ export const news: News[] = [
     },
     headline:
       "Besigye Ends Hunger Strike Following Transfer of Case to Civilian Court",
-    anchor: "Monica Mbabazi",
-    profileImg: "/assets/avatars/momo.png",
+    anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-21_4pm.mp3",
   },
@@ -557,8 +540,7 @@ export const news: News[] = [
     },
     headline:
       "Uganda Set to Gain from UK Satellite Funding Aimed at Climate Surveillance",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-15_7pm.mp3",
   },
@@ -570,8 +552,7 @@ export const news: News[] = [
     },
     headline:
       "President Museveni officially opened the Skilling Hub in Soroti City",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-19_7pm.mp3",
   },
@@ -583,8 +564,7 @@ export const news: News[] = [
     },
     headline:
       "Two arrested in Mitooma for the alleged murder of a 7-year-old girl and her mother",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2024-11-21_7pm.mp3",
   },
@@ -596,8 +576,7 @@ export const news: News[] = [
     },
     headline:
       "Two Individuals Suspected of Homosexuality and Human Trafficking Arrested in Kisoro",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-28_7pm.mp3",
   },
@@ -609,8 +588,7 @@ export const news: News[] = [
     },
     headline:
       "Opposition Pressures UBOS Regarding the 2024 National Population and Housing Census",
-    anchor: "Dithan Ngabirano",
-    profileImg: "/assets/avatars/dithan.png",
+    anchor: anchors.dithan,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-01-29_7pm.mp3",
   },
@@ -622,8 +600,7 @@ export const news: News[] = [
     },
     headline:
       "Mbarara Emyooga SACCO Leaders Warned: Conduct Annual General Meetings or Face Funding Cuts",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-17_7pm.mp3",
   },
@@ -635,8 +612,7 @@ export const news: News[] = [
     },
     headline:
       "Kizza Besigye Detention: President Museveni Digs in, and Accuses Besigye for Seeking Public Sympathy",
-    anchor: "Oscar Confidence Abangira",
-    profileImg: "/assets/avatars/oscar.png",
+    anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_7pm.mp3",
   },

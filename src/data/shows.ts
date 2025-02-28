@@ -132,7 +132,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/fat-friday-mix.png",
     description:
       "End your Friday night with a bang! A special mix to keep you dancing into the night.",
-    hosts: [{ name: "Belga MC" }, { name: "Deejay Emma" }],
+    hosts: [{ name: "Belga MC", link: "/i/belga-mc" }, { name: "Deejay Emma" }],
   },
   {
     id: "urban-breakfast",
@@ -141,7 +141,7 @@ export const shows: Show[] = [
     description:
       "Wake up to the freshest beats and urban vibes every Saturday morning.",
     hosts: [
-      { name: "Dosh" },
+      { name: "Dosh", link: "/i/baby-dosh" },
       { name: "Deejay Stinger", link: "/i/deejay-stinger" },
     ],
   },

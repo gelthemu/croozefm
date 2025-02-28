@@ -19,7 +19,7 @@ export default function TrackCard({
   className = "",
 }: TrackCardProps) {
   const imageSize = isCurrent ? "w-20 h-20" : "w-16 h-16";
-  const titleClass = isCurrent ? "font-semibold text-md" : "font-medium";
+  const titleClass = isCurrent ? "font-semibold" : "font-medium";
 
   return (
     <div

@@ -31,7 +31,7 @@ export default function Tracklist() {
                 <Carousel
                   className="gap-2 snap-x snap-mandatory"
                   btnClass="bg-light/80 dark:bg-dark/80"
-                  itemWidth={10}
+                  itemWidth={320}
                 >
                   {recentTracks.map((track, index) => (
                     <TrackCard

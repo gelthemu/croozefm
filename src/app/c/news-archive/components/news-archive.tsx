@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { News } from "@/types/news";
 import { news } from "@/data/news";
 import Image from "next/image";
+import Link from "next/link";
 import { toast } from "react-toastify";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
@@ -68,11 +69,7 @@ export default function NewsArchive() {
 
   const handlePlay = () => {
     setCurrentSource(selectedNews.audio);
-    setTagLine(
-      `#CroozeFMNews${" "}(${selectedNews.aired.time})${" • "}${
-        selectedNews.anchor
-      }`
-    );
+    setTagLine(`${selectedNews.anchor.name}${" — "}Crooze FM News`);
     setIsStreaming(false);
     setIsMiniPlayerOpen(true);
   };
@@ -84,9 +81,7 @@ export default function NewsArchive() {
 
       if (item.audio !== currentSource) {
         setCurrentSource(item.audio);
-        setTagLine(
-          `#CroozeFMNews${" "}(${item.aired.time})${" • "}${item.anchor}`
-        );
+        setTagLine(`${item.anchor.name}${" — "}Crooze FM News`);
         setIsStreaming(false);
         setIsMiniPlayerOpen(true);
       }
@@ -125,8 +120,8 @@ export default function NewsArchive() {
             >
               {" "}
               <Image
-                src={selectedNews.profileImg}
-                alt={selectedNews.anchor}
+                src={selectedNews.anchor.img}
+                alt={selectedNews.anchor.name}
                 width={2168}
                 height={2168}
                 className="rounded-full object-cover w-full aspect-square _img_ grayscale"
@@ -134,9 +129,15 @@ export default function NewsArchive() {
             </span>
           </div>
           <div className="overflow-hidden text-left ml-2.5">
-            <span className="font-medium text-sm text-dark/80 dark:text-light/80 line-clamp-1">
-              {selectedNews.anchor}
-            </span>
+            <Link
+              href={
+                selectedNews.anchor.link ? selectedNews.anchor.link : "/i/teams"
+              }
+            >
+              <span className="font-medium text-sm text-dark/80 dark:text-light/80 line-clamp-1">
+                {selectedNews.anchor.name}
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -225,7 +226,7 @@ export default function NewsArchive() {
                         isItemPlaying ? "text-red/80" : ""
                       }`}
                     >
-                      {item.anchor}
+                      {item.anchor.name}
                     </span>
                   </small>
                   <small>

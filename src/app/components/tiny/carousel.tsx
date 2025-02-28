@@ -14,7 +14,7 @@ export default function Carousel({
   className = "",
   btnClass = "",
   children,
-  itemWidth = 260,
+  itemWidth = 256,
 }: CarouselProps) {
   const [showLeftControl, setShowLeftControl] = useState(false);
   const [showRightControl, setShowRightControl] = useState(true);
@@ -41,9 +41,6 @@ export default function Carousel({
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: itemWidth, behavior: "smooth" });
       setTimeout(updateControlsVisibility, 500);
-      if (!showLeftControl) {
-        setShowLeftControl(true);
-      }
     }
   };
 
