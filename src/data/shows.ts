@@ -10,7 +10,7 @@ export const shows: Show[] = [
       "The Morning Addiction is your 6 AM wake-up call with humor, great music, and winning opportunities, minus the morning gibberish.",
     isFeatured: true,
     hosts: [
-      { name: "Belga" },
+      { name: "Belga", link: "/i/belga-mc" },
       { name: "Monique", link: "/i/monique-mbabazi" },
       { name: "Derrick", link: "/i/derrick-ashiimwe" },
     ],
@@ -79,7 +79,7 @@ export const shows: Show[] = [
     description:
       "Join the interactive DJ experience every Monday to Thursday, where your song requests shape the evening playlist; call, tweet, or message to get your music on air.",
     isFeatured: true,
-    hosts: [{ name: "Dosh" }],
+    hosts: [{ name: "Dosh", link: "/i/baby-dosh" }],
   },
   {
     id: "sports-bwino",
