@@ -130,35 +130,35 @@ h2 {
 
 @keyframes stream {
   0% {
-    width: 0%;
-    opacity: 0.5;
+    width: 15%;
+    opacity: 0.75;
   }
   50% {
     width: 100%;
-    opacity: 1;
+    opacity: 0.95;
   }
   100% {
-    width: 0%;
-    opacity: 0.5;
+    width: 15%;
+    opacity: 0.75;
   }
 }
 
 @-moz-keyframes stream {
   0% {
-    width: 0%;
-    opacity: 0.5;
+    width: 15%;
+    opacity: 0.75;
   }
   50% {
     width: 100%;
-    opacity: 1;
+    opacity: 0.95;
   }
   100% {
-    width: 0%;
-    opacity: 0.5;
+    width: 15%;
+    opacity: 0.75;
   }
 }
 
 .animate-stream {
-  -moz-animation: heartbeat 1.5s ease-in-out infinite;
-  animation: stream 3s ease-in-out infinite;
+  -moz-animation: heartbeat 5s ease-in-out infinite;
+  animation: stream 5s ease-in-out infinite;
 }

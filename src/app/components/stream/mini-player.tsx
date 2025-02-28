@@ -25,7 +25,7 @@ export default function MiniPlayer() {
     setTagLine,
   } = useMiniPlayer();
 
-  const formatTime = (timeInSeconds: number) => {
+  const formatTime = useCallback((timeInSeconds: number) => {
     if (isNaN(timeInSeconds)) return "0:00";
 
     const hours = Math.floor(timeInSeconds / 3600);
@@ -39,7 +39,7 @@ export default function MiniPlayer() {
     } else {
       return `${minutes}:${seconds.toString().padStart(2, "0")}`;
     }
-  };
+  }, []);
 
   const handleAudioError = useCallback(() => {
     setIsStreamActive(false);
@@ -53,13 +53,36 @@ export default function MiniPlayer() {
       setProgress(isNaN(percentage) ? 0 : percentage);
       setCurrentTime(formatTime(audioRef.current.currentTime));
     }
-  }, [audioRef]);
+  }, [audioRef, formatTime]);
 
   const handleLoadedMetadata = useCallback(() => {
     if (audioRef.current) {
       setDuration(formatTime(audioRef.current.duration));
     }
-  }, [audioRef]);
+  }, [audioRef, formatTime]);
+
+  const handleProgressBarClick = useCallback(
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      if (!audioRef.current || isStreaming) return;
+
+      const progressBar = event.currentTarget;
+      const rect = progressBar.getBoundingClientRect();
+      const clickPosition = event.clientX - rect.left;
+      const progressBarWidth = rect.width;
+
+      // Calculate percentage of click position relative to the progress bar width
+      const clickPercentage = (clickPosition / progressBarWidth) * 100;
+
+      // Set the audio currentTime based on the click percentage
+      const newTime = (clickPercentage / 100) * audioRef.current.duration;
+      audioRef.current.currentTime = newTime;
+
+      // Update UI immediately for better user feedback
+      setProgress(clickPercentage);
+      setCurrentTime(formatTime(newTime));
+    },
+    [audioRef, isStreaming, formatTime]
+  );
 
   const handleEnded = useCallback(() => {
     if (audioRef.current) {
@@ -212,11 +235,15 @@ export default function MiniPlayer() {
         </div>
         {isStreamActive && (
           <>
-            <div className="w-full h-fit bg-dark/40 border border-light/20 mt-2">
+            <div
+              className="w-full h-fit bg-dark/40 border border-light/20 mt-2"
+              onClick={handleProgressBarClick}
+              style={{ cursor: isStreaming ? "" : "pointer" }}
+            >
               <div
                 className={`w-full h-[4px] transition-all duration-500 ${
                   isStreaming ? "animate-stream" : ""
-                } bg-red/80`}
+                } bg-red/80 border-r border-light/30`}
                 style={{
                   width: isStreaming ? "100%" : `${progress}%`,
                 }}

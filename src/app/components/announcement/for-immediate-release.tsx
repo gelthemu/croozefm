@@ -34,7 +34,6 @@ export default function ImmediateRelease() {
                 </Link>
               </p>
               <p className="mb-2 flex items-center">
-                <span className="font-medium text-sm uppercase">Current:</span>{" "}
                 <span>{sortedMixtapes[0].title}</span>
                 <span>{"🔥🎶"}</span>
               </p>
