@@ -6,7 +6,8 @@ import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export const FeaturedShows = () => {
   const featuredShows = shows.filter((show) => show.isFeatured);
-  const popularShows = fisherYatesShuffle(featuredShows);
+  const seed = new Date().toDateString();
+  const popularShows = fisherYatesShuffle(featuredShows, seed);
 
   return (
     <>
