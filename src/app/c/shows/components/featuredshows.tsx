@@ -2,12 +2,12 @@ import React from "react";
 import ShowCard from "./showcard";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { shows } from "@/data/shows";
-import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
+import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export const FeaturedShows = () => {
   const featuredShows = shows.filter((show) => show.isFeatured);
   const seed = new Date().toDateString();
-  const popularShows = fisherYatesShuffle(featuredShows, seed);
+  const popularShows = useShuffledArray(featuredShows, seed);
 
   return (
     <>

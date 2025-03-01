@@ -1,7 +1,6 @@
 import seedrandom from "seedrandom";
-import { useMemo } from "react";
 
-export function fisherYatesShuffle<T>(array: T[], seed: string): T[] {
+export function useShuffledArray<T>(array: T[], seed: string): T[] {
   const rng = seedrandom(seed);
   const shuffled = [...array];
 
@@ -11,8 +10,4 @@ export function fisherYatesShuffle<T>(array: T[], seed: string): T[] {
   }
 
   return shuffled;
-}
-
-export function useShuffledArray<T>(array: T[], seed: string): T[] {
-  return useMemo(() => fisherYatesShuffle(array, seed), [array, seed]);
 }

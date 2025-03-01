@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getPopularProfiles } from "@/lib/profiles-parser";
-import { fisherYatesShuffle } from "@/app/components/tiny/fisher-yates-shuffle";
+import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 import Carousel from "@/app/components/tiny/carousel";
 
 export default function PopularProfiles() {
   const profiles = getPopularProfiles();
   const seed = new Date().toDateString();
-  const popularProfiles = fisherYatesShuffle(profiles, seed);
+  const popularProfiles = useShuffledArray(profiles, seed);
 
   return (
     <>
