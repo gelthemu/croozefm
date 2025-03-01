@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Info, X } from "lucide-react";
+import { IoMdClose } from "react-icons/io";
+import { RiInformation2Line } from "react-icons/ri";
 
 interface GalleryProps {
   gallery: string[];
@@ -44,7 +45,7 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name }) => {
               onClick={() => handleInfoClick(index)}
               className="absolute bottom-2 right-2 text-light/80 p-1 bg-dark/80 rounded-sm border border-light/20 cursor-pointer hover:bg-gray/80 transition-colors"
             >
-              <Info size={14} />
+              <RiInformation2Line size={14} />
             </button>
           )}
 
@@ -58,7 +59,7 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name }) => {
                   onClick={handleCloseOverlay}
                   className="absolute bottom-2 right-2 text-light/60 p-1 bg-dark/80 rounded-sm border border-light/20 cursor-pointer hover:bg-gray/80 transition-colors"
                 >
-                  <X size={14} />
+                  <IoMdClose size={14} />
                 </button>
                 <div>
                   <p className="text-sm text-light/80 line-clamp-1">{`${name}'s Photos - ${
