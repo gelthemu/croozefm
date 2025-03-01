@@ -117,16 +117,16 @@ export default async function ProfilePage({
                     href?.startsWith("/") ? (
                       <Link href={href}>{children}</Link>
                     ) : (
-                      <a
+                      <Link
                         href={href ?? "#"}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {children}
-                      </a>
+                      </Link>
                     ),
                   iframe: ({ ...props }) => (
-                    <div className="relative w-full aspect-[16/9] rounded border-2 border-gray dark:border-light/60 overflow-hidden flex flex-col">
+                    <div className="relative w-full aspect-[16/9] rounded overflow-hidden flex flex-col">
                       <iframe
                         {...props}
                         className="absolute top-0 left-0 w-full h-full"

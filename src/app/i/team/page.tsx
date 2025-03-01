@@ -11,8 +11,9 @@ export const metadata = {
 
 export default async function PresentersPage() {
   const profiles = await getAllProfiles();
+  const seed = new Date().toDateString();
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const allProfiles = useShuffledArray(profiles);
+  const allProfiles = useShuffledArray(profiles, seed);
 
   return (
     <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">

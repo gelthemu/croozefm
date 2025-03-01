@@ -73,8 +73,7 @@ const StreamBtn = () => {
           setIsStreamBtnVisible(entry.isIntersecting);
         }
       },
-      { threshold: 0.1,
-      rootMargin: '200px 0px'}
+      { threshold: 0.1, rootMargin: "200px 0px" }
     );
 
     observer.observe(buttonElement);

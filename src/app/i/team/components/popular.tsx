@@ -8,7 +8,8 @@ import Carousel from "@/app/components/tiny/carousel";
 
 export default function PopularProfiles() {
   const profiles = getPopularProfiles();
-  const popularProfiles = fisherYatesShuffle(profiles);
+  const seed = new Date().toDateString();
+  const popularProfiles = fisherYatesShuffle(profiles, seed);
 
   return (
     <>

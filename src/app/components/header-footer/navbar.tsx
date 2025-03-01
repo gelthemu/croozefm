@@ -13,7 +13,7 @@ const navLinks = [
   { id: "home", name: "Home", href: "/home" },
   { id: "shows", name: "Shows", href: "/c/shows" },
   { id: "presenters", name: "Presenters", href: "/i/team" },
-  { id: "news-archive", name: "News-Archive", href: "/c/news-archive" },
+  { id: "news-archive", name: "News-Archive", href: "/news/news-archive" },
   { id: "gallery", name: "Gallery", href: "/c/gallery" },
 ];
 
@@ -26,11 +26,20 @@ export default function Navbar() {
     if (href === "/i/team" && pathname.startsWith("/i/")) {
       return true;
     }
+    if (href === "/news/news-archive" && pathname.startsWith("/news")) {
+      return true;
+    }
     if (href === "/home") {
       const matchesOtherPaths = navLinks
         .filter((link) => link.href !== "/home")
         .some((link) => {
           if (pathname.startsWith("/i/") && link.href === "/i/team") {
+            return true;
+          }
+          if (
+            link.href === "/news/news-archive" &&
+            pathname.startsWith("/news")
+          ) {
             return true;
           }
           return pathname.startsWith(link.href);

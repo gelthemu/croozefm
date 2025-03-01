@@ -70,14 +70,11 @@ export default function MiniPlayer() {
       const clickPosition = event.clientX - rect.left;
       const progressBarWidth = rect.width;
 
-      // Calculate percentage of click position relative to the progress bar width
       const clickPercentage = (clickPosition / progressBarWidth) * 100;
 
-      // Set the audio currentTime based on the click percentage
       const newTime = (clickPercentage / 100) * audioRef.current.duration;
       audioRef.current.currentTime = newTime;
 
-      // Update UI immediately for better user feedback
       setProgress(clickPercentage);
       setCurrentTime(formatTime(newTime));
     },
@@ -226,15 +223,15 @@ export default function MiniPlayer() {
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
           </button>
         </div>
-        <div className="text-light/80 text-left text-sm md:text-xs md:font-light pt-1.5 pb-0">
-          <span>
-            <strong className="font-medium md:font-normal line-clamp-1">
-              {tagLine}
-            </strong>
-          </span>
-        </div>
         {isStreamActive && (
           <>
+            <div className="text-light/80 text-left text-sm md:text-xs md:font-light pt-1.5 pb-0">
+              <span>
+                <strong className="font-medium md:font-normal line-clamp-1">
+                  {tagLine}
+                </strong>
+              </span>
+            </div>
             <div
               className="w-full h-fit bg-dark/40 border border-light/20 mt-2"
               onClick={handleProgressBarClick}
