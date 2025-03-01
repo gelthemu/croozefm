@@ -17,7 +17,7 @@ export function getAllProfileIds() {
       };
     });
   } catch (error) {
-    console.error("Error reading profile directory:", error);
+    console.error(error);
     return [];
   }
 }
@@ -26,7 +26,6 @@ export function getProfileData(id: string): PresenterProfile | null {
   const fullPath = path.join(profilesDirectory, `${id}.md`);
 
   if (!fs.existsSync(fullPath)) {
-    // Return null instead of throwing an error
     return null;
   }
 

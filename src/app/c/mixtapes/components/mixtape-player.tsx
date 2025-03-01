@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { FormatEpochDate } from "@/app/components/tiny/format-date";
+import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -86,7 +86,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                 <div className="p-4">
                   <div className="flex flex-row-reverse items-center justify-between pb-3">
                     <span className="text-xs text-gray/60 dark:text-light/40 font-medium">
-                      <FormatEpochDate epoch={mixtape.id} />
+                      <FormatSimpleDate epoch={mixtape.id} />
                     </span>
                     <span className="text-xs text-gray/90 dark:text-light/80 font-medium">
                       <i className="fa-solid fa-headphones pr-1.5"></i>{" "}

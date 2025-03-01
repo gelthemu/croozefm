@@ -9,17 +9,22 @@ interface NewsListProps {
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   if (articles.length === 0) {
     return (
-      <div className="text-center py-12">
-        <h3 className="text-xl text-gray-600">No news articles found</h3>
+      <div className="py-10">
+        <h3 className="font-medium">Oops! No articles found...</h3>
+        <p className="text-sm opacity-[0.65] mt-1.5">
+          Check back later for new content!
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {articles.map((article, index) => (
-        <NewsCard key={article.slug} article={article} priority={index < 6} />
-      ))}
+    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[624px] md:mx-0 my-12">
+      <div className="divide-y divide-dark/20 dark:divide-light/10">
+        {articles.map((article, index) => (
+          <NewsCard key={article.slug} article={article} priority={index < 6} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -2,16 +2,14 @@ import React from "react";
 
 interface NewsHeaderProps {
   title: string;
-  subtitle?: string;
 }
 
-const NewsHeader: React.FC<NewsHeaderProps> = ({ title, subtitle }) => {
+export default function NewsHeader({ title }: NewsHeaderProps) {
   return (
-    <div className="py-8 mb-6 border-b border-gray-200">
-      <h1 className="text-4xl font-bold text-gray-900">{title}</h1>
-      {subtitle && <p className="mt-2 text-xl text-gray-600">{subtitle}</p>}
+    <div className="mb-8 sm:mb-0">
+      <h1 className="text-3xl text-left relative _912cfm line-clamp-1">
+        {title}
+      </h1>
     </div>
   );
-};
-
-export default NewsHeader;
+}

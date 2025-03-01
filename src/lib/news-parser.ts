@@ -6,33 +6,56 @@ import { NewsArticle, NewsTag } from "@/types/news";
 const newsDirectory = path.join(process.cwd(), "src", "data", "news");
 
 export function getAllNewsSlugs(): string[] {
-  const fileNames = fs.readdirSync(newsDirectory);
-  return fileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+  try {
+    const fileNames = fs.readdirSync(newsDirectory);
+    return fileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 }
 
-export function getNewsArticle(slug: string): NewsArticle {
+export function getNewsArticle(slug: string): NewsArticle | null {
   const fullPath = path.join(newsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
 
-  const newsArticle: NewsArticle = {
-    slug,
-    title: data.title as string,
-    date: data.date as string,
-    excerpt: data.excerpt as string,
-    tag: (data.tag as NewsTag) || null,
-    content,
-    coverImage: (data.coverImage as string) || null,
-    author: data.author as string,
-  };
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
 
-  return newsArticle;
+  try {
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    const newsArticle: NewsArticle = {
+      slug,
+      title: data.title as string,
+      date: data.date as string,
+      excerpt: data.excerpt as string,
+      tag: (data.tag as NewsTag) || null,
+      content,
+      coverImage: (data.coverImage as string) || null,
+      author: data.author as string,
+    };
+
+    return newsArticle;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 export function getAllNewsArticles(): NewsArticle[] {
-  const slugs = getAllNewsSlugs();
-  const news = slugs.map((slug) => getNewsArticle(slug));
-  return news.sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
+  try {
+    const slugs = getAllNewsSlugs();
+    const news = slugs
+      .map((slug) => getNewsArticle(slug))
+      .filter((article): article is NewsArticle => article !== null);
+
+    return news.sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 }
 
 export function getNewsByTag(tag: NewsTag): NewsArticle[] {

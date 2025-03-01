@@ -28,12 +28,29 @@ const FormatDate = ({ date }: { date: string }) => {
   }
 };
 
-const FormatEpochDate = ({epoch}:{epoch: number}) => {
-  const date = new Date(epoch * 1000); // Multiply by 1000 to convert seconds to milliseconds
-  const day = String(date.getDate()).padStart(2, '0'); // Ensure 2 digits
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based, so add 1
-  const year = date.getFullYear();
-  return `${day}.${month}.${year}`;
-}
+const FormatSimpleDate = ({
+  date,
+  epoch,
+}: {
+  date?: string;
+  epoch?: number;
+}) => {
+  let dateObj: Date;
 
-export {FormatDate, FormatEpochDate};
+  if (epoch !== undefined) {
+    dateObj = new Date(epoch * 1000);
+  } else if (date) {
+    dateObj = new Date(date);
+    if (isNaN(dateObj.getTime())) return;
+  } else {
+    return;
+  }
+
+  const day = String(dateObj.getDate()).padStart(2, "0");
+  const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+  const year = dateObj.getFullYear();
+
+  return `${day}.${month}.${year}`;
+};
+
+export { FormatDate, FormatSimpleDate };
