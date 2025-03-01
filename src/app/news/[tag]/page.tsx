@@ -7,16 +7,12 @@ import NewsList from "../components/news-list";
 import { getAllTags, getNewsByTag } from "@/lib/news-parser";
 import { NewsTag } from "@/types/news";
 
-// Properly type the params according to Next.js App Router conventions
-type Props = {
-  params: {
-    tag: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { tag } = params;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}): Promise<Metadata> {
+  const { tag } = await params;
 
   // Validate tag
   const validTags = getAllTags();
@@ -33,12 +29,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  const tags = getAllTags();
+  const tags = await getAllTags();
   return tags.map((tag) => ({ tag }));
 }
 
-export default function TagPage({ params }: Props) {
-  const { tag } = params;
+export default async function TagPage({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}) {
+  const { tag } = await params;
 
   // Validate tag
   const validTags = getAllTags();
