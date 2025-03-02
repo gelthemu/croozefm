@@ -29,8 +29,6 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
     );
   }
 
-  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
-
   const indexOfLastArticle = currentPage * ARTICLES_PER_PAGE;
   const indexOfFirstArticle = indexOfLastArticle - ARTICLES_PER_PAGE;
   const currentArticles = articles.slice(
@@ -38,25 +36,12 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
     indexOfLastArticle
   );
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
+  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
 
   return (
     <div className="w-full sm:w-[95%] sm:mx-auto max-w-[600px] lg:mx-0 flex-shrink-0">
@@ -73,7 +58,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
       {articles.length > ARTICLES_PER_PAGE && (
         <div className="text-sm flex items-center mt-3 mb-6 space-x-1.5 p-1 transition-all duration-300">
           <button
-            onClick={handlePrevPage}
+            onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
             className={`px-1.5 py-1 rounded-sm ${
               currentPage === 1 ? "opacity-50" : ""
@@ -102,7 +87,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
           ))}
 
           <button
-            onClick={handleNextPage}
+           onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
             className={`px-1.5 py-1 rounded-sm ${
               currentPage === totalPages ? "opacity-50" : ""
