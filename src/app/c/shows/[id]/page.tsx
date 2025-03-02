@@ -90,8 +90,8 @@ export default async function ShowPage({ params }: PageProps) {
         />
       </div>
 
-      <div className="my-10 flex items-center justify-center">
-        {show.hosts && (
+      {show.hosts && (
+        <div className="my-10 flex items-center justify-center">
           <div className="w-fit flex flex-row items-center justify-center text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray rounded-md">
             <span className="sr-only">Hosted by</span>
             <i className="fa-solid fa-microphone-lines pl-3 pr-1.5 py-2"></i>
@@ -99,7 +99,11 @@ export default async function ShowPage({ params }: PageProps) {
               {show.hosts.map((host, index) => (
                 <Link
                   key={index}
-                  href={host.link ? host.link : "/i/team"}
+                  href={
+                    host.link
+                      ? host.link
+                      : `/i/${host.name?.toLowerCase().replace(/ /g, "-")}`
+                  }
                   className="relative px-3 py-2 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
                 >
                   {host.name}
@@ -107,10 +111,12 @@ export default async function ShowPage({ params }: PageProps) {
               ))}
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      <RecordPlayer show={show} />
+      <div className={`${show.hosts ? "" : "mt-10"}`}>
+        <RecordPlayer show={show} />
+      </div>
 
       <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
         <ViewAllBtn href="/c/shows" text="View All Shows" />

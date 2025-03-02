@@ -22,16 +22,14 @@ const RecentNews: React.FC<RecentNewsProps> = ({
           <Link
             key={article.slug}
             href={`/news/article/${article.slug}`}
-            className="flex p-6 bg-gray/10 dark:bg-light/5 rounded-sm"
+            className="flex flex-col justify-between p-6 bg-gray/10 dark:bg-light/5 rounded-sm"
           >
-            <div className="flex-1 min-w-0">
-              <h3 className="mb-2 font-normal text-sm line-clamp-2">
-                {article.title}
-              </h3>
-              <p className="text-xs font-medium uppercase opacity-60">
-                <FormatSimpleDate date={article.date} />
-              </p>
-            </div>
+            <h3 className="mb-2 font-normal text-sm line-clamp-2">
+              {article.title}
+            </h3>
+            <p className="text-xs font-medium uppercase opacity-60">
+              <FormatSimpleDate date={article.date} />
+            </p>
           </Link>
         ))}
       </div>

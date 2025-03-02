@@ -127,7 +127,9 @@ export default function NewsArchive({
                 href={
                   selectedNews.anchor.link
                     ? selectedNews.anchor.link
-                    : "/i/team"
+                    : `/i/${selectedNews.anchor.name
+                        ?.toLowerCase()
+                        .replace(/ /g, "-")}`
                 }
               >
                 <span className="font-medium text-sm text-dark/80 dark:text-light/80 line-clamp-1">

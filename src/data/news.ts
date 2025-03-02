@@ -3,7 +3,6 @@ import { Anchor, News } from "@/types/news";
 const anchors: Record<string, Anchor> = {
   dithan: {
     name: "Dithan Ngabirano",
-    link: "/i/dithan-ngabirano",
     img: "/assets/avatars/dithan.png",
   },
   dorothy: {
@@ -18,12 +17,10 @@ const anchors: Record<string, Anchor> = {
   },
   antoinette: {
     name: "Marie Antoinettie",
-    link: "/i/marie-antoinette",
     img: "/assets/avatars/antoinette.png",
   },
   oscar: {
     name: "Oscar Confidence Abangira",
-    link: "/i/oscar-confidence",
     img: "/assets/avatars/oscar.png",
   },
 };
@@ -412,6 +409,18 @@ export const news: News[] = [
     anchor: anchors.monica,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-24_2pm.mp3",
+  },
+  {
+    id: 202503021400,
+    aired: {
+      date: "2025-03-02T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Kabarole Residents Urge Action on Neglect of Children with Disabilities",
+    anchor: anchors.oscar,
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-03-02_2pm.mp3",
   },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {

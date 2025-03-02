@@ -108,7 +108,7 @@ export default async function ArticlePage({
             <div className="mb-6">
               {article.tag && (
                 <Link href={`/news/${article.tag}`}>
-                  <span className="px-1.5 py-1 text-xs font-semibold rounded bg-gray/10 opacity-[0.75]">
+                  <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
                     {formatTagDisplay(article.tag)}
                   </span>
                 </Link>

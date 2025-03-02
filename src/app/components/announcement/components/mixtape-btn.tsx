@@ -33,13 +33,13 @@ export default function MixtapeBtn({ mixtape }: MixtapeProps) {
 
   return (
     <StreamButton
-      className={`flex-shrink-0 text-light px-4 py-2 ${
+      className={`flex-shrink-0 text-sm text-light px-4 py-2 ${
         isActive ? "bg-gray/80 dark:bg-gray/100" : "bg-[#3eac75]"
       }`}
       onClick={handleClick}
       isActive={isActive}
     >
-      <span>Listen Now</span>
+      <span>{isActive ? "Listening..." : "Listen Now"}</span>
       <i className="fa-solid fa-headphones pl-1.5"></i>
     </StreamButton>
   );

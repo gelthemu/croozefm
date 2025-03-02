@@ -33,7 +33,7 @@ export default function ImmediateRelease() {
                   #CFMWeeklyMixtapes
                 </Link>
               </p>
-              <p className="mb-2 flex items-center">
+              <p className="mb-2.5 flex items-center">
                 <span>{sortedMixtapes[0].title}</span>
                 <span>{"🔥🎶"}</span>
               </p>
