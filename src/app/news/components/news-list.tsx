@@ -14,6 +14,15 @@ const ARTICLES_PER_PAGE = 6;
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Moved the useEffect hook to the top level of the component
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   if (articles.length === 0) {
     return (
       <div className="py-10">
@@ -33,14 +42,6 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   );
 
   const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
-
-  const handlePageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
 
   return (
     <div className="w-full sm:w-[95%] sm:mx-auto max-w-[600px] lg:mx-0 flex-shrink-0">
