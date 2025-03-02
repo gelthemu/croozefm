@@ -86,7 +86,7 @@ export default function NewsArchive({
               width={1200}
               height={300}
               priority={true}
-              className="w-full h-full object-cover aspect-[4/1] grayscale-[0.25] opacity-[0.75] _img_"
+              className="w-full h-full object-cover aspect-[4/1] grayscale-[0.2] dark:opacity-[0.85] _img_"
             />
           </div>
 

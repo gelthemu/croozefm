@@ -14,6 +14,7 @@ export default function ShowsPagination() {
   const indexOfLastShow = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstShow = indexOfLastShow - ITEMS_PER_PAGE;
   const currentShows = shows.slice(indexOfFirstShow, indexOfLastShow);
+  
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
