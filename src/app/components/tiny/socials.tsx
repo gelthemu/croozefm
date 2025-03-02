@@ -40,9 +40,9 @@ const SocialLinks = () => {
 
   return (
     <>
-      <div className="text-light/80 flex flex-col items-center justify-center">
+      <div className="text-light/80 flex flex-col">
         <p className="text-sm mb-2.5">Follow us for a cookie!</p>
-        <div className="relative flex justify-center items-center space-x-1 text-khaki/80">
+        <div className="relative flex items-center space-x-1 text-khaki/80">
           {socialLinks.map((social, index) => (
             <div key={index} className="flex justify-center items-center">
               <a

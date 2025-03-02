@@ -1,3 +1,4 @@
+import React from "react";
 import { news } from "@/data/news";
 import NewsHeader from "../components/news-header";
 import NewsArchive from "./components/news-archive";

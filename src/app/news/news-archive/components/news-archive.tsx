@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { usePathname } from "next/navigation";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
+import { IoMdDownload } from "react-icons/io";
 
 interface NewsArchiveProps {
   news: News[];
@@ -206,10 +207,12 @@ export default function NewsArchive({
                   );
                 }
               }}
-              className="px-4 py-2 cursor-pointer"
+              className={`px-4 py-2 cursor-pointer ${
+                pathname === "/news/news-archive" ? "" : "hidden"
+              }`}
             >
               <span className="sr-only">Download</span>
-              <i className="fa-solid fa-download"></i>
+              <IoMdDownload size={18} />
             </div>
           </div>
         </div>

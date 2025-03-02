@@ -142,8 +142,8 @@ const NavStreamBtn = ({
     <StreamButton
       className={`text-xs text-light px-2.5 py-1.5 ${
         (pathname === "/home" && isStreamBtnVisible) || isActive
-          ? "opacity-0 pointer-events-none"
-          : "opacity-100"
+          ? "opacity-[0] pointer-events-none"
+          : "opacity-[1]"
       } border border-light/40 bg-gray/10`}
       onClick={handleClick}
       isActive={isActive}

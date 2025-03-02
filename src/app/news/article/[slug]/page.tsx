@@ -72,6 +72,8 @@ export default async function ArticlePage({
     return notFound();
   }
 
+  const { tag, title, date, author, excerpt, content, coverImage } = article;
+
   const recentArticles = getRecentNews(5)
     .filter((a) => a.slug !== slug)
     .slice(0, 4);
@@ -85,17 +87,17 @@ export default async function ArticlePage({
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <div className="mb-6">
           <BackBtn />
         </div>
 
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden">
-          {article.coverImage && (
+          {coverImage && (
             <div className="relative w-full rounded-sm overflow-hidden">
               <Image
-                src={article.coverImage}
-                alt={article.title}
+                src={coverImage}
+                alt={title}
                 width={600}
                 height={400}
                 priority={true}
@@ -106,27 +108,31 @@ export default async function ArticlePage({
 
           <div className="p-4 md:p-8">
             <div className="mb-6">
-              {article.tag && (
-                <Link href={`/news/${article.tag}`}>
+              {tag && (
+                <Link href={`/news/${tag}`}>
                   <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-                    {formatTagDisplay(article.tag)}
+                    {formatTagDisplay(tag)}
                   </span>
                 </Link>
               )}
-              <h1 className="text-2xl md:text-3xl relative _912cfm my-4 leading-[1.25]">
-                {article.title}
+              <h1
+                className={`text-2xl md:text-3xl relative _912cfm ${
+                  tag ? "mt-4" : "mt-0"
+                } mb-4 leading-[1.25]`}
+              >
+                {title}
               </h1>
               <div className="flex items-center text-sm md:text-xs font-medium opacity-60">
-                <span className="line-clamp-1">{article.author}</span>
+                <span className="line-clamp-1">{author}</span>
                 <span className="mx-2">{" • "}</span>
                 <span>
-                  <FormatSimpleDate date={article.date} />
+                  <FormatSimpleDate date={date} />
                 </span>
               </div>
             </div>
 
             <div className="mb-6 py-4 italic font-light opacity-[0.85] border-y border-gray/10 dark:border-light/10">
-              {article.excerpt}
+              {excerpt}
             </div>
 
             <div className="prose prose-lg max-w-none">
@@ -147,7 +153,7 @@ export default async function ArticlePage({
                     ),
                 }}
               >
-                {article.content}
+                {content}
               </Markdown>
             </div>
           </div>

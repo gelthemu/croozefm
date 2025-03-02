@@ -18,12 +18,13 @@ export function ThemeSwitcher() {
     <div>
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="w-8 h-8 flex items-center justify-center text-light/90 rounded-full hover:bg-gray/10 transition-colors duration-300"
+        className="p-1.5 flex items-center justify-center text-light/90 rounded-md bg-dark/30 dark:bg-dark/40"
+        aria-label="Toggle theme"
       >
         {theme === "dark" ? (
-          <Sun className="h-5 w-5" />
+          <Sun className="h-4 w-4" />
         ) : (
-          <Moon className="h-5 w-5" />
+          <Moon className="h-4 w-4" />
         )}
       </button>
     </div>

@@ -176,12 +176,6 @@ const schedules: Record<string, Show[]> = {
       start: 12,
       end: 14,
     },
-    {
-      name: "The Total Country Show",
-      img: "https://croozefm.blob.core.windows.net/images/total-country-show.png",
-      start: 20,
-      end: 24,
-    },
   ],
 };
 

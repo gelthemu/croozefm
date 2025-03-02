@@ -209,14 +209,6 @@ export const shows: Show[] = [
       "A cultural showcase of traditional music and stories, celebrating heritage every Sunday.",
     hosts: [{ name: "John Tulinawe" }],
   },
-  {
-    id: "total-country-show",
-    title: "The Total Country Show",
-    image:
-      "https://croozefm.blob.core.windows.net/images/total-country-show.png",
-    description:
-      "A show that celebrates the best of country music from around the world. After a long, busy weekend, relax with the best of country music to recharge. From the old classics to the latest hits, Crooze FM has got you covered. Country music is good for your ears.",
-  },
 ];
 
 export default shows;
