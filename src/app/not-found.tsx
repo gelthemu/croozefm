@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="w-full flex flex-col justify-center items-center mx-auto min-h-screen">
       <div className="p-2 text-dark dark:text-light text-center">

@@ -56,10 +56,12 @@ export default function ImmediateRelease() {
                 href={
                   sortedMixtapes[0].dj?.link
                     ? sortedMixtapes[0].dj?.link
-                    : "/i/team"
+                    : `/i/${sortedMixtapes[0].dj?.name
+                        ?.toLowerCase()
+                        .replace(/ /g, "-")}`
                 }
                 aria-label={`${sortedMixtapes[0].dj?.name}'s Profile`}
-                className="text-xs font-semibold px-2 py-1 hover:bg-dark/40 transition-all duration-300"
+                className="text-xs font-semibold px-2 py-1 rounded-sm hover:bg-dark/40 transition-all duration-300"
                 style={{ color: "#fff" }}
               >
                 <span>{sortedMixtapes[0].dj?.name}</span>
