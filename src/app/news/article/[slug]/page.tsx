@@ -85,7 +85,7 @@ export default async function ArticlePage({
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen overflow-hidden">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="mb-6">
           <BackBtn />
         </div>
@@ -158,7 +158,7 @@ export default async function ArticlePage({
         </div>
 
         <div className="mt-8">
-          <RecentNews articles={recentArticles} />
+          <RecentNews articles={recentArticles} className="md:grid-cols-2" />
         </div>
       </div>
     </div>

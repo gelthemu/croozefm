@@ -7,24 +7,19 @@ const FormatDate = ({ date }: { date: string }) => {
   const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
   const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
+  const day = String(aired.getDate()).padStart(2, "0");
+  const month = String(aired.getMonth() + 1).padStart(2, "0");
+  const year = aired.getFullYear();
+
   if (minutesDifference < 60) {
     if (minutesDifference < 1) return "Now";
     return `${minutesDifference}m ago`;
   } else if (hoursDifference < 24) {
     return `${hoursDifference}h ago`;
-  } else if (daysDifference < 8) {
+  } else if (daysDifference < 10) {
     return `${daysDifference}d ago`;
-  } else if (now.getFullYear() === aired.getFullYear()) {
-    return `${aired.toLocaleString("en-US", {
-      month: "short",
-      day: "numeric",
-    })}`;
   } else {
-    return `${aired.toLocaleString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    })}`;
+    return `${day}.${month}.${year}`;
   }
 };
 

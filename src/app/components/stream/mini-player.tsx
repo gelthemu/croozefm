@@ -196,10 +196,17 @@ export default function MiniPlayer() {
       <div>
         <div className="relative flex flex-row items-center justify-between space-x-1.5">
           {isStreamActive ? (
-            <button
-              type="button"
+            <div
+              role="button"
+              tabIndex={0}
               className="flex justify-center items-center cursor-pointer"
               onClick={handleAudioPlay}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleAudioPlay();
+                }
+              }}
               aria-label={isAudioPlaying ? "Pause Audio" : "Play Audio"}
             >
               {isAudioPlaying ? (
@@ -207,21 +214,28 @@ export default function MiniPlayer() {
               ) : (
                 <FaPlayCircle className="w-5 h-5" />
               )}
-            </button>
+            </div>
           ) : (
             <p className="text-center text-sm md:text-xs text-red font-medium">
               <i className="fa-solid fa-exclamation-triangle mr-1"></i>
               {!isAudioPlaying && isStreaming ? "Stream Error" : "Unavailable"}
             </p>
           )}
-          <button
-            type="button"
+          <div
+            role="button"
+            tabIndex={0}
             className="flex justify-center items-center cursor-pointer hover:rotate-180 transition-transform duration-500"
             onClick={handleClose}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                handleClose();
+              }
+            }}
             aria-label="Close"
           >
             <i className="fa-solid fa-xmark text-sm text-light/60 px-2 py-1 rounded-sm"></i>
-          </button>
+          </div>
         </div>
         {isStreamActive && (
           <>

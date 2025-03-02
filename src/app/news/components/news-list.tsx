@@ -19,7 +19,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   }
 
   return (
-    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[624px] md:mx-0 my-12">
+    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[600px] lg:mx-0 flex-shrink-0">
       <div className="divide-y divide-dark/20 dark:divide-light/10">
         {articles.map((article, index) => (
           <NewsCard key={article.slug} article={article} priority={index < 6} />
