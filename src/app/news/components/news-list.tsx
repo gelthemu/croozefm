@@ -9,14 +9,10 @@ interface NewsListProps {
   articles: NewsArticle[];
 }
 
-const ARTICLES_PER_PAGE = 8;
+const ARTICLES_PER_PAGE = 6;
 
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [articles]);
 
   if (articles.length === 0) {
     return (
@@ -40,8 +36,11 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   return (
     <div className="w-full sm:w-[95%] sm:mx-auto max-w-[600px] lg:mx-0 flex-shrink-0">
@@ -56,11 +55,11 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
       </div>
 
       {articles.length > ARTICLES_PER_PAGE && (
-        <div className="text-sm flex items-center mt-3 mb-6 space-x-1.5 p-1 transition-all duration-300">
+        <div className="text-sm flex flex-wrap items-center mt-3 mb-6 p-1 transition-all duration-300">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`px-1.5 py-1 rounded-sm ${
+            className={`px-1.5 py-1 m-1.5 rounded-sm ${
               currentPage === 1 ? "opacity-50" : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Previous page"
@@ -73,7 +72,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
             <button
               key={number}
               onClick={() => handlePageChange(number)}
-              className={`px-3 py-1 rounded-sm ${
+              className={`px-3 py-1 m-1 rounded-sm ${
                 currentPage === number
                   ? "bg-red text-light"
                   : "bg-gray/10 dark:bg-light/10 hover:bg-gray/20 dark:hover:bg-light/20"
@@ -87,9 +86,9 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
           ))}
 
           <button
-           onClick={() => handlePageChange(currentPage + 1)}
+            onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`px-1.5 py-1 rounded-sm ${
+            className={`px-1.5 py-1 m-1.5 rounded-sm ${
               currentPage === totalPages ? "opacity-50" : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Next page"
