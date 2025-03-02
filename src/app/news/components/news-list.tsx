@@ -14,7 +14,6 @@ const ARTICLES_PER_PAGE = 6;
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Moved the useEffect hook to the top level of the component
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
@@ -61,7 +60,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
             className={`px-1.5 py-1 m-1.5 rounded-sm ${
-              currentPage === 1 ? "opacity-50" : ""
+              currentPage === 1 ? "opacity-[0.45]" : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Previous page"
           >
@@ -90,7 +89,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
             className={`px-1.5 py-1 m-1.5 rounded-sm ${
-              currentPage === totalPages ? "opacity-50" : ""
+              currentPage === totalPages ? "opacity-[0.45]" : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Next page"
           >
