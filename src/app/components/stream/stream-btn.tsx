@@ -7,7 +7,7 @@ import { FiArrowDownRight } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 
 const STREAM_URL =
-  "https://fmradiohub.in/play?url=https://stream-176.zeno.fm/vyxwdk08apxtv";
+  "https://stream-176.zeno.fm/vyxwdk08apxtv";
 
 interface StreamButtonProps {
   className?: string;
