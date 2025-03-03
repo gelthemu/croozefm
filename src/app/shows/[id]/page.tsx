@@ -2,7 +2,7 @@ import { shows } from "@/data/shows";
 import { notFound } from "next/navigation";
 import BackBtn from "@/app/components/tiny/backbtn";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import RecordPlayer from "@/app/c/shows/components/record-player";
+import RecordPlayer from "@/app/shows/components/record-player";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -119,7 +119,7 @@ export default async function ShowPage({ params }: PageProps) {
       </div>
 
       <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
-        <ViewAllBtn href="/c/shows" text="View All Shows" />
+        <ViewAllBtn href="/shows" text="View All Shows" />
       </div>
     </div>
   );

@@ -108,25 +108,21 @@ export default async function ArticlePage({
 
           <div className="p-4 md:p-8">
             <div className="mb-6">
-              {tag && (
-                <Link href={`/news/${tag}`}>
-                  <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-                    {formatTagDisplay(tag)}
-                  </span>
-                </Link>
-              )}
-              <h1
-                className={`text-2xl md:text-3xl relative _912cfm ${
-                  tag ? "mt-4" : "mt-0"
-                } mb-4 leading-[1.25]`}
-              >
+              <Link href={tag === null ? "/news" : `/news/${tag}`}>
+                <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
+                  {tag === null
+                    ? formatTagDisplay("news")
+                    : formatTagDisplay(tag)}
+                </span>
+              </Link>
+              <h1 className="text-2xl md:text-3xl relative _912cfm my-4 leading-[1.25]">
                 {title}
               </h1>
               <div className="flex items-center text-sm md:text-xs font-medium opacity-60">
                 <span className="line-clamp-1">{author}</span>
                 <span className="mx-2">{" • "}</span>
                 <span>
-                  <FormatSimpleDate date={date} />
+                  <FormatSimpleDate epoch={date} />
                 </span>
               </div>
             </div>

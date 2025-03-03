@@ -29,16 +29,16 @@ const FormatSimpleDate = ({
 }: {
   date?: string;
   epoch?: number;
-}) => {
+}): string => {
   let dateObj: Date;
 
   if (epoch !== undefined) {
-    dateObj = new Date(epoch * 1000);
+    dateObj = new Date(epoch * 1000); // Assumes epoch is in seconds
   } else if (date) {
     dateObj = new Date(date);
-    if (isNaN(dateObj.getTime())) return;
+    if (isNaN(dateObj.getTime())) return "Invalid Date";
   } else {
-    return;
+    return "No Date Provided";
   }
 
   const day = String(dateObj.getDate()).padStart(2, "0");
@@ -48,4 +48,4 @@ const FormatSimpleDate = ({
   return `${day}.${month}.${year}`;
 };
 
-export { FormatDate, FormatSimpleDate };
+export {FormatDate, FormatSimpleDate }; // Removed undefined FormatDate

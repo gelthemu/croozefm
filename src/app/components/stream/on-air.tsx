@@ -2,8 +2,8 @@ import {
   Schedule,
   Show,
   UgTime,
-} from "@/app/c/shows/components/schedule/schedule";
-import Tracklist from "@/app/c/shows/components/schedule/tracklist/tracklist";
+} from "@/app/shows/components/schedule/schedule";
+import Tracklist from "@/app/shows/components/schedule/tracklist/tracklist";
 
 export default function OnAir() {
   return (

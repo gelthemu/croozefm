@@ -15,7 +15,7 @@ gallery:
 
 Wesige Banyagi is a dynamic Ugandan lawyer and economist who’s all about unlocking Africa’s potential. With roots as a Musigi, he’s got a keen eye for law, communications, and real estate.
 
-As the host of [The Big Seat](/c/shows/big-seat) on 91.2 Crooze FM, Wesige takes the mic every Saturday from 9:00 AM, bringing “Big, Bold, Real Politics” to life. He hosts lively debates with leaders and experts, covering big issues like security, economy, democracy, and governance, sparking thoughts that stick with you.
+As the host of [The Big Seat](/shows/big-seat) on 91.2 Crooze FM, Wesige takes the mic every Saturday from 9:00 AM, bringing “Big, Bold, Real Politics” to life. He hosts lively debates with leaders and experts, covering big issues like security, economy, democracy, and governance, sparking thoughts that stick with you.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5rOfIpPopCs?si=cNtmHGlKTcbMPel0&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

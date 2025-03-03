@@ -1,6 +1,6 @@
 ---
 title: "Ugandan Troops Bolster Presence in Eastern Congo"
-date: "2025-03-01"
+date: 1735772400
 excerpt: "Uganda deploys more forces to Bunia in eastern DRC, aiming to curb unrest as regional tensions simmer."
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
 author: "Samuel Kiggundu"

@@ -1,6 +1,6 @@
 ---
 title: "Uganda Celebrates Ebola Recovery Milestone"
-date: "2025-03-01"
+date: 1736157600
 excerpt: "All eight Ebola patients in Uganda have been discharged, marking a health victory as vigilance continues."
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
 author: "Esther Namuli"

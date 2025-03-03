@@ -1,6 +1,6 @@
 ---
 title: "Joseph Kony’s Family Returns to Uganda Amid Ongoing Hunt"
-date: "2025-03-01"
+date: 1738562609
 excerpt: "A wife and three children of fugitive warlord Joseph Kony have been repatriated to Uganda, raising questions about his fate and legacy."
 tag: "politics"
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"

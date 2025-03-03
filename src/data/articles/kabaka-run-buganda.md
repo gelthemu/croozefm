@@ -1,6 +1,6 @@
 ---
 title: "Buganda Kingdom’s Kabaka Run Draws Thousands"
-date: "2025-03-01"
+date: 1739491200
 excerpt: "The annual Kabaka Birthday Run celebrates Buganda culture, uniting Ugandans in a vibrant display of heritage."
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
 author: "Florence Nakayi"

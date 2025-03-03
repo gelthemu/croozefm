@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Hero from "../components/header-footer/hero";
 import OnAir from "../components/stream/on-air";
 import ImmediateRelease from "../components/announcement/for-immediate-release";
-import FeaturedShows from "../c/shows/components/featuredshows";
+import FeaturedShows from "../shows/components/featuredshows";
 import PopularProfiles from "../i/team/components/popular";
 
 export const metadata: Metadata = {

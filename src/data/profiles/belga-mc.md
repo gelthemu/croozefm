@@ -14,9 +14,9 @@ gallery:
   ]
 ---
 
-Meet Belga MC, a dynamic radio presenter who turned his childhood dream of mimicking broadcasters in Kampala into reality. Now co-hosting the [Morning Addiction](/c/shows/morning-addiction) on Crooze FM weekdays from 6 AM with [Monique](/i/monique-mbabazi) and [Derrick](/i/derrick-ashiimwe), he’s a Western Uganda favorite.
+Meet Belga MC, a dynamic radio presenter who turned his childhood dream of mimicking broadcasters in Kampala into reality. Now co-hosting the [Morning Addiction](/shows/morning-addiction) on Crooze FM weekdays from 6 AM with [Monique](/i/monique-mbabazi) and [Derrick](/i/derrick-ashiimwe), he’s a Western Uganda favorite.
 
-Radio is Belga’s passion—he’s not just a host but a producer and voice-over artist with a standout voice, dubbed the “best on radio.” He also rocks the [Fat Friday Mix](/c/shows/fat-friday-mix) with Deejay Emma every Friday from 8 PM till late.
+Radio is Belga’s passion—he’s not just a host but a producer and voice-over artist with a standout voice, dubbed the “best on radio.” He also rocks the [Fat Friday Mix](/shows/fat-friday-mix) with Deejay Emma every Friday from 8 PM till late.
 
 His big break came in December 2020 when he ranked among the top three in a Crooze FM talent search, earning him training and a spot on the station. From those early wins, he’s now a regional star, loved for his energy and skill.
 

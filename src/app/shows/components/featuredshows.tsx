@@ -17,7 +17,7 @@ export const FeaturedShows = () => {
         ))}
       </div>
       <div className="flex items-center justify-end mx-auto my-5 md:mt-2.5 p-2">
-        <ViewAllBtn href="/c/shows" text="View All Shows" />
+        <ViewAllBtn href="/shows" text="View All Shows" />
       </div>
     </>
   );

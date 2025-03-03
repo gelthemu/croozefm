@@ -15,12 +15,17 @@ export interface News {
   audio: string;
 }
 
-export type NewsTag = "politics" | "411" | "sports-updates" | "business-news";
+export type NewsTag =
+  | "news"
+  | "politics"
+  | "411"
+  | "sports-updates"
+  | "business-news";
 
 export interface NewsArticle {
   slug: string;
   title: string;
-  date: string;
+  date: number;
   excerpt: string;
   tag: NewsTag | null;
   content: string;

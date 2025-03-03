@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { NewsArticle, NewsTag } from "@/types/news";
 
-const newsDirectory = path.join(process.cwd(), "src", "data", "news");
+const newsDirectory = path.join(process.cwd(), "src", "data", "articles");
 
 export function getAllNewsSlugs(): string[] {
   try {
@@ -29,7 +29,7 @@ export function getNewsArticle(slug: string): NewsArticle | null {
     const newsArticle: NewsArticle = {
       slug,
       title: data.title as string,
-      date: data.date as string,
+      date: data.date as number,
       excerpt: data.excerpt as string,
       tag: (data.tag as NewsTag) || null,
       content,

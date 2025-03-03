@@ -1,6 +1,6 @@
 ---
 title: "Museveni Rejects Calls for Besigye’s Release as Election Looms"
-date: "2025-03-01"
+date: 1738005600
 excerpt: "President Yoweri Museveni doubles down on prosecuting opposition leader Kizza Besigye, dismissing pleas for forgiveness as tensions rise."
 tag: "politics"
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"

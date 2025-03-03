@@ -1,6 +1,6 @@
 ---
 title: "Eddy Kenzo’s New Album Lights Up Ugandan Music Scene"
-date: "2025-02-26"
+date: 1739491200
 excerpt: "Grammy-nominated Eddy Kenzo drops a vibrant new album, blending Afrobeats and local rhythms to captivate fans across East Africa."
 tag: "411"
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"

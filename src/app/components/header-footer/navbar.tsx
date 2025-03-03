@@ -10,10 +10,10 @@ import { NavStreamBtn } from "../stream/stream-btn";
 
 const navLinks = [
   { id: "home", name: "Home", href: "/home" },
-  { id: "shows", name: "Shows", href: "/c/shows" },
+  { id: "shows", name: "Shows", href: "/shows" },
   { id: "presenters", name: "Presenters", href: "/i/team" },
   { id: "news-archive", name: "News-Archive", href: "/news/news-archive" },
-  { id: "gallery", name: "Gallery", href: "/c/gallery" },
+  { id: "gallery", name: "Gallery", href: "/gallery" },
 ];
 
 export default function Navbar() {

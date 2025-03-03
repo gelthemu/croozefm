@@ -11,7 +11,7 @@ interface ShowCardProps {
 
 export const ShowCard = ({ show }: ShowCardProps) => {
   return (
-    <Link href={`/c/shows/${show.id}`}>
+    <Link href={`/shows/${show.id}`}>
       <div className="text-left text-sm mb-2 sr-only">{show.title}</div>
       <div
         className={`group grid-1 relative rounded-sm border-2 border-gray/80 dark:border-light/40

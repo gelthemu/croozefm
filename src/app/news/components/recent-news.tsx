@@ -28,7 +28,7 @@ const RecentNews: React.FC<RecentNewsProps> = ({
               {article.title}
             </h3>
             <p className="text-xs font-medium uppercase opacity-60">
-              <FormatSimpleDate date={article.date} />
+              <FormatSimpleDate epoch={article.date} />
             </p>
           </Link>
         ))}

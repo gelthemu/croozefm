@@ -10,7 +10,7 @@ import { shows } from "@/data/shows";
 const getShowUrl = (imgPath: string) => {
   const imgFileName = imgPath.split("/").pop()?.split(".")?.[0]?.trim();
 
-  if (!imgFileName) return "/c/shows";
+  if (!imgFileName) return "/shows";
 
   const matchingShow = shows.find((show) => {
     const showImgFileName = show.image
@@ -21,7 +21,7 @@ const getShowUrl = (imgPath: string) => {
     return showImgFileName === imgFileName;
   });
 
-  return matchingShow ? `/c/shows/${imgFileName}` : "/c/shows";
+  return matchingShow ? `/shows/${imgFileName}` : "/shows";
 };
 
 const Schedule = () => {

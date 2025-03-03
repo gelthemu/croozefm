@@ -7,7 +7,7 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { useCurrentShow } from "../c/shows/components/schedule/current-show";
+import { useCurrentShow } from "../shows/components/schedule/current-show";
 
 type MiniPlayerContextType = {
   isMiniPlayerOpen: boolean;

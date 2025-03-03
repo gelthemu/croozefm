@@ -7,7 +7,6 @@ const anchors: Record<string, Anchor> = {
   },
   dorothy: {
     name: "Dorothy Kainembabazi",
-    link: "/i/baby-dosh",
     img: "/assets/avatars/dorothy.png",
   },
   monica: {

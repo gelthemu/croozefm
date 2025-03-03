@@ -22,4 +22,4 @@ Catch her on The [Hits Selector Request Show](/c/shows/hits-selector), every Mon
 
 Then, kick off your Saturday mornings with some yummy [Urban Breakfast](/c/shows/urban-breakfast) from 6 AM to 9 AM. Baby Dosh, alongside [Deejay Stinger](/i/deejay-stinger) bring the heat with hot tracks and good vibes, making sure your weekend starts right.
 
-She is also active in the [Newsroom](/c/news-archive) at Crooze FM, where she delivers the English bulletin at 10 AM and Business News at 2 PM.
+She is also active in the [Newsroom](/news/news-archive) at Crooze FM, where she delivers the English bulletin at 10 AM and Business News at 2 PM.

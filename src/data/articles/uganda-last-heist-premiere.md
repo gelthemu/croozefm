@@ -1,6 +1,6 @@
 ---
 title: "Ugandan Film ‘The Last Heist’ Premieres to Packed Houses"
-date: "2025-02-01"
+date: 1736157600
 excerpt: "A gripping new Ugandan crime thriller, ‘The Last Heist,’ debuts in Kampala, signaling a bold leap for the local film industry."
 tag: "411"
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"

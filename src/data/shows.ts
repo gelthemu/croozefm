@@ -79,7 +79,7 @@ export const shows: Show[] = [
     description:
       "Join the interactive DJ experience every Monday to Thursday, where your song requests shape the evening playlist; call, tweet, or message to get your music on air.",
     isFeatured: true,
-    hosts: [{ name: "Dosh", link: "/i/baby-dosh" }],
+    hosts: [{ name: "Marie Antoinettie" }],
   },
   {
     id: "sports-bwino",

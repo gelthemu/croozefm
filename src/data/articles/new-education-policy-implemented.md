@@ -1,6 +1,6 @@
 ---
 title: "Revolutionary Education Policy Focuses on Creativity and Critical Thinking"
-date: "2024-02-05"
+date: 1737636000
 excerpt: "A new national education policy shifts focus from standardized testing to project-based learning and critical thinking skills."
 coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
 author: "Peter Mugisha"

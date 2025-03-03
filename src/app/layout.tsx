@@ -5,8 +5,8 @@ import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProviders } from "./providers/theme-provider";
-import ToastProvider from "./providers/toastprovider";
+import { ThemeProviders } from "./components/providers/theme-provider";
+import ToastProvider from "./components/providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player";
@@ -14,7 +14,7 @@ import { MiniPlayerProvider } from "./context/mini-player-context";
 import "./styles/globals.css";
 
 const sans = localFont({
-  src: "./fonts/croozefm-geltaverse-912912912912.woff2",
+  src: "/fonts/croozefm-geltaverse-912912912912.woff2",
   variable: "--fonts-sans",
   display: "swap",
   style: "normal",

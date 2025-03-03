@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, forwardRef } from "react";
-import { useCurrentShow } from "@/app/c/shows/components/schedule/current-show";
+import { useCurrentShow } from "@/app/shows/components/schedule/current-show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FiArrowDownRight } from "react-icons/fi";
 import { usePathname } from "next/navigation";
