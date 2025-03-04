@@ -11,7 +11,6 @@ import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
-import Script from "next/script";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -91,7 +90,6 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
         <GoogleAnalytics ga_id={ga_id} />
-        <Script src="https://platform.twitter.com/widgets.js" async></Script>
       </head>
       <body
         className={`${sans.variable} relative antialiased bg-light dark:bg-dark`}
