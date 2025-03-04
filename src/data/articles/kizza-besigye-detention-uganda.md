@@ -3,7 +3,7 @@ title: "Kizza Besigye’s Detention Sparks Outrage and Debate in Uganda"
 date: 1740946066
 excerpt: "The continued detention of Ugandan opposition leader Kizza Besigye, now on a hunger strike, has ignited widespread protests and international criticism."
 tag: "politics"
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
+coverImage: "https://pbs.twimg.com/media/GlFxjnRWIAAyJVo?format=jpg&name=medium"
 author: "James Okello"
 ---
 

@@ -28,26 +28,23 @@ export async function generateMetadata({
 
   return {
     title: `${profile.name} - 91.2 Crooze FM`,
-    description: `${profile.description.replace(
-      /\s+/g,
-      " "
-    )} We are Western Uganda's Biggest Radio Station!!!`,
+    description: `${profile.description
+      .replace(/\s+/g, " ")
+      .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
     openGraph: {
       title: `${profile.name} - 91.2 Crooze FM`,
-      description: `${profile.description.replace(
-        /\s+/g,
-        " "
-      )} We are Western Uganda's Biggest Radio Station!!!`,
+      description: `${profile.description
+        .replace(/\s+/g, " ")
+        .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
       type: "website",
       url: `https://croozefm.geltaverse.com/i/${profile.id}`,
       images: [profile.imageLink],
     },
     twitter: {
       title: `${profile.name} - 91.2 Crooze FM`,
-      description: `${profile.description.replace(
-        /\s+/g,
-        " "
-      )} We are Western Uganda's Biggest Radio Station!!!`,
+      description: `${profile.description
+        .replace(/\s+/g, " ")
+        .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",

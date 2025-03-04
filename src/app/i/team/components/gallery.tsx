@@ -43,7 +43,7 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name }) => {
           {selectedPhotoIndex !== index && (
             <button
               onClick={() => handleInfoClick(index)}
-              className="absolute bottom-2 right-2 text-light/80 p-1 bg-dark/80 rounded-sm border border-light/20 cursor-pointer hover:bg-gray/80 transition-colors"
+              className="absolute bottom-1 right-1 text-light/80 p-1 bg-dark/90 rounded-sm cursor-pointer focus:outline-hidden"
             >
               <RiInformation2Line size={14} />
             </button>
@@ -57,7 +57,7 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name }) => {
               <div className="relative w-full h-full flex items-end text-light p-2">
                 <button
                   onClick={handleCloseOverlay}
-                  className="absolute bottom-2 right-2 text-light/60 p-1 bg-dark/80 rounded-sm border border-light/20 cursor-pointer hover:bg-gray/80 transition-colors"
+                  className="absolute bottom-1 right-1 text-light/80 p-1 bg-dark/90 rounded-sm cursor-pointer focus:outline-hidden"
                 >
                   <IoMdClose size={14} />
                 </button>

@@ -11,6 +11,13 @@ import XNewsButton from "../news-archive/components/news-btn";
 import NewsArchive from "../news-archive/components/news-archive";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 
+const formatTagText = (tag: string): string => {
+  return tag
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -26,7 +33,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${tag.charAt(0).toUpperCase() + tag.slice(1)} News`,
+    title:
+      tag === "411"
+        ? `${formatTagText(tag)} - Entertainment | News - 91.2 Crooze FM`
+        : `${formatTagText(tag)} | News - 91.2 Crooze FM`,
     description: `Browse all our news articles tagged with ${tag}`,
   };
 }
@@ -50,12 +60,6 @@ export default async function TagPage({
 
   const articles = getNewsByTag(tag as NewsTag);
   const tags = getAllTags();
-  const formatTagText = (tag: string): string => {
-    return tag
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
 
   const sortedNews = [...news].sort(
     (a, b) =>

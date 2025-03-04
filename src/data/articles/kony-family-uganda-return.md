@@ -2,9 +2,6 @@
 title: "Joseph Kony’s Family Returns to Uganda Amid Ongoing Hunt"
 date: 1738562609
 excerpt: "A wife and three children of fugitive warlord Joseph Kony have been repatriated to Uganda, raising questions about his fate and legacy."
-tag: "politics"
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
-author: "Peter Mugisha"
 ---
 
 On February 26, 2025, Ugandan authorities announced the repatriation of one of Joseph Kony’s wives and three of his children from the Central African Republic, a development stirring debate as of March 1. Kony, the elusive leader of the Lord’s Resistance Army (LRA), remains at large, wanted by the International Criminal Court for war crimes committed during his decades-long insurgency. The family’s return, facilitated by regional cooperation, offers a rare glimpse into the aftermath of his reign of terror, which displaced millions in northern Uganda.

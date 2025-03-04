@@ -2,8 +2,7 @@
 title: "Ugandan Troops Bolster Presence in Eastern Congo"
 date: 1735772400
 excerpt: "Uganda deploys more forces to Bunia in eastern DRC, aiming to curb unrest as regional tensions simmer."
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
-author: "Samuel Kiggundu"
+coverImage: "https://pbs.twimg.com/media/GlCxJMHWwAAM7hi?format=jpg&name=900x900"
 ---
 
 Ugandan forces escalated their presence in eastern Democratic Republic of Congo (DRC) on February 18, 2025, deploying troops to Bunia to quell ethnic violence, as reported on March 1. The Uganda People’s Defence Force (UPDF) aims to stabilize the mineral-rich region near Lake Albert, targeting groups like the Allied Democratic Forces (ADF) with Islamic State ties. UPDF spokesman Felix Kulayigye called it a “necessary intervention,” but the move stirs unease about a broader conflict. X posts reflect mixed views—support for security meets fears of overreach.

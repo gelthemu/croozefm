@@ -22,32 +22,48 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const article = getNewsArticle(slug);
 
-  try {
-    const article = getNewsArticle(slug);
-
-    if (!article) {
-      return {
-        title: "Not Found",
-      };
-    }
-
+  if (!article) {
     return {
-      title: `${article.title} | News - 91.2 Crooze FM`,
-      description: article.excerpt,
-      openGraph: {
-        title: article.title,
-        description: article.excerpt,
-        images: article.coverImage ? [article.coverImage] : [],
-      },
-    };
-  } catch (error) {
-    console.log(error);
-
-    return {
-      title: "Not Found",
+      title: "Article Not Found",
+      description: "The requested article could not be found.",
     };
   }
+
+  return {
+    title: `${article.title} | News - 91.2 Crooze FM`,
+    description: article.excerpt,
+    openGraph: {
+      title: `${article.title} | News - 91.2 Crooze FM`,
+      description: article.excerpt,
+      type: "website",
+      url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
+      images: article.coverImage
+        ? [article.coverImage]
+        : [
+            "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
+          ],
+    },
+    twitter: {
+      title: `${article.title} | News - 91.2 Crooze FM`,
+      description: article.excerpt,
+      card: "summary_large_image",
+      site: "@geltaverse",
+      creator: "@geltaverse",
+      images: article.coverImage
+        ? [article.coverImage]
+        : [
+            "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
+          ],
+    },
+    alternates: {
+      canonical: `https://croozefm.geltaverse.com/c/shows/${article.slug}`,
+      languages: {
+        "en-US": "/c/en-US",
+      },
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -101,7 +117,7 @@ export default async function ArticlePage({
                 width={600}
                 height={400}
                 priority={true}
-                className="w-full h-full object-cover aspect-[3/2] rounded-sm grayscale-[0.85] _img_"
+                className="w-full h-full object-cover aspect-[4/2] rounded-sm grayscale-[0.75] _img_"
               />
             </div>
           )}
@@ -119,8 +135,12 @@ export default async function ArticlePage({
                 {title}
               </h1>
               <div className="flex items-center text-sm md:text-xs font-medium opacity-60">
-                <span className="line-clamp-1">{author}</span>
-                <span className="mx-2">{" • "}</span>
+                {author && (
+                  <>
+                    <span className="line-clamp-1">{author}</span>
+                    <span className="mx-2">{" • "}</span>
+                  </>
+                )}
                 <span>
                   <FormatSimpleDate epoch={date} />
                 </span>

@@ -3,7 +3,7 @@ title: "Uganda Cranes Stumble in AFCON Qualifier Against South Sudan"
 date: 1737266400
 excerpt: "The Uganda Cranes suffer a surprising 1-0 loss to South Sudan in an AFCON qualifier, denting their 2027 hopes."
 tag: "sports-updates"
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
+coverImage: "https://pbs.twimg.com/media/GZoMVtFXsBAOhnk?format=jpg&name=medium"
 author: "David Ssentongo"
 ---
 

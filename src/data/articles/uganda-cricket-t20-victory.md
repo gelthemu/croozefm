@@ -3,7 +3,7 @@ title: "Uganda Cricket Team Shines in Regional T20 Tournament"
 date: 1736896800
 excerpt: "The Uganda Cricket Cranes claim a thrilling victory over Rwanda in a T20 clash, boosting their regional standing."
 tag: "sports-updates"
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
+coverImage: "https://pbs.twimg.com/media/GPW3Oh1bUAA7DEq?format=jpg&name=large"
 author: "Ronald Mutebi"
 ---
 

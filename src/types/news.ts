@@ -30,5 +30,5 @@ export interface NewsArticle {
   tag: NewsTag | null;
   content: string;
   coverImage: string | null;
-  author: string;
+  author: string | null;
 }

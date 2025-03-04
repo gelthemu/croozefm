@@ -3,7 +3,7 @@ title: "Eddy Kenzo’s New Album Lights Up Ugandan Music Scene"
 date: 1739491200
 excerpt: "Grammy-nominated Eddy Kenzo drops a vibrant new album, blending Afrobeats and local rhythms to captivate fans across East Africa."
 tag: "411"
-coverImage: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
+coverImage: "https://pbs.twimg.com/media/GlCM9NHXYAEBBeF?format=jpg&name=4096x4096"
 author: "Lillian Auma"
 ---
 

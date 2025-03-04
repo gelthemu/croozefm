@@ -28,8 +28,8 @@ const StreamButton = forwardRef<HTMLDivElement, StreamButtonProps>(
         role="button"
         tabIndex={isActive ? -1 : 0}
         aria-disabled={isActive}
-        className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-sm ${className} _912cfm ${
-          isActive ? "opacity-60 cursor-not-allowed" : "cursor-pointer"
+        className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-sm focus:outline-hidden ${className} _912cfm ${
+          isActive ? "opacity-60 cursor-default" : "cursor-pointer"
         }`}
         style={style}
         onClick={() => {

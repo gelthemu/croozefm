@@ -34,7 +34,7 @@ export function getNewsArticle(slug: string): NewsArticle | null {
       tag: (data.tag as NewsTag) || null,
       content,
       coverImage: (data.coverImage as string) || null,
-      author: data.author as string,
+      author: (data.author as string) || null,
     };
 
     return newsArticle;

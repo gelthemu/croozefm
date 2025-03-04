@@ -14,6 +14,10 @@ html {
   transition-duration: 0s;
 }
 
+:root {
+  --toastify-font-family: var(--fonts-sans), sans-serif;
+}
+
 ::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -33,6 +37,7 @@ html {
 
 body {
   color: #ffffff;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 ._img_ {

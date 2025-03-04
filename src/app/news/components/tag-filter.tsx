@@ -76,7 +76,7 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
       <div className="relative">
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full sm:w-64 px-4 py-2.5 border-b flex items-center justify-between font-medium cursor-pointer"
+          className="w-full sm:w-64 px-4 py-2.5 border-b flex items-center justify-between font-semibold cursor-pointer"
           data-collapse-toggle="dropmenu-absolute"
         >
           <span>{activeTag ? formatTagDisplay(activeTag) : "All Topics"}</span>
