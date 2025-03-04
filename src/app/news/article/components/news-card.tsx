@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { NewsArticle } from "@/types/news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
+import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 interface NewsCardProps {
   article: NewsArticle;
@@ -12,14 +13,16 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
-  const { slug, tag, title, date, author, excerpt, coverImage } = article;
-
-  const formatTagDisplay = (tag: string): string => {
-    return tag
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
+  const {
+    slug,
+    headline,
+    publication_date,
+    excerpt,
+    category,
+    image_url,
+    author,
+    source,
+  } = article;
 
   return (
     <>
@@ -30,33 +33,45 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
         <div className="mb-2">
           {" "}
           <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-            {tag === null ? formatTagDisplay("news") : formatTagDisplay(tag)}
+            {category === null ? (
+              <FormatCategory category="news" />
+            ) : (
+              <FormatCategory category={category} />
+            )}
           </span>
         </div>
         <div className="flex">
           <div className="w-full">
             <h3 className="sm:text-lg font-semibold mb-2 leading-[1.2]">
-              {title}
+              {headline}
             </h3>
             <p className="text-gray-600 text-sm mb-2 line-clamp-3">{excerpt}</p>
             <div className="flex items-center text-xs font-medium uppercase opacity-60">
-              {author && (
+              {(author || source) && (
                 <>
-                  <span className="line-clamp-1">{author}</span>
-                  <span className="mx-1.5">{" • "}</span>{" "}
+                  {author && (
+                    <>
+                      <div className="line-clamp-1">{author}</div>
+                      <div className="mx-1.5">{" / "}</div>
+                    </>
+                  )}
+                  {source && <div className="line-clamp-1">{source}</div>}
+                  <div className="mx-1.5">{" • "}</div>
                 </>
               )}
-              <span>
-                <FormatSimpleDate epoch={date} />
-              </span>
+              <div>
+                <span>
+                  <FormatSimpleDate epoch={publication_date} />
+                </span>
+              </div>
             </div>
           </div>
-          {coverImage ? (
+          {image_url ? (
             <div className="ml-2">
               <div className="relative rounded-sm overflow-hidden w-[72px] sm:w-[160px] xl:max-w-[236px]">
                 <Image
-                  src={coverImage}
-                  alt={title}
+                  src={image_url}
+                  alt={headline}
                   width={600}
                   height={400}
                   priority={priority}

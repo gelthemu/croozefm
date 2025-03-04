@@ -1,6 +1,6 @@
 ---
-title: "Joseph Kony’s Family Returns to Uganda Amid Ongoing Hunt"
-date: 1738562609
+headline: "Joseph Kony’s Family Returns to Uganda Amid Ongoing Hunt"
+publication_date: 1738562609
 excerpt: "A wife and three children of fugitive warlord Joseph Kony have been repatriated to Uganda, raising questions about his fate and legacy."
 ---
 

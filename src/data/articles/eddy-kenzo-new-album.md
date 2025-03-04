@@ -1,10 +1,9 @@
 ---
-title: "Eddy Kenzo’s New Album Lights Up Ugandan Music Scene"
-date: 1739491200
+headline: "Eddy Kenzo’s New Album Lights Up Ugandan Music Scene"
+publication_date: 1739491200
 excerpt: "Grammy-nominated Eddy Kenzo drops a vibrant new album, blending Afrobeats and local rhythms to captivate fans across East Africa."
-tag: "411"
-coverImage: "https://pbs.twimg.com/media/GlCM9NHXYAEBBeF?format=jpg&name=4096x4096"
-author: "Lillian Auma"
+category: "411"
+image_url: "https://pbs.twimg.com/media/GlCM9NHXYAEBBeF?format=jpg&name=4096x4096"
 ---
 
 Eddy Kenzo, Uganda’s Grammy-nominated superstar, unleashed his latest album on February 28, 2025, sending waves through the East African music scene as of March 1. Titled _Rasta Road_, the 12-track project fuses Afrobeats, dancehall, and traditional Ugandan sounds, showcasing Kenzo’s signature high-energy style. Launched with a sold-out concert in Kampala, the album’s lead single, “Bailando Remix,” featuring a Kenyan artist, is already climbing regional charts. Fans on X are buzzing, calling it “a vibe for 2025.”

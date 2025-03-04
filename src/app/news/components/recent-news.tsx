@@ -25,10 +25,10 @@ const RecentNews: React.FC<RecentNewsProps> = ({
             className="flex flex-col justify-between p-6 bg-gray/10 dark:bg-light/5 rounded-sm"
           >
             <h3 className="mb-2 font-normal text-sm line-clamp-2">
-              {article.title}
+              {article.headline}
             </h3>
             <p className="text-xs font-medium uppercase opacity-60">
-              <FormatSimpleDate epoch={article.date} />
+              <FormatSimpleDate epoch={article.publication_date} />
             </p>
           </Link>
         ))}

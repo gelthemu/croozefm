@@ -1,8 +1,8 @@
 ---
-title: "Jay Z Lawsuit, Willy Mukabya’s New Calling, and Vinka’s Loyalty"
-date: 1741092600
+headline: "Jay Z Lawsuit, Willy Mukabya’s New Calling, and Vinka’s Loyalty"
+publication_date: 1741092600
 excerpt: "Jay Z takes legal action against accuser, Kadongo Kamu star Willy Mukabya turns pastor, and Vinka shuts down rumors of leaving Swangs Avenue."
-tag: "411"
+category: "411"
 ---
 
 ### Jay Z Fights Back Against Defamation

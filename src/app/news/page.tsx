@@ -3,9 +3,9 @@ import { Metadata } from "next";
 import { news } from "@/data/news";
 import NewsArchive from "./news-archive/components/news-archive";
 import NewsHeader from "./components/news-header";
-import TagFilter from "./components/tag-filter";
+import CategoryFilter from "./components/category-filter";
 import NewsList from "./components/news-list";
-import { getAllNewsArticles, getAllTags } from "@/lib/news-parser";
+import { getAllNewsArticles, getAllCategories } from "@/lib/news-parser";
 import ViewAllBtn from "../components/tiny/viewallbtn";
 import XNewsButton from "./news-archive/components/news-btn";
 
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function NewsPage() {
   const articles = getAllNewsArticles();
-  const tags = getAllTags();
+  const categories = getAllCategories();
   const sortedNews = [...news].sort(
     (a, b) =>
       new Date(b.aired.date).getTime() - new Date(a.aired.date).getTime()
@@ -28,7 +28,7 @@ export default function NewsPage() {
       <div className="sm:flex items-center justify-between max-w-6xl mx-auto">
         <NewsHeader title="Latest News" />
 
-        <TagFilter tags={tags} />
+        <CategoryFilter categories={categories} />
       </div>
 
       <div className="my-12 flex flex-col lg:flex-row lg:justify-center gap-8 xl:gap-10 max-w-6xl mx-auto">

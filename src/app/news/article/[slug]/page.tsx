@@ -15,6 +15,7 @@ import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecentNews from "../../components/recent-news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import "@/app/styles/md/profile.css";
+import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 export async function generateMetadata({
   params,
@@ -32,27 +33,27 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${article.title} | News - 91.2 Crooze FM`,
+    title: `${article.headline} | News - 91.2 Crooze FM`,
     description: article.excerpt,
     openGraph: {
-      title: `${article.title} | News - 91.2 Crooze FM`,
+      title: `${article.headline} | News - 91.2 Crooze FM`,
       description: article.excerpt,
       type: "website",
       url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
-      images: article.coverImage
-        ? [article.coverImage]
+      images: article.image_url
+        ? [article.image_url]
         : [
             "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
           ],
     },
     twitter: {
-      title: `${article.title} | News - 91.2 Crooze FM`,
+      title: `${article.headline} | News - 91.2 Crooze FM`,
       description: article.excerpt,
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",
-      images: article.coverImage
-        ? [article.coverImage]
+      images: article.image_url
+        ? [article.image_url]
         : [
             "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
           ],
@@ -88,18 +89,20 @@ export default async function ArticlePage({
     return notFound();
   }
 
-  const { tag, title, date, author, excerpt, content, coverImage } = article;
+  const {
+    headline,
+    publication_date,
+    excerpt,
+    category,
+    content,
+    image_url,
+    author,
+    source,
+  } = article;
 
   const recentArticles = getRecentNews(5)
     .filter((a) => a.slug !== slug)
     .slice(0, 4);
-
-  const formatTagDisplay = (tag: string): string => {
-    return tag
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen overflow-hidden">
@@ -109,11 +112,11 @@ export default async function ArticlePage({
         </div>
 
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden">
-          {coverImage && (
+          {image_url && (
             <div className="relative w-full rounded-sm overflow-hidden">
               <Image
-                src={coverImage}
-                alt={title}
+                src={image_url}
+                alt={headline}
                 width={600}
                 height={400}
                 priority={true}
@@ -124,26 +127,36 @@ export default async function ArticlePage({
 
           <div className="p-4 md:p-8">
             <div className="mb-6">
-              <Link href={tag === null ? "/news" : `/news/${tag}`}>
+              <Link href={category === null ? "/news" : `/news/${category}`}>
                 <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-                  {tag === null
-                    ? formatTagDisplay("news")
-                    : formatTagDisplay(tag)}
+                  {category === null ? (
+                    <FormatCategory category="news" />
+                  ) : (
+                    <FormatCategory category={category} />
+                  )}
                 </span>
               </Link>
               <h1 className="text-2xl md:text-3xl relative _912cfm my-4 leading-[1.25]">
-                {title}
+                {headline}
               </h1>
               <div className="flex items-center text-sm md:text-xs font-medium opacity-60">
-                {author && (
+                {(author || source) && (
                   <>
-                    <span className="line-clamp-1">{author}</span>
-                    <span className="mx-2">{" • "}</span>
+                    {author && (
+                      <>
+                        <div className="line-clamp-1">{author}</div>
+                        <div className="mx-1.5">{" / "}</div>
+                      </>
+                    )}
+                    {source && <div className="line-clamp-1">{source}</div>}
+                    <div className="mx-1.5">{" • "}</div>
                   </>
                 )}
-                <span>
-                  <FormatSimpleDate epoch={date} />
-                </span>
+                <div>
+                  <span>
+                    <FormatSimpleDate epoch={publication_date} />
+                  </span>
+                </div>
               </div>
             </div>
 

@@ -1,9 +1,9 @@
 ---
-title: "Uganda Celebrates Ebola Recovery Milestone"
-date: 1736157600
+headline: "Uganda Celebrates Ebola Recovery Milestone"
+publication_date: 1736157600
 excerpt: "All eight Ebola patients in Uganda have been discharged, marking a health victory as vigilance continues."
-coverImage: "https://pbs.twimg.com/media/FmLmPiTXEAEqZxR?format=jpg&name=medium"
-author: "Esther Namuli"
+image_url: "https://pbs.twimg.com/media/FmLmPiTXEAEqZxR?format=jpg&name=medium"
+author: "Esther Nakato"
 ---
 
 Uganda marked a health triumph on February 19, 2025, discharging all eight Ebola patients from hospitals, a milestone confirmed by the Health Ministry as of March 1. The patients, part of a contained outbreak, recovered after intensive care, with officials urging communities not to stigmatize survivors. Though the outbreak is under control, 265 contacts remain under quarantine, reflecting cautious optimism. On X, Ugandans hailed the news as a testament to frontline workers’ resilience.

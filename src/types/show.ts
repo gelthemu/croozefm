@@ -1,3 +1,10 @@
+export type ShowCategory =
+  | "news"
+  | "politics"
+  | "411"
+  | "sports-updates"
+  | "business-news";
+
 export interface Show {
   id: string;
   title: string;
@@ -12,5 +19,6 @@ export interface Show {
     id: string;
     date: string;
     audio: string;
+    category?: ShowCategory | null;
   }[];
 }

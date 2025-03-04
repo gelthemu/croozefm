@@ -1,10 +1,9 @@
 ---
-title: "Kizza Besigye’s Detention Sparks Outrage and Debate in Uganda"
-date: 1740946066
+headline: "Kizza Besigye’s Detention Sparks Outrage and Debate in Uganda"
+publication_date: 1740946066
 excerpt: "The continued detention of Ugandan opposition leader Kizza Besigye, now on a hunger strike, has ignited widespread protests and international criticism."
-tag: "politics"
-coverImage: "https://pbs.twimg.com/media/GlFxjnRWIAAyJVo?format=jpg&name=medium"
-author: "James Okello"
+category: "politics"
+image_url: "https://pbs.twimg.com/media/GlFxjnRWIAAyJVo?format=jpg&name=medium"
 ---
 
 Veteran Ugandan opposition leader Kizza Besigye remains in the spotlight as his detention by military authorities enters its fourth month. Abducted in Kenya in November 2024 and forcibly returned to Uganda, Besigye faces treason charges in a civilian court after a controversial military tribunal stint. His hunger strike, now in its second week as of March 1, 2025, has worsened his health, prompting an overnight stay at a clinic under heavy security. The Ugandan Medical Association has called for his immediate release, citing humanitarian grounds, while protests in Kampala grow louder.

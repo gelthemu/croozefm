@@ -15,7 +15,7 @@ export interface News {
   audio: string;
 }
 
-export type NewsTag =
+export type NewsCategory =
   | "news"
   | "politics"
   | "411"
@@ -24,11 +24,12 @@ export type NewsTag =
 
 export interface NewsArticle {
   slug: string;
-  title: string;
-  date: number;
+  headline: string;
+  publication_date: number;
   excerpt: string;
-  tag: NewsTag | null;
+  category: NewsCategory | null;
   content: string;
-  coverImage: string | null;
+  image_url: string | null;
   author: string | null;
+  source: string | null;
 }

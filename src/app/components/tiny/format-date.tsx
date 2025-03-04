@@ -33,7 +33,7 @@ const FormatSimpleDate = ({
   let dateObj: Date;
 
   if (epoch !== undefined) {
-    dateObj = new Date(epoch * 1000); // Assumes epoch is in seconds
+    dateObj = new Date(epoch * 1000);
   } else if (date) {
     dateObj = new Date(date);
     if (isNaN(dateObj.getTime())) return "Invalid Date";
@@ -48,4 +48,4 @@ const FormatSimpleDate = ({
   return `${day}.${month}.${year}`;
 };
 
-export {FormatDate, FormatSimpleDate }; // Removed undefined FormatDate
+export {FormatDate, FormatSimpleDate }; 

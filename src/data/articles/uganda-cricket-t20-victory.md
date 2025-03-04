@@ -1,10 +1,9 @@
 ---
-title: "Uganda Cricket Team Shines in Regional T20 Tournament"
-date: 1736896800
+headline: "Uganda Cricket Team Shines in Regional T20 Tournament"
+publication_date: 1736896800
 excerpt: "The Uganda Cricket Cranes claim a thrilling victory over Rwanda in a T20 clash, boosting their regional standing."
-tag: "sports-updates"
-coverImage: "https://pbs.twimg.com/media/GPW3Oh1bUAA7DEq?format=jpg&name=large"
-author: "Ronald Mutebi"
+category: "sports-updates"
+image_url: "https://pbs.twimg.com/media/GPW3Oh1bUAA7DEq?format=jpg&name=large"
 ---
 
 The Uganda Cricket Cranes soared to a nail-biting five-run win against Rwanda on February 27, 2025, in a regional T20 tournament held in Nairobi, as celebrated on March 1. Chasing 148, Rwanda fell short despite a late surge, thanks to a match-winning spell from bowler Henry Ssenyondo, who took 3 wickets for 18 runs. The victory, cheered by Ugandan fans on X, strengthens Uganda’s push for prominence in East African cricket.

@@ -3,63 +3,59 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { news } from "@/data/news";
 import NewsHeader from "../components/news-header";
-import TagFilter from "../components/tag-filter";
+import CategoryFilter from "../components/category-filter";
 import NewsList from "../components/news-list";
-import { getAllTags, getNewsByTag } from "@/lib/news-parser";
-import { NewsTag } from "@/types/news";
+import { getAllCategories, getNewsByCategory } from "@/lib/news-parser";
+import { NewsCategory } from "@/types/news";
 import XNewsButton from "../news-archive/components/news-btn";
 import NewsArchive from "../news-archive/components/news-archive";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-
-const formatTagText = (tag: string): string => {
-  return tag
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-};
+import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ tag: string }>;
+  params: Promise<{ category: string }>;
 }): Promise<Metadata> {
-  const { tag } = await params;
+  const { category } = await params;
 
-  const validTags = getAllTags();
-  if (!validTags.includes(tag as NewsTag)) {
+  const validCategories = getAllCategories();
+  if (!validCategories.includes(category as NewsCategory)) {
     return {
-      title: "Tag Not Found",
+      title: "Category Not Found",
     };
   }
 
   return {
     title:
-      tag === "411"
-        ? `${formatTagText(tag)} - Entertainment | News - 91.2 Crooze FM`
-        : `${formatTagText(tag)} | News - 91.2 Crooze FM`,
-    description: `Browse all our news articles tagged with ${tag}`,
+      category === "411"
+        ? `${FormatCategory({
+            category,
+          })} - Entertainment | News - 91.2 Crooze FM`
+        : `${FormatCategory({ category })} | News - 91.2 Crooze FM`,
+    description: `Browse all our news articles tagged with ${category}`,
   };
 }
 
 export async function generateStaticParams() {
-  const tags = await getAllTags();
-  return tags.map((tag) => ({ tag }));
+  const categories = await getAllCategories();
+  return categories.map((category) => ({ category }));
 }
 
-export default async function TagPage({
+export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ tag: string }>;
+  params: Promise<{ category: string }>;
 }) {
-  const { tag } = await params;
+  const { category } = await params;
 
-  const validTags = getAllTags();
-  if (!validTags.includes(tag as NewsTag)) {
+  const validCategories = getAllCategories();
+  if (!validCategories.includes(category as NewsCategory)) {
     notFound();
   }
 
-  const articles = getNewsByTag(tag as NewsTag);
-  const tags = getAllTags();
+  const articles = getNewsByCategory(category as NewsCategory);
+  const categories = getAllCategories();
 
   const sortedNews = [...news].sort(
     (a, b) =>
@@ -71,12 +67,15 @@ export default async function TagPage({
       <div className="sm:flex items-center justify-between max-w-6xl mx-auto">
         <NewsHeader
           title={
-            tag === "411"
-              ? `${formatTagText(tag)} - Entertainment`
-              : `${formatTagText(tag)}`
+            category === "411"
+              ? `${FormatCategory({ category })} - Entertainment`
+              : `${FormatCategory({ category })}`
           }
         />
-        <TagFilter tags={tags} currentTag={tag as NewsTag} />
+        <CategoryFilter
+          categories={categories}
+          currentCategory={category as NewsCategory}
+        />
       </div>
 
       <div className="my-12 flex flex-col lg:flex-row lg:justify-center gap-8 xl:gap-10 max-w-6xl mx-auto">

@@ -2,20 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { NewsTag } from "@/types/news";
+import { NewsCategory } from "@/types/news";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
+import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
-interface TagFilterProps {
-  tags: NewsTag[];
-  currentTag?: NewsTag | null;
+interface CategoryFilterProps {
+  categories: NewsCategory[];
+  currentCategory?: NewsCategory | null;
 }
 
-const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
+const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, currentCategory = null }) => {
   const router = useRouter();
-  const [activeTag, setActiveTag] = useState<NewsTag | null>(currentTag);
+  const [activeCategory, setActiveCategory] = useState<NewsCategory | null>(currentCategory);
   const [isOpen, setIsOpen] = useState(false);
   const seed = new Date().toDateString();
-  const allTags = useShuffledArray(tags, seed);
+  const allCategories = useShuffledArray(categories, seed);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,28 +48,21 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [currentTag, isOpen]);
+  }, [currentCategory, isOpen]);
 
   useEffect(() => {
-    setActiveTag(currentTag);
-  }, [currentTag]);
+    setActiveCategory(currentCategory);
+  }, [currentCategory]);
 
-  const handleTagChange = (tag: NewsTag | null) => {
-    setActiveTag(tag);
+  const handleCategoryChange = (category: NewsCategory | null) => {
+    setActiveCategory(category);
     setIsOpen(false);
 
-    if (tag === null) {
+    if (category === null) {
       router.push("/news");
     } else {
-      router.push(`/news/${tag}`);
+      router.push(`/news/${category}`);
     }
-  };
-
-  const formatTagDisplay = (tag: string): string => {
-    return tag
-      .split("-")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
   };
 
   return (
@@ -79,7 +73,7 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
           className="w-full sm:w-64 px-4 py-2.5 border-b flex items-center justify-between font-semibold cursor-pointer"
           data-collapse-toggle="dropmenu-absolute"
         >
-          <span>{activeTag ? formatTagDisplay(activeTag) : "All Topics"}</span>
+          <span>{activeCategory ? <FormatCategory category={activeCategory}/> : "All Topics"}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -109,19 +103,19 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
           <div className="px-5 py-4 text-light font-normal">
             <div
               className="py-2.5 hover:px-4 hover:bg-light/15 border-b border-light/30 cursor-pointer transition-all duration-500"
-              onClick={() => handleTagChange(null)}
+              onClick={() => handleCategoryChange(null)}
             >
               All
             </div>
             <div className="divide-y divide-light/30">
               {" "}
-              {allTags.map((tag) => (
+              {allCategories.map((category) => (
                 <div
-                  key={tag}
+                  key={category}
                   className="py-2.5 hover:px-4 hover:bg-light/15 cursor-pointer transition-all duration-500"
-                  onClick={() => handleTagChange(tag)}
+                  onClick={() => handleCategoryChange(category)}
                 >
-                  {tag ? formatTagDisplay(tag) : ""}
+                  {category ? <FormatCategory category={category}/> : ""}
                 </div>
               ))}
             </div>
@@ -132,4 +126,4 @@ const TagFilter: React.FC<TagFilterProps> = ({ tags, currentTag = null }) => {
   );
 };
 
-export default TagFilter;
+export default CategoryFilter;

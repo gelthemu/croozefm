@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { toast } from "react-toastify";
 import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
+import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 interface RecordPlayerProps {
   show: Show;
@@ -41,7 +43,8 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     if (!show.recordings || !show.recordings[index]) return;
 
     const recording = show.recordings[index];
-    const isActive = isRecordingActive(recording.audio) && playingIndex === index;
+    const isActive =
+      isRecordingActive(recording.audio) && playingIndex === index;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);
@@ -83,12 +86,24 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
               >
                 <div className="p-4">
                   <div className="flex flex-row-reverse items-center justify-between pb-3">
-                    <span className="text-xs text-gray/60 dark:text-light/40 font-medium">
+                    <div className="flex-shrink-0 ml-4 text-xs text-gray/60 dark:text-light/40 font-medium">
                       <FormatDate date={recording.date} />
-                    </span>
-                    <span className="text-xs text-gray/90 dark:text-light/80 font-medium">
-                      {show.title}
-                    </span>
+                    </div>
+                    <div className="flex items-center text-xs text-gray/90 dark:text-light/80">
+                      {recording.category && (
+                        <>
+                          <Link href={`/news/${recording.category}`}>
+                            <span className="text-red font-semibold">
+                              <FormatCategory category={recording.category} />
+                            </span>
+                          </Link>
+                          <div className="mx-1.5 font-light opacity-50">
+                            {" • "}
+                          </div>
+                        </>
+                      )}
+                      <div className="line-clamp-1">{show.title} </div>
+                    </div>
                   </div>
                   <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
                     <button

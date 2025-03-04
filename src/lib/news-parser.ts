@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { NewsArticle, NewsTag } from "@/types/news";
+import { NewsArticle, NewsCategory } from "@/types/news";
 
 const newsDirectory = path.join(process.cwd(), "src", "data", "articles");
 
@@ -28,13 +28,14 @@ export function getNewsArticle(slug: string): NewsArticle | null {
 
     const newsArticle: NewsArticle = {
       slug,
-      title: data.title as string,
-      date: data.date as number,
+      headline: data.headline as string,
+      publication_date: data.publication_date as number,
       excerpt: data.excerpt as string,
-      tag: (data.tag as NewsTag) || null,
+      category: (data.category as NewsCategory) || null,
       content,
-      coverImage: (data.coverImage as string) || null,
+      image_url: (data.image_url as string) || null,
       author: (data.author as string) || null,
+      source: (data.sourcer as string) || null,
     };
 
     return newsArticle;
@@ -51,16 +52,18 @@ export function getAllNewsArticles(): NewsArticle[] {
       .map((slug) => getNewsArticle(slug))
       .filter((article): article is NewsArticle => article !== null);
 
-    return news.sort((a, b) => (new Date(b.date) > new Date(a.date) ? 1 : -1));
+    return news.sort((a, b) =>
+      new Date(b.publication_date) > new Date(a.publication_date) ? 1 : -1
+    );
   } catch (error) {
     console.error(error);
     return [];
   }
 }
 
-export function getNewsByTag(tag: NewsTag): NewsArticle[] {
+export function getNewsByCategory(category: NewsCategory): NewsArticle[] {
   const allNews = getAllNewsArticles();
-  return allNews.filter((news) => news.tag === tag);
+  return allNews.filter((news) => news.category === category);
 }
 
 export function getRecentNews(count: number): NewsArticle[] {
@@ -68,15 +71,15 @@ export function getRecentNews(count: number): NewsArticle[] {
   return allNews.slice(0, count);
 }
 
-export function getAllTags(): NewsTag[] {
+export function getAllCategories(): NewsCategory[] {
   const allNews = getAllNewsArticles();
-  const tagsSet = new Set<NewsTag>();
+  const categorySet = new Set<NewsCategory>();
 
   allNews.forEach((news) => {
-    if (news.tag) {
-      tagsSet.add(news.tag);
+    if (news.category) {
+      categorySet.add(news.category);
     }
   });
 
-  return Array.from(tagsSet);
+  return Array.from(categorySet);
 }
