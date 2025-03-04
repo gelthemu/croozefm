@@ -46,25 +46,6 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
               {headline}
             </h3>
             <p className="text-gray-600 text-sm mb-2 line-clamp-3">{excerpt}</p>
-            <div className="flex items-center text-xs font-medium uppercase opacity-60">
-              {(author || source) && (
-                <>
-                  {author && (
-                    <>
-                      <div className="line-clamp-1">{author}</div>
-                      <div className="mx-1.5">{" / "}</div>
-                    </>
-                  )}
-                  {source && <div className="line-clamp-1">{source}</div>}
-                  <div className="mx-1.5">{" • "}</div>
-                </>
-              )}
-              <div>
-                <span>
-                  <FormatSimpleDate epoch={publication_date} />
-                </span>
-              </div>
-            </div>
           </div>
           {image_url ? (
             <div className="ml-2">
@@ -82,6 +63,23 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
           ) : (
             <></>
           )}
+        </div>
+        <div className="flex flex-wrap items-center text-xs font-medium uppercase opacity-60">
+          {(author || source) && (
+            <div className="flex flex-wrap items-center">
+              {author && <span>{author}</span>}
+              {author && source && (
+                <span className="mx-1 opacity-50">{"/"}</span>
+              )}
+              {source && <span>{source}</span>}
+              <span className="mx-1.5 opacity-50">•</span>
+            </div>
+          )}
+          <div>
+            <span>
+              <FormatSimpleDate epoch={publication_date} />
+            </span>
+          </div>
         </div>
       </Link>
     </>

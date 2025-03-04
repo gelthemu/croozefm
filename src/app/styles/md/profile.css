@@ -26,16 +26,12 @@
   @apply my-6;
 }
 
-.prose strong {
-  @apply font-normal;
-}
-
 .prose a {
   @apply font-normal text-red;
 }
 
 .prose img {
-  @apply w-full aspect-auto _img_;
+  @apply w-full aspect-auto rounded-sm _img_;
 }
 
 .prose video {

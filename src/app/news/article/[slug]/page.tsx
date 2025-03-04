@@ -113,14 +113,14 @@ export default async function ArticlePage({
 
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden">
           {image_url && (
-            <div className="relative w-full rounded-sm overflow-hidden">
+            <div className="relative w-full rounded-t-sm overflow-hidden">
               <Image
                 src={image_url}
                 alt={headline}
                 width={600}
                 height={400}
                 priority={true}
-                className="w-full h-full object-cover aspect-[4/2] rounded-sm grayscale-[0.75] _img_"
+                className="w-full h-full object-cover object-top aspect-[4/2] rounded-t-sm grayscale-[0.75] _img_"
               />
             </div>
           )}
@@ -139,18 +139,16 @@ export default async function ArticlePage({
               <h1 className="text-2xl md:text-3xl relative _912cfm my-4 leading-[1.25]">
                 {headline}
               </h1>
-              <div className="flex items-center text-sm md:text-xs font-medium opacity-60">
+              <div className="flex flex-wrap items-center text-sm md:text-xs font-medium opacity-60">
                 {(author || source) && (
-                  <>
-                    {author && (
-                      <>
-                        <div className="line-clamp-1">{author}</div>
-                        <div className="mx-1.5">{" / "}</div>
-                      </>
+                  <div className="flex flex-wrap items-center">
+                    {author && <span>{author}</span>}
+                    {author && source && (
+                      <span className="mx-1 opacity-50">{"/"}</span>
                     )}
-                    {source && <div className="line-clamp-1">{source}</div>}
-                    <div className="mx-1.5">{" • "}</div>
-                  </>
+                    {source && <span>{source}</span>}
+                    <span className="mx-1.5 opacity-50">•</span>
+                  </div>
                 )}
                 <div>
                   <span>

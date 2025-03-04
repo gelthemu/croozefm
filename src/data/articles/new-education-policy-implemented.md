@@ -1,20 +1,37 @@
 ---
-headline: "Revolutionary Education Policy Focuses on Creativity and Critical Thinking"
-publication_date: 1737636000
-excerpt: "A new national education policy shifts focus from standardized testing to project-based learning and critical thinking skills."
-image_url: "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096"
-author: "Peter Mugisha"
+headline: "Warren Buffett says tariffs are 'an act of war, to some degree'"
+publication_date: 1740971091
+excerpt: "Billionaire investor Warren Buffett described tariffs as 'an act of war to some degree,' highlighting their potential to disrupt global trade and economic stability."
+category: "business-news"
+image_url: "https://i.insider.com/67c5d6a7b8b41a9673f97bfc?width=1200&format=jpeg"
+author: "Sarah Jackson"
+source: "Business Insider"
 ---
 
-The Department of Education has unveiled a comprehensive new policy framework that represents the most significant shift in educational approach in the past three decades. The new policy, titled "Education for Tomorrow," prioritizes creativity, critical thinking, and practical skills over traditional standardized testing.
+The billionaire chairman and CEO of Berkshire Hathaway says tariffs are "an act of war, to some degree."
 
-The policy introduces several major changes to the education system:
+"Over time, they are a tax on goods. I mean, the Tooth Fairy doesn't pay 'em!" he said in an interview with "CBS News Sunday Morning" when asked how tariffs would impact inflation. "And then what? You always have to ask that question in economics. You always say, 'And then what?'"
 
-Schools will transition to a model where at least 40% of instructional time is dedicated to interdisciplinary projects that solve real-world problems. These projects will be designed to integrate multiple subjects and develop collaboration skills.
+When asked about the current economy, Buffett said: "Well, I think that's the most interesting subject in the world, but I won't talk, I can't talk about it, though. I really can't." He also didn't answer further questions about the political environment.
 
-"We know that students learn best when they can apply knowledge to meaningful contexts," explained Education Secretary Dr. Lisa Williams. "Project-based learning creates those contexts."
-Standardized testing will be reduced by approximately 60%, replaced by portfolio assessments, project evaluations, and personalized learning plans. Schools will implement progressive assessment tools that measure growth rather than absolute achievement.
+The 94-year-old, known as the Oracle of Omaha, has said he's staying out of politics and holding his tongue on divisive topics because speaking out could spark public backlash against Berkshire, potentially harming shareholders and forcing the company's subsidiaries to lay off workers.
 
-The policy allocates $5 billion for technology infrastructure improvements in underserved schools and for teacher training in digital literacy. Every student will be guaranteed access to appropriate technology tools regardless of their school's funding level.
+"So, I've decidedly backed off — I don't want to say anything that'll get attributed, basically, to [Berkshire](https://en.wikipedia.org/wiki/Berkshire_Hathaway), and have somebody else bear the consequences of what I talk about," Buffett said at Berkshire's annual shareholder meeting in 2022.
 
-Teachers will receive more freedom to customize curriculum to meet the specific needs of their students, with centralized standards focusing on competencies rather than specific content knowledge.
+The lover of American stocks like Apple and Coca-Cola told CBS that "a majority of any money I manage will always be in the United States" because "it's the best place."
+
+Since taking office, President Donald Trump has announced or threatened tariffs against several countries. Economists have warned that the US imposing tariffs would likely hurt the domestic economy and that additional costs would likely be passed on to the American consumer rather than to foreign exporters.
+
+Trump proposed 25% tariffs on Mexico and Canada that were initially supposed to take effect in February but were postponed. They are now expected to start Tuesday, though Commerce Secretary Howard Lutnick said they may not be at a 25% rate.
+
+After placing a 10% tariff on goods from China last month, Trump announced on Thursday he'd impose another 10% tariff on the country, saying it hasn't done enough to stop fentanyl from entering the US.
+
+Trump also announced a 25% tariff on all steel and aluminum imports to the US, which is set to take effect on March 12.
+
+He said last month that he'd charge "a reciprocal tariff" on countries that have such taxes on American goods.
+
+He's also threatened to impose a 25% tariff on European Union countries and said he'd slap a 100% tariff on BRICS nations if they replaced the US dollar as their reserve currency.
+
+Buffett has supported presidential candidates in the past, including backing Barack Obama and Hillary Clinton, but he declined to make an endorsement in the 2024 election.
+
+Based on his past comments, he was likely worried about alienating half the country and harming his conglomerate's nearly 400,000 workers and many shareholders.

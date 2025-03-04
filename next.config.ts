@@ -19,6 +19,16 @@ const nextConfig: NextConfig = {
         hostname: "coverart.instant.audio",
         pathname: "/images/**",
       },
+      {
+        protocol: "https",
+        hostname: "dims.apnews.com",
+        pathname: "/dims4/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i.insider.com",
+        pathname: "/**",
+      },
     ],
   },
 };

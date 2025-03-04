@@ -35,7 +35,7 @@ export function getNewsArticle(slug: string): NewsArticle | null {
       content,
       image_url: (data.image_url as string) || null,
       author: (data.author as string) || null,
-      source: (data.sourcer as string) || null,
+      source: (data.source as string) || null,
     };
 
     return newsArticle;
