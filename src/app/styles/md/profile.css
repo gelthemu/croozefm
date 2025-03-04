@@ -41,3 +41,7 @@
 .prose ul {
   @apply list-disc list-inside space-y-4;
 }
+
+.prose blockquote {
+  @apply w-full my-4 text-sm border-0;
+}

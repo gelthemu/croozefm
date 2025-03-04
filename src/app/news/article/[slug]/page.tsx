@@ -105,7 +105,7 @@ export default async function ArticlePage({
     .slice(0, 4);
 
   return (
-    <div className="container mx-auto px-4 py-12 min-h-screen overflow-hidden">
+    <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-3xl mx-auto">
         <div className="mb-6">
           <BackBtn />

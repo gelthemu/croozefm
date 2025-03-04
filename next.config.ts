@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
         hostname: "i.insider.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "livesport-ott-images.ssl.cdn.cra.cz",
+        pathname: "/**",
+      },
     ],
   },
 };
