@@ -36,7 +36,7 @@ export const shows: Show[] = [
         date: "2025-03-04T12:50:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/411-clare-inyaa-2025-03-04.mp3",
-        tag: "411",
+          category: "411",
       },
     ],
   },
@@ -108,21 +108,21 @@ export const shows: Show[] = [
         date: "2024-11-25T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-25_5pm.mp3",
-        tag: "sports-updates",
+          category: "sports-updates",
       },
       {
         id: "2024-11-21",
         date: "2024-11-21T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-21_5pm.mp3",
-        tag: "sports-updates",
+          category: "sports-updates",
       },
       {
         id: "2024-11-19",
         date: "2024-11-19T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-19_5pm.mp3",
-        tag: "sports-updates",
+          category: "sports-updates",
       },
     ],
   },
@@ -205,7 +205,7 @@ export const shows: Show[] = [
         id: "2025-01-26",
         date: "2025-01-26T10:05:00+03:00",
         audio: "https://croozefm.blob.core.windows.net/audio/linc-&-veve.mp3",
-        tag: "411",
+        category: "411",
       },
       {
         id: "2011-11-01",
