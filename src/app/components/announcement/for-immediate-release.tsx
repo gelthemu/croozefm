@@ -5,12 +5,18 @@ import { mixtapes } from "@/data/mixtapes";
 import MixtapeBtn from "./components/mixtape-btn";
 import ViewAllBtn from "../tiny/viewallbtn";
 
-export default function ImmediateRelease() {
+interface ImmediateReleaseProps {
+  viewAll?: boolean;
+}
+export default function ImmediateRelease({ viewAll = false }: ImmediateReleaseProps) {
   const sortedMixtapes = [...mixtapes].sort((a, b) => b.id - a.id);
 
   return (
     <>
-      <section className="p-2 pb-8 mt-8 border-b border-dark/20 dark:border-light/20">
+      <section
+        className="p-2 py-8 mt-4 border-y border-dark/20 dark:border-light/20"
+        id="latest-release"
+      >
         <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-4">
           <div className="w-full flex flex-col justify-start items-start lg:self-start">
             <div className="text-left">
@@ -69,7 +75,11 @@ export default function ImmediateRelease() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-end mx-auto mt-5 mb-0">
+        <div
+          className={`flex items-center justify-end mx-auto mt-5 mb-0 ${
+            viewAll ? "" : "hidden"
+          }`}
+        >
           <ViewAllBtn href="/c/mixtapes" text="View All Mixtapes" />
         </div>
       </section>

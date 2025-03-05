@@ -2,9 +2,6 @@ import React from "react";
 import { news } from "@/data/news";
 import NewsHeader from "../components/news-header";
 import NewsArchive from "./components/news-archive";
-import RecentNews from "../components/recent-news";
-import { getRecentNews } from "@/lib/news-parser";
-import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import XNewsButton from "./components/news-btn";
 
 export const metadata = {
@@ -18,26 +15,16 @@ export default function NewsArchivePage() {
     (a, b) =>
       new Date(b.aired.date).getTime() - new Date(a.aired.date).getTime()
   );
-  const recentArticles = getRecentNews(5);
 
   return (
     <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <NewsHeader title="News Archive" className="lg:text-left" />
-      </div>
-
-      <div className="my-12 flex flex-col lg:flex-row lg:justify-center gap-8 max-w-6xl mx-auto">
-        <div className="w-full sm:w-[95%] sm:mx-auto max-w-[640px] lg:mx-0 flex-shrink-0">
-          <NewsArchive
-            news={sortedNews}
-            data={news}
-          />
-        </div>
+      <div className="w-full sm:w-[90%] sm:mx-auto max-w-[500px]">
         <div>
-          <RecentNews articles={recentArticles} className="mt-4" />
-          <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
-            <ViewAllBtn href="/news" text="See All Articles" />
-          </div>
+          <NewsHeader title="News Archive" />
+        </div>
+
+        <div className="my-10 flex flex-col">
+          <NewsArchive news={sortedNews} data={news} />
         </div>
       </div>
 

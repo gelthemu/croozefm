@@ -36,6 +36,7 @@ export function getNewsArticle(slug: string): NewsArticle | null {
       image_url: (data.image_url as string) || null,
       author: (data.author as string) || null,
       source: (data.source as string) || null,
+      isPinned: data.isPinned as boolean,
     };
 
     return newsArticle;
@@ -52,9 +53,14 @@ export function getAllNewsArticles(): NewsArticle[] {
       .map((slug) => getNewsArticle(slug))
       .filter((article): article is NewsArticle => article !== null);
 
-    return news.sort((a, b) =>
-      new Date(b.publication_date) > new Date(a.publication_date) ? 1 : -1
-    );
+    return news.sort((a, b) => {
+      if (a.isPinned && !b.isPinned) return -1;
+      if (!a.isPinned && b.isPinned) return 1;
+
+      return new Date(b.publication_date) > new Date(a.publication_date)
+        ? 1
+        : -1;
+    });
   } catch (error) {
     console.error(error);
     return [];

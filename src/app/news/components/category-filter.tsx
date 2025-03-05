@@ -11,9 +11,14 @@ interface CategoryFilterProps {
   currentCategory?: NewsCategory | null;
 }
 
-const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, currentCategory = null }) => {
+const CategoryFilter: React.FC<CategoryFilterProps> = ({
+  categories,
+  currentCategory = null,
+}) => {
   const router = useRouter();
-  const [activeCategory, setActiveCategory] = useState<NewsCategory | null>(currentCategory);
+  const [activeCategory, setActiveCategory] = useState<NewsCategory | null>(
+    currentCategory
+  );
   const [isOpen, setIsOpen] = useState(false);
   const seed = new Date().toDateString();
   const allCategories = useShuffledArray(categories, seed);
@@ -66,14 +71,20 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, currentCate
   };
 
   return (
-    <div className="flex-shrink-0 px-1 text-sm text-left">
+    <div className="px-1 text-sm text-left">
       <div className="relative">
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full sm:w-64 px-4 py-2.5 border-b flex items-center justify-between font-semibold cursor-pointer"
+          className="w-full md:w-96 px-4 py-2.5 border-b flex items-center justify-between font-semibold cursor-pointer"
           data-collapse-toggle="dropmenu-absolute"
         >
-          <span>{activeCategory ? <FormatCategory category={activeCategory}/> : "All Topics"}</span>
+          <span>
+            {activeCategory ? (
+              <FormatCategory category={activeCategory} />
+            ) : (
+              "All Topics"
+            )}
+          </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -93,7 +104,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, currentCate
         </div>
 
         <div
-          className={`absolute z-10 w-full sm:w-64 bg-red rounded-b-sm
+          className={`absolute z-10 w-full md:w-96 bg-red rounded-b-sm
                      transition-all duration-300 ease-in-out overflow-hidden
                      ${
                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -115,7 +126,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories, currentCate
                   className="py-2.5 hover:px-4 hover:bg-light/15 cursor-pointer transition-all duration-500"
                   onClick={() => handleCategoryChange(category)}
                 >
-                  {category ? <FormatCategory category={category}/> : ""}
+                  {category ? <FormatCategory category={category} /> : ""}
                 </div>
               ))}
             </div>

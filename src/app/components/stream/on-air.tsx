@@ -7,7 +7,7 @@ import Tracklist from "@/app/shows/components/schedule/tracklist/tracklist";
 
 export default function OnAir() {
   return (
-    <div className="my-8 py-10 border-y border-dark/20 dark:border-light/20">
+    <div className="mt-8 py-10 border-t border-dark/20 dark:border-light/20">
       <div className="text-left w-full">
         <div className="w-full flex items-center justify-between text-sm mb-4">
           <p className="w-fit px-1.5 py-1 text-light font-semibold bg-red rounded-sm _912cfm">

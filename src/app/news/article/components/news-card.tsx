@@ -6,6 +6,7 @@ import Image from "next/image";
 import { NewsArticle } from "@/types/news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
+import { TbPinnedFilled } from "react-icons/tb";
 
 interface NewsCardProps {
   article: NewsArticle;
@@ -22,6 +23,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
     image_url,
     author,
     source,
+    isPinned,
   } = article;
 
   return (
@@ -31,14 +33,20 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
         className="text-left flex flex-col py-6"
       >
         <div className="mb-2">
-          {" "}
-          <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-            {category === null ? (
-              <FormatCategory category="news" />
-            ) : (
-              <FormatCategory category={category} />
-            )}
-          </span>
+          {isPinned ? (
+            <span className="px-2 py-1 text-xs font-semibold rounded bg-red text-light w-fit flex items-center opacity-[0.8]">
+              <TbPinnedFilled className="w-4 h-4 mr-1" />
+              <span>Pinned</span>
+            </span>
+          ) : (
+            <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
+              {category === null ? (
+                <FormatCategory category="news" />
+              ) : (
+                <FormatCategory category={category} />
+              )}
+            </span>
+          )}
         </div>
         <div className="flex">
           <div className="w-full">

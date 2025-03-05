@@ -9,7 +9,7 @@ interface NewsListProps {
   articles: NewsArticle[];
 }
 
-const ARTICLES_PER_PAGE = 8;
+const ARTICLES_PER_PAGE = 4;
 
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,7 +43,7 @@ const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
 
   return (
-    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[600px] lg:mx-0 flex-shrink-0">
+    <div className="w-full">
       <div className="divide-y divide-dark/20 dark:divide-light/10">
         {currentArticles.map((article, index) => (
           <NewsCard

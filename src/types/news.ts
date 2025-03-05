@@ -32,4 +32,5 @@ export interface NewsArticle {
   image_url: string | null;
   author: string | null;
   source: string | null;
+  isPinned?: boolean;
 }

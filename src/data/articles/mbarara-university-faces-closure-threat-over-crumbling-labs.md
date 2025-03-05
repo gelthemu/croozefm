@@ -6,7 +6,7 @@ image_url: "https://pbs.twimg.com/media/GlGdcJpWUAAXDaB?format=png&name=small"
 source: "Crooze FM News"
 ---
 
-[Mbarara University of Science and Technology](https://en.wikipedia.org/wiki/Mbarara_University) (MUST) is on the brink of a major crisis. The Uganda Medical and Dental Practitioners Council (UMDPC) and the Uganda National Council for Higher Education (UNCHE) have sounded the alarm, warning that the university’s dilapidated infrastructure could force it to shut its doors. This isn’t just a slap on the wrist—it’s a red alert for an institution long hailed as a pillar of medical education in Uganda.
+[Mbarara University of Science and Technology (MUST)](https://en.wikipedia.org/wiki/Mbarara_University) is on the brink of a major crisis. The Uganda Medical and Dental Practitioners Council (UMDPC) and the Uganda National Council for Higher Education (UNCHE) have sounded the alarm, warning that the university’s dilapidated infrastructure could force it to shut its doors. This isn’t just a slap on the wrist—it’s a red alert for an institution long hailed as a pillar of medical education in Uganda.
 
 During a recent inspection—the fifth in a series with no real progress—UMDPC Vice Chairman Dr. Ayub Twaha didn’t mince words. He pointed to the university’s crumbling biomedical science labs, calling them a “threat to medical training.” These facilities, he stressed, fall far short of the standards needed to churn out competent doctors and health pros. It’s a grim picture: outdated equipment, decaying structures, and a ticking clock as regulators lose patience.
 

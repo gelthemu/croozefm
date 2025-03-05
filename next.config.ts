@@ -34,6 +34,11 @@ const nextConfig: NextConfig = {
         hostname: "livesport-ott-images.ssl.cdn.cra.cz",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.ntv.co.ug",
+        pathname: "/resource/**",
+      },
     ],
   },
 };

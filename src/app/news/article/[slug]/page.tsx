@@ -16,6 +16,7 @@ import RecentNews from "../../components/recent-news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import "@/app/styles/md/profile.css";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
+import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 
 export async function generateMetadata({
   params,
@@ -98,6 +99,7 @@ export default async function ArticlePage({
     image_url,
     author,
     source,
+    isPinned,
   } = article;
 
   const recentArticles = getRecentNews(5)
@@ -127,15 +129,17 @@ export default async function ArticlePage({
 
           <div className="p-4 md:p-8">
             <div className="mb-6">
-              <Link href={category === null ? "/news" : `/news/${category}`}>
-                <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
-                  {category === null ? (
-                    <FormatCategory category="news" />
-                  ) : (
-                    <FormatCategory category={category} />
-                  )}
-                </span>
-              </Link>
+              {isPinned === false && (
+                <Link href={category === null ? "/news" : `/news/${category}`}>
+                  <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
+                    {category === null ? (
+                      <FormatCategory category="news" />
+                    ) : (
+                      <FormatCategory category={category} />
+                    )}
+                  </span>
+                </Link>
+              )}
               <h1 className="text-2xl md:text-3xl relative _912cfm my-4 leading-[1.25]">
                 {headline}
               </h1>
@@ -178,6 +182,10 @@ export default async function ArticlePage({
                         {children}
                       </Link>
                     ),
+                  section: ({ className }) =>
+                    className === "latest-release" ? (
+                      <ImmediateRelease />
+                    ) : null,
                 }}
               >
                 {content}

@@ -26,7 +26,7 @@ export function NewsPlaylist({
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    window.scrollTo({ top: 200, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   const handlePageChange = (pageNumber: number) => {
@@ -129,7 +129,7 @@ export function NewsPlaylist({
                   {item.headline}
                 </span>
               </div>
-              <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/20">
+              <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/40">
                 <small className="flex-1 flex flex-row items-center line-clamp-1">
                   <span
                     className={`line-clamp-1 ${

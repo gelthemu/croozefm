@@ -20,7 +20,7 @@ export default function Home() {
 
           <OnAir />
 
-          <ImmediateRelease />
+          <ImmediateRelease viewAll={true} />
 
           <section className="p-2 mt-8 border-b border-dark/20 dark:border-light/20">
             <div className="flex flex-col justify-between text-left">
