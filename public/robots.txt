@@ -4,4 +4,5 @@ Allow: /
 User-agent: *
 Allow: /
 Allow: https://croozefm.blob.core.windows.net/images/*
+Allow: https://croozefm.com/wp-content/uploads/*
 Disallow: /api/
