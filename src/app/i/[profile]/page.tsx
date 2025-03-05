@@ -92,7 +92,7 @@ export default async function ProfilePage({
             />
           </div>
 
-          <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0">
+          <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0 border-b-4 border-red">
             <div className="pb-6 flex flex-col lg:flex-row lg:justify-between border-b border-gray/40 dark:border-light/20">
               <div>
                 <h1 className="text-3xl pb-2.5 text-red _912cfm">

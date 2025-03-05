@@ -106,6 +106,15 @@ export default async function ArticlePage({
     .filter((a) => a.slug !== slug)
     .slice(0, 4);
 
+  const images = [
+    "https://pbs.twimg.com/media/GlSDWUoXUAAZk7J?format=jpg&name=medium",
+    "https://pbs.twimg.com/media/GlSDWTXWgAAzTtU?format=jpg&name=medium",
+    "https://pbs.twimg.com/media/GlSDWWuWMAAx5Ah?format=jpg&name=medium",
+    "https://pbs.twimg.com/media/GlSDWUhWwAAgNSl?format=jpg&name=medium",
+    "https://pbs.twimg.com/media/GlSCRS_W0AAAzdS?format=jpg&name=medium",
+    "https://pbs.twimg.com/media/GlSCRS6XAAATyoD?format=jpg&name=medium",
+  ];
+
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-3xl mx-auto">
@@ -127,7 +136,7 @@ export default async function ArticlePage({
             </div>
           )}
 
-          <div className="p-4 md:p-8">
+          <div className="p-4 md:p-8 border-b-4 border-red">
             <div className="mb-6">
               {isPinned === false && (
                 <Link href={category === null ? "/news" : `/news/${category}`}>
@@ -185,6 +194,19 @@ export default async function ArticlePage({
                   section: ({ className }) =>
                     className === "latest-release" ? (
                       <ImmediateRelease />
+                    ) : className === "sunrise-hotel-photos" ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+                        {images.map((src, index) => (
+                          <Image
+                            key={index}
+                            src={src}
+                            alt="A fire has gutted Sunrise Hotel along Khamis Road in downtown Kampala."
+                            width={510}
+                            height={510}
+                            className="w-full h-auto object-cover aspect-[1/1] rounded-t-sm grayscale-[0.75] _img_"
+                          />
+                        ))}
+                      </div>
                     ) : null,
                 }}
               >

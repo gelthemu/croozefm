@@ -31,7 +31,7 @@
 }
 
 .prose img {
-  @apply w-full aspect-auto rounded-sm _img_;
+  @apply w-full aspect-auto rounded-sm grayscale-[0.75] _img_;
 }
 
 .prose video {
