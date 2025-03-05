@@ -64,7 +64,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
             <></>
           )}
         </div>
-        <div className="flex flex-wrap items-center text-xs font-medium uppercase opacity-60">
+        <div className="flex flex-wrap items-center text-xs font-medium opacity-60">
           {(author || source) && (
             <div className="flex flex-wrap items-center">
               {author && <span>{author}</span>}

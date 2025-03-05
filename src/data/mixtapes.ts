@@ -15,4 +15,11 @@ export const mixtapes: Mixtape[] = [
     url: "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Banx-Vol-1.mp3",
     dj: { name: "DJ Banx" },
   },
+  {
+    id: 1741153985,
+    title: "Starcent DJ Vol 1",
+    image: "",
+    url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Weekly-Mixtapes-Starcent-DJ-Vol-1.mp3",
+    dj: { name: "Starcent DJ" },
+  },
 ];

@@ -41,6 +41,21 @@ const FormatSimpleDate = ({
     return "No Date Provided";
   }
 
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - dateObj.getTime()) / 1000);
+
+  if (diffInSeconds < 1) return "Now";
+  if (diffInSeconds < 60) return `${Math.floor(diffInSeconds)}s ago`;
+
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}h ago`;
+
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 10) return `${diffInDays}d ago`;
+
   const day = String(dateObj.getDate()).padStart(2, "0");
   const month = String(dateObj.getMonth() + 1).padStart(2, "0");
   const year = dateObj.getFullYear();
@@ -48,4 +63,4 @@ const FormatSimpleDate = ({
   return `${day}.${month}.${year}`;
 };
 
-export {FormatDate, FormatSimpleDate }; 
+export { FormatDate, FormatSimpleDate };

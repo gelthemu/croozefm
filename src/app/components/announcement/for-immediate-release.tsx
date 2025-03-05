@@ -21,7 +21,7 @@ export default function ImmediateRelease() {
                 CFM Weekly Mixtape
               </h2>
               <p className="mb-3">
-                Brace yourself for uplifting vibes and awesome tunes! Western
+              Another mixtape to keep you moving! Western
                 Uganda&apos;s Biggest Radio Station brings you the Crooze FM
                 Weekly Mixtape every Wednesday.{" "}
                 <Link
