@@ -21,9 +21,9 @@ export default function ImmediateRelease() {
                 CFM Weekly Mixtape
               </h2>
               <p className="mb-3">
-              Another mixtape to keep you moving! Western
-                Uganda&apos;s Biggest Radio Station brings you the Crooze FM
-                Weekly Mixtape every Wednesday.{" "}
+                Another mixtape to keep you moving! Western Uganda&apos;s
+                Biggest Radio Station brings you the Crooze FM Weekly Mixtape
+                every Wednesday.{" "}
                 <Link
                   href="/c/mixtapes"
                   aria-label="View All Mixtapes"
@@ -35,7 +35,7 @@ export default function ImmediateRelease() {
               </p>
               <p className="mb-2.5 flex items-center">
                 <span>{sortedMixtapes[0].title}</span>
-                <span>{"🔥🎶"}</span>
+                <span className="ml-1">{"😎🔥🎶"}</span>
               </p>
             </div>
             <div className="flex flex-row space-x-3">
