@@ -20,7 +20,6 @@ interface NewsArchiveProps {
 export default function NewsArchive({
   news,
   data,
-  className,
 }: NewsArchiveProps) {
   const pathname = usePathname();
   const [selectedNews, setSelectedNews] = useState<News>(news[0]);
@@ -223,7 +222,6 @@ export default function NewsArchive({
           data={data}
           selectedNews={selectedNews}
           onNewsSelect={handleNewsSelect}
-          className={className}
         />
       </div>
     </div>
