@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatDate } from "@/app/components/tiny/format-date";
 import { IoMdDownload } from "react-icons/io";
+import { NewsPlaylist } from "./news-playlist";
 
 interface NewsArchiveProps {
   news: News[];
@@ -104,6 +105,7 @@ export default function NewsArchive({
               </span>
             </p>
           </div>
+
           <div className="my-4 flex items-center">
             <div className="relative w-8 h-8 flex-shrink-0">
               <span
@@ -113,7 +115,6 @@ export default function NewsArchive({
                     : "border-2 border-red/80"
                 }`}
               >
-                {" "}
                 <Image
                   src={selectedNews.anchor.img}
                   alt={selectedNews.anchor.name}
@@ -217,76 +218,13 @@ export default function NewsArchive({
           </div>
         </div>
 
-        <div className="bg-gray/20 dark:bg-light/10 backdrop-blur-md">
-          <div className="flex items-center justify-between px-4 py-2">
-            <small>In this PLAYLIST</small>
-            <small>{data.length} Episodes</small>
-          </div>
-        </div>
-
-        <div className={`${className}`}>
-          {news.map((item) => {
-            return (
-              <div
-                key={item.id}
-                role="button"
-                tabIndex={selectedNews.id === item.id ? -1 : 0}
-                aria-pressed={selectedNews.id === item.id}
-                aria-disabled={selectedNews.id === item.id}
-                onClick={() => {
-                  if (selectedNews.id !== item.id) {
-                    handleNewsSelect(item);
-                  }
-                }}
-                onKeyDown={(e) => {
-                  if (
-                    (e.key === "Enter" || e.key === " ") &&
-                    selectedNews.id !== item.id
-                  ) {
-                    e.preventDefault();
-                    handleNewsSelect(item);
-                  }
-                }}
-                className={`w-full text-left p-4 transition-all duration-200 ${
-                  selectedNews.id === item.id
-                    ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60 cursor-default"
-                    : "cursor-pointer"
-                } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/30 dark:border-b-dark/60`}
-              >
-                <div>
-                  <div
-                    className={`w-fit mb-1.5 text-light/80 bg-red/80 dark:bg-red/60 py-0 px-1.5 ${
-                      news.indexOf(item) === 0 ? "show" : "hidden"
-                    }`}
-                  >
-                    <small>Recently Archived</small>
-                  </div>
-                  <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
-                    <span className="line-clamp-2 md:line-clamp-1">
-                      {item.headline}
-                    </span>
-                  </div>
-                  <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/20">
-                    <small className="flex-1 flex flex-row items-center line-clamp-1">
-                      <span
-                        className={`line-clamp-1 ${
-                          isMiniPlayerOpen && currentSource === item.audio
-                            ? "text-red/80"
-                            : ""
-                        }`}
-                      >
-                        {item.anchor.name}
-                      </span>
-                    </small>
-                    <small>
-                      <FormatDate date={item.aired.date} />
-                    </small>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <NewsPlaylist
+          news={news}
+          data={data}
+          selectedNews={selectedNews}
+          onNewsSelect={handleNewsSelect}
+          className={className}
+        />
       </div>
     </div>
   );

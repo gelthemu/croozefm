@@ -84,7 +84,7 @@ export default async function CategoryPage({
           <h3 className="w-fit text-xl text-red font-light mb-6 pb-2.5 relative after:absolute after:bottom-0 after:left-0 after:w-1/2 after:border-b-2 after:border-red/80">
             Don&apos;t Miss a Bulletin
           </h3>
-          <NewsArchive news={sortedNews.slice(0, 3)} data={news} />
+          <NewsArchive news={sortedNews.slice(0, 2)} data={news} />
           <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
             <ViewAllBtn
               href="/news/news-archive"

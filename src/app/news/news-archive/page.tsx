@@ -31,7 +31,6 @@ export default function NewsArchivePage() {
           <NewsArchive
             news={sortedNews}
             data={news}
-            className="h-[60vh] md:h-[75vh] xl:h-[50vh] overflow-x-hidden overflow-y-scroll"
           />
         </div>
         <div>
