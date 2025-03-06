@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 overflow-hidden">
-        <div className="container mx-auto pt-16 text-center min-h-screen">
+        <div className="container mx-auto pt-12 text-center min-h-screen">
           <Hero />
 
           <OnAir />

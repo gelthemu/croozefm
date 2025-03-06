@@ -36,7 +36,7 @@ export const shows: Show[] = [
         date: "2025-03-04T12:50:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/411-clare-inyaa-2025-03-04.mp3",
-          category: "411",
+        category: "411",
       },
     ],
   },
@@ -79,6 +79,7 @@ export const shows: Show[] = [
     image: "https://croozefm.blob.core.windows.net/images/evening-switch.png",
     description:
       "The Evening Switch with Nkuta Michael is your daily evening ritual, blending music and infotainment to ease you from work to home comfort on Western Uganda's Biggest Radio.",
+    isFeatured: true,
     hosts: [{ name: "Michael" }],
   },
   {
@@ -108,21 +109,21 @@ export const shows: Show[] = [
         date: "2024-11-25T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-25_5pm.mp3",
-          category: "sports-updates",
+        category: "sports-updates",
       },
       {
         id: "2024-11-21",
         date: "2024-11-21T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-21_5pm.mp3",
-          category: "sports-updates",
+        category: "sports-updates",
       },
       {
         id: "2024-11-19",
         date: "2024-11-19T17:00:00+03:00",
         audio:
           "https://croozefm.blob.core.windows.net/audio/cfm-sports-update-2024-11-19_5pm.mp3",
-          category: "sports-updates",
+        category: "sports-updates",
       },
     ],
   },
@@ -161,6 +162,7 @@ export const shows: Show[] = [
     id: "big-seat",
     title: "The BIG Seat",
     image: "https://croozefm.blob.core.windows.net/images/big-seat.png",
+    isFeatured: true,
     description:
       "A Saturday morning talk show with influential guests and insightful conversations.",
     hosts: [{ name: "Wesige Banyagi", link: "/i/wesige-banyagi" }],
