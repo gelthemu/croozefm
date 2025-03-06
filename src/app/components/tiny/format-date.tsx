@@ -13,11 +13,11 @@ const FormatDate = ({ date }: { date: string }) => {
 
   if (minutesDifference < 60) {
     if (minutesDifference < 1) return "Now";
-    return `${minutesDifference}m ago`;
+    return `${minutesDifference}m`;
   } else if (hoursDifference < 24) {
-    return `${hoursDifference}h ago`;
+    return `${hoursDifference}h`;
   } else if (daysDifference < 10) {
-    return `${daysDifference}d ago`;
+    return `${daysDifference}d`;
   } else {
     return `${day}.${month}.${year}`;
   }
@@ -45,16 +45,16 @@ const FormatSimpleDate = ({
   const diffInSeconds = Math.floor((now.getTime() - dateObj.getTime()) / 1000);
 
   if (diffInSeconds < 1) return "Now";
-  if (diffInSeconds < 60) return `${Math.floor(diffInSeconds)}s ago`;
+  if (diffInSeconds < 60) return `${Math.floor(diffInSeconds)}s`;
 
   const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+  if (diffInMinutes < 60) return `${diffInMinutes}m`;
 
   const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) return `${diffInHours}h ago`;
+  if (diffInHours < 24) return `${diffInHours}h`;
 
   const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 10) return `${diffInDays}d ago`;
+  if (diffInDays < 10) return `${diffInDays}d`;
 
   const day = String(dateObj.getDate()).padStart(2, "0");
   const month = String(dateObj.getMonth() + 1).padStart(2, "0");

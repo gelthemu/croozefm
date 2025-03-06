@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { NewsCategory } from "@/types/news";
+import { getAllNewsArticles } from "@/lib/news-parser";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
@@ -22,6 +23,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const seed = new Date().toDateString();
   const allCategories = useShuffledArray(categories, seed);
+  const articles = getAllNewsArticles();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -113,10 +115,11 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
         >
           <div className="px-5 py-4 text-light font-normal">
             <div
-              className="py-2.5 hover:px-4 hover:bg-light/15 border-b border-light/30 cursor-pointer transition-all duration-500"
+              className="py-2.5 flex items-center hover:px-4 hover:bg-light/15 border-b border-light/30 cursor-pointer transition-all duration-500"
               onClick={() => handleCategoryChange(null)}
             >
-              All
+              <span>All</span>
+              <span className="ml-1 text-xs opacity-[0.75]">{`(${articles.length})`}</span>
             </div>
             <div className="divide-y divide-light/30">
               {" "}

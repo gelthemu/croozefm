@@ -39,6 +39,21 @@ const nextConfig: NextConfig = {
         hostname: "www.ntv.co.ug",
         pathname: "/resource/**",
       },
+      {
+        protocol: "https",
+        hostname: "static.clubs.nfl.com",
+        pathname: "/image/**",
+      },
+      {
+        protocol: "https",
+        hostname: "e0.365dm.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.reuters.com",
+        pathname: "/resizer/**",
+      },
     ],
   },
 };

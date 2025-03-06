@@ -16,7 +16,7 @@ import RecentNews from "../../components/recent-news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import "@/app/styles/md/profile.css";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
-import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
+import { markdownComponents } from "../components/markdown-components";
 
 export async function generateMetadata({
   params,
@@ -106,15 +106,6 @@ export default async function ArticlePage({
     .filter((a) => a.slug !== slug)
     .slice(0, 4);
 
-  const images = [
-    "https://pbs.twimg.com/media/GlSDWUoXUAAZk7J?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GlSDWTXWgAAzTtU?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GlSDWWuWMAAx5Ah?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GlSDWUhWwAAgNSl?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GlSCRS_W0AAAzdS?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GlSCRS6XAAATyoD?format=jpg&name=medium",
-  ];
-
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
       <div className="max-w-3xl mx-auto">
@@ -122,7 +113,7 @@ export default async function ArticlePage({
           <BackBtn />
         </div>
 
-        <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden">
+        <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-b-4 border-b-red">
           {image_url && (
             <div className="relative w-full rounded-t-sm overflow-hidden">
               <Image
@@ -131,14 +122,14 @@ export default async function ArticlePage({
                 width={600}
                 height={400}
                 priority={true}
-                className="w-full h-full object-cover object-top aspect-[4/2] rounded-t-sm grayscale-[0.75] _img_"
+                className="w-full h-full object-cover object-top aspect-[4/2] rounded-t-sm grayscale-[0.5] _img_"
               />
             </div>
           )}
 
-          <div className="p-4 md:p-8 border-b-4 border-red">
+          <div className="p-4 md:p-8">
             <div className="mb-6">
-              {isPinned === false && (
+              {!isPinned && (
                 <Link href={category === null ? "/news" : `/news/${category}`}>
                   <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
                     {category === null ? (
@@ -157,10 +148,10 @@ export default async function ArticlePage({
                   <div className="flex flex-wrap items-center">
                     {author && <span>{author}</span>}
                     {author && source && (
-                      <span className="mx-1 opacity-50">{"/"}</span>
+                      <span className="mx-1 opacity-60">{"/"}</span>
                     )}
                     {source && <span>{source}</span>}
-                    <span className="mx-1.5 opacity-50">•</span>
+                    <span className="mx-1.5 opacity-60">•</span>
                   </div>
                 )}
                 <div>
@@ -178,37 +169,7 @@ export default async function ArticlePage({
             <div className="prose prose-lg max-w-none">
               <Markdown
                 rehypePlugins={[rehypeRaw]}
-                components={{
-                  a: ({ href, children }) =>
-                    href?.startsWith("/") ? (
-                      <Link href={href}>{children}</Link>
-                    ) : (
-                      <Link
-                        href={href ?? "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {children}
-                      </Link>
-                    ),
-                  section: ({ className }) =>
-                    className === "latest-release" ? (
-                      <ImmediateRelease />
-                    ) : className === "sunrise-hotel-photos" ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
-                        {images.map((src, index) => (
-                          <Image
-                            key={index}
-                            src={src}
-                            alt="A fire has gutted Sunrise Hotel along Khamis Road in downtown Kampala."
-                            width={510}
-                            height={510}
-                            className="w-full h-auto object-cover aspect-[1/1] rounded-t-sm grayscale-[0.75] _img_"
-                          />
-                        ))}
-                      </div>
-                    ) : null,
-                }}
+                components={markdownComponents}
               >
                 {content}
               </Markdown>

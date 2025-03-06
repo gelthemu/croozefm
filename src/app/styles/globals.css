@@ -18,6 +18,16 @@ html {
   --toastify-font-family: var(--fonts-sans), sans-serif;
 }
 
+::selection {
+  background: #b71c1c;
+  color: #f5f5f5;
+}
+
+::-moz-selection {
+  background: #b71c1c;
+  color: #f5f5f5;
+}
+
 ::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -36,7 +46,7 @@ html {
 }
 
 body {
-  color: #ffffff;
+  color: #f5f5f5;
   font-family: Verdana, Tahoma, sans-serif;
 }
 
@@ -90,9 +100,14 @@ h2 {
   font-variation-settings: "opsz" 500;
 }
 
-.r-xnswec {
-  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px,
-    rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+.twitter-tweet {
+  padding: 0;
+  margin: 0 auto;
+  background-color: #657786 !important;
+  border-width: 1px !important;
+  border-radius: 14px !important;
+  border-color: #657786 !important;
+  overflow: hidden !important;
 }
 
 @keyframes heartbeat {

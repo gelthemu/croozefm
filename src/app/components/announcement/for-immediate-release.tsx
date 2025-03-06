@@ -4,11 +4,14 @@ import Image from "next/image";
 import { mixtapes } from "@/data/mixtapes";
 import MixtapeBtn from "./components/mixtape-btn";
 import ViewAllBtn from "../tiny/viewallbtn";
+import { FormatSimpleDate } from "../tiny/format-date";
 
 interface ImmediateReleaseProps {
   viewAll?: boolean;
 }
-export default function ImmediateRelease({ viewAll = false }: ImmediateReleaseProps) {
+export default function ImmediateRelease({
+  viewAll = false,
+}: ImmediateReleaseProps) {
   const sortedMixtapes = [...mixtapes].sort((a, b) => b.id - a.id);
 
   return (
@@ -17,12 +20,16 @@ export default function ImmediateRelease({ viewAll = false }: ImmediateReleasePr
         className="p-2 py-8 mt-4 border-y border-dark/20 dark:border-light/20"
         id="latest-release"
       >
+        <div className="w-full flex items-center -mb-0.5 font-light text-sm opacity-80 dark:opacity-60">
+          <span className="uppercase">Latest Release</span>
+          <span className="mx-1.5 opacity-60">•</span>
+          <span>
+            <FormatSimpleDate epoch={sortedMixtapes[0].id} />
+          </span>
+        </div>
         <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-4">
           <div className="w-full flex flex-col justify-start items-start lg:self-start">
             <div className="text-left">
-              <span className="-mb-1 font-light text-sm uppercase opacity-80 dark:opacity-60">
-                Latest Release
-              </span>
               <h2 className="w-fit text-2xl relative mb-2 _912cfm">
                 CFM Weekly Mixtape
               </h2>
