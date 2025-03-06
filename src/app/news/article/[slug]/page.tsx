@@ -17,6 +17,7 @@ import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import "@/app/styles/md/profile.css";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 import { markdownComponents } from "../components/markdown-components";
+import ShareArticle from "../components/share-article";
 
 export async function generateMetadata({
   params,
@@ -113,21 +114,21 @@ export default async function ArticlePage({
           <BackBtn />
         </div>
 
-        <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-b-4 border-b-red">
+        <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-y-4 border-red">
           {image_url && (
-            <div className="relative w-full rounded-t-sm overflow-hidden">
+            <div className="relative w-full overflow-hidden">
               <Image
                 src={image_url}
                 alt={headline}
                 width={600}
                 height={400}
                 priority={true}
-                className="w-full h-full object-cover object-top aspect-[4/2] rounded-t-sm grayscale-[0.5] _img_"
+                className="w-full h-full object-cover object-top aspect-[4/2] grayscale-[0.5] _img_"
               />
             </div>
           )}
 
-          <div className="p-4 md:p-8">
+          <div className="p-4 md:p-6">
             <div className="mb-6">
               {!isPinned && (
                 <Link href={category === null ? "/news" : `/news/${category}`}>
@@ -175,14 +176,17 @@ export default async function ArticlePage({
               </Markdown>
             </div>
           </div>
+          <div className="mb-10 mx-6 pt-8 border-t border-dashed border-dark/40 dark:border-light/40">
+            <ShareArticle title={headline} slug={slug} />
+          </div>
         </article>
 
-        <div className="flex items-center justify-center lg:justify-end mx-auto mt-10 lg:mr-10 px-6 py-2">
-          <ViewAllBtn href="/news" text="See All Articles" />
+        <div className="my-10">
+          <RecentNews articles={recentArticles} className="md:grid-cols-2" />
         </div>
 
-        <div className="mt-8">
-          <RecentNews articles={recentArticles} className="md:grid-cols-2" />
+        <div className="flex items-center justify-center lg:justify-end mx-auto lg:mr-10 px-6 py-2">
+          <ViewAllBtn href="/news" text="See All Articles" />
         </div>
       </div>
     </div>

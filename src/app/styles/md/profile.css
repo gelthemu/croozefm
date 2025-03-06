@@ -26,6 +26,10 @@
   @apply my-6;
 }
 
+.prose p strong {
+  @apply font-semibold;
+}
+
 .prose a {
   @apply font-normal text-red;
 }
