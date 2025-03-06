@@ -9,11 +9,9 @@ import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 interface CategoryFilterProps {
   categories: NewsCategory[];
   currentCategory?: NewsCategory | null;
-  articleCount?: number;
 }
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({
-  articleCount,
   categories,
   currentCategory = null,
 }) => {
@@ -55,6 +53,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
+
   }, [currentCategory, isOpen]);
 
   useEffect(() => {
@@ -115,11 +114,10 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
         >
           <div className="px-5 py-4 text-light font-normal">
             <div
-              className="py-2.5 flex items-center hover:px-4 hover:bg-light/15 border-b border-light/30 cursor-pointer transition-all duration-500"
+              className="py-2.5 hover:px-4 hover:bg-light/15 border-b border-light/30 cursor-pointer transition-all duration-500"
               onClick={() => handleCategoryChange(null)}
             >
               <span>All</span>
-              <span className="ml-1 text-xs opacity-[0.75]">{`(${articleCount})`}</span>
             </div>
             <div className="divide-y divide-light/30">
               {" "}

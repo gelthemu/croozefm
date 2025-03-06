@@ -54,6 +54,11 @@ const nextConfig: NextConfig = {
         hostname: "www.reuters.com",
         pathname: "/resizer/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.arnoldpalmerinvitational.com",
+        pathname: "/wp-content/**",
+      },
     ],
   },
 };

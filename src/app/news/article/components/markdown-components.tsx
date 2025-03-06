@@ -24,6 +24,19 @@ const sunriseHotelImages = [
   "https://pbs.twimg.com/media/GlSCRS6XAAATyoD?format=jpg&name=medium",
 ];
 
+const apInvCoursePhotos = [
+  "https://pbs.twimg.com/media/GlMfbl0WEAA6Wce?format=jpg&name=large",
+  "https://pbs.twimg.com/media/GlJ52iYW4AA6Lc3?format=jpg&name=large",
+  "https://pbs.twimg.com/media/GlDrllFXkAAtSZd?format=jpg&name=large",
+  "https://pbs.twimg.com/media/GlDrllGXkAAxN6U?format=jpg&name=large",
+];
+const apInvTeeTimes = [
+  "https://pbs.twimg.com/media/GlPDUpIWQAAB8mi?format=jpg&name=medium",
+  "https://pbs.twimg.com/media/GlPDV3lWYAAXwh-?format=jpg&name=medium",
+  "https://pbs.twimg.com/media/GlPDXFQXsAAve6b?format=jpg&name=medium",
+  "https://pbs.twimg.com/media/GlPDYT3WwAAirJK?format=jpg&name=medium",
+];
+
 const componentMap: Record<string, React.FC<CustomSectionProps>> = {
   "latest-release": () => <ImmediateRelease />,
 
@@ -34,6 +47,36 @@ const componentMap: Record<string, React.FC<CustomSectionProps>> = {
           key={index}
           src={src}
           alt="A fire has gutted Sunrise Hotel along Khamis Road in downtown Kampala."
+          width={510}
+          height={510}
+          className="w-full h-auto object-cover aspect-[1/1] rounded-t-sm grayscale-[0.75] _img_"
+        />
+      ))}
+    </div>
+  ),
+
+  "ap-inv-course-photos": () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+      {apInvCoursePhotos.map((src, index) => (
+        <Image
+          key={index}
+          src={src}
+          alt="Arnold Palmer Invitational presented by Mastercard - Official PGA TOUR event - March 3-9, 2025"
+          width={510}
+          height={382}
+          className="w-full h-auto object-cover aspect-[255/191] rounded-t-sm grayscale-[0.75] _img_"
+        />
+      ))}
+    </div>
+  ),
+
+  "ap-inv-tee-times": () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+      {apInvTeeTimes.map((src, index) => (
+        <Image
+          key={index}
+          src={src}
+          alt="Arnold Palmer Invitational presented by Mastercard - Official PGA TOUR event - March 3-9, 2025"
           width={510}
           height={510}
           className="w-full h-auto object-cover aspect-[1/1] rounded-t-sm grayscale-[0.75] _img_"
