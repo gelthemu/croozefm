@@ -22,7 +22,10 @@ export default function NewsPage() {
         <div className="flex flex-col">
           <NewsHeader title="Latest News" />
 
-          <CategoryFilter categories={categories} />
+          <CategoryFilter
+            categories={categories}
+            articleCount={articles.length}
+          />
         </div>
 
         <div className="my-8 flex flex-col">

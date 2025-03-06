@@ -3,16 +3,17 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { NewsCategory } from "@/types/news";
-import { getAllNewsArticles } from "@/lib/news-parser";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 interface CategoryFilterProps {
   categories: NewsCategory[];
   currentCategory?: NewsCategory | null;
+  articleCount?: number;
 }
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({
+  articleCount,
   categories,
   currentCategory = null,
 }) => {
@@ -23,7 +24,6 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const seed = new Date().toDateString();
   const allCategories = useShuffledArray(categories, seed);
-  const articles = getAllNewsArticles();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -119,7 +119,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
               onClick={() => handleCategoryChange(null)}
             >
               <span>All</span>
-              <span className="ml-1 text-xs opacity-[0.75]">{`(${articles.length})`}</span>
+              <span className="ml-1 text-xs opacity-[0.75]">{`(${articleCount})`}</span>
             </div>
             <div className="divide-y divide-light/30">
               {" "}
