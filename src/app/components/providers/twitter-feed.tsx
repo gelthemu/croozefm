@@ -9,6 +9,7 @@ const TWEET_IDS = {
   ALISSON_ELLIOT_VIDEO: "1897408292621529254",
   TOMAS_MACHAC_VIDEO: "1896064504217420154",
   TOMAS_MACHAC_TWEET: "1896072159107449332",
+  AWAKENING_MBRA_CITY: "1897496107208597898",
 };
 
 const DEFAULT_OPTIONS = { theme: "dark" };
@@ -40,6 +41,9 @@ const TomasMachacVideo = () => (
 const TomasMachacTweet = () => (
   <TweetEmbed tweetId={TWEET_IDS.TOMAS_MACHAC_TWEET} />
 );
+const AwakeningMbraCity = () => (
+  <TweetEmbed tweetId={TWEET_IDS.AWAKENING_MBRA_CITY} />
+);
 
 export {
   MaxxCrosbyTweet,
@@ -47,4 +51,5 @@ export {
   AlissonElliotVideo,
   TomasMachacVideo,
   TomasMachacTweet,
+  AwakeningMbraCity,
 };

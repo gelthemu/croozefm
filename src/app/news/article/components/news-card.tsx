@@ -28,10 +28,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
 
   return (
     <>
-      <Link
-        href={`/news/article/${slug}`}
-        className="text-left flex flex-col py-6"
-      >
+      <div className="text-left flex flex-col py-6">
         <div className="mb-2">
           {isPinned ? (
             <span className="px-2 py-1 text-xs font-semibold rounded bg-red text-light w-fit flex items-center opacity-[0.8]">
@@ -50,15 +47,17 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
         </div>
         <div className="flex">
           <div className="w-full">
-            <h3 className="sm:text-lg font-semibold mb-2 leading-[1.2]">
-              {headline}
-            </h3>
+            <Link href={`/news/article/${slug}`}>
+              <h3 className="sm:text-lg font-semibold mb-2 leading-[1.2]">
+                {headline}
+              </h3>
+            </Link>
             <p className="text-sm mb-2 line-clamp-3 opacity-[0.75]">
               {excerpt}
             </p>
           </div>
           {image_url ? (
-            <div className="ml-2">
+            <Link href={`/news/article/${slug}`} className="ml-2">
               <div className="relative rounded-sm overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
                 <Image
                   src={image_url}
@@ -69,7 +68,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
                   className="w-full h-full object-cover aspect-[1/1] sm:aspect-[1.5/1] grayscale-[0.5] _img_"
                 />{" "}
               </div>
-            </div>
+            </Link>
           ) : (
             <></>
           )}
@@ -91,7 +90,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
             </span>
           </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 };

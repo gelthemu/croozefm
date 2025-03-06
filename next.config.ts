@@ -12,12 +12,17 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "pbs.twimg.com",
-        pathname: "/media/**",
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "coverart.instant.audio",
         pathname: "/images/**",
+      },
+      {
+        protocol: "https",
+        hostname: "croozefm.com",
+        pathname: "/wp-content/**",
       },
       {
         protocol: "https",
@@ -57,6 +62,16 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "www.arnoldpalmerinvitational.com",
+        pathname: "/wp-content/**",
+      },
+      {
+        protocol: "https",
+        hostname: "i0.wp.com",
+        pathname: "/kawowo.com/wp-content/**",
+      },
+      {
+        protocol: "https",
+        hostname: "nbssport.co.ug",
         pathname: "/wp-content/**",
       },
     ],
