@@ -3,7 +3,7 @@ export default function manifest() {
     name: "Crooze FM",
     short_name: "CFM",
     description: "Home of Western Uganda's Biggest Radio Station.",
-    start_url: "/",
+    start_url: "/home",
     icons: [
       {
         src: "/_io/android-chrome-192x192.png",
