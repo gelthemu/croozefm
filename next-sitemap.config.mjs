@@ -1,10 +1,13 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
-  siteUrl: process.env.SITE_URL || "https://croozefm.geltaverse.com",
+const config = {
+  siteUrl: "https://croozefm.geltaverse.com",
   generateRobotsTxt: true,
   changefreq: "daily",
   priority: 0.7,
-  exclude: ["/", "/api/*"],
+  exclude: [
+    "/", // Exclude the root URL since it redirects to /home
+    "/api/*",
+  ],
   additionalPaths: async () => {
     return [
       {
@@ -19,3 +22,5 @@ module.exports = {
     policies: [{ userAgent: "*", allow: "/" }],
   },
 };
+
+export default config;

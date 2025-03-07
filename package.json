@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0 | node src/app/scripts/show-network-url.mjs",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap --config next-sitemap.config.mjs",
     "start": "next start",
     "lint": "next lint"
   },
