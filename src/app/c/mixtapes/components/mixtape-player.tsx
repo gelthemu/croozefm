@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
@@ -84,27 +83,37 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                 } bg-dark/20 dark:bg-gray/60 transition-all duration-200`}
               >
                 <div className="p-4">
-                  <div className="flex flex-row-reverse items-center justify-between pb-3">
-                    <span className="text-xs text-gray/60 dark:text-light/40 font-medium">
-                      <FormatSimpleDate epoch={mixtape.id} />
-                    </span>
-                    <span className="text-xs text-gray/90 dark:text-light/80 font-medium">
+                  <div className="flex flex-row items-center justify-between pb-3">
+                    <div className="text-xs text-gray/90 dark:text-light/80 font-medium">
                       <i className="fa-solid fa-headphones pr-1.5"></i>{" "}
                       {mixtape.dj?.name}
-                    </span>
+                    </div>
                   </div>
                   <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
-                    <button
+                    <div
+                      role="button"
+                      tabIndex={isActive && isAudioPlaying ? -1 : 0}
                       aria-label={
                         isAudioPlaying && isActive
                           ? "Currently Playing in Miniplayer"
                           : "Play in Miniplayer"
                       }
-                      onClick={() => handlePlay(index)}
+                      aria-disabled={isActive && isAudioPlaying}
+                      onClick={() => {
+                        if (isActive) return;
+                        handlePlay(index);
+                      }}
+                      onKeyDown={(e) => {
+                        if ((e.key === "Enter" || e.key === " ") && !isActive) {
+                          e.preventDefault();
+                          handlePlay(index);
+                        }
+                      }}
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive ? "text-red/80" : ""
+                        isActive
+                          ? "text-red/80 cursor-default"
+                          : "cursor-pointer"
                       }`}
-                      disabled={isActive && isAudioPlaying}
                     >
                       {isAudioPlaying && isActive ? (
                         <>
@@ -117,20 +126,10 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                           <i className="fa-solid fa-play"></i>
                         </>
                       )}
-                    </button>
-                    <button
-                      aria-label="Download"
-                      onClick={() =>
-                        toast.info(
-                          "The file download feature is currently unavailable... sorry!",
-                          { autoClose: 4000 }
-                        )
-                      }
-                      className="px-4 py-2 transition-all duration-200 rounded-sm"
-                    >
-                      <span className="sr-only">Download</span>
-                      <i className="fa-solid fa-download"></i>
-                    </button>
+                    </div>
+                    <div className="px-4 py-2 text-sm font-normal">
+                      <FormatSimpleDate epoch={mixtape.id} />
+                    </div>
                   </div>
                 </div>
               </div>

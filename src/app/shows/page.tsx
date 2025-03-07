@@ -1,10 +1,12 @@
 import React from "react";
-import ShowsPagination from "./components/pagination";
+import ShowsFullList from "./components/shows-full-list";
 
 export const metadata = {
-  title: "Shows - 91.2 Crooze FM",
+  title: "Shows / Crooze FM",
   description:
     "Discover our shows on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+  keywords:
+    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM shows, Crooze FM radio, Crooze FM schedule, Crooze FM programs, Crooze FM live, Crooze FM podcast, Crooze FM music shows, Crooze FM hosts, Crooze FM streaming, Crooze FM online radio",
 };
 
 export default function ShowsPage() {
@@ -17,7 +19,7 @@ export default function ShowsPage() {
           enjoy.
         </p>
       </div>
-      <ShowsPagination />
+      <ShowsFullList />
     </div>
   );
 }

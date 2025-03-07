@@ -2,6 +2,7 @@
 headline: "UN appeals for funds to help contain Uganda Ebola outbreak"
 publication_date: 1741044607
 excerpt: "The United Nations has launched a $11.2 million emergency appeal to help Uganda combat a deadly Ebola outbreak in Kampala, caused by the Sudan strain with no approved vaccine, as U.S. aid cuts strain the country's health response."
+keywords: "Ebola outbreak Uganda 2025, United Nations emergency appeal Ebola, U.S. aid cuts Uganda health, Sudan strain Ebola outbreak, World Health Organization Uganda Ebola, Ebola response funding Uganda, Kampala Ebola outbreak 2025, Ebola symptoms Sudan strain, Uganda public health crisis, U.N. funding Ebola Uganda, Ebola outbreak containment strategies, Uganda health budget cuts, Sudan Ebola no vaccine, WHO emergency response Uganda, U.S. foreign aid Uganda Ebola"
 image_url: "https://www.ntv.co.ug/resource/image/4950756/landscape_ratio16x9/1160/652/930beec8bb7861ba665f7657648836ce/hd/ebola-uganda.png"
 source: "Reuters"
 ---

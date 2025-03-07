@@ -47,6 +47,7 @@ export function getProfileData(id: string): PresenterProfile | null {
       gallery: Array.isArray(matterResult.data.gallery)
         ? matterResult.data.gallery
         : [],
+      keywords: matterResult.data.keywords || "",
     };
 
     return {

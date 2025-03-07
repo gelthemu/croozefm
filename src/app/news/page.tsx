@@ -7,9 +7,11 @@ import { getAllNewsArticles, getAllCategories } from "@/lib/news-parser";
 import XNewsButton from "./news-archive/components/news-btn";
 
 export const metadata: Metadata = {
-  title: "News - 91.2 Crooze FM",
+  title: "News / Crooze FM",
   description:
     "Stay updated with our latest news and articles. Always remember where you heard it first.",
+  keywords:
+    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM news, Crooze FM articles, Crooze FM updates, Crooze FM latest news, Crooze FM radio news, Crooze FM breaking news, Crooze FM blog, Crooze FM stories, Crooze FM music news, Crooze FM entertainment news, Crooze FM local news, Crooze FM headlines, Crooze FM features, Crooze FM online articles, Crooze FM media",
 };
 
 export default function NewsPage() {

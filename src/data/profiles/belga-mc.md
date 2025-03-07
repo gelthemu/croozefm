@@ -12,6 +12,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/belga-mc-1.png",
     "https://croozefm.blob.core.windows.net/images/belga-mc-2.png",
   ]
+keywords: "Belga MC radio presenter, Crooze FM Morning Addiction, Western Uganda radio star, Fat Friday Mix Crooze FM, voice-over artist Uganda"
 ---
 
 Meet Belga MC, a dynamic radio presenter who turned his childhood dream of mimicking broadcasters in Kampala into reality. Now co-hosting the [Morning Addiction](/shows/morning-addiction) on Crooze FM weekdays from 6 AM with [Monique](/i/monique-mbabazi) and [Derrick](/i/derrick-ashiimwe), he’s a Western Uganda favorite.

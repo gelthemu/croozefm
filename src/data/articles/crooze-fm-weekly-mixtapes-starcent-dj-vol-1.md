@@ -2,6 +2,7 @@
 headline: "CFM Weekly Mixtape: Another Mixtape to Keep You Moving!"
 publication_date: 1741153985
 excerpt: "This week's mixtape features Starcent DJ's electrifying mixes. Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday."
+keywords: "Crooze FM Weekly Mixtape, Western Uganda radio, Starcent DJ mixtape, Mbarara Uganda music, 91.2 Crooze FM, weekly mixtape 2025, best radio in Western Uganda, Crooze FM Mbarara, Uganda music mixtape, download Crooze FM mixtape, listen to Crooze FM online, Mbarara entertainment, Great Music Great Friends, Crooze FM latest release, Uganda radio stations"
 source: "CFM Weekly Mixtape"
 isPinned: true
 ---

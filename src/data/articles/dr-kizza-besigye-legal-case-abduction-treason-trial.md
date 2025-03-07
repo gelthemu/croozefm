@@ -3,6 +3,7 @@ headline: "Besigye’s Legal Case: From Abduction to Treason Trial, a Nation Wat
 publication_date: 1741265448
 excerpt: "Dr. Kizza Besigye, a well-known Ugandan opposition leader, is facing a serious court case after being secretly taken from Kenya to Uganda. Charged with treason, his trial has sparked debate across the country, with some seeing it as political persecution ahead of the 2026 elections. With Uganda’s future at stake, the world is watching to see what happens next."
 category: "politics"
+keywords: "Kizza Besigye treason trial 2025, Uganda 2026 elections, Kizza Besigye abduction Kenya, Uganda justice system flaws, military court civilians Uganda, Besigye hunger strike 2025, Nakawa Magistrate’s Court case, #FreeDrKizzaBesigye movement, Museveni political repression, Uganda opposition leader trial, Kizza Besigye health concerns, People’s Front for Freedom Uganda, Uganda democracy 2026, Besigye vs Museveni 2026, international reaction Besigye case"
 image_url: "https://pbs.twimg.com/card_img/1895766147481382912/r9-Poe3Z?format=jpg&name=900x900"
 author: "Gershom Ashaba"
 ---

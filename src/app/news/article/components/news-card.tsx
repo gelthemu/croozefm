@@ -29,7 +29,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
   return (
     <>
       <div className="text-left flex flex-col py-6">
-        <div className="mb-2">
+        <div className="mb-2 select-none">
           {isPinned ? (
             <span className="px-2 py-1 text-xs font-semibold rounded bg-red text-light w-fit flex items-center opacity-[0.8]">
               <TbPinnedFilled className="w-4 h-4 mr-1" />
@@ -52,7 +52,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
                 {headline}
               </h3>
             </Link>
-            <p className="text-sm mb-2 line-clamp-3 opacity-[0.75]">
+            <p className="text-sm mb-2 line-clamp-3 opacity-[0.75] select-none">
               {excerpt}
             </p>
           </div>
@@ -73,7 +73,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
             <></>
           )}
         </div>
-        <div className="flex flex-wrap items-center text-xs font-medium opacity-[0.65]">
+        <div className="flex flex-wrap items-center text-xs font-medium opacity-[0.65] select-none">
           {(author || source) && (
             <div className="flex flex-wrap items-center">
               {author && <span>{author}</span>}

@@ -2,6 +2,7 @@
 headline: "Rising suicides, 70% dropout rate: experts warn of Uganda’s child welfare crisis"
 publication_date: 1741148926
 excerpt: "Researchers and government officials in Uganda are raising alarms over the persistent failure to translate critical research on child welfare—covering issues like teenage pregnancy, school dropouts, mental health struggles, and digital risks—into effective, data-driven policies, leaving millions of children vulnerable despite their central role in the nation’s future."
+keywords: "children’s welfare in Uganda, Uganda teenage pregnancy rates, school dropout rates Uganda, mental health struggles children Uganda, unregulated digital exposure children, research policy gap Uganda, cyberbullying Uganda schools, childhood obesity Uganda, data-driven policies children, ICT training risks children, Uganda child wellbeing forum, collaboration researchers policymakers, high teenage pregnancy sub-Saharan Africa, academic pressure suicide children, AfriChild Centre Uganda"
 image_url: "https://pbs.twimg.com/card_img/1897270360657072128/UoUFShQo?format=jpg&name=900x900"
 author: "Geofrey Serugo"
 source: "The Observer"

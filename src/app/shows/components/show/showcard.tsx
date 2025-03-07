@@ -12,15 +12,15 @@ interface ShowCardProps {
 export const ShowCard = ({ show }: ShowCardProps) => {
   return (
     <Link href={`/shows/${show.id}`}>
-      <div className="text-left text-sm mb-2 sr-only">{show.title}</div>
+      <div className="text-left text-sm mb-2 sr-only">{show.name}</div>
       <div
         className={`group grid-1 relative rounded-sm border-2 border-gray/80 dark:border-light/40
         `}
       >
         <div className="w-full h-full overflow-hidden">
           <Image
-            src={show.image}
-            alt={show.title}
+            src={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+            alt={show.name}
             width={2968}
             height={1626}
             priority={true}

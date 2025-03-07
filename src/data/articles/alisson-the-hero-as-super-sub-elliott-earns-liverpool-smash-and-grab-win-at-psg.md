@@ -3,6 +3,7 @@ headline: "Alisson the hero as super-sub Elliott earns Liverpool smash-and-grab 
 publication_date: 1741212720
 excerpt: "An outstanding Alisson Becker performance and Harvey Elliott’s late winner earned Liverpool a 1-0 advantage over Paris Saint-Germain in their UEFA Champions League (UCL) Round of 16 tie, while also ending a five-game winless run in away matches on French soil."
 category: "sports-updates"
+keywords: "PSG vs Liverpool match report, Liverpool PSG European match 2025, Alisson saves PSG Liverpool, Darwin Nunez goal PSG, Elliott goal Liverpool vs PSG, PSG unbeaten run ended, Ousmane Dembele PSG performance, Kvaratskhelia PSG shot denied, Liverpool defense PSG match, Achraf Hakimi PSG attempt, PSG Liverpool match stats, Mohamed Salah Nuno Mendes, Liverpool Anfield advantage, PSG attacking pressure Liverpool, European football PSG Liverpool"
 image_url: "https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/b6af0231-5910-4a35-847e-e8f2aec3bbc1.avif"
 author: "Danny Lewis"
 source: "Flashscore"

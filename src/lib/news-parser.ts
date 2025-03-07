@@ -32,6 +32,7 @@ export function getNewsArticle(slug: string): NewsArticle | null {
       publication_date: data.publication_date as number,
       excerpt: data.excerpt as string,
       category: (data.category as NewsCategory) || null,
+      keywords: (data.keywords as string) || null,
       content,
       image_url: (data.image_url as string) || null,
       author: (data.author as string) || null,

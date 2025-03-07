@@ -13,4 +13,5 @@ export interface PresenterProfile {
   socialLinks: SocialLinks;
   description: string;
   gallery: string[];
+  keywords?: string | null;
 }

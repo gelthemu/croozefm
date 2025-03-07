@@ -7,7 +7,12 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { useCurrentShow } from "../shows/components/schedule/current-show";
+import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
+import dynamic from "next/dynamic";
+
+const TitleUpdater = dynamic(() => import("@/app/components/providers/title-update"), {
+  ssr: false,
+});
 
 type MiniPlayerContextType = {
   isMiniPlayerOpen: boolean;
@@ -73,6 +78,7 @@ export function MiniPlayerProvider({
   return (
     <MiniPlayerContext.Provider value={value}>
       {children}
+      <TitleUpdater isAudioPlaying={isAudioPlaying} tagLine={tagLine} />
     </MiniPlayerContext.Provider>
   );
 }

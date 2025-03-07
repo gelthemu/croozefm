@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page Not Found - 91.2 Crooze FM",
+  title: "Page Not Found | Home of Western Uganda's Biggest Radio Station",
   description:
     "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
 };

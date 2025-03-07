@@ -35,33 +35,54 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${article.headline} | News - 91.2 Crooze FM`,
+    title: `${article.headline} / Crooze FM`,
     description: article.excerpt,
+    keywords: `${article.keywords}, Crooze FM news, Crooze FM articles, Crooze FM updates, Crooze FM latest news, Crooze FM radio news, Crooze FM breaking news, Crooze FM blog, Crooze FM stories, Crooze FM music news, Crooze FM entertainment news, Crooze FM local news, Crooze FM headlines, Crooze FM features, Crooze FM online articles, Crooze FM media, CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News`,
     openGraph: {
-      title: `${article.headline} | News - 91.2 Crooze FM`,
+      title: `${article.headline} / Crooze FM`,
       description: article.excerpt,
       type: "website",
       url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
       images: article.image_url
-        ? [article.image_url]
+        ? [
+            {
+              url: article.image_url,
+              alt: `${article.headline} - Crooze FM News, Western Uganda`,
+              width: 1200,
+              height: 630,
+            },
+          ]
         : [
-            "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
+            {
+              url: "https://croozefm.blob.core.windows.net/images/default.png",
+              alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+              width: 1200,
+              height: 630,
+            },
           ],
     },
     twitter: {
-      title: `${article.headline} | News - 91.2 Crooze FM`,
+      title: `${article.headline} / Crooze FM`,
       description: article.excerpt,
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",
       images: article.image_url
-        ? [article.image_url]
+        ? [
+            {
+              url: article.image_url,
+              alt: `${article.headline} - Crooze FM News, Western Uganda`,
+            },
+          ]
         : [
-            "https://pbs.twimg.com/media/Gk3-uj0XMAAyl66?format=jpg&name=4096x4096",
+            {
+              url: "https://croozefm.blob.core.windows.net/images/default.png",
+              alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+            },
           ],
     },
     alternates: {
-      canonical: `https://croozefm.geltaverse.com/c/shows/${article.slug}`,
+      canonical: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
       languages: {
         "en-US": "/c/en-US",
       },

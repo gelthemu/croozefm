@@ -2,6 +2,7 @@
 headline: "Government refutes claims of vendor exodus at Mbarara Central Market"
 publication_date: 1736051326
 excerpt: "Despite reports of vendor exodus, the Ugandan government, led by Permanent Secretary Ben Kumumanya, confirms Mbarara Central Market and other MATIP-supported markets are thriving, fully occupied, and significantly boosting local economies with improved infrastructure and job opportunities."
+keywords: "Mbarara Central Market vendors, MATIP program Uganda, Ben Kumumanya inspection, Uganda government markets, Kabale Central Market update, MATIP markets revenue, economic impact of MATIP, jobs in Mbarara Central Market, women employment MATIP, Uganda market infrastructure, Soroti market revenue growth, agro-processing facilities Uganda, Mbarara market economic growth, local government markets Uganda, fully operational markets Uganda"
 image_url: "https://pbs.twimg.com/media/GgYsYJbWUAA-vIj?format=jpg&name=large"
 category: "business-news"
 author: "Muhamadi Matovu"

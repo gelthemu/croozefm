@@ -3,6 +3,7 @@ headline: "Excitement as the 8th Corporate Games kick off at NEC Grounds, Bugolo
 publication_date: 1741098526
 excerpt: "The 8th edition of the Corporate Games launched on March 3, 2025, at NEC playgrounds in Bugolobi, Kampala, with 45 enthusiastic teams from companies like Nsambya Hospital and Uganda Baati, kicking off a year of monthly sports events culminating in a December awards dinner."
 category: "sports-updates"
+keywords: "Corporate Games Uganda 2025, 8th Corporate Games Kampala, NEC playgrounds Bugolobi, corporate sports events Uganda, Uganda corporate team building 2025, Corporate Games sponsors 2025, CEO outing Corporate Games, corporate run Kampala 2025, sports networking Uganda, Uzima Water Corporate Games, NBS Sports Corporate Games, companies at Corporate Games 2025, Corporate Games awards dinner 2025, Bugolobi sports events 2025, Kampala corporate sports March 2025"
 image_url: "https://pbs.twimg.com/card_img/1897325820131065856/o2_JT5gY?format=jpg&name=medium"
 author: "David Isabirye"
 source: "Kawowo Sports"

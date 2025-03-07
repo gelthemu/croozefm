@@ -11,6 +11,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/wesige-banyagi-1.png",
     "https://croozefm.blob.core.windows.net/images/wesige-banyagi-2.png",
   ]
+keywords: "Wesige Banyagi The Big Seat, Ugandan politics radio show, 91.2 Crooze FM Big Seat, Africa potential lawyer economist, Uganda governance and economy debates"
 ---
 
 Wesige Banyagi is a dynamic Ugandan lawyer and economist who’s all about unlocking Africa’s potential. With roots as a Musigi, he’s got a keen eye for law, communications, and real estate.

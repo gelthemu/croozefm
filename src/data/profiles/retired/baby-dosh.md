@@ -12,6 +12,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/baby-dosh-1.png",
     "https://croozefm.blob.core.windows.net/images/baby-dosh-2.png",
   ]
+keywords: "Baby Dosh Crooze FM, Hits Selector Request Show, Urban Breakfast radio, Dorothy Kainembabazi radio personality, Crooze FM news bulletin"
 ---
 
 Dorothy Kainembabazi, better known as Baby Dosh, is a radio sensation who rules the airwaves at Crooze FM. She’s turned her love for talking into a dream job, lighting up late nights and waking up weekends with her unstoppable energy.

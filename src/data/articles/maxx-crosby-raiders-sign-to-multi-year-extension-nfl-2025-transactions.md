@@ -3,6 +3,7 @@ headline: "Raiders sign DE Maxx Crosby to multi-year extension"
 publication_date: 1741160693
 excerpt: "The Las Vegas Raiders have secured their defensive cornerstone, Maxx Crosby, with a record-breaking three-year contract extension worth $106.5 million, making him the highest-paid non-quarterback in NFL history."
 category: "sports-updates"
+keywords: "Maxx Crosby contract extension, Las Vegas Raiders defensive end, Maxx Crosby NFL stats, Highest-paid non-quarterback NFL, Maxx Crosby sacks record, Raiders franchise records, Maxx Crosby Pro Bowl selections, NFL tackles for loss leader, Maxx Crosby 2024 season stats, Raiders defensive lineman history, Maxx Crosby leadership quotes, Las Vegas Raiders team building, Maxx Crosby ankle surgery 2024, NFL defensive end contracts, Raiders championship goals"
 image_url: "https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop_2x/f_auto/raiders/f4r3hrykf6hx53vhlqba.jpg"
 source: "Raiders PR"
 ---

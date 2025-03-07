@@ -3,6 +3,7 @@ headline: "Warren Buffett says tariffs are 'an act of war, to some degree'"
 publication_date: 1740971091
 excerpt: "Billionaire investor Warren Buffett described tariffs as 'an act of war to some degree,' highlighting their potential to disrupt global trade and economic stability."
 category: "business-news"
+keywords: "Warren Buffett tariffs, Trump tariffs 2025, economic impact of tariffs, Berkshire Hathaway tariffs, tariffs tax on goods, US tariffs China 2025, Oracle of Omaha economy, reciprocal tariff explained, tariffs American consumer, Buffett on US economy, Trump tariffs Mexico Canada, steel aluminum tariffs 2025, Buffett avoids politics, US tariffs BRICS nations, best place to invest US"
 image_url: "https://i.insider.com/67c5d6a7b8b41a9673f97bfc?width=1200&format=jpeg"
 author: "Sarah Jackson"
 source: "Business Insider"

@@ -2,6 +2,7 @@
 headline: "Nine Finance Ministry Officials Arrested Over Shs60bn BoU Heist"
 publication_date: 1738774800
 excerpt: "Sources privy to the investigations have told the Nile Post that these officials may have knowledge regarding the mysterious disappearance of Shs60 billion from the Bank of Uganda last year."
+keywords: "Uganda Ministry of Finance arrests 2025, Shs60 billion Bank of Uganda scandal, Lawrence Ssemakula arrest, Bank of Uganda missing funds investigation, Uganda financial scandal 2025, CID investigation Uganda finance officials, Michael Atingi-Ego Bank of Uganda, diverted debt repayments Uganda, World Bank funds misallocated Uganda, African Development Fund payment fraud, Uganda finance officials detained, Kira Nateete police stations arrests, Uganda government accountability issues, Bank of Uganda heist details, Uganda public funds mismanagement"
 image_url: "https://pbs.twimg.com/media/GjFcSmxXMAAHJNX?format=jpg&name=medium"
 author: "Hakim Wampamba"
 source: "Nile Post"

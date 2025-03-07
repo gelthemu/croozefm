@@ -2,6 +2,7 @@
 headline: "Mbarara University Faces Closure Threat Over Crumbling Labs"
 publication_date: 1740988906
 excerpt: "Mbarara University of Science and Technology (MUST) is teetering on the edge, with the Uganda Medical and Dental Practitioners Council (UMDPC) warning that its crumbling labs could spell closure."
+keywords: "Mbarara University crisis 2025, dilapidated infrastructure MUST, biomedical science labs Uganda, medical training standards Uganda, UMDPC warning MUST, UNCHE inspection 2025, MUST closure risk, refurbish MUST labs, Uganda tertiary education challenges, Mbarara University medical school, future doctors Uganda, MUST infrastructure crisis, Uganda healthcare education, Mbarara City university update"
 image_url: "https://pbs.twimg.com/media/GlGdcJpWUAAXDaB?format=png&name=small"
 source: "Crooze FM News"
 ---

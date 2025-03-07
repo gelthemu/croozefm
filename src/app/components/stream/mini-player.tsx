@@ -199,7 +199,7 @@ export default function MiniPlayer() {
             <div
               role="button"
               tabIndex={0}
-              className="flex justify-center items-center cursor-pointer"
+              className="flex justify-center items-center cursor-pointer focus:outline-none"
               onClick={handleAudioPlay}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
@@ -224,7 +224,7 @@ export default function MiniPlayer() {
           <div
             role="button"
             tabIndex={0}
-            className="flex justify-center items-center cursor-pointer hover:rotate-180 transition-transform duration-500"
+            className="flex justify-center items-center cursor-pointer hover:rotate-180 transition-transform duration-500 focus:outline-none"
             onClick={handleClose}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {

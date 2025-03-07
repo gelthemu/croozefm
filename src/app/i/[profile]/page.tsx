@@ -20,35 +20,48 @@ export async function generateMetadata({
 
   if (!profile) {
     return {
-      title: "Page Not Found - 91.2 Crooze FM",
+      title: "Profile Not Found",
       description:
-        "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
     };
   }
 
   return {
-    title: `${profile.name} - 91.2 Crooze FM`,
+    title: `${profile.name} / Crooze FM`,
     description: `${profile.description
       .replace(/\s+/g, " ")
       .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
+    keywords: `${profile.keywords}, CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM team, Crooze FM presenters, Crooze FM radio hosts, Crooze FM staff, Crooze FM personalities, Crooze FM broadcasters, Crooze FM crew, Crooze FM DJs, Crooze FM radio team, Crooze FM on-air talent`,
     openGraph: {
-      title: `${profile.name} - 91.2 Crooze FM`,
+      title: `${profile.name} / Crooze FM`,
       description: `${profile.description
         .replace(/\s+/g, " ")
         .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
       type: "website",
       url: `https://croozefm.geltaverse.com/i/${profile.id}`,
-      images: [profile.imageLink],
+      images: [
+        {
+          url: profile.imageLink,
+          alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     twitter: {
-      title: `${profile.name} - 91.2 Crooze FM`,
+      title: `${profile.name} / Crooze FM`,
       description: `${profile.description
         .replace(/\s+/g, " ")
         .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",
-      images: [profile.imageLink],
+      images: [
+        {
+          url: profile.imageLink,
+          alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+        },
+      ],
     },
     alternates: {
       canonical: `https://croozefm.geltaverse.com/i/${profile.id}`,
@@ -98,7 +111,9 @@ export default async function ProfilePage({
                 <h1 className="text-3xl pb-2.5 text-red _912cfm">
                   {profile.name}
                 </h1>
-                <p className="text-sm font-light">{profile.showHosted}</p>
+                <p className="text-sm font-medium opacity-[0.5]">
+                  {profile.showHosted}
+                </p>
               </div>
               <SocialLinks
                 links={profile.socialLinks}
@@ -106,7 +121,7 @@ export default async function ProfilePage({
               />
             </div>
 
-            <div className="prose prose-lg max-w-none mt-5">
+            <div className="prose prose-lg max-w-none mt-5 select-none">
               <Markdown
                 rehypePlugins={[rehypeRaw]}
                 components={{

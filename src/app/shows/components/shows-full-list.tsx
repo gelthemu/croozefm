@@ -1,20 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { shows } from "@/data/shows";
-import { ShowCard } from "./showcard";
+import { shows } from "@/data/shows/shows";
+import { ShowCard } from "./show/showcard";
 import { MoveLeft, MoveRight } from "lucide-react";
 
 const ITEMS_PER_PAGE = 9;
 
-export default function ShowsPagination() {
+export default function ShowsFullList() {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(shows.length / ITEMS_PER_PAGE);
 
+  const ftShows = shows.filter((show) => show.isFt);
+
+  const totalPages = Math.ceil(ftShows.length / ITEMS_PER_PAGE);
   const indexOfLastShow = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstShow = indexOfLastShow - ITEMS_PER_PAGE;
-  const currentShows = shows.slice(indexOfFirstShow, indexOfLastShow);
-  
+
+  const currentShows = ftShows.slice(indexOfFirstShow, indexOfLastShow);
+
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -38,6 +41,7 @@ export default function ShowsPagination() {
           <ShowCard key={show.id} show={show} />
         ))}
       </div>
+
       <div className="max-w-md mx-auto mt-10 px-2 flex items-center justify-between gap-2">
         <button
           onClick={handlePrevPage}

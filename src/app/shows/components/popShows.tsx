@@ -1,17 +1,17 @@
 import React from "react";
-import ShowCard from "./showcard";
+import ShowCard from "./show/showcard";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import { shows } from "@/data/shows";
+import { shows } from "@/data/shows/shows";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 
-export const FeaturedShows = () => {
-  const featuredShows = shows.filter((show) => show.isFeatured);
+export const PopularShows = () => {
+  const popShows = shows.filter((show) => show.isPop);
   const seed = new Date().toDateString();
-  const popularShows = useShuffledArray(featuredShows, seed);
+  const popularShows = useShuffledArray(popShows, seed).slice(0,6);
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 justify-center items-center">
         {popularShows.map((show) => (
           <ShowCard key={show.id} show={show} />
         ))}
@@ -23,4 +23,4 @@ export const FeaturedShows = () => {
   );
 };
 
-export default FeaturedShows;
+export default PopularShows;

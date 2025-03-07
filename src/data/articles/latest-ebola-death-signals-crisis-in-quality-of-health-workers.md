@@ -2,6 +2,7 @@
 headline: "Latest Ebola death signals crisis in quality of health workers"
 publication_date: 1741180860
 excerpt: "Permanent Secretary in the Ministry of Health, Dr. Diana Atwine, has raised alarms about the growing risks of the Ebola outbreak, warning that gaps in detection could lead to a major crisis."
+keywords: "Sudan virus disease outbreak Uganda 2025, Ebola detection challenges Uganda, Uganda Ebola outbreak 2025 updates, health worker preparedness Ebola Uganda, Mulago National Referral Hospital Ebola case, Sudan strain Ebola Uganda history, Ebola transmission risks Uganda, Dr Diana Atwine Ebola statement, child Ebola death Uganda 2025, Uganda Ministry of Health Ebola response, high risk districts Ebola Uganda, Ebola symptoms misdiagnosis Uganda, Col Dr Henry Kyobe Ebola outbreak, Uganda health facilities Ebola screening, latest Ebola case count Uganda"
 image_url: "https://pbs.twimg.com/media/GlR6z99W8AAhD-g?format=jpg&name=4096x4096"
 source: "The Independent"
 ---

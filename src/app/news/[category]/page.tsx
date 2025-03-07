@@ -20,6 +20,8 @@ export async function generateMetadata({
   if (!validCategories.includes(category as NewsCategory)) {
     return {
       title: "Category Not Found",
+      description:
+        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
     };
   }
 
@@ -28,9 +30,11 @@ export async function generateMetadata({
       category === "411"
         ? `${FormatCategory({
             category,
-          })} - Entertainment | News - 91.2 Crooze FM`
+          })} - Entertainment / Crooze FM`
         : `${FormatCategory({ category })} | News - 91.2 Crooze FM`,
     description: `Browse all our news articles tagged with ${category}`,
+    keywords:
+      "Crooze FM news, Crooze FM categories, Crooze FM updates, Crooze FM breaking news, Crooze FM local news, Crooze FM entertainment news, Crooze FM sports news, Crooze FM weather updates, Crooze FM traffic reports, Crooze FM community news, Crooze FM radio news, Crooze FM latest stories, Crooze FM news archive, Crooze FM headlines, Crooze FM daily news",
   };
 }
 

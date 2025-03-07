@@ -3,6 +3,7 @@ headline: "Machac defeats Davidovich Fokina to win maiden ATP title at Mexican O
 publication_date: 1740895260
 excerpt: "Czech Republic's Tomas Machac won his first title on the ATP Tour on Saturday, beating Alejandro Davidovich Fokina 7-6(6), 6-2 in the final of the Mexican Open."
 category: "sports-updates"
+keywords: "Tomas Machac ATP 500 title, Machac vs Davidovich Fokina, Tomas Machac Acapulco win, Czech tennis players ATP 500, Machac Paris Olympics gold, Tomas Machac tiebreaker victory, Machac beats Novak Djokovic, Alejandro Davidovich Fokina final loss, Tomas Machac tennis ranking, Machac second set comeback, ATP 500 Acapulco 2025, Tomas Machac coach Daniel Vacek, Machac first singles title, Czech tennis milestones, Davidovich Fokina tennis finals"
 image_url: "https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/4ca29ae6-335f-4724-83fc-8d9c64358cd4.avif"
 source: "Reuters"
 ---

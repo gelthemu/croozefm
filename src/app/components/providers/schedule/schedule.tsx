@@ -1,23 +1,26 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { useCurrentShow } from "./current-show";
+import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
 import Link from "next/link";
 import Image from "next/image";
 import { FaLink } from "react-icons/fa6";
-import { shows } from "@/data/shows";
+import { shows } from "@/data/shows/shows";
+
+const ftShows = shows.filter((show) => show.isFt);
 
 const getShowUrl = (imgPath: string) => {
   const imgFileName = imgPath.split("/").pop()?.split(".")?.[0]?.trim();
 
   if (!imgFileName) return "/shows";
 
-  const matchingShow = shows.find((show) => {
-    const showImgFileName = show.image
-      .split("/")
-      .pop()
-      ?.split(".")?.[0]
-      ?.trim();
+  const matchingShow = ftShows.find((show) => {
+    const showImgFileName =
+      `https://croozefm.blob.core.windows.net/images/${show.id}.png`
+        .split("/")
+        .pop()
+        ?.split(".")?.[0]
+        ?.trim();
     return showImgFileName === imgFileName;
   });
 

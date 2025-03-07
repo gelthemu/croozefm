@@ -3,6 +3,7 @@ headline: "McIlroy says PGA Tour & LIV Golf aren't making progress in efforts to
 publication_date: 1741271089
 excerpt: "Rory McIlroy said Wednesday that a deal to reunify golf does not feel any closer despite a flurry of recent meetings between the rival PGA Tour and Saudi-backed LIV Golf."
 category: "sports-updates"
+keywords: "PGA Tour LIV Golf negotiations, White House golf meeting, Rory McIlroy LIV Golf stance, Jay Monahan PGA Tour deal, golf reunification talks, Donald Trump golf negotiations, Arnold Palmer Invitational 2025, PGA Tour Saudi deal, LIV Golf framework agreement, top golfers reunification, PGA Tour momentum, golf deal impasse, Trump PGA LIV meeting, McIlroy golf reunification, Jay Monahan White House summit"
 image_url: "https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/efa32607-d996-4ba8-afd3-f8858016f05c.avif"
 source: "AFP"
 ---

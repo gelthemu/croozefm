@@ -28,6 +28,7 @@ export interface NewsArticle {
   publication_date: number;
   excerpt: string;
   category: NewsCategory | null;
+  keywords?: string | null;
   content: string;
   image_url: string | null;
   author: string | null;

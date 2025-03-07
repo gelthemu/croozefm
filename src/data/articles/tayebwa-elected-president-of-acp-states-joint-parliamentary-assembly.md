@@ -3,6 +3,7 @@ headline: "Tayebwa elected president of ACP States Joint Parliamentary Assembly"
 publication_date: 1740722460
 excerpt: "Uganda’s deputy speaker, Thomas Tayebwa, has been elected president of the Organisation of Africa, Caribbean, and Pacific States Parliamentary Assembly, a diplomatic milestone that strengthens Uganda’s international influence and positions him as co-chair of the OACPS-EU Joint Parliamentary Assembly."
 category: "politics"
+keywords: "Thomas Tayebwa OACPS president, Uganda deputy speaker election, OACPS-EU Joint Parliamentary Assembly, Uganda international diplomacy, ACP countries trade with EU, Thomas Tayebwa Uganda parliament, Organisation of Africa Caribbean and Pacific States, Uganda global influence, fair trade ACP nations, infrastructure funding Africa EU, Thomas Tayebwa Commonwealth Speakers, Joel Ssenyonyi congratulations Tayebwa, Anita Among Uganda parliament, ACP countries European cooperation, Uganda diplomatic achievement"
 image_url: "https://pbs.twimg.com/media/GlNLaF4WEAA9LCP?format=jpg"
 source: "The Observer"
 ---

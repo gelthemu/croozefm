@@ -29,11 +29,11 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Welcome - 91.2 Crooze FM",
+  title: "Home of Western Uganda's Biggest Radio Station",
   description:
     "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
   keywords:
-    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News",
+    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Mixtapes, Crooze FM Mixtapes, radio shows 2025, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, morning radio, hot tunes, African music, sports talk, Friday party mix, weekend radio, live hosts",
   metadataBase: new URL("https://croozefm.geltaverse.com"),
   generator: "Next.js",
   applicationName: "CroozeFM",
@@ -49,26 +49,38 @@ export const metadata: Metadata = {
   manifest: "/_io/site.webmanifest",
 
   openGraph: {
-    title: "Welcome - 91.2 Crooze FM",
+    title: "Home of Western Uganda's Biggest Radio Station",
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     type: "music.radio_station",
     url: "https://croozefm.geltaverse.com",
-    images: ["https://croozefm.blob.core.windows.net/images/default.png"],
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 
   twitter: {
-    title: "Welcome - 91.2 Crooze FM",
+    title: "Home of Western Uganda's Biggest Radio Station",
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     card: "summary_large_image",
     site: "@geltaverse",
     creator: "@geltaverse",
-    images: ["https://croozefm.blob.core.windows.net/images/default.png"],
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+      },
+    ],
   },
 
   alternates: {
-    canonical: "https://croozefm.geltaverse.com",
+    canonical: "https://croozefm.geltaverse.com/",
     languages: {
       "en-US": "/en-US",
     },

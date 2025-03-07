@@ -1,8 +1,7 @@
-import { shows } from "@/data/shows";
+import { shows } from "@/data/shows/shows";
 import { notFound } from "next/navigation";
-import BackBtn from "@/app/components/tiny/backbtn";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import RecordPlayer from "@/app/shows/components/record-player";
+import RecordPlayer from "@/app/shows/components/show/record-player";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -12,36 +11,55 @@ interface PageProps {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
+const ftShows = shows.filter((show) => show.isFt);
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const show = shows.find((s) => s.id === id);
+  const show = ftShows.find((s) => s.id === id);
 
   if (!show) {
     return {
       title: "Show Not Found",
-      description: "The requested show could not be found.",
+      description:
+        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
     };
   }
 
   return {
-    title: `${show.title} - 91.2 Crooze FM`,
-    description: show.description,
+    title: `${show.name} / Crooze FM`,
+    description: show.summary,
+    keywords:
+      "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, radio shows 2025, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, morning radio, hot tunes, African music, sports talk, Friday party mix, weekend radio, live hosts, Crooze FM shows, Crooze FM radio, Crooze FM schedule, Crooze FM programs, Crooze FM live, Crooze FM podcast, Crooze FM music shows, Crooze FM hosts, Crooze FM streaming, Crooze FM online radio",
     openGraph: {
-      title: `${show.title} - 91.2 Crooze FM`,
-      description: show.description,
+      title: `${show.name} / Crooze FM`,
+      description: show.summary,
       type: "website",
       url: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
-      images: [show.image],
+      images: [
+        {
+          url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
+          alt: `${show.name}, one of the popular shows on 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     twitter: {
-      title: `${show.title} - 91.2 Crooze FM`,
-      description: show.description,
+      title: `${show.name} / Crooze FM`,
+      description: show.summary,
       card: "summary_large_image",
       site: "@geltaverse",
       creator: "@geltaverse",
-      images: [show.image],
+      images: [
+        {
+          url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
+          alt: `${show.name}, one of the popular shows on 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     alternates: {
       canonical: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
@@ -53,60 +71,43 @@ export async function generateMetadata({
 }
 
 export function generateStaticParams() {
-  return shows.map((show) => ({
+  return ftShows.map((show) => ({
     id: show.id,
   }));
 }
 
 export default async function ShowPage({ params }: PageProps) {
   const { id } = await params;
-  const show = shows.find((s) => s.id === id);
+  const show = ftShows.find((s) => s.id === id);
 
   if (!show) {
     notFound();
   }
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto min-h-screen px-4 py-10 overflow-hidden">
-      <div className="mb-8">
-        <BackBtn />
+    <div className="container mx-auto px-4 py-16 min-h-screen overflow-hidden">
+      <div className="text-center flex flex-col items-center justify-center">
+        <h1 className="text-3xl relative mb-4 _912cfm">{show.name}</h1>
+        <p className="w-full max-w-xl mx-auto mb-2">{show.summary}</p>
       </div>
 
-      <div className="mb-12 pt-6 pb-10 border-y border-gray/40 dark:border-light/10">
-        <div className="flex flex-col items-center justify-center w-full md:w-5/6 mx-auto text-center">
-          <h1 className="text-3xl py-5 text-red _912cfm">{show.title}</h1>
-          <p className="w-full max-w-2xl mx-auto text-sm">{show.description}</p>
-        </div>
-      </div>
-
-      <div className="relative w-full md:w-5/6 mx-auto aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/40">
-        <Image
-          src={show.image}
-          alt={show.title}
-          width={2968}
-          height={1626}
-          priority={true}
-          className="w-full aspect-[1484/813] object-cover _img_"
-        />
-      </div>
-
-      {show.hosts && (
+      {show.host && (
         <div className="my-10 flex items-center justify-center">
           <div className="w-fit flex flex-row items-center justify-center text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray rounded-md">
             <span className="sr-only">Hosted by</span>
             <i className="fa-solid fa-microphone-lines pl-3 pr-1.5 py-2"></i>
             <div className="flex flex-row divide-x divide-light/40 dark:divide-light/20">
-              {show.hosts.map((host, index) => (
+              {show.host.map((h, index) => (
                 <Link
                   key={index}
                   href={
-                    host.link
-                      ? host.link
-                      : `/i/${host.name?.toLowerCase().replace(/ /g, "-")}`
+                    h.link
+                      ? h.link
+                      : `/i/${h.name?.toLowerCase().replace(/ /g, "-")}`
                   }
-                  className="relative px-3 py-2 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
+                  className="relative px-3 py-2 text-center after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
                 >
-                  {host.name}
+                  {h.name}
                 </Link>
               ))}
             </div>
@@ -114,7 +115,18 @@ export default async function ShowPage({ params }: PageProps) {
         </div>
       )}
 
-      <div className={`${show.hosts ? "" : "mt-10"}`}>
+      <div className="my-12 relative w-full md:w-4/6 mx-auto aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/40">
+        <Image
+          src={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+          alt={show.name}
+          width={2968}
+          height={1626}
+          priority={true}
+          className="w-full aspect-[1484/813] object-cover _img_"
+        />
+      </div>
+
+      <div className={`${show.host ? "" : "mt-10"}`}>
         <RecordPlayer show={show} />
       </div>
 

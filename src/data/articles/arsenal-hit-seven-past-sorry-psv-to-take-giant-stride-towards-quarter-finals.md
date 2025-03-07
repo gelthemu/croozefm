@@ -3,6 +3,7 @@ headline: "Arsenal’s Seven-Goal Rampage Crushes PSV in Champions League Thrill
 publication_date: 1741126848
 excerpt: "Arsenal delivered a masterclass in Eindhoven, thrashing PSV 7-1 in the first leg of their Champions League Round of 16 clash on March 4, 2025. Martin Odegaard’s brace and a flurry of goals from six different scorers handed the Gunners a commanding lead, leaving PSV shell-shocked and fans streaming for the exits as the Dutch side suffered their heaviest European defeat ever."
 category: "sports-updates"
+keywords: "Arsenal 7-1 PSV Champions League, Arsenal vs PSV round of 16, Ethan Nwaneri Champions League goal, Martin Odegaard Arsenal performance, Declan Rice Arsenal goal, Arsenal Philips Stadion win, PSV biggest home defeat, UEFA Champions League highlights, Arsenal quarter-final chances, Myles Lewis-Skelly assist, Mikel Merino Arsenal goal, Leandro Trossard Arsenal goal, Arsenal consecutive UCL wins, Jurrien Timber header Arsenal, Noa Lang PSV penalty"
 image_url: "https://livesport-ott-images.ssl.cdn.cra.cz/r1200xfq60/60a322a2-d769-4146-b56f-74cf734b4dc0.avif"
 author: "Danny Lewis"
 source: "Flashscore"

@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { toast } from "react-toastify";
 import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { FormatDate } from "@/app/components/tiny/format-date";
+import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 interface RecordPlayerProps {
@@ -24,40 +23,45 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
+  const recordings = useMemo(() => show.recs || [], [show.recs]);
+
   useEffect(() => {
-    if (isMiniPlayerOpen && currentSource && show.recordings?.length) {
-      const foundIndex = show.recordings.findIndex(
-        (rec) => rec.audio === currentSource
+    if (isMiniPlayerOpen && currentSource && recordings.length) {
+      const foundIndex = recordings.findIndex(
+        (rec) =>
+          `https://croozefm.blob.core.windows.net/audio/${rec.url}.mp3` ===
+          currentSource
       );
       if (foundIndex !== -1) {
         setPlayingIndex(foundIndex);
       }
     }
-  }, [isMiniPlayerOpen, currentSource, show.recordings]);
+  }, [isMiniPlayerOpen, currentSource, recordings]);
 
-  const isRecordingActive = (recordingAudio: string): boolean => {
-    return isMiniPlayerOpen && currentSource === recordingAudio;
+  const isRecordingActive = (recordingUrl: string): boolean => {
+    const fullAudioUrl = `https://croozefm.blob.core.windows.net/audio/${recordingUrl}.mp3`;
+    return isMiniPlayerOpen && currentSource === fullAudioUrl;
   };
 
   const handlePlay = (index: number): void => {
-    if (!show.recordings || !show.recordings[index]) return;
+    if (!recordings || !recordings[index]) return;
 
-    const recording = show.recordings[index];
-    const isActive =
-      isRecordingActive(recording.audio) && playingIndex === index;
+    const recording = recordings[index];
+    const fullAudioUrl = `https://croozefm.blob.core.windows.net/audio/${recording.url}.mp3`;
+    const isActive = isRecordingActive(recording.url) && playingIndex === index;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {
-      setCurrentSource(recording.audio);
+      setCurrentSource(fullAudioUrl);
       setIsStreaming(false);
-      setTagLine(`${show.title} - ${FormatDate({ date: recording.date })}`);
+      setTagLine(`${show.name} - ${FormatSimpleDate({ epoch: recording.id })}`);
       setIsMiniPlayerOpen(true);
       setPlayingIndex(index);
     }
   };
 
-  if (!show.recordings?.length) {
+  if (!recordings.length || recordings.length === 0) {
     return (
       <div className="flex items-center justify-center p-4">
         <p className="text-red">No recordings available, yet.</p>
@@ -68,12 +72,15 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
   return (
     <div className="border-y border-gray/40 dark:border-light/10 px-2 py-8">
       <div className="w-full md:w-5/6 mx-auto">
-        <h4 className="text-xl text-red/80 text-sm font-normal mb-4 border-l-2 border-red/80 pl-4">
-          Recordings Available
-        </h4>
+        <div className="mb-4">
+          <div className="flex items-center justify-between text-red/80 font-normal">
+            <p>In this PLAYLIST</p>
+            <small>{recordings.length} Episodes</small>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {show.recordings?.map((recording, index) => {
-            const isActive = isRecordingActive(recording.audio);
+          {recordings.map((recording, index) => {
+            const isActive = isRecordingActive(recording.url);
 
             return (
               <div
@@ -82,18 +89,15 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"
-                } bg-dark/20 dark:bg-gray/60 transition-all duration-200`}
+                } bg-dark/20 dark:bg-gray/60 transition-all duration-500`}
               >
                 <div className="p-4">
-                  <div className="flex flex-row-reverse items-center justify-between pb-3">
-                    <div className="flex-shrink-0 ml-4 text-xs text-gray/60 dark:text-light/40 font-medium">
-                      <FormatDate date={recording.date} />
-                    </div>
+                  <div className="flex flex-row items-center justify-between pb-3">
                     <div className="flex items-center text-xs text-gray/90 dark:text-light/80">
                       {recording.category && (
                         <>
                           <Link href={`/news/${recording.category}`}>
-                            <span className="text-red font-semibold">
+                            <span className="font-medium">
                               <FormatCategory category={recording.category} />
                             </span>
                           </Link>
@@ -102,21 +106,34 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                           </div>
                         </>
                       )}
-                      <div className="line-clamp-1">{show.title} </div>
+                      <div className="line-clamp-1">{show.name}</div>
                     </div>
                   </div>
                   <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
-                    <button
+                    <div
+                      role="button"
+                      tabIndex={isActive && isAudioPlaying ? -1 : 0}
                       aria-label={
                         isAudioPlaying && isActive
                           ? "Currently Playing in Miniplayer"
                           : "Play in Miniplayer"
                       }
-                      onClick={() => handlePlay(index)}
+                      aria-disabled={isActive && isAudioPlaying}
+                      onClick={() => {
+                        if (isActive) return;
+                        handlePlay(index);
+                      }}
+                      onKeyDown={(e) => {
+                        if ((e.key === "Enter" || e.key === " ") && !isActive) {
+                          e.preventDefault();
+                          handlePlay(index);
+                        }
+                      }}
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive ? "text-red/80" : ""
+                        isActive
+                          ? "text-red/80 cursor-default"
+                          : "cursor-pointer"
                       }`}
-                      disabled={isActive}
                     >
                       {isAudioPlaying && isActive ? (
                         <>
@@ -129,20 +146,10 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                           <i className="fa-solid fa-play"></i>
                         </>
                       )}
-                    </button>
-                    <button
-                      aria-label="Download"
-                      onClick={() =>
-                        toast.info(
-                          "The file download feature is currently unavailable... sorry!",
-                          { autoClose: 4000 }
-                        )
-                      }
-                      className="px-4 py-2 transition-all duration-200 rounded-sm"
-                    >
-                      <span className="sr-only">Download</span>
-                      <i className="fa-solid fa-download"></i>
-                    </button>
+                    </div>
+                    <div className="px-4 py-2 text-sm font-normal">
+                      <FormatSimpleDate epoch={recording.id} />
+                    </div>
                   </div>
                 </div>
               </div>

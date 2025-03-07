@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import Hero from "../components/header-footer/hero";
 import OnAir from "../components/stream/on-air";
 import ImmediateRelease from "../components/announcement/for-immediate-release";
-import FeaturedShows from "../shows/components/featuredshows";
+import PopularShows from "../shows/components/popShows";
 import PopularProfiles from "../i/team/components/popular";
 
 export const metadata: Metadata = {
-  title: "Home - 91.2 Crooze FM",
+  title: "Home of Western Uganda's Biggest Radio Station",
   description:
-    "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
 };
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
               </h2>
               <p className="mb-4">Click to view in detail.</p>
             </div>
-            <FeaturedShows />
+            <PopularShows />
           </section>
 
           <section className="p-2 mt-8 border-b border-dark/20 dark:border-light/20">

@@ -2,6 +2,7 @@
 headline: "Museveni Gives Green Light to Copyright Management System"
 publication_date: 1740889726
 excerpt: "President Yoweri Kaguta Museveni has given a green light to the operationalization of the copyright management system, a program aimed at strengthening the intellectual property rights and providing better protection for the creatives in the country."
+keywords: "copyright management system Uganda, President Museveni copyright system, Uganda musicians royalties, Eddy Kenzo UNMF, intellectual property rights Uganda, music piracy solutions Uganda, fair compensation Ugandan artists, monitoring music usage Uganda, UCC copyright enforcement, State House copyright technology, license fees Ugandan music, long-term earnings musicians Uganda, copyright law enforcement Uganda, Uganda National Musicians Federation system, technology for artist royalties"
 image_url: "https://pbs.twimg.com/media/GlCM9NeWsAAng-X?format=jpg&name=4096x4096"
 category: "411"
 author: "PPU"

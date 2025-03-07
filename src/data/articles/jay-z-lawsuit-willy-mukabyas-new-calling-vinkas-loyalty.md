@@ -2,6 +2,7 @@
 headline: "Jay Z Lawsuit, Willy Mukabya’s New Calling, and Vinka’s Loyalty"
 publication_date: 1741092600
 excerpt: "Jay Z takes legal action against accuser, Kadongo Kamu star Willy Mukabya turns pastor, and Vinka shuts down rumors of leaving Swangs Avenue."
+keywords: "Jay Z defamation lawsuit, Jay Z countersuit, Jay Z extortion claims, Willy Mukabya pastor, Kadongo Kamu musician, Willy Mukabya church, Vinka Swangs Avenue, Vinka staying at Swangs, Swangs Avenue rumors, music industry legal battles, celebrity defamation cases, Ugandan music scene, Pastor Willy Mukabya sermons, Vinka music career, 411, entertainment news updates"
 category: "411"
 source: "CFM Lifestyle Show"
 ---

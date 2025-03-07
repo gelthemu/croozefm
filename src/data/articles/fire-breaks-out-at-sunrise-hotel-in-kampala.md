@@ -2,6 +2,7 @@
 headline: "Deadly Fire Engulfs Sunrise Hotel in Kampala, Claims Lives"
 publication_date: 1741183140
 excerpt: "PICTORIAL: A fire has ravaged Sunrise Hotel on Khamis Road, Kampala, claiming three lives and injuring over 15 people. The fire is believed to have started from a soap-making factory, where chemicals exploded"
+keywords: "Sunrise Hotel fire Kampala 2025, Kampala fire outbreak March 2025, Sunrise Hotel Khamis Road fire, Uganda fire emergency response, Kampala hotel fire casualties, soap-making explosion Sunrise Hotel, inadequate firefighting Kampala, Kampala Metropolitan Police fire report, Uganda Red Cross rescue Kampala, Sunrise Hotel fire cause investigation, Kampala public safety concerns, deadly fire Kampala 2025, property damage Sunrise Hotel fire, Erias Lukwago firefighting criticism, recent Kampala fire incidents"
 image_url: "https://pbs.twimg.com/media/GlSDWUoXUAAZk7J?format=jpg&name=medium"
 source: "NTV Uganda"
 ---

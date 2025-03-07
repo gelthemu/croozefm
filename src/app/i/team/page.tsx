@@ -4,9 +4,11 @@ import PresenterCard from "./components/profile-card";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 
 export const metadata = {
-  title: "Our Team - 91.2 Crooze FM",
+  title: "Our Team / Crooze FM",
   description:
     "Meet all of our radio presenters and hosts on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+  keywords:
+    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM team, Crooze FM presenters, Crooze FM radio hosts, Crooze FM staff, Crooze FM personalities, Crooze FM broadcasters, Crooze FM crew, Crooze FM DJs, Crooze FM radio team, Crooze FM on-air talent",
 };
 
 export default async function PresentersPage() {

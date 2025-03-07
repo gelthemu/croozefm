@@ -3,6 +3,7 @@ headline: "Adrien Brody wins best actor for ‘The Brutalist,’ taking home his
 publication_date: 1741000791
 excerpt: "In a night filled with surprises, Adrien Brody clinched the Best Actor Oscar at the 97th Academy Awards on March 2, 2025, for his riveting performance in The Brutalist. The win marked Brody’s second Oscar, placing him among an elite group of actors with multiple Academy Awards."
 category: "411"
+keywords: "Adrien Brody Oscar 2025, The Brutalist film, 97th Academy Awards winners, Lázló Tóth character, Adrien Brody The Pianist, Holocaust survivor story, Best Actor winners list, antisemitism in film, Georgina Chapman relationship, Brady Corbet director, The Brutalist Oscar nominations, Adrien Brody acceptance speech, 22 years between Oscar wins, postwar American epic, Adrien Brody career highlights"
 image_url: "https://dims.apnews.com/dims4/default/46e7b70/2147483647/strip/true/crop/4877x2743+0+199/resize/1440x810!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F67%2F5f%2Fc7e16536a0d200cde1ab061f1185%2Fc8e7e98fea664c439a5d69c0c8c2f76f"
 author: "Jonathan Landrum Jr."
 source: "AP"

@@ -12,6 +12,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/abou-champion-1.png",
     "https://croozefm.blob.core.windows.net/images/abou-champion-2.png",
   ]
+keywords: "Abou Champion sports radio shows, Sports Bwino radio schedule, Weekly Sports RoundUp Saturday, football basketball tennis radio host, fun sports talk radio"
 ---
 
 Abou Champion is a super cool radio host and sports expert with tons of experience. He knows everything about football, basketball, tennis, rugby, and athletics! His shows are the best:

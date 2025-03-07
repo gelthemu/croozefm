@@ -12,6 +12,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/deejay-stinger-1.png",
     "https://croozefm.blob.core.windows.net/images/deejay-stinger-2.png",
   ]
+keywords: "DJ Stinger radio shows, 91.2 Crooze FM schedule, Morning Addiction DJ Stinger, Urban Breakfast Crooze FM, Shooters Bar & Grill, resident DJ Shooters Bar & Grill"
 ---
 
 DJ Stinger is making waves in the radio and club scenes! Known for his dynamic DJ sets and playlists that everyone loves, he plays everything from today's hits to timeless classics. His energy lights up any place he spins.

@@ -3,6 +3,7 @@ headline: "Paulo Fonseca: Lyon boss suspended for nine months after furious alte
 publication_date: 1741215480
 excerpt: "Lyon boss Paulo Fonseca squared up to referee Benoit Millot in the dying minutes of their 2-1 win over Brest as he was sent off; the French Professional Football League have handed him a touchline ban until November 30; Fonseca is not allowed in the matchday dressing room until September."
 category: "sports-updates"
+keywords: "Paulo Fonseca suspension, Paulo Fonseca referee incident, Lyon manager banned, nine-month ban Ligue 1, Fonseca headbutt referee, French Professional Football League, Lyon vs Brest referee altercation, Benoit Millot referee, Fonseca intimidating behavior, Lyon Europa League impact, Ligue 1 disciplinary actions, Fonseca apology press conference, French football bans 2025, Lyon sixth Ligue 1, Paulo Fonseca career update"
 image_url: "https://e0.365dm.com/25/03/2048x1152/skysports-fonseca-lyon_6847478.jpg?20250305212829"
 source: "Sky Sports"
 ---

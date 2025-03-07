@@ -4,6 +4,7 @@ publication_date: 1741233605
 excerpt: "Vandalism at Mbarara Central Market has taken a troubling turn with the theft of electricity meters, leaving vendors grappling with inflated bills and raising urgent questions about security and governance in Uganda’s bustling commercial hub."
 image_url: "https://pbs.twimg.com/media/GlTNEg4XIAA07xq?format=jpg&name=900x900"
 category: "business-news"
+keywords: "electricity meter theft Mbarara, Mbarara Central Market vandalism, electricity theft Uganda 2025, Mbarara City South division, high electricity bills vendors, CCTV cameras Mbarara market, Uganda electricity security, infrastructure vandalism solutions, Mbarara market revenue 2024, Didas Muhanguzi response, renewable energy Uganda challenges, Nyamityoobora Ward councilors, electricity theft prevention Uganda, Mbarara Central Market economy, 2026 elections Uganda infrastructure"
 source: "The Morning Addiction"
 ---
 

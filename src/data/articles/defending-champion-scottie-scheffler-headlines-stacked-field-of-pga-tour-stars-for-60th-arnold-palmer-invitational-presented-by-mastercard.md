@@ -3,6 +3,7 @@ headline: "Defending champion Scottie Scheffler headlines stacked field of PGA T
 publication_date: 1741194000
 excerpt: "Scottie Scheffler returns to Bay Hill to defend his Arnold Palmer Invitational title, aiming to join Tiger Woods as the only player to win the event more than twice, after a dominant season that saw him capture seven victories, including the Masters and THE PLAYERS Championship."
 category: "sports-updates"
+keywords: "Scottie Scheffler Arnold Palmer Invitational 2025, Arnold Palmer Invitational Bay Hill, PGA TOUR Signature Event 2025, Scottie Scheffler Masters win, Rory McIlroy Bay Hill performance, Arnold Palmer Invitational purse 2025, FedExCup points Arnold Palmer Invitational, Nick Dunlap PGA TOUR Rookie, Jackson Koivun Palmer Cup exemption, Scottie Scheffler seven wins 2024, Arnold Palmer Invitational top players, Bay Hill Club golf course, Scottie Scheffler title defense, Arnold Palmer Invitational history, Tiger Woods Arnold Palmer wins"
 image_url: "https://www.arnoldpalmerinvitational.com/wp-content/uploads/2025/03/api2022_-511-1.jpg"
 source: "Arnold Palmer Invitational"
 ---
