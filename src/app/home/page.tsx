@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Head from "next/head";
 import Hero from "../components/header-footer/hero";
 import OnAir from "../components/stream/on-air";
 import ImmediateRelease from "../components/announcement/for-immediate-release";
@@ -14,6 +15,9 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
+      <Head>
+        <link rel="canonical" href="https://croozefm.geltaverse.com/home" />
+      </Head>
       <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2.5 overflow-hidden">
         <div className="container mx-auto pt-12 text-center min-h-screen">
           <Hero />

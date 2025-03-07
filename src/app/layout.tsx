@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
   keywords:
     "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Mixtapes, Crooze FM Mixtapes, radio shows 2025, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, morning radio, hot tunes, African music, sports talk, Friday party mix, weekend radio, live hosts",
-  metadataBase: new URL("https://croozefm.geltaverse.com"),
+  metadataBase: new URL("https://croozefm.geltaverse.com/home"),
   generator: "Next.js",
   applicationName: "CroozeFM",
   referrer: "origin-when-cross-origin",
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     title: "Home of Western Uganda's Biggest Radio Station",
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
-    type: "music.radio_station",
-    url: "https://croozefm.geltaverse.com",
+    url: "https://croozefm.geltaverse.com/home",
+    type: "website",
     images: [
       {
         url: "https://croozefm.blob.core.windows.net/images/default.png",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://croozefm.geltaverse.com/",
+    canonical: "https://croozefm.geltaverse.com/home",
     languages: {
       "en-US": "/en-US",
     },
@@ -102,7 +102,10 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
         <GoogleAnalytics ga_id={ga_id} />
-        <meta name="google-site-verification" content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk" />
+        <meta
+          name="google-site-verification"
+          content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
+        />
       </head>
       <body
         className={`${sans.variable} relative antialiased bg-light dark:bg-dark`}
