@@ -102,6 +102,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
         <GoogleAnalytics ga_id={ga_id} />
+        <meta name="google-site-verification" content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk" />
       </head>
       <body
         className={`${sans.variable} relative antialiased bg-light dark:bg-dark`}
