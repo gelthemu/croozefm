@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
 import Link from "next/link";
-import Image from "next/image";
+import ImgDiv from "../divs/image-div";
 import { FaLink } from "react-icons/fa6";
 import { shows } from "@/data/shows/shows";
 
@@ -30,27 +30,30 @@ const getShowUrl = (imgPath: string) => {
 const Schedule = () => {
   const currentShow = useCurrentShow();
   const showUrl = getShowUrl(currentShow.img);
+  const hasValidShowUrl = showUrl !== "/shows";
 
   return (
-    <div className="relative w-full aspect-[1484/813] group">
-      <Image
-        src={currentShow.img}
-        alt={currentShow.name}
-        width={1484}
-        height={813}
-        priority={true}
-        className="w-full h-full object-cover aspect-[1484/813] border-2 border-gray rounded-sm _img_"
-      />
-      <Link
-        href={showUrl}
-        className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/60 border border-light/60 text-light p-1.5 rounded-sm"
-        aria-label="View Details"
-      >
-        <FaLink
-          size={18}
-          className="group-hover:rotate-180 transition-transform duration-500"
-        />
-      </Link>
+    <div className="relative group">
+      <ImgDiv url={currentShow.img} alt={currentShow.name} text="On-Air" />
+      {hasValidShowUrl ? (
+        <Link
+          href={showUrl}
+          className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/80 border border-light/50 text-light p-1.5 rounded-md"
+          aria-label="View Details"
+        >
+          <FaLink
+            size={16}
+            className="group-hover:rotate-180 transition-transform duration-500"
+          />
+        </Link>
+      ) : (
+        <div className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/80 border border-light/50 text-light p-1.5 rounded-md">
+          <FaLink
+            size={16}
+            className="group-hover:rotate-180 transition-transform duration-500"
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -58,12 +61,15 @@ const Schedule = () => {
 const Show = () => {
   const currentShow = useCurrentShow();
   const showUrl = getShowUrl(currentShow.img);
+  const hasValidShowUrl = showUrl !== "/shows";
 
-  return (
-    <div className="w-fit mb-4">
-      <Link href={showUrl} className="text-left font-light _912cfm">
-        <p className="line-clamp-1">{currentShow.name}</p>
-      </Link>
+  return hasValidShowUrl ? (
+    <Link href={showUrl} className="font-light _912cfm">
+      <span>{currentShow.name}</span>
+    </Link>
+  ) : (
+    <div className="font-light _912cfm select-none">
+      <span>{currentShow.name}</span>
     </div>
   );
 };
@@ -128,11 +134,7 @@ const UgTime = () => {
   }, [updateDateTime]);
 
   return useMemo(
-    () => (
-      <div className="w-fit px-1.5 py-1 text-sm text-dark/80 dark:text-light/80">
-        {dateTime}
-      </div>
-    ),
+    () => <div className="text-sm opacity-[0.75]">{dateTime}</div>,
     [dateTime]
   );
 };

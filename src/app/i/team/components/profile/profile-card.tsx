@@ -14,12 +14,12 @@ const PresenterCard: React.FC<PresenterCardProps> = ({ profile }) => {
 
   return (
     <>
-      <div className="group rounded-sm overflow-hidden border-2 border-dark/60 dark:border-light/20">
+      <div className="group rounded-md overflow-hidden border-2 border-gray/80 dark:border-light/20">
         <Link
           href={`/i/${profile.id}`}
           className="relative flex flex-col h-full"
         >
-          <div className="h-80 xl:h-[480px] w-full profile-image overflow-hidden">
+          <div className="h-80 max-h-[500px] w-full profile-image overflow-hidden">
             <Image
               src={profile.imageLink}
               alt={profile.name}

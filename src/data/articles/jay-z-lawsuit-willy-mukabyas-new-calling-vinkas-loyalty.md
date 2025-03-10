@@ -17,7 +17,7 @@ Jay Z’s legal team asserts that the endgame was a payoff to keep her quiet—a
 
 In a surprising career pivot, Kadongo Kamu legend Willy Mukabya is trading his microphone for a pulpit. Known for his storytelling prowess through the traditional single-guitar music style, the artist has long been a household name in the country’s music scene. Now, he’s embracing a new title: Pastor Willy Mukabya.
 
-<div className="w-full flex items-center justify-center bg-gray/10 p-2">
+<div className="w-full flex items-center justify-center bg-transparent p-2">
     <div className="relative rounded">
         <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FSparkTvUganda%2Fvideos%2F974862997583726%2F&show_text=false&width=476&t=0&controls=0" width="476" height="476" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" className="w-full h-full aspect-[1/1] overflow-hidden" allowFullScreen></iframe>
     </div>
@@ -32,6 +32,8 @@ Rumors have been swirling for months about unrest at Swangs Avenue, with whisper
 “I’m not leaving Swangs Avenue,” she declared firmly, dispelling the gossip that’s been haunting her career trajectory. Having spent over a decade with the label—first as Irene Ntale’s manager and later as a successful artist in her own right—Vinka credits Swangs for her rise to fame. “They’ve been there for me when it comes to music,” she said. “I’m comfortable with everything they’ve done and continue to do. I’m happy and winning musically.”
 
 Still, as the saying goes, there’s no smoke without fire. With ongoing chatter about Swangs Avenue’s internal dynamics, industry watchers are keeping a close eye on the label. For now, though, Vinka’s loyalty stands firm—a rare constant in an ever-shifting entertainment landscape.
+
+<section className="latest-release"></section>
 
 ## Want More?
 

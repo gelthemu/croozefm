@@ -6,11 +6,9 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-  EmailShareButton,
   FacebookIcon,
   TwitterIcon,
   WhatsappIcon,
-  EmailIcon,
 } from "next-share";
 
 interface ShareArticleProps {
@@ -50,14 +48,6 @@ const ShareArticle: React.FC<ShareArticleProps> = ({
       <WhatsappShareButton url={shareUrl} title={title} separator=" | ">
         <WhatsappIcon size={iconSize} round={round} />
       </WhatsappShareButton>
-
-      <EmailShareButton
-        url={shareUrl}
-        subject={title}
-        body={`Check out this article: ${title} | ${shareUrl}`}
-      >
-        <EmailIcon size={iconSize} round={round} />
-      </EmailShareButton>
     </div>
   );
 };

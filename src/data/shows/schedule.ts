@@ -106,6 +106,7 @@ const scheduleMap: Record<ScheduleDay, string[]> = {
     "sunday-inspiration",
     "sunday-love",
     "enyangyi",
+    "sunday-lounge",
     "total-country-show",
   ],
 };

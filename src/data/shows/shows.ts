@@ -283,6 +283,11 @@ export const shows: Show[] = [
     time: { start: 12, end: 14 },
   },
   {
+    id: "sunday-lounge",
+    name: "Sunday Lounge - Timeless Classics",
+    time: { start: 14, end: 20 },
+  },
+  {
     id: "total-country-show",
     name: "The Total Country Show",
     summary:

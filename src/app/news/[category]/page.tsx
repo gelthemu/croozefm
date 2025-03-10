@@ -6,8 +6,9 @@ import CategoryFilter from "../components/category-filter";
 import NewsList from "../components/news-list";
 import { getAllCategories, getNewsByCategory } from "@/lib/news-parser";
 import { NewsCategory } from "@/types/news";
-import XNewsButton from "../news-archive/components/news-btn";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
+import Divider from "@/app/components/providers/divs/divider";
+import NewsFooter from "../components/news-footer";
 
 export async function generateMetadata({
   params,
@@ -19,22 +20,18 @@ export async function generateMetadata({
   const validCategories = getAllCategories();
   if (!validCategories.includes(category as NewsCategory)) {
     return {
-      title: "Category Not Found",
-      description:
-        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
+      title: "Content Not Found",
     };
   }
 
   return {
     title:
-      category === "411"
-        ? `${FormatCategory({
-            category,
-          })} - Entertainment / Crooze FM`
-        : `${FormatCategory({ category })} | News - 91.2 Crooze FM`,
-    description: `Browse all our news articles tagged with ${category}`,
-    keywords:
-      "Crooze FM news, Crooze FM categories, Crooze FM updates, Crooze FM breaking news, Crooze FM local news, Crooze FM entertainment news, Crooze FM sports news, Crooze FM weather updates, Crooze FM traffic reports, Crooze FM community news, Crooze FM radio news, Crooze FM latest stories, Crooze FM news archive, Crooze FM headlines, Crooze FM daily news",
+      category === "411" ? "Entertainment" : `${FormatCategory({ category })}`,
+    description: `Browse all our news articles under the ${category} category`,
+    keywords: `${category}, Crooze FM news, 91.2 Crooze Fm, Western Uganda, News, Crooze Fm news, Crooze Fm updates, Crooze Fm latest news, Crooze Fm 411, Crooze Fm Archive, Crooze Fm local news, Crooze Fm headlines, Crooze Fm media`,
+    alternates: {
+      canonical: `https://croozefm.geltaverse.com/news/${category}`,
+    },
   };
 }
 
@@ -59,8 +56,8 @@ export default async function CategoryPage({
   const categories = getAllCategories();
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen overflow-hidden">
-      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[720px] text-left">
+    <>
+      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
         <div className="flex flex-col">
           <NewsHeader
             title={
@@ -74,24 +71,12 @@ export default async function CategoryPage({
             currentCategory={category as NewsCategory}
           />
         </div>
-
         <div className="my-10 flex flex-col">
           <NewsList articles={articles} />
         </div>
       </div>
-
-      <div className="text-center  pt-10 flex flex-col items-center justify-center border-t border-dark/10 dark:border-light/10">
-        <p className="max-w-lg mx-auto mb-4">
-          We don&apos;t just break stories, we tell real stories. Stay abreast
-          of the latest developments in the world of news and information.
-        </p>
-        <div className="flex justify-center mb-4">
-          <XNewsButton />
-        </div>
-        <p className="font-semibold text-sm text-red italic mb-4">
-          &quot;Always remember where you heard it first.&quot;
-        </p>
-      </div>
-    </div>
+      <Divider />
+      <NewsFooter />
+    </>
   );
 }

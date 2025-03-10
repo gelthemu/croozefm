@@ -6,9 +6,11 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getAllProfileIds, getProfileData } from "@/lib/profiles-parser";
-import SocialLinks from "../team/components/socials";
+import SocialLinks from "../team/components/profile/socials";
 import { Metadata } from "next";
-import ProfileGallery from "../team/components/gallery";
+import ProfileGallery from "../team/components/profile/gallery/gallery";
+import Divider from "@/app/components/providers/divs/divider";
+import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
@@ -21,19 +23,17 @@ export async function generateMetadata({
   if (!profile) {
     return {
       title: "Profile Not Found",
-      description:
-        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
     };
   }
 
   return {
-    title: `${profile.name} / Crooze FM`,
+    title: `${profile.name}`,
     description: `${profile.description
       .replace(/\s+/g, " ")
       .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
-    keywords: `${profile.keywords}, CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM team, Crooze FM presenters, Crooze FM radio hosts, Crooze FM staff, Crooze FM personalities, Crooze FM broadcasters, Crooze FM crew, Crooze FM DJs, Crooze FM radio team, Crooze FM on-air talent`,
+    keywords: `91.2 Crooze Fm, ${profile.keywords}, Crooze fm team, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm presenters, Crooze fm radio hosts, Crooze fm staff, Crooze fm djs, Crooze fm radio team, Crooze fm on-air talent`,
     openGraph: {
-      title: `${profile.name} / Crooze FM`,
+      title: `${profile.name}`,
       description: `${profile.description
         .replace(/\s+/g, " ")
         .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
@@ -49,7 +49,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      title: `${profile.name} / Crooze FM`,
+      title: `${profile.name}`,
       description: `${profile.description
         .replace(/\s+/g, " ")
         .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
@@ -65,9 +65,6 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://croozefm.geltaverse.com/i/${profile.id}`,
-      languages: {
-        "en-US": "/c/en-US",
-      },
     },
   };
 }
@@ -91,74 +88,74 @@ export default async function ProfilePage({
   }
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto min-h-screen px-4 py-10 overflow-hidden">
-      <div className="w-full overflow-hidden">
-        <div className="w-full sm:w-[90%] mx-auto flex flex-col lg:flex-row">
-          <div className="h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-sm overflow-hidden">
-            <Image
-              src={profile.imageLink}
-              alt={profile.name}
-              width={2280}
-              height={2784}
-              priority={true}
-              className="w-full h-full object-cover aspect-[570/696] grayscale-[0.75] _img_"
+    <div className="w-full max-w-3xl mx-auto p-1">
+      <div className="relative flex flex-col lg:flex-row">
+        <div className="h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-md overflow-hidden">
+          <Image
+            src={profile.imageLink}
+            alt={profile.name}
+            width={2280}
+            height={2784}
+            priority={true}
+            className="w-full h-full object-cover aspect-[570/696] grayscale-[0.75] _img_"
+          />
+        </div>
+
+        <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0 border-y-4 border-red">
+          <div className="pb-6 flex flex-col lg:flex-row lg:justify-between border-b border-gray/40 dark:border-light/20">
+            <div>
+              <h1 className="text-3xl pb-2.5 text-red _912cfm">
+                {profile.name}
+              </h1>
+              <p className="text-sm font-medium opacity-[0.5]">
+                {profile.showHosted}
+              </p>
+            </div>
+            <SocialLinks
+              links={profile.socialLinks}
+              className="mt-5 lg:mt-2.5"
             />
           </div>
 
-          <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0 border-y-4 border-red">
-            <div className="pb-6 flex flex-col lg:flex-row lg:justify-between border-b border-gray/40 dark:border-light/20">
-              <div>
-                <h1 className="text-3xl pb-2.5 text-red _912cfm">
-                  {profile.name}
-                </h1>
-                <p className="text-sm font-medium opacity-[0.5]">
-                  {profile.showHosted}
-                </p>
-              </div>
-              <SocialLinks
-                links={profile.socialLinks}
-                className="mt-5 lg:mt-2.5"
-              />
-            </div>
-
-            <div className="prose prose-lg max-w-none mt-5 select-none">
-              <Markdown
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                  a: ({ href, children }) =>
-                    href?.startsWith("/") ? (
-                      <Link href={href}>{children}</Link>
-                    ) : (
-                      <Link
-                        href={href ?? "#"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {children}
-                      </Link>
-                    ),
-                  iframe: ({ ...props }) => (
-                    <div className="relative w-full aspect-[16/9] rounded overflow-hidden flex flex-col">
-                      <iframe
-                        {...props}
-                        className="absolute top-0 left-0 w-full h-full"
-                      />
-                    </div>
+          <div className="prose prose-lg max-w-none mt-5 select-none">
+            <Markdown
+              rehypePlugins={[rehypeRaw]}
+              components={{
+                a: ({ href, children }) =>
+                  href?.startsWith("/") ? (
+                    <Link href={href}>{children}</Link>
+                  ) : (
+                    <Link
+                      href={href ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {children}
+                    </Link>
                   ),
-                }}
-              >
-                {profile.description}
-              </Markdown>
-            </div>
-
-            <ProfileGallery gallery={profile.gallery} name={profile.name} />
+                iframe: ({ ...props }) => (
+                  <div className="relative w-full aspect-[16/9] rounded overflow-hidden flex flex-col">
+                    <iframe
+                      {...props}
+                      className="absolute top-0 left-0 w-full h-full"
+                    />
+                  </div>
+                ),
+              }}
+            >
+              {profile.description}
+            </Markdown>
           </div>
+          <Divider />
+          <ProfileGallery gallery={profile.gallery} name={profile.name} />
         </div>
       </div>
 
-      <div className="flex items-center justify-center lg:justify-end mx-auto mt-10 lg:mr-10 px-6 py-2">
+      <div className="flex items-center justify-center lg:justify-end mx-auto mt-10">
         <ViewAllBtn href="/i/team" text="Meet The Entire Team" />
       </div>
+      <Divider />
+      <ImmediateRelease viewAll={true} />
     </div>
   );
 }

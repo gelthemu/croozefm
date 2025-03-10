@@ -10,14 +10,14 @@ import {
   getNewsArticle,
   getRecentNews,
 } from "@/lib/news-parser";
-import BackBtn from "@/app/components/tiny/backbtn";
-import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecentNews from "../../components/recent-news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import "@/app/styles/md/profile.css";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 import { markdownComponents } from "../components/markdown-components";
 import ShareArticle from "../components/share-article";
+import Divider from "@/app/components/providers/divs/divider";
+import NewsFooter from "../../components/news-footer";
 
 export async function generateMetadata({
   params,
@@ -29,17 +29,16 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article Not Found",
-      description: "The requested article could not be found.",
+      title: "Story Not Found",
     };
   }
 
   return {
-    title: `${article.headline} / Crooze FM`,
+    title: `${article.headline}`,
     description: article.excerpt,
-    keywords: `${article.keywords}, Crooze FM news, Crooze FM articles, Crooze FM updates, Crooze FM latest news, Crooze FM radio news, Crooze FM breaking news, Crooze FM blog, Crooze FM stories, Crooze FM music news, Crooze FM entertainment news, Crooze FM local news, Crooze FM headlines, Crooze FM features, Crooze FM online articles, Crooze FM media, CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News`,
+    keywords: `91.2 Crooze Fm, Western Uganda, ${article.keywords}, News, Crooze Fm news, Crooze Fm updates, Crooze Fm latest news, Crooze Fm 411, Crooze Fm Archive, Crooze Fm local news, Crooze Fm headlines, Crooze Fm media`,
     openGraph: {
-      title: `${article.headline} / Crooze FM`,
+      title: `${article.headline}`,
       description: article.excerpt,
       type: "website",
       url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
@@ -62,7 +61,7 @@ export async function generateMetadata({
           ],
     },
     twitter: {
-      title: `${article.headline} / Crooze FM`,
+      title: `${article.headline}`,
       description: article.excerpt,
       card: "summary_large_image",
       site: "@geltaverse",
@@ -83,9 +82,6 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
-      languages: {
-        "en-US": "/c/en-US",
-      },
     },
   };
 }
@@ -129,12 +125,8 @@ export default async function ArticlePage({
     .slice(0, 4);
 
   return (
-    <div className="container mx-auto px-4 py-12 min-h-screen">
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-6">
-          <BackBtn />
-        </div>
-
+    <>
+      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-y-4 border-red">
           {image_url && (
             <div className="relative w-full overflow-hidden">
@@ -205,11 +197,9 @@ export default async function ArticlePage({
         <div className="my-10">
           <RecentNews articles={recentArticles} className="md:grid-cols-2" />
         </div>
-
-        <div className="flex items-center justify-center lg:justify-end mx-auto lg:mr-10 px-6 py-2">
-          <ViewAllBtn href="/news" text="See All Articles" />
-        </div>
       </div>
-    </div>
+      <Divider />
+      <NewsFooter />
+    </>
   );
 }

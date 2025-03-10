@@ -13,9 +13,10 @@ export default function XNewsButton() {
   return (
     <button
       onClick={handleClick}
-      className="text-light text-sm font-medium px-4 py-2.5 rounded-md bg-gray/80"
+      className="text-light text-sm font-medium px-4 py-2.5 rounded-md bg-red"
     >
-      Check the Latest Crooze FM News on X
+      <span className="sr-only">Check the Latest Crooze FM Headlines on X</span>
+      Crooze FM Headlines on X
     </button>
   );
 }

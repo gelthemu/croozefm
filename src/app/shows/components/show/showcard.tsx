@@ -1,8 +1,7 @@
 "use client";
-
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import ImgDiv from "@/app/components/providers/divs/image-div";
+import { useRouter } from "next/navigation";
 import { Show } from "@/types/show";
 
 interface ShowCardProps {
@@ -10,25 +9,24 @@ interface ShowCardProps {
 }
 
 export const ShowCard = ({ show }: ShowCardProps) => {
+  const router = useRouter();
+
+  const handleDoubleClick = () => {
+    router.push(`/shows/${show.id}`);
+  };
+
   return (
-    <Link href={`/shows/${show.id}`}>
+    <div onDoubleClick={handleDoubleClick} className="cursor-pointer">
       <div className="text-left text-sm mb-2 sr-only">{show.name}</div>
-      <div
-        className={`group grid-1 relative rounded-sm border-2 border-gray/80 dark:border-light/40
-        `}
-      >
-        <div className="w-full h-full overflow-hidden">
-          <Image
-            src={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
-            alt={show.name}
-            width={2968}
-            height={1626}
-            priority={true}
-            className="h-full w-full object-cover aspect-[1484/813] transition-transform duration-300 group-hover:scale-105 _img_"
-          />
-        </div>
+      <div className="group grid-1 relative">
+        <ImgDiv
+          url={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+          alt={show.name}
+          imgClass="transition-transform duration-300 group-hover:scale-105"
+          text={show.name}
+        />
       </div>
-    </Link>
+    </div>
   );
 };
 

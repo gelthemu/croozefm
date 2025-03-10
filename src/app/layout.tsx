@@ -11,6 +11,8 @@ import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
+import FullscreenCarousel from "./i/team/components/profile/gallery/fullscreen-gallery";
+import { CarouselProvider } from "./context/carousel-context";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -29,27 +31,57 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Home of Western Uganda's Biggest Radio Station",
+  title: {
+    template: "%s | 91.2 Crooze FM",
+    default: "Welcome",
+  },
   description:
-    "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    "Welcome to the Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Browse the Current News Daily, our Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
   keywords:
-    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Mixtapes, Crooze FM Mixtapes, radio shows 2025, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, morning radio, hot tunes, African music, sports talk, Friday party mix, weekend radio, live hosts",
-  metadataBase: new URL("https://croozefm.geltaverse.com/home"),
-  generator: "Next.js",
-  applicationName: "CroozeFM",
-  referrer: "origin-when-cross-origin",
+    "91.2 Crooze FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
+  metadataBase: new URL("https://croozefm.geltaverse.com"),
+  applicationName: "Crooze FM",
   authors: [{ name: "Gelthem Mucunguzi", url: "https://geltaverse.com" }],
   creator: "Gelthem Mucunguzi",
   publisher: "Gelthem Mucunguzi",
   icons: {
-    icon: "/_io/favicon.ico",
-    shortcut: "/_io/favicon-16x16.png",
-    apple: "/_io/apple-touch-icon.png",
+    icon: [
+      { url: "https://croozefm.geltaverse.com/favicon.ico" },
+      {
+        url: "https://croozefm.geltaverse.com/favicon-16x16.png",
+        type: "image/png",
+        sizes: "16x16",
+      },
+      {
+        url: "https://croozefm.geltaverse.com/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "https://croozefm.geltaverse.com/android-chrome-192x192.png",
+        type: "image/png",
+        sizes: "192x192",
+      },
+      {
+        url: "https://croozefm.geltaverse.com/android-chrome-512x512.png",
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
+    apple: [
+      {
+        url: "https://croozefm.geltaverse.com/apple-touch-icon.png",
+        sizes: "180x180",
+      },
+    ],
   },
-  manifest: "/_io/site.webmanifest",
+  manifest: "https://croozefm.geltaverse.com/site.webmanifest",
 
   openGraph: {
-    title: "Home of Western Uganda's Biggest Radio Station",
+    title: {
+      template: "%s | 91.2 Crooze FM",
+      default: "Welcome",
+    },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     url: "https://croozefm.geltaverse.com/home",
@@ -65,7 +97,10 @@ export const metadata: Metadata = {
   },
 
   twitter: {
-    title: "Home of Western Uganda's Biggest Radio Station",
+    title: {
+      template: "%s | 91.2 Crooze FM",
+      default: "Welcome",
+    },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
     card: "summary_large_image",
@@ -78,15 +113,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  alternates: {
-    canonical: "https://croozefm.geltaverse.com/home",
-    languages: {
-      "en-US": "/en-US",
-    },
-  },
-  category: "entertainment",
-  classification: "Entertainment",
 };
 
 export default function RootLayout({
@@ -112,16 +138,21 @@ export default function RootLayout({
       >
         <ThemeProviders>
           <div className="w-full font-sans text-dark dark:text-light">
-            <MiniPlayerProvider>
-              <CookieConsent />
-              <Navbar />
-              <ToastProvider />
-              {children}
-              <Analytics />
-              <SpeedInsights />
-              <MiniPlayer />
-              <Footer />
-            </MiniPlayerProvider>
+            <CarouselProvider>
+              <MiniPlayerProvider>
+                <MiniPlayer />
+                <Navbar />
+                <ToastProvider />
+                <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16 overflow-hidden">
+                  <div className="container mx-auto">{children}</div>
+                </main>
+                <Analytics />
+                <SpeedInsights />
+                <Footer />
+                <CookieConsent />
+                <FullscreenCarousel />
+              </MiniPlayerProvider>
+            </CarouselProvider>
           </div>
         </ThemeProviders>
       </body>

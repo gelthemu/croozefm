@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { MdLibraryMusic } from "react-icons/md";
 import { getTimeAgo } from "./tracklist-data";
 import { Track } from "@/types/track";
 
@@ -24,7 +23,7 @@ export default function TrackCard({
   return (
     <div
       key={index}
-      className={`bg-gray/10 dark:bg-gray/40 rounded-sm p-1.5 flex-shrink-0 flex items-end ${className}`}
+      className={`bg-gray/10 dark:bg-gray/40 rounded-md p-1.5 flex-shrink-0 flex items-end ${className}`}
     >
       <div
         className={`flex-shrink-0 ${imageSize} relative profile-image aspect-square rounded-sm overflow-hidden`}
@@ -34,7 +33,7 @@ export default function TrackCard({
             src={track.track_image}
             alt={`${track.track_title} cover`}
             fill
-            className="w-full h-full object-cover rounded-sm aspect-square _img_"
+            className="w-full h-full object-cover aspect-square _img_"
           />
         ) : (
           <div
@@ -42,19 +41,15 @@ export default function TrackCard({
               isCurrent ? "20" : "40"
             } ${imageSize} flex items-center justify-center`}
           >
-            {isCurrent ? (
-              <span className="text-light">
-                <MdLibraryMusic />
-              </span>
-            ) : (
-              <Image
-                src="/cfm-logo-2.png"
-                alt="CroozeFM Logo"
-                width={4096}
-                height={1652}
-                className="w-12 aspect-[4096/1652] _img_"
-              />
-            )}
+            <Image
+              src="/cfm-logo.png"
+              alt="CroozeFM Logo"
+              width={4096}
+              height={1652}
+              className={`${
+                isCurrent ? "w-14" : "w-10"
+              } aspect-[4096/1652] _img_`}
+            />
           </div>
         )}
       </div>

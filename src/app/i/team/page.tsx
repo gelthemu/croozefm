@@ -1,37 +1,32 @@
 import React from "react";
-import { getAllProfiles } from "@/lib/profiles-parser";
-import PresenterCard from "./components/profile-card";
-import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
+import { PageHeading } from "@/app/components/providers/divs/page-heading";
+import ProfileList from "./components/profile-list";
+import Divider from "@/app/components/providers/divs/divider";
+import PopularShows from "@/app/shows/components/popShows";
 
 export const metadata = {
-  title: "Our Team / Crooze FM",
+  title: "Our Team",
   description:
     "Meet all of our radio presenters and hosts on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
   keywords:
-    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM team, Crooze FM presenters, Crooze FM radio hosts, Crooze FM staff, Crooze FM personalities, Crooze FM broadcasters, Crooze FM crew, Crooze FM DJs, Crooze FM radio team, Crooze FM on-air talent",
+    "91.2 Crooze FM, Crooze fm team, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm presenters, Crooze fm radio hosts, Crooze fm staff, Crooze fm djs, Crooze fm radio team, Crooze fm on-air talent",
+  alternates: {
+    canonical: "https://croozefm.geltaverse.com/i/team",
+  },
 };
 
 export default async function PresentersPage() {
-  const profiles = await getAllProfiles();
-  const seed = new Date().toDateString();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const allProfiles = useShuffledArray(profiles, seed);
-
   return (
-    <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">
-      <div className="mb-8 flex flex-col items-center justify-center pb-4 border-b border-dark/40 dark:border-light/20">
-        <h1 className="text-3xl relative mb-4 _912cfm">Meet Our Team</h1>
-        <p className="text-sm">
-          Get to know the talented voices and personalities behind your favorite
-          radio shows. Click to view in detail.
-        </p>
+    <>
+      <PageHeading
+        heading="Meet Our Team"
+        text="Get to know the talented voices and personalities behind your favorite radio shows. Click to view in detail."
+      />
+      <div className="mt-10">
+        <ProfileList />
       </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
-        {allProfiles.map((profile) => (
-          <PresenterCard key={profile.id} profile={profile} />
-        ))}
-      </div>
-    </div>
+      <Divider className="my-16" />
+      <PopularShows />
+    </>
   );
 }

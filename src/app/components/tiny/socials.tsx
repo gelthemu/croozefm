@@ -5,7 +5,7 @@ import {
   FaXTwitter,
   FaFacebookF,
   FaInstagram,
-  FaTiktok,
+  FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa6";
 
@@ -27,9 +27,9 @@ const SocialLinks = () => {
       label: "Follow us on Instagram",
     },
     {
-      icon: <FaTiktok size={15} />,
-      url: "https://www.tiktok.com/@croozetv",
-      label: "Follow us on TikTok",
+      icon: <FaWhatsapp size={15} />,
+      url: "https://whatsapp.com/channel/0029Vb8mMX78aKvKCmxMsj1y",
+      label: "Join this WhatsApp Channel",
     },
     {
       icon: <FaYoutube size={15} />,
@@ -49,7 +49,7 @@ const SocialLinks = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="focus:outline-none rounded-sm bg-light/10 hover:bg-red/10 transition-colors duration-300"
+                className="focus:outline-none rounded-md bg-light/10 hover:bg-red/10 transition-colors duration-300"
                 aria-label={social.label}
               >
                 <div className="p-2 cursor-pointer text-light/80 hover:text-light/100 transition-colors duration-300">

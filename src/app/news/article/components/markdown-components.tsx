@@ -53,7 +53,11 @@ const corporateGamesUganda2025 = [
 ];
 
 const componentMap: Record<string, React.FC<CustomSectionProps>> = {
-  "latest-release": () => <ImmediateRelease />,
+  "latest-release": () => (
+    <div className="py-6 mb-6 border-y border-dark/10 dark:border-light/10">
+      <ImmediateRelease />
+    </div>
+  ),
 
   "sunrise-hotel-photos": () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">

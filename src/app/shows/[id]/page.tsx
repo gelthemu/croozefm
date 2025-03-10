@@ -2,8 +2,11 @@ import { shows } from "@/data/shows/shows";
 import { notFound } from "next/navigation";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecordPlayer from "@/app/shows/components/show/record-player";
-import Image from "next/image";
 import Link from "next/link";
+import { PageHeading } from "@/app/components/providers/divs/page-heading";
+import ImgDiv from "@/app/components/providers/divs/image-div";
+import Divider from "@/app/components/providers/divs/divider";
+import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import { Metadata } from "next";
 
 interface PageProps {
@@ -22,32 +25,29 @@ export async function generateMetadata({
   if (!show) {
     return {
       title: "Show Not Found",
-      description:
-        "Welcome to Home of Western Uganda's Biggest Radio Station. 91.2 Crooze FM. Great Music, Great Friends. Stream Live Radio. Hit Music. Current News Daily",
     };
   }
 
   return {
-    title: `${show.name} / Crooze FM`,
+    title: `${show.name}`,
     description: show.summary,
-    keywords:
-      "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, radio shows 2025, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, morning radio, hot tunes, African music, sports talk, Friday party mix, weekend radio, live hosts, Crooze FM shows, Crooze FM radio, Crooze FM schedule, Crooze FM programs, Crooze FM live, Crooze FM podcast, Crooze FM music shows, Crooze FM hosts, Crooze FM streaming, Crooze FM online radio",
+    keywords: `91.2 Crooze Fm, ${show.name}, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm schedule, Crooze fm programs, Crooze fm stream live, Crooze fm shows, Crooze FM mixtapes`,
     openGraph: {
-      title: `${show.name} / Crooze FM`,
+      title: `${show.name}`,
       description: show.summary,
       type: "website",
-      url: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
+      url: `https://croozefm.geltaverse.com/shows/${show.id}`,
       images: [
         {
           url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
-          alt: `${show.name}, one of the popular shows on 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
           width: 1200,
           height: 630,
         },
       ],
     },
     twitter: {
-      title: `${show.name} / Crooze FM`,
+      title: `${show.name}`,
       description: show.summary,
       card: "summary_large_image",
       site: "@geltaverse",
@@ -55,17 +55,12 @@ export async function generateMetadata({
       images: [
         {
           url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
-          alt: `${show.name}, one of the popular shows on 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
-          width: 1200,
-          height: 630,
+          alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
         },
       ],
     },
     alternates: {
-      canonical: `https://croozefm.geltaverse.com/c/shows/${show.id}`,
-      languages: {
-        "en-US": "/c/en-US",
-      },
+      canonical: `https://croozefm.geltaverse.com/shows/${show.id}`,
     },
   };
 }
@@ -85,54 +80,47 @@ export default async function ShowPage({ params }: PageProps) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 min-h-screen overflow-hidden">
-      <div className="text-center flex flex-col items-center justify-center">
-        <h1 className="text-3xl relative mb-4 _912cfm">{show.name}</h1>
-        <p className="w-full max-w-xl mx-auto mb-2">{show.summary}</p>
-      </div>
-
+    <div className="w-full max-w-4xl mx-auto p-1">
+      <PageHeading heading={show.name} text={show.summary} />
       {show.host && (
-        <div className="my-10 flex items-center justify-center">
-          <div className="w-fit flex flex-row items-center justify-center text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray rounded-md">
-            <span className="sr-only">Hosted by</span>
-            <i className="fa-solid fa-microphone-lines pl-3 pr-1.5 py-2"></i>
-            <div className="flex flex-row divide-x divide-light/40 dark:divide-light/20">
-              {show.host.map((h, index) => (
+        <div className="w-fit mx-auto mt-10 flex items-center justify-center text-light dark:text-light/60 text-sm font-medium bg-gray/70 dark:bg-gray transition-all duration-300 rounded-md overflow-hidden">
+          <span className="sr-only">Hosted by</span>
+          <i className="fa-solid fa-microphone-lines pl-3 pr-1.5 py-2"></i>
+          <div className="flex flex-row divide-x divide-light/40 dark:divide-light/20">
+            {show.host.map((h, index) =>
+              h.link ? (
                 <Link
                   key={index}
-                  href={
-                    h.link
-                      ? h.link
-                      : `/i/${h.name?.toLowerCase().replace(/ /g, "-")}`
-                  }
-                  className="relative px-3 py-2 text-center after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
+                  href={h.link}
+                  className="relative px-3 py-2 text-center hover:bg-dark/70 dark:hover:bg-light/20 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20"
                 >
                   {h.name}
                 </Link>
-              ))}
-            </div>
+              ) : (
+                <div
+                  key={index}
+                  className="relative px-3 py-2 text-center hover:bg-dark/70 dark:hover:bg-light/20 after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:border-b-[3px] after:border-dark/40 dark:after:border-light/20 select-none"
+                >
+                  {h.name}
+                </div>
+              )
+            )}
           </div>
         </div>
       )}
-
-      <div className="my-12 relative w-full md:w-4/6 mx-auto aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/40">
-        <Image
-          src={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
-          alt={show.name}
-          width={2968}
-          height={1626}
-          priority={true}
-          className="w-full aspect-[1484/813] object-cover _img_"
-        />
-      </div>
-
-      <div className={`${show.host ? "" : "mt-10"}`}>
+      <ImgDiv
+        url={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+        alt={show.name}
+        className="w-full max-w-3xl mx-auto mt-10"
+      />
+      <div>
         <RecordPlayer show={show} />
       </div>
-
-      <div className="flex items-center justify-center mx-auto mt-10 px-6 py-2">
+      <div className="flex items-center justify-end mx-auto">
         <ViewAllBtn href="/shows" text="View All Shows" />
       </div>
+      <Divider />
+      <ImmediateRelease viewAll={true} />
     </div>
   );
 }

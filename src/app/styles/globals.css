@@ -29,7 +29,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-  width: 0.5rem;
+  width: 0.45rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -65,6 +65,15 @@ body {
   background-size: cover;
   background-position: center top;
   background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+}
+
+.image-div {
+  aspect-ratio: 1484 / 813;
+  background-image: url("https://placehold.co/1484x813/transparent/png?text=91.2+Crooze+FM");
+  background-size: cover;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0);
   background-blend-mode: multiply;
 }
 
@@ -180,5 +189,5 @@ h2 {
 
 .animate-stream {
   -moz-animation: heartbeat 5s ease-in-out infinite;
-  animation: stream 5s ease-in-out infinite;
+  animation: stream 60s ease-in-out infinite;
 }

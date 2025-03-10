@@ -12,7 +12,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/da-problem-child-1.png",
     "https://croozefm.blob.core.windows.net/images/da-problem-child-2.png",
   ]
-keywords: "Da Problem Child Crooze FM, Evening Switch radio show, The Most Wanted Xtra Friday, Steve Da Problem Child bio, Crooze FM radio personality"
+keywords: "Da Problem Child, Evening Switch radio show, The Most Wanted Xtra, Steve Da Problem Child bio, Crooze FM radio personality"
 ---
 
 Steve, now known as Da Problem Child, is the lively voice you hear on Crooze FM. As a kid, he dreamed big, and with no Netflix back then, radio was his escape. He fell in love with not just listening but creating those magical moments on air.

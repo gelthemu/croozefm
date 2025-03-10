@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { Logo } from "./navigation/logo";
+import { StreamBtn } from "../stream/stream-btn";
 import SocialLinks from "../tiny/socials";
 import { ThemeSwitcher } from "../tiny/theme-toggle";
 import ScrollToTop from "../tiny/scroll-to-top";
@@ -10,33 +11,28 @@ export default function Footer() {
   const { isMiniPlayerOpen } = useMiniPlayer();
 
   return (
-    <footer className="w-full bg-gray/80 text-light/80">
+    <footer className="w-full bg-gray text-light/80">
       <div
-        className={`w-full max-w-screen-xl mx-auto px-6 lg:px-8 pt-12 sm:pt-16 ${
+        className={`w-full max-w-screen-xl mx-auto px-4 lg:px-8 pt-12 sm:pt-16 ${
           isMiniPlayerOpen ? "pb-32" : "p-12"
         }`}
       >
-        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-6 text-sm">
+        <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-6 text-sm">
           <div className=" w-full max-w-2xl">
-            <div className="w-24 mb-4">
-              <Image
-                src="/cfm-logo-2.png"
-                alt="CroozeFM Logo"
-                width={4096}
-                height={1652}
-                className="w-full aspect-[4096/1652] _img_"
-              />
-            </div>
-            <p>
+            <Logo />
+            <p className="text-wrap my-4">
               91.2 Crooze FM is Western Uganda&apos;s Biggest Radio Station,
               broadcasting from Mbarara to the world. Purely great music, for
               great friends.
             </p>
-            <p className="text-wrap mt-2">
+            <p className="text-wrap">
               The Station Other Radio Stations Listen To.
             </p>
           </div>
-          <div className="flex md:flex-shrink-0">
+          <div className="flex flex-col space-y-4 md:flex-shrink-0">
+            <div className="w-fit mb-4">
+              <StreamBtn className="border border-light/40" />
+            </div>
             <SocialLinks />
           </div>
         </div>

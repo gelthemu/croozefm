@@ -7,22 +7,22 @@ import Tracklist from "@/app/components/providers/tracklist/tracklist";
 
 export default function OnAir() {
   return (
-    <div className="mt-8 py-10 border-t border-dark/20 dark:border-light/20">
-      <div className="text-left w-full">
-        <div className="w-full flex items-center justify-between text-sm mb-4">
-          <p className="w-fit px-1.5 py-1 text-light font-semibold bg-red rounded-sm _912cfm">
-            On-Air:
-          </p>
-          <UgTime />
-        </div>
+    <div className="w-full flex flex-col space-y-4 text-left py-1">
+      <div className="flex items-center justify-between text-sm">
+        <p className="px-2 py-1 text-light font-semibold bg-red rounded-md _912cfm">
+          On-Air:
+        </p>
+        <UgTime />
+      </div>
+      <div>
         <Show />
-        <div className="w-full md:flex md:items-end md:space-x-5">
-          <div className="w-full md:w-[42%]">
-            <Schedule />
-          </div>
-          <div className="w-full md:w-[58%]">
-            <Tracklist />
-          </div>
+      </div>
+      <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:items-end md:space-x-4">
+        <div className="w-full md:w-[42%]">
+          <Schedule />
+        </div>
+        <div className="w-full md:w-[58%]">
+          <Tracklist />
         </div>
       </div>
     </div>

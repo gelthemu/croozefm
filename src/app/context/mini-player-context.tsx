@@ -8,11 +8,6 @@ import React, {
   useEffect,
 } from "react";
 import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
-import dynamic from "next/dynamic";
-
-const TitleUpdater = dynamic(() => import("@/app/components/providers/title-update"), {
-  ssr: false,
-});
 
 type MiniPlayerContextType = {
   isMiniPlayerOpen: boolean;
@@ -28,8 +23,6 @@ type MiniPlayerContextType = {
   tagLine: string | undefined;
   setTagLine: (source: string | undefined) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
-  isStreamBtnVisible: boolean;
-  setIsStreamBtnVisible: (visible: boolean) => void;
 };
 
 const MiniPlayerContext = createContext<MiniPlayerContextType | undefined>(
@@ -47,7 +40,6 @@ export function MiniPlayerProvider({
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [currentSource, setCurrentSource] = useState<string | undefined>();
   const [tagLine, setTagLine] = useState<string | undefined>();
-  const [isStreamBtnVisible, setIsStreamBtnVisible] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
   const currentShow = useCurrentShow();
 
@@ -70,15 +62,12 @@ export function MiniPlayerProvider({
     setCurrentSource,
     tagLine,
     setTagLine,
-    isStreamBtnVisible,
-    setIsStreamBtnVisible,
     audioRef,
   };
 
   return (
     <MiniPlayerContext.Provider value={value}>
       {children}
-      <TitleUpdater isAudioPlaying={isAudioPlaying} tagLine={tagLine} />
     </MiniPlayerContext.Provider>
   );
 }

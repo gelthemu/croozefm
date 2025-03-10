@@ -1,25 +1,32 @@
 import React from "react";
+import { PageHeading } from "../components/providers/divs/page-heading";
 import ShowsFullList from "./components/shows-full-list";
+import Divider from "@/app/components/providers/divs/divider";
+import PopularProfiles from "../i/team/components/popular";
 
 export const metadata = {
-  title: "Shows / Crooze FM",
+  title: "Shows",
   description:
-    "Discover our shows on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    "Discover, and browse our popular shows on 91.2 Crooze FM. We are Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
   keywords:
-    "CroozeFM, 91.2 FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Western Uganda, News, Crooze FM shows, Crooze FM radio, Crooze FM schedule, Crooze FM programs, Crooze FM live, Crooze FM podcast, Crooze FM music shows, Crooze FM hosts, Crooze FM streaming, Crooze FM online radio",
+    "91.2 Crooze FM, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm schedule, Crooze fm programs, Crooze fm stream live, Crooze fm shows, Crooze FM mixtapes",
+  alternates: {
+    canonical: `https://croozefm.geltaverse.com/shows`,
+  },
 };
 
 export default function ShowsPage() {
   return (
-    <div className="container mx-auto px-4 py-16 text-center min-h-screen overflow-hidden">
-      <div className="mb-8 flex flex-col items-center justify-center pb-4 border-b border-dark/40 dark:border-light/20">
-        <h1 className="text-3xl relative mb-4 _912cfm">Shows</h1>
-        <p className="text-sm">
-          Click to view in detail. Some shows have ad-free recordings you might
-          enjoy.
-        </p>
+    <>
+      <PageHeading
+        heading="Shows"
+        text="Double-click to view in detail. Some shows have ad-free recordings you might enjoy."
+      />
+      <div className="mt-12">
+        <ShowsFullList />
       </div>
-      <ShowsFullList />
-    </div>
+      <Divider className="my-16" />
+      <PopularProfiles />
+    </>
   );
 }

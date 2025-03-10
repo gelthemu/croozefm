@@ -13,7 +13,7 @@ interface NewsPlaylistProps {
   onNewsSelect: (item: News) => void;
 }
 
-const ITEMS_PER_PAGE = 4;
+const ITEMS_PER_PAGE = 8;
 const MAX_PAGE_BUTTONS = 5;
 
 export function NewsPlaylist({
@@ -114,7 +114,7 @@ export function NewsPlaylist({
               selectedNews.id === item.id
                 ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60 cursor-default"
                 : "cursor-pointer"
-            } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/30 dark:border-b-dark/60`}
+            } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/60 dark:border-b-dark/80`}
           >
             <div>
               <div

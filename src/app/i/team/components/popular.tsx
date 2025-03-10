@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { H2Title } from "@/app/components/providers/divs/page-heading";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getPopularProfiles } from "@/lib/profiles-parser";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
@@ -12,10 +13,14 @@ export default function PopularProfiles() {
   const popularProfiles = useShuffledArray(profiles, seed);
 
   return (
-    <>
+    <div className="py-1">
+      <div className="text-left">
+        <H2Title title="Meet Our Team" />
+        <p className="mb-3">Swipe, or click to view in detail.</p>
+      </div>
       <div className="relative overflow-hidden">
         <Carousel
-          className="gap-2 snap-x snap-mandatory"
+          className="gap-2 snap-x snap-mandatory rounded-md"
           btnClass="text-light/80 bg-dark/60"
           itemWidth={320}
         >
@@ -23,7 +28,7 @@ export default function PopularProfiles() {
             <Link
               href={`/i/${profile.id}`}
               key={profile.id}
-              className="relative group snap-center bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-64 border border-dark/40 dark:border-light/30"
+              className="relative group snap-center bg-gray/20 dark:bg-gray/50 rounded-md overflow-hidden flex-shrink-0 w-64 border-2 border-gray/80 dark:border-light/20"
             >
               <div className="w-full profile-image overflow-hidden">
                 <Image
@@ -38,7 +43,7 @@ export default function PopularProfiles() {
               <div className="absolute top-2 right-2 opacity-30">🔥</div>
               <div className="p-3.5 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
                 <div className="h-full w-full flex flex-col items-start justify-end">
-                  <h3 className="text-light font-bold mb-1 line-clamp-1 opacity-80">
+                  <h3 className="text-light font-bold line-clamp-1 opacity-80">
                     {profile.name}
                   </h3>{" "}
                   <p className="text-light/60 text-sm font-light line-clamp-1 opacity-80">
@@ -50,10 +55,9 @@ export default function PopularProfiles() {
           ))}
         </Carousel>
       </div>
-
-      <div className="flex items-center justify-end mx-auto my-5 md:mt-2.5 p-2">
+      <div className="flex items-center justify-end mx-auto mt-6">
         <ViewAllBtn href="/i/team" text="Meet The Entire Team" />
       </div>
-    </>
+    </div>
   );
 }

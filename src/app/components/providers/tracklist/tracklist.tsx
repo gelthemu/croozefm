@@ -12,11 +12,13 @@ export default function Tracklist() {
   return (
     <>
       {isSuccess && (
-        <div className="w-full mt-6 md:mt-0">
-          <h2 className="text-lg mb-2.5 _912cfm">Recently Played</h2>
+        <>
+          <h3 className="font-medium text-lg text-red mb-2 _912cfm">
+            Recently Played
+          </h3>
 
           {currentTrack && (
-            <div className="w-full mx-auto mb-2.5 text-left">
+            <div className="w-full mx-auto mb-2 text-left">
               <TrackCard
                 track={currentTrack}
                 isCurrent={true}
@@ -26,8 +28,8 @@ export default function Tracklist() {
           )}
 
           {recentTracks && (
-            <div className="w-full p-0.5 rounded-sm border border-gray/10 dark:border-light/10">
-              <div className="relative overflow-hidden">
+            <div className="w-full p-0.5 rounded-lg border border-gray/10 dark:border-light/10">
+              <div className="relative overflow-hidden rounded-md">
                 <Carousel
                   className="gap-2 snap-x snap-mandatory"
                   btnClass="bg-light/80 dark:bg-dark/80"
@@ -45,7 +47,7 @@ export default function Tracklist() {
               </div>
             </div>
           )}
-        </div>
+        </>
       )}
     </>
   );

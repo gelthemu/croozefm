@@ -16,6 +16,16 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "instagram.fnbo1-1.fna.fbcdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "scontent.fnbo1-1.fna.fbcdn.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "coverart.instant.audio",
         pathname: "/images/**",
       },
@@ -73,6 +83,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "nbssport.co.ug",
         pathname: "/wp-content/**",
+      },
+      {
+        protocol: "https",
+        hostname: "substackcdn.com",
+        pathname: "/image/**",
       },
     ],
   },

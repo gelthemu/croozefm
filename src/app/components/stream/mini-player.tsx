@@ -3,6 +3,7 @@
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { useEffect, useCallback, useState } from "react";
 import { FaPlayCircle, FaPauseCircle } from "react-icons/fa";
+import FixedDiv from "../providers/divs/fixed-element";
 
 export default function MiniPlayer() {
   const [progress, setProgress] = useState(0);
@@ -186,12 +187,12 @@ export default function MiniPlayer() {
   }, [isMiniPlayerOpen, currentSource, handleAudioPlay, audioRef, handleClose]);
 
   return (
-    <div
-      className={`fixed bottom-1.5 left-1.5 right-1.5 md:left-auto md:right-1.5 md:w-[320px] lg:w-[400px] p-2.5 text-center text-light backdrop-blur-md bg-gray/80 border-2 border-red/80 rounded-sm transition-all duration-500 overflow-hidden z-50 ${
+    <FixedDiv
+      className={`${
         isMiniPlayerOpen
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-full"
-      } shadow-lg`}
+      }`}
     >
       <div>
         <div className="relative flex flex-row items-center justify-between space-x-1.5">
@@ -268,6 +269,6 @@ export default function MiniPlayer() {
         )}
         <audio ref={audioRef} src={currentSource} preload="metadata" />
       </div>
-    </div>
+    </FixedDiv>
   );
 }
