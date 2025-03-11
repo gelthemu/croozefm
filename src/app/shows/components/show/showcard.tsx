@@ -11,12 +11,12 @@ interface ShowCardProps {
 export const ShowCard = ({ show }: ShowCardProps) => {
   const router = useRouter();
 
-  const handleDoubleClick = () => {
+  const handleOnClick = () => {
     router.push(`/shows/${show.id}`);
   };
 
   return (
-    <div onDoubleClick={handleDoubleClick} className="cursor-pointer">
+    <div onClick={handleOnClick} className="cursor-pointer">
       <div className="text-left text-sm mb-2 sr-only">{show.name}</div>
       <div className="group grid-1 relative">
         <ImgDiv

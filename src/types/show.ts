@@ -14,9 +14,11 @@ export interface Show {
     id: number;
     url: string;
     category?: NewsCategory | null;
+    name?: string | null;
+    cover?: string | null;
   }[];
   time: {
     start: number;
     end: number;
-  }
+  };
 }

@@ -421,6 +421,18 @@ export const news: News[] = [
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-03-02_2pm.mp3",
   },
+  {
+    id: 202502261400,
+    aired: {
+      date: "2025-02-26T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Bunyoro Business Leaders Urge Review of East African Community Trade Restrictions",
+    anchor: anchors.monica,
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-26_2pm.mp3",
+  },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411141600,
@@ -626,5 +638,17 @@ export const news: News[] = [
     anchor: anchors.oscar,
     audio:
       "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-02-18_7pm.mp3",
+  },
+  {
+    id: 202503101900,
+    aired: {
+      date: "2025-03-10T19:00:00+03:00",
+      time: "7PM",
+    },
+    headline:
+      "Uganda Ministry of Health Launches 10-Day Nationwide Campaign to Reduce Maternal and Neonatal Mortality",
+    anchor: anchors.oscar,
+    audio:
+      "https://croozefm.blob.core.windows.net/audio/cfm-news-2025-03-10_7pm.mp3",
   },
 ];

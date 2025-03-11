@@ -42,12 +42,24 @@ export const shows: Show[] = [
         url: "411-clare-inyaa-2025-03-04",
         category: "411",
       },
+      {
+        id: 1740564000,
+        url: "slowdown-hour-2025-02-26",
+        name: "The Slow Down Hour",
+        cover: "slowdown-hour",
+      },
+      {
+        id: 1736762400,
+        url: "slowdown-hour-2025-01-13",
+        name: "The Slow Down Hour",
+        cover: "slowdown-hour",
+      },
     ],
     time: { start: 11, end: 13 },
   },
   {
     id: "slowdown-hour",
-    name: "The Slowdown Hour on the Lifestyle Show",
+    name: "The Slow Down Hour on the Lifestyle Show",
     time: { start: 13, end: 14 },
   },
   {

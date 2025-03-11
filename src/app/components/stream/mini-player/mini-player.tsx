@@ -80,7 +80,7 @@ export default function MiniPlayer() {
               className={`border-none ${
                 isCollapse
                   ? "opacity-100 max-h-[248px] md:max-h-[278px] translate-x-0 rounded-md shadow shadow-gray/20 dark:shadow-light/5"
-                  : "opacity-0 max-h-0 translate-x-full"
+                  : "opacity-0 max-h-0 translate-x-full shadow-none"
               }`}
               text={tagLine}
             />

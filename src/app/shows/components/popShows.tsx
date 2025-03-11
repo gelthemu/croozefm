@@ -14,7 +14,7 @@ export const PopularShows = () => {
     <div className="py-1">
       <div className="text-left">
         <H2Title title="Popular Shows" />
-        <p className="mb-3">Double-click to view in detail.</p>
+        <p className="mb-3">Click to view in detail.</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 justify-center items-center">
         {popularShows.map((show) => (

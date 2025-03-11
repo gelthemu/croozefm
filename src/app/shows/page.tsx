@@ -20,7 +20,7 @@ export default function ShowsPage() {
     <>
       <PageHeading
         heading="Shows"
-        text="Double-click to view in detail. Some shows have ad-free recordings you might enjoy."
+        text="Click to view in detail. Some shows have ad-free recordings you might enjoy."
       />
       <div className="mt-12">
         <ShowsFullList />

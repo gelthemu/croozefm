@@ -56,9 +56,11 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     } else {
       setCurrentSource(fullAudioUrl);
       setIsStreaming(false);
-      setTagLine(`${show.name}`);
+      setTagLine(recording.name ? `${recording.name}` : `${show.name}`);
       setSnapShot(
-        `https://croozefm.blob.core.windows.net/images/${show.id}.png`
+        recording.cover
+          ? `https://croozefm.blob.core.windows.net/images/${recording.cover}.png`
+          : `https://croozefm.blob.core.windows.net/images/${show.id}.png`
       );
       setIsMiniPlayerOpen(true);
       setPlayingIndex(index);
@@ -89,28 +91,34 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
             return (
               <div
                 key={recording.id}
-                className={`overflow-hidden rounded-md ${
+                className={`group overflow-hidden rounded-md ${
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"
-                } bg-dark/20 dark:bg-gray/60 transition-all duration-500`}
+                } bg-gray/10 dark:bg-gray transition-all duration-500 select-none`}
               >
                 <div className="p-4">
                   <div className="flex flex-row items-center justify-between pb-3">
                     <div className="flex items-center text-xs text-gray/90 dark:text-light/80">
-                      {recording.category && (
+                      {recording.category ? (
                         <>
                           <Link href={`/news/${recording.category}`}>
-                            <span className="font-medium">
+                            <span className="font-medium group-hover:text-red/80">
                               <FormatCategory category={recording.category} />
                             </span>
                           </Link>
                           <div className="mx-1.5 font-light opacity-50">
                             {" • "}
-                          </div>
+                          </div>{" "}
+                          <div className="line-clamp-1">{show.name}</div>
                         </>
+                      ) : recording.name ? (
+                        <>
+                          <div className="font-medium">{recording.name}</div>
+                        </>
+                      ) : (
+                        <div className="line-clamp-1">{show.name}</div>
                       )}
-                      <div className="line-clamp-1">{show.name}</div>
                     </div>
                   </div>
                   <div
@@ -132,7 +140,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                         handlePlay(index);
                       }
                     }}
-                    className={`bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
                       isActive ? "cursor-default" : "cursor-pointer"
                     }`}
                   >

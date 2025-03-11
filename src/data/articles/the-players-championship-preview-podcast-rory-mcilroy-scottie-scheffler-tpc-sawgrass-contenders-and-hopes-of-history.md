@@ -5,7 +5,7 @@ excerpt: "Former PGA Tour winner Brad Faxon joins Jamie Weir on the latest Sky S
 category: "sports-updates"
 keywords: "PGA Tour, Rory McIlroy, The Players, Scottie Scheffler, Will Scottie Scheffler make more history at The Players,  Can Rory McIlroy's club switch help him to another PGA Tour victory, "
 image_url: "https://e0.365dm.com/24/03/1600x900/skysports-golf-players-championship_6482646.jpg?20240308094835"
-source: "AFP"
+source: "Sky Sports"
 ---
 
 ### Will McIlroy's switch bring Sawgrass success?
