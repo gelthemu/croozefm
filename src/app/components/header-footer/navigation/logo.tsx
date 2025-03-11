@@ -5,13 +5,14 @@ import Image from "next/image";
 
 interface LogoProps {
   onLogoClick?: () => void;
+  className?: string;
 }
 
-export const Logo = ({ onLogoClick }: LogoProps) => (
+export const Logo = ({ onLogoClick, className = "" }: LogoProps) => (
   <Link
     href="/home"
     onClick={onLogoClick}
-    className="flex items-center w-24 md:w-28"
+    className={`relative flex items-center w-24 ${className}`}
   >
     <Image
       src="/cfm-logo.png"

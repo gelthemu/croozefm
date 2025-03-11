@@ -8,14 +8,17 @@ import ScrollToTop from "../tiny/scroll-to-top";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 
 export default function Footer() {
-  const { isMiniPlayerOpen } = useMiniPlayer();
+  const { isMiniPlayerOpen, isCollapse } = useMiniPlayer();
 
   return (
-    <footer className="w-full bg-gray text-light/80">
+    <footer className="w-full bg-gray/70 dark:bg-gray text-light/80">
       <div
-        className={`w-full max-w-screen-xl mx-auto px-4 lg:px-8 pt-12 sm:pt-16 ${
-          isMiniPlayerOpen ? "pb-32" : "p-12"
-        }`}
+        className={`w-full max-w-screen-xl mx-auto px-4 lg:px-8 pt-12 sm:pt-16 `}
+        style={{
+          paddingBottom: `${
+            isMiniPlayerOpen ? (isCollapse ? "300px" : "148px") : "60px"
+          }`,
+        }}
       >
         <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-6 text-sm">
           <div className=" w-full max-w-2xl">

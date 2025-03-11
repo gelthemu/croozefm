@@ -10,7 +10,7 @@ interface FixedDivProps {
 const FixedDiv: React.FC<FixedDivProps> = ({ className = "", children }) => {
   return (
     <div
-      className={`${className} fixed bottom-1.5 left-1.5 right-1.5 md:left-auto md:right-1.5 md:w-[320px] lg:w-[400px] p-2.5 text-light bg-gray border border-light/10 rounded-md transition-all duration-500 overflow-hidden z-50`}
+      className={`${className} fixed bottom-1.5 left-1.5 right-1.5 md:left-auto md:right-1.5 md:w-[320px] lg:w-[420px] p-2 text-dark dark:text-light bg-light dark:bg-gray border border-red/80 rounded-lg transition-all duration-200 overflow-hidden z-50`}
       role="dialog"
     >
       {children}

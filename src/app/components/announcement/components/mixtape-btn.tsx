@@ -17,6 +17,7 @@ export default function MixtapeBtn({ mixtape }: MixtapeProps) {
     setCurrentSource,
     setIsStreaming,
     setTagLine,
+    setSnapShot,
   } = useMiniPlayer();
   const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
@@ -27,6 +28,9 @@ export default function MixtapeBtn({ mixtape }: MixtapeProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
+      setSnapShot(
+        "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
+      );
       setIsMiniPlayerOpen(true);
     }
   };

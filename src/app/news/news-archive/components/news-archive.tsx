@@ -23,6 +23,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
     setCurrentSource,
     setTagLine,
     setIsStreaming,
+    setSnapShot,
     currentSource,
     isAudioPlaying,
     isMiniPlayerOpen,
@@ -45,6 +46,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
   const handlePlay = () => {
     setCurrentSource(selectedNews.audio);
     setTagLine(`${selectedNews.anchor.name}${" — "}Crooze FM News`);
+    setSnapShot("https://croozefm.blob.core.windows.net/images/news.png");
     setIsStreaming(false);
     setIsMiniPlayerOpen(true);
   };
@@ -55,6 +57,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
     if (item.audio !== currentSource) {
       setCurrentSource(item.audio);
       setTagLine(`${item.anchor.name}${" — "}Crooze FM News`);
+      setSnapShot("https://croozefm.blob.core.windows.net/images/news.png");
       setIsStreaming(false);
       setIsMiniPlayerOpen(true);
     }

@@ -31,7 +31,7 @@ export default function NewsArchivePage() {
         </div>
       </div>
       <Divider />
-      <NewsFooter />
+      <NewsFooter view={false} />
     </div>
   );
 }

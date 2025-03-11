@@ -51,7 +51,7 @@ export default function CookieConsent() {
         </p>
         <button
           onClick={handleAccept}
-          className="bg-red font-medium py-1 px-3 rounded"
+          className="bg-red text-light font-medium py-1 px-3 rounded"
           aria-label="Accept cookies"
         >
           Okay

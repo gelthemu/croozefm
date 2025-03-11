@@ -1,7 +1,11 @@
 import React from "react";
 import XNewsButton from "../news-archive/components/news-btn";
 
-export default async function NewsFooter() {
+interface ArchiveProps {
+  view?: boolean;
+}
+
+export default async function NewsFooter({ view = true }: ArchiveProps) {
   return (
     <>
       <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
@@ -12,7 +16,7 @@ export default async function NewsFooter() {
           your world. Your soundtrack to informed listening starts here!
         </p>
         <div className="mb-4">
-          <XNewsButton />
+          <XNewsButton view={view} />
         </div>
         <p className="font-medium text-sm italic mb-4 _912cfm">
           &quot;Always remember where you heard it first.&quot;

@@ -27,7 +27,7 @@ export function NewsPlaylist({
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
+  }, [currentPage, selectedNews.id]);
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);

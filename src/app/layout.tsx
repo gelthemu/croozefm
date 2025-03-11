@@ -9,8 +9,9 @@ import { ThemeProviders } from "./components/providers/theme-provider";
 import ToastProvider from "./components/providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
-import MiniPlayer from "./components/stream/mini-player";
+import MiniPlayer from "./components/stream/mini-player/mini-player";
 import { MiniPlayerProvider } from "./context/mini-player-context";
+import MediaSessionHandler from "./components/stream/mini-player/components/media-session";
 import FullscreenCarousel from "./i/team/components/profile/gallery/fullscreen-gallery";
 import { CarouselProvider } from "./context/carousel-context";
 import "./styles/globals.css";
@@ -151,6 +152,7 @@ export default function RootLayout({
                 <Footer />
                 <CookieConsent />
                 <FullscreenCarousel />
+                <MediaSessionHandler />
               </MiniPlayerProvider>
             </CarouselProvider>
           </div>

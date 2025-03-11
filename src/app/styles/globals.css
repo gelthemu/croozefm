@@ -19,7 +19,7 @@ html {
 }
 
 ::selection {
-  background: #b71c1c;
+  background: #b71c1cc1;
   color: #f5f5f5;
 }
 
@@ -159,7 +159,7 @@ h2 {
 
 @keyframes stream {
   0% {
-    width: 15%;
+    width: 10%;
     opacity: 0.75;
   }
   50% {
@@ -167,14 +167,14 @@ h2 {
     opacity: 0.95;
   }
   100% {
-    width: 15%;
+    width: 10%;
     opacity: 0.75;
   }
 }
 
 @-moz-keyframes stream {
   0% {
-    width: 15%;
+    width: 10%;
     opacity: 0.75;
   }
   50% {
@@ -182,12 +182,12 @@ h2 {
     opacity: 0.95;
   }
   100% {
-    width: 15%;
+    width: 10%;
     opacity: 0.75;
   }
 }
 
 .animate-stream {
-  -moz-animation: heartbeat 5s ease-in-out infinite;
-  animation: stream 60s ease-in-out infinite;
+  -moz-animation: heartbeat 6s ease-in-out infinite;
+  animation: stream 6s ease-in-out infinite;
 }

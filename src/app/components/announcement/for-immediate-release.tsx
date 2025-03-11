@@ -10,6 +10,7 @@ import { FormatSimpleDate } from "../tiny/format-date";
 interface ImmediateReleaseProps {
   viewAll?: boolean;
 }
+
 export default function ImmediateRelease({
   viewAll = false,
 }: ImmediateReleaseProps) {

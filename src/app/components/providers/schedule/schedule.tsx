@@ -47,12 +47,7 @@ const Schedule = () => {
           />
         </Link>
       ) : (
-        <div className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/80 border border-light/50 text-light p-1.5 rounded-md">
-          <FaLink
-            size={16}
-            className="group-hover:rotate-180 transition-transform duration-500"
-          />
-        </div>
+        null
       )}
     </div>
   );

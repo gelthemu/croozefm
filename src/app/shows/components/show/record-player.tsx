@@ -19,6 +19,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     setIsMiniPlayerOpen,
     setCurrentSource,
     setTagLine,
+    setSnapShot,
     setIsStreaming,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
@@ -55,7 +56,10 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     } else {
       setCurrentSource(fullAudioUrl);
       setIsStreaming(false);
-      setTagLine(`${show.name} - ${FormatSimpleDate({ epoch: recording.id })}`);
+      setTagLine(`${show.name}`);
+      setSnapShot(
+        `https://croozefm.blob.core.windows.net/images/${show.id}.png`
+      );
       setIsMiniPlayerOpen(true);
       setPlayingIndex(index);
     }
@@ -85,7 +89,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
             return (
               <div
                 key={recording.id}
-                className={`overflow-hidden rounded-sm ${
+                className={`overflow-hidden rounded-md ${
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"

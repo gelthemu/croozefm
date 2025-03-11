@@ -116,7 +116,7 @@ export default async function ShowPage({ params }: PageProps) {
       <div>
         <RecordPlayer show={show} />
       </div>
-      <div className="flex items-center justify-end mx-auto">
+      <div className="flex items-center justify-center mx-auto">
         <ViewAllBtn href="/shows" text="View All Shows" />
       </div>
       <Divider />

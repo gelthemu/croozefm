@@ -12,14 +12,14 @@ const anchors: Record<string, Anchor> = {
   monica: {
     name: "Monica Mbabazi",
     link: "/i/monique-mbabazi",
-    img: "/assets/avatars/momo.png",
+    img: "https://pbs.twimg.com/profile_images/1898430237882425344/5oTDYkNS_400x400.jpg",
   },
   antoinette: {
     name: "Marie Antoinettie",
     img: "/assets/avatars/antoinette.png",
   },
   oscar: {
-    name: "Oscar Confidence Abangira",
+    name: "Oscar Abangira",
     img: "/assets/avatars/oscar.png",
   },
 };

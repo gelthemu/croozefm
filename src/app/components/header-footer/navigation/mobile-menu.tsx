@@ -9,16 +9,11 @@ import { ThemeSwitcher } from "../../tiny/theme-toggle";
 interface MobileMenuProps {
   isOpen: boolean;
   onNavClick: () => void;
-  onLogoClick: () => void;
 }
 
-export const MobileMenu = ({
-  isOpen,
-  onNavClick,
-  onLogoClick,
-}: MobileMenuProps) => (
+export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
   <div
-    className={`md:hidden w-[100%] fixed inset-0 bg-dark z-40 transition-all duration-[0.6s] ease-in-out ${
+    className={`md:hidden w-[100%] fixed inset-0 bg-dark z-40 transition-all duration-[0.5s] ease-in-out ${
       isOpen
         ? "opacity-100 translate-x-0"
         : "opacity-0 -translate-x-full pointer-events-none"
@@ -27,7 +22,10 @@ export const MobileMenu = ({
   >
     <div className="flex flex-col justify-between w-full h-full bg-gray/50">
       <div className="py-5 px-6 sm:px-12 md:px-16 bg-red border-b border-dark/50 dark:border-light/50">
-        <Logo onLogoClick={onLogoClick} />
+        <div className="opacity-0">
+          {" "}
+          <Logo />
+        </div>
       </div>
       <ul className="flex flex-col divide-y divide-light/20 px-4">
         {navLinks.map((link) => (

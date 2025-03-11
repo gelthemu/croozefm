@@ -39,14 +39,10 @@ export default function Navbar() {
     <div className="w-full bg-red sticky top-0 z-50 border-b border-dark/50 dark:border-light/50">
       <nav className="w-full max-w-screen-xl mx-auto">
         <div className="flex flex-wrap items-center justify-between py-5 px-8 sm:px-12 md:px-16">
-          <Logo />
+          <Logo onLogoClick={closeMenu} className="z-[100]" />
           <HamburgerButton isOpen={isOpen} onClick={toggleMenu} />
           <DesktopMenu />
-          <MobileMenu
-            isOpen={isOpen}
-            onNavClick={closeMenu}
-            onLogoClick={closeMenu}
-          />
+          <MobileMenu isOpen={isOpen} onNavClick={closeMenu} />
         </div>
       </nav>
     </div>

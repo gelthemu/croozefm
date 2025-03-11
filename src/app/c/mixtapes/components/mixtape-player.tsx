@@ -18,6 +18,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     setCurrentSource,
     setTagLine,
     setIsStreaming,
+    setSnapShot,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -47,6 +48,9 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
+      setSnapShot(
+        "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
+      );
       setIsMiniPlayerOpen(true);
       setPlayingIndex(index);
     }
