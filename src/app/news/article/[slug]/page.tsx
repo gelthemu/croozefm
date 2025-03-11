@@ -195,7 +195,11 @@ export default async function ArticlePage({
         </article>
 
         <div className="my-10">
-          <RecentNews articles={recentArticles} className="md:grid-cols-2" />
+          <RecentNews
+            articles={recentArticles}
+            className="md:grid-cols-2 mt-6"
+            title="Read More"
+          />
         </div>
       </div>
       <Divider />

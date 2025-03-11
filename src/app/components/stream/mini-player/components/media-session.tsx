@@ -17,7 +17,7 @@ export default function MediaSessionHandler() {
     }
 
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: tagLine,
+      title: `${tagLine} | 91.2 Crooze FM`,
       artist: "Western Uganda's Biggest Radio Station",
       album: "",
     });

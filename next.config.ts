@@ -89,6 +89,11 @@ const nextConfig: NextConfig = {
         hostname: "substackcdn.com",
         pathname: "/image/**",
       },
+      {
+        protocol: "https",
+        hostname: "newvision-media.s3.amazonaws.com",
+        pathname: "/**",
+      },
     ],
   },
 };

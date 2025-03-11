@@ -64,7 +64,7 @@ export default function MiniPlayer() {
         isMiniPlayerOpen
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-full"
-      }`}
+      } transition-all duration-[0.6s]`}
     >
       <div className="relative mx-2 my-1 select-none">
         <PlayerHeader

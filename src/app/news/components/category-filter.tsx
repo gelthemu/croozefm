@@ -53,7 +53,6 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
     };
-
   }, [currentCategory, isOpen]);
 
   useEffect(() => {

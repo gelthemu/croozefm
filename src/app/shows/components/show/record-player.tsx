@@ -113,30 +113,32 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                       <div className="line-clamp-1">{show.name}</div>
                     </div>
                   </div>
-                  <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
-                    <div
-                      role="button"
-                      tabIndex={isActive && isAudioPlaying ? -1 : 0}
-                      aria-label={
-                        isAudioPlaying && isActive
-                          ? "Currently Playing in Miniplayer"
-                          : "Play in Miniplayer"
-                      }
-                      aria-disabled={isActive && isAudioPlaying}
-                      onClick={() => {
-                        if (isActive) return;
+                  <div
+                    role="button"
+                    tabIndex={isActive && isAudioPlaying ? -1 : 0}
+                    aria-label={
+                      isAudioPlaying && isActive
+                        ? "Currently Playing in Miniplayer"
+                        : "Play in Miniplayer"
+                    }
+                    aria-disabled={isActive && isAudioPlaying}
+                    onClick={() => {
+                      if (isActive) return;
+                      handlePlay(index);
+                    }}
+                    onKeyDown={(e) => {
+                      if ((e.key === "Enter" || e.key === " ") && !isActive) {
+                        e.preventDefault();
                         handlePlay(index);
-                      }}
-                      onKeyDown={(e) => {
-                        if ((e.key === "Enter" || e.key === " ") && !isActive) {
-                          e.preventDefault();
-                          handlePlay(index);
-                        }
-                      }}
+                      }
+                    }}
+                    className={`bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                      isActive ? "cursor-default" : "cursor-pointer"
+                    }`}
+                  >
+                    <div
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive
-                          ? "text-red/80 cursor-default"
-                          : "cursor-pointer"
+                        isActive ? "text-red/80" : ""
                       }`}
                     >
                       {isAudioPlaying && isActive ? (

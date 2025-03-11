@@ -6,6 +6,7 @@ import NewsList from "./components/news-list";
 import { getAllNewsArticles, getAllCategories } from "@/lib/news-parser";
 import NewsFooter from "./components/news-footer";
 import Divider from "../components/providers/divs/divider";
+import WeatherWidget from "../components/providers/weather-widget";
 
 export const metadata: Metadata = {
   title: "News",
@@ -25,11 +26,12 @@ export default function NewsPage() {
   return (
     <>
       <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
-        <div className="flex flex-col">
+        <div className=" flex flex-col">
           <NewsHeader title="Crooze FM News" />
           <CategoryFilter categories={categories} />
+          <WeatherWidget className="mt-6" />
         </div>
-        <div className="my-10 flex flex-col">
+        <div className="my-6 flex flex-col">
           <NewsList articles={articles} />
         </div>
       </div>

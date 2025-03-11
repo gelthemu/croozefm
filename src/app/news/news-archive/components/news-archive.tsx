@@ -95,40 +95,46 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
               </p>
             </div>
 
-            <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
-              <div
-                role="button"
-                tabIndex={
-                  isMiniPlayerOpen && currentSource === selectedNews.audio
-                    ? -1
-                    : 0
-                }
-                aria-label={
-                  isPlaying
-                    ? "Currently Playing in Miniplayer"
-                    : "Play in Miniplayer"
-                }
-                aria-disabled={
-                  isMiniPlayerOpen && currentSource === selectedNews.audio
-                }
-                onClick={() => {
-                  if (isMiniPlayerOpen && currentSource === selectedNews.audio)
-                    return;
+            <div
+              role="button"
+              tabIndex={
+                isMiniPlayerOpen && currentSource === selectedNews.audio
+                  ? -1
+                  : 0
+              }
+              aria-label={
+                isPlaying
+                  ? "Currently Playing in Miniplayer"
+                  : "Play in Miniplayer"
+              }
+              aria-disabled={
+                isMiniPlayerOpen && currentSource === selectedNews.audio
+              }
+              onClick={() => {
+                if (isMiniPlayerOpen && currentSource === selectedNews.audio)
+                  return;
+                handlePlay();
+              }}
+              onKeyDown={(e) => {
+                if (
+                  (e.key === "Enter" || e.key === " ") &&
+                  !(isMiniPlayerOpen && currentSource === selectedNews.audio)
+                ) {
+                  e.preventDefault();
                   handlePlay();
-                }}
-                onKeyDown={(e) => {
-                  if (
-                    (e.key === "Enter" || e.key === " ") &&
-                    !(isMiniPlayerOpen && currentSource === selectedNews.audio)
-                  ) {
-                    e.preventDefault();
-                    handlePlay();
-                  }
-                }}
+                }
+              }}
+              className={`bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                isMiniPlayerOpen && currentSource === selectedNews.audio
+                  ? "cursor-default"
+                  : "cursor-pointer"
+              }`}
+            >
+              <div
                 className={`px-4 py-2 ${
                   isMiniPlayerOpen && currentSource === selectedNews.audio
-                    ? "text-red opacity-80 cursor-default"
-                    : "cursor-pointer"
+                    ? "text-red opacity-80 "
+                    : ""
                 }`}
               >
                 {isPlaying ? (

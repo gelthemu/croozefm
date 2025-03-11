@@ -27,7 +27,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
 
   return (
     <>
-      <div className="text-left flex flex-col py-6">
+      <div className="group text-left flex flex-col py-6">
         <div className="mb-2 select-none">
           {isPinned ? (
             <span className="px-2 py-1 text-xs font-semibold rounded bg-red text-light w-fit flex items-center opacity-[0.8]">
@@ -46,7 +46,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
         <div className="flex">
           <div className="w-full">
             <Link href={`/news/article/${slug}`}>
-              <h3 className="sm:text-lg font-semibold mb-2 leading-[1.2]">
+              <h3 className="sm:text-lg font-semibold mb-2 leading-[1.2] group-hover:underline decoration-red/60 transition-all duration-500">
                 {headline}
               </h3>
             </Link>
@@ -56,7 +56,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
           </div>
           {image_url ? (
             <Link href={`/news/article/${slug}`} className="ml-2">
-              <div className="relative rounded-sm overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
+              <div className="relative rounded-md overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
                 <Image
                   src={image_url}
                   alt={headline}
@@ -67,9 +67,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
                 />{" "}
               </div>
             </Link>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </div>
         <div className="flex flex-wrap items-center text-xs font-medium opacity-[0.65] select-none">
           {(author || source) && (

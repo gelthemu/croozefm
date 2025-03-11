@@ -6,6 +6,7 @@ import SocialMedia from "./components/social-media";
 import ContactInfo from "./components/contact-info";
 import MapSection from "./components/map-section";
 import Divider from "@/app/components/providers/divs/divider";
+import WeatherWidget from "@/app/components/providers/weather-widget";
 
 export const metadata = {
   title: "Get In Touch",
@@ -25,6 +26,7 @@ export default function ContactPage() {
         heading="Get In Touch"
         text="Any questions, we are available!"
       />
+      <WeatherWidget className="mt-6 mx-auto" />
       <div className="my-12 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-4">
         <ContactForm />
         <MapSection />
