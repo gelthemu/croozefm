@@ -17,7 +17,7 @@ export default function OnAir() {
       <div>
         <Show />
       </div>
-      <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:items-end md:space-x-4">
+      <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:items-start md:space-x-4">
         <div className="w-full md:w-[42%]">
           <Schedule />
         </div>

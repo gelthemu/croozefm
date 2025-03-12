@@ -9,7 +9,7 @@ interface NewsListProps {
   articles: NewsArticle[];
 }
 
-const ARTICLES_PER_PAGE = 12;
+const ARTICLES_PER_PAGE = 10;
 
 const NewsList: React.FC<NewsListProps> = ({ articles }) => {
   const [currentPage, setCurrentPage] = useState(1);
