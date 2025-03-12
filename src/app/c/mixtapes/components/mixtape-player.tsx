@@ -68,7 +68,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
 
   return (
     <div className="border-y border-gray/40 dark:border-light/10 px-2 py-8">
-      <div className="w-full md:w-4/6 mx-auto">
+      <div className="w-full md:w-5/6 mx-auto">
         <div className="mb-4">
           <div className="flex items-center justify-between text-red/80 font-normal">
             <p>In this PLAYLIST</p>

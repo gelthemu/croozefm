@@ -2,7 +2,7 @@
 headline: "CFM Weekly Mixtape: The beats just keep rolling in!"
 publication_date: 1741782976
 excerpt: "This week's mixtape features DJ Nati J, 'Mr. Representing Everywhere'. Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday."
-keywords: "Crooze FM Weekly Mixtape, Western Uganda radio, DJ Nati J mixtape, Starcent DJ mixtape, Deejay Emma mixtape, DJ Banx mixtape, Mbarara Uganda music, 91.2 Crooze FM, weekly mixtape 2025, best radio in Western Uganda, Crooze FM Mbarara, Uganda music mixtape, download Crooze FM mixtape, listen to Crooze FM online, Mbarara entertainment, Great Music Great Friends, Crooze FM latest release, Uganda radio stations"
+keywords: "Crooze FM Weekly Mixtape, Western Uganda radio, DJ Nati J mixtape, Starcent DJ mixtape, Deejay Emma mixtape, DJ Banx mixtape, Mbarara Uganda music, 91.2 Crooze FM, weekly mixtape, Crooze FM Mbarara, Crooze FM latest release"
 source: "91.2 Crooze FM"
 isPinned: true
 ---

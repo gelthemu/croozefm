@@ -134,9 +134,7 @@ export default function RootLayout({
           content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
         />
       </head>
-      <body
-        className={`${sans.variable} relative antialiased bg-light dark:bg-dark`}
-      >
+      <body className={`${sans.variable} relative antialiased`}>
         <ThemeProviders>
           <div className="w-full font-sans text-dark dark:text-light">
             <CarouselProvider>
@@ -144,9 +142,13 @@ export default function RootLayout({
                 <MiniPlayer />
                 <Navbar />
                 <ToastProvider />
-                <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16 overflow-hidden">
-                  <div className="container mx-auto">{children}</div>
-                </main>
+                <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
+                  <div className="w-full bg-light/80 dark:bg-dark/95">
+                    <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16 overflow-hidden">
+                      <div className="container mx-auto">{children}</div>
+                    </main>
+                  </div>
+                </div>
                 <Analytics />
                 <SpeedInsights />
                 <Footer />

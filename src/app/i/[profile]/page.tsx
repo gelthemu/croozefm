@@ -146,8 +146,12 @@ export default async function ProfilePage({
               {profile.description}
             </Markdown>
           </div>
-          <Divider />
-          <ProfileGallery gallery={profile.gallery} name={profile.name} />
+          {profile.gallery && (
+            <>
+              <Divider />
+              <ProfileGallery gallery={profile.gallery} name={profile.name} />
+            </>
+          )}
         </div>
       </div>
 
