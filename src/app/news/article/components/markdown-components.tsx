@@ -11,6 +11,7 @@ import {
   AwakeningMbraCity,
   Tweet1897364097542578217,
   Tweet1898834551826227249,
+  Tweet1899546714740048029,
 } from "@/app/components/providers/twitter-feed";
 
 interface CustomSectionProps {
@@ -128,6 +129,7 @@ const componentMap: Record<string, React.FC<CustomSectionProps>> = {
   "awakening-mbra-city": () => <AwakeningMbraCity />,
   tweet1897364097542578217: () => <Tweet1897364097542578217 />,
   tweet1898834551826227249: () => <Tweet1898834551826227249 />,
+  tweet1899546714740048029: () => <Tweet1899546714740048029 />,
 };
 
 const CustomSection: React.FC<CustomSectionProps> = ({

@@ -28,18 +28,26 @@ export function useAudioProgress() {
     (event: React.MouseEvent<HTMLDivElement>) => {
       if (!audioRef.current || isStreaming) return;
 
-      const progressBar = event.currentTarget;
+      const progressBar = event.currentTarget.querySelector("div");
+      if (!progressBar) return;
+
       const rect = progressBar.getBoundingClientRect();
       const clickPosition = event.clientX - rect.left;
       const progressBarWidth = rect.width;
 
-      const clickPercentage = (clickPosition / progressBarWidth) * 100;
+      const clickPercentage = Math.max(
+        0,
+        Math.min(100, (clickPosition / progressBarWidth) * 100)
+      );
 
-      const newTime = (clickPercentage / 100) * audioRef.current.duration;
-      audioRef.current.currentTime = newTime;
+      if (audioRef.current.duration) {
+        console.log("duration:", audioRef.current.duration);
+        const newTime = (clickPercentage / 100) * audioRef.current.duration;
+        audioRef.current.currentTime = newTime;
 
-      setProgress(clickPercentage);
-      setCurrentTime(formatTime(newTime));
+        setProgress(clickPercentage);
+        setCurrentTime(formatTime(newTime));
+      }
     },
     [audioRef, isStreaming, formatTime]
   );

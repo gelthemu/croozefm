@@ -120,9 +120,9 @@ export default async function ArticlePage({
     isPinned,
   } = article;
 
-  const recentArticles = getRecentNews(5)
+  const recentArticles = getRecentNews(6)
     .filter((a) => a.slug !== slug)
-    .slice(0, 4);
+    .slice(1, 5);
 
   return (
     <>

@@ -31,9 +31,9 @@ export default function ImmediateRelease({
             <div className="text-left">
               <H2Title title="CFM Weekly Mixtape" />
               <p className="mb-3">
-                Another mixtape to keep you moving! Western Uganda&apos;s
-                Biggest Radio Station brings you the Crooze FM Weekly Mixtape
-                every Wednesday.{" "}
+                The beats just keep rolling in! Western Uganda&apos;s Biggest
+                Radio Station brings you the Crooze FM Weekly Mixtape every
+                Wednesday.{" "}
                 <Link
                   href="/c/mixtapes"
                   aria-label="View All Mixtapes"

@@ -100,6 +100,7 @@ export default function MiniPlayer() {
           />
           <ProgressBar
             progress={progress}
+            isLoading={isLoading}
             handleProgressBarClick={handleProgressBarClick}
           />
           <TimeDisplay

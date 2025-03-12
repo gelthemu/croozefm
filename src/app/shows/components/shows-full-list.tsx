@@ -10,7 +10,7 @@ export default function ShowsFullList() {
   return (
     <MainPagination
       items={ftShows}
-      itemsPerPage={9}
+      itemsPerPage={12}
       renderItem={(show) => <ShowCard key={show.id} show={show} />}
     />
   );

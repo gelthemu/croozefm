@@ -22,4 +22,11 @@ export const mixtapes: Mixtape[] = [
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Weekly-Mixtapes-Starcent-DJ-Vol-1.mp3",
     dj: { name: "Starcent DJ" },
   },
+  {
+    id: 1741757450,
+    title: "DJ Nati J Vol 1",
+    image: "",
+    url: "https://croozefm.com/wp-content/uploads/2025/03/CroozeFM-Mixtape-DJNatiJ-1.mp3",
+    dj: { name: "DJ Nati J" },
+  },
 ];

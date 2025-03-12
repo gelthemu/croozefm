@@ -27,41 +27,88 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
     currentSource,
     isAudioPlaying,
     isMiniPlayerOpen,
+    setIsSeekable,
   } = useMiniPlayer();
+
+  const getAudioIdFromUrl = (url: string | null): string | null => {
+    if (!url) return null;
+
+    const match = url.match(/\/([^\/]+)\.mp3$/);
+    return match ? match[1] : null;
+  };
+
+  const buildAudioUrl = (audioId: string): string => {
+    return `https://croozefm.blob.core.windows.net/audio/${audioId}.mp3`;
+  };
 
   useEffect(() => {
     if (isMiniPlayerOpen && currentSource) {
-      const currentlyPlayingNews = news.find(
-        (item) => item.audio === currentSource
-      );
-      if (currentlyPlayingNews && currentlyPlayingNews.id !== selectedNews.id) {
-        setSelectedNews(currentlyPlayingNews);
+      const currentAudioId = getAudioIdFromUrl(currentSource);
+
+      if (currentAudioId) {
+        const currentlyPlayingNews = news.find(
+          (item) => item.audio === currentAudioId
+        );
+
+        if (
+          currentlyPlayingNews &&
+          currentlyPlayingNews.id !== selectedNews.id
+        ) {
+          setSelectedNews(currentlyPlayingNews);
+        }
       }
     }
   }, [isMiniPlayerOpen, currentSource, news, selectedNews.id]);
 
   const isPlaying =
-    isMiniPlayerOpen && isAudioPlaying && currentSource === selectedNews.audio;
+    isMiniPlayerOpen &&
+    isAudioPlaying &&
+    currentSource === buildAudioUrl(selectedNews.audio);
 
   const handlePlay = () => {
-    setCurrentSource(selectedNews.audio);
+    const audioUrl = buildAudioUrl(selectedNews.audio);
+    setCurrentSource(audioUrl);
     setTagLine(`${selectedNews.anchor.name}${" — "}Crooze FM News`);
     setSnapShot("https://croozefm.blob.core.windows.net/images/news.png");
     setIsStreaming(false);
+    setIsSeekable(false);
     setIsMiniPlayerOpen(true);
   };
 
   const handleNewsSelect = (item: News) => {
     setSelectedNews(item);
 
-    if (item.audio !== currentSource) {
-      setCurrentSource(item.audio);
+    const audioUrl = buildAudioUrl(item.audio);
+    if (audioUrl !== currentSource) {
+      setCurrentSource(audioUrl);
       setTagLine(`${item.anchor.name}${" — "}Crooze FM News`);
       setSnapShot("https://croozefm.blob.core.windows.net/images/news.png");
       setIsStreaming(false);
+      setIsSeekable(false);
       setIsMiniPlayerOpen(true);
     }
   };
+
+  const isCurrentlyPlaying = () => {
+    if (!isMiniPlayerOpen || !currentSource) return false;
+    return currentSource === buildAudioUrl(selectedNews.audio);
+  };
+
+  const renderAnchorImage = () => (
+    <span
+      className={`absolute inset-0 w-full h-full rounded-full ${
+        isPlaying ? "animate-heartbeat bg-red" : "border-2 border-red/80"
+      }`}
+    >
+      <Image
+        src={selectedNews.anchor.img}
+        alt={selectedNews.anchor.name}
+        width={2168}
+        height={2168}
+        className="rounded-full object-cover w-full aspect-square _img_ grayscale"
+      />
+    </span>
+  );
 
   return (
     <div>
@@ -97,44 +144,33 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
 
             <div
               role="button"
-              tabIndex={
-                isMiniPlayerOpen && currentSource === selectedNews.audio
-                  ? -1
-                  : 0
-              }
+              tabIndex={isCurrentlyPlaying() ? -1 : 0}
               aria-label={
                 isPlaying
                   ? "Currently Playing in Miniplayer"
                   : "Play in Miniplayer"
               }
-              aria-disabled={
-                isMiniPlayerOpen && currentSource === selectedNews.audio
-              }
+              aria-disabled={isCurrentlyPlaying()}
               onClick={() => {
-                if (isMiniPlayerOpen && currentSource === selectedNews.audio)
-                  return;
+                if (isCurrentlyPlaying()) return;
                 handlePlay();
               }}
               onKeyDown={(e) => {
                 if (
                   (e.key === "Enter" || e.key === " ") &&
-                  !(isMiniPlayerOpen && currentSource === selectedNews.audio)
+                  !isCurrentlyPlaying()
                 ) {
                   e.preventDefault();
                   handlePlay();
                 }
               }}
               className={`bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
-                isMiniPlayerOpen && currentSource === selectedNews.audio
-                  ? "cursor-default"
-                  : "cursor-pointer"
+                isCurrentlyPlaying() ? "cursor-default" : "cursor-pointer"
               }`}
             >
               <div
                 className={`px-4 py-2 ${
-                  isMiniPlayerOpen && currentSource === selectedNews.audio
-                    ? "text-red opacity-80 "
-                    : ""
+                  isCurrentlyPlaying() ? "text-red opacity-80 " : ""
                 }`}
               >
                 {isPlaying ? (
@@ -155,39 +191,11 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
                   href={selectedNews.anchor.link}
                   className="relative mx-4 w-8 h-8 flex-shrink-0 transition-all duration-500"
                 >
-                  <span
-                    className={`absolute inset-0 w-full h-full rounded-full ${
-                      isPlaying
-                        ? "animate-heartbeat bg-red"
-                        : "border-2 border-red/80"
-                    }`}
-                  >
-                    <Image
-                      src={selectedNews.anchor.img}
-                      alt={selectedNews.anchor.name}
-                      width={2168}
-                      height={2168}
-                      className="rounded-full object-cover w-full aspect-square _img_ grayscale"
-                    />
-                  </span>
+                  {renderAnchorImage()}
                 </Link>
               ) : (
                 <div className="relative mx-4 w-8 h-8 flex-shrink-0 transition-all duration-500">
-                  <span
-                    className={`absolute inset-0 w-full h-full rounded-full ${
-                      isPlaying
-                        ? "animate-heartbeat bg-red"
-                        : "border-2 border-red/80"
-                    }`}
-                  >
-                    <Image
-                      src={selectedNews.anchor.img}
-                      alt={selectedNews.anchor.name}
-                      width={2168}
-                      height={2168}
-                      className="rounded-full object-cover w-full aspect-square _img_ grayscale"
-                    />
-                  </span>
+                  {renderAnchorImage()}
                 </div>
               )}
             </div>

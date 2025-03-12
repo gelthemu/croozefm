@@ -21,6 +21,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     setTagLine,
     setSnapShot,
     setIsStreaming,
+    setIsSeekable,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -63,6 +64,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
           : `https://croozefm.blob.core.windows.net/images/${show.id}.png`
       );
       setIsMiniPlayerOpen(true);
+      setIsSeekable(false);
       setPlayingIndex(index);
     }
   };
@@ -95,7 +97,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"
-                } bg-gray/10 dark:bg-gray transition-all duration-500 select-none`}
+                } bg-gray/20 dark:bg-gray transition-all duration-500 select-none`}
               >
                 <div className="p-4">
                   <div className="flex flex-row items-center justify-between pb-3">

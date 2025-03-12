@@ -276,7 +276,7 @@ export const shows: Show[] = [
       {
         id: 1737875100,
         url: "linc-&-veve",
-        category: "411",
+        name: "Linc & Veve",
       },
       {
         id: 1320135071,
@@ -304,6 +304,13 @@ export const shows: Show[] = [
     name: "The Total Country Show",
     summary:
       "Saddle up every Sunday from 8pm till late, spinning timeless country hits from Kenny Rogers and Dolly Parton to Luke Bryan and Carrie Underwood—every generation's twang covered! It's your all-night hoedown with the best in country, old and new!",
+    isFt: true,
+    recs: [
+      {
+        id: 1731859200,
+        url: "total-country-show-2024-11-17",
+      },
+    ],
     time: { start: 20, end: 24 },
   },
 ];

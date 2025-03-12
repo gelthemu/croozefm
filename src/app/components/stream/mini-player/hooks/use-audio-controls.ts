@@ -7,6 +7,7 @@ export function useAudioControls() {
   const {
     audioRef,
     currentSource,
+    setIsMiniPlayerOpen,
     setIsAudioPlaying,
     setIsStreamActive,
     setIsStreaming,
@@ -33,6 +34,14 @@ export function useAudioControls() {
             setIsStreamActive(false);
             setIsStreaming(false);
             setIsLoading(false);
+            setTimeout(() => {
+              setIsCollapse(false);
+              setTimeout(() => {
+                if (!audioRef.current) return;
+                audioRef.current.src = "";
+                setIsMiniPlayerOpen(false);
+              }, 2000);
+            }, 2000);
           });
       } else {
         audioRef.current.pause();
@@ -69,6 +78,14 @@ export function useAudioControls() {
               setIsStreamActive(false);
               setIsStreaming(false);
               setIsLoading(false);
+              setTimeout(() => {
+                setIsCollapse(false);
+                setTimeout(() => {
+                  if (!audioRef.current) return;
+                  audioRef.current.src = "";
+                  setIsMiniPlayerOpen(false);
+                }, 2000);
+              }, 2000);
             });
         }, 2000);
       }
@@ -84,6 +101,7 @@ export function useAudioControls() {
     setIsStreamActive,
     setIsStreaming,
     setIsCollapse,
+    setIsMiniPlayerOpen,
   ]);
 
   return {

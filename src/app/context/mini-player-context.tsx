@@ -26,6 +26,8 @@ type MiniPlayerContextType = {
   setSnapShot: (source: string | undefined) => void;
   isCollapse: boolean;
   setIsCollapse: (value: boolean) => void;
+  isSeekable: boolean;
+  setIsSeekable: (value: boolean) => void;
   audioRef: React.RefObject<HTMLAudioElement>;
 };
 
@@ -46,6 +48,7 @@ export function MiniPlayerProvider({
   const [tagLine, setTagLine] = useState<string | undefined>();
   const [snapShot, setSnapShot] = useState<string | undefined>();
   const [isCollapse, setIsCollapse] = useState(true);
+  const [isSeekable, setIsSeekable] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
   const currentShow = useCurrentShow();
 
@@ -73,6 +76,8 @@ export function MiniPlayerProvider({
     setSnapShot,
     isCollapse,
     setIsCollapse,
+    isSeekable,
+    setIsSeekable,
     audioRef,
   };
 

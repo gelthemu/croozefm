@@ -63,6 +63,7 @@ const StreamBtn : React.FC<StreamBtnProps> = ({
     setCurrentSource,
     setIsStreaming,
     setTagLine,
+    setIsSeekable,
   } = useMiniPlayer();
   const isActive = isMiniPlayerOpen && currentSource === STREAM_URL;
   const currentShow = useCurrentShow();
@@ -74,6 +75,7 @@ const StreamBtn : React.FC<StreamBtnProps> = ({
       setCurrentSource(STREAM_URL);
       setIsStreaming(true);
       setTagLine(currentShow.name);
+      setIsSeekable(false);
       setIsMiniPlayerOpen(true);
     }
   };

@@ -19,6 +19,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     setTagLine,
     setIsStreaming,
     setSnapShot,
+    setIsSeekable,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -52,6 +53,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
       );
       setIsMiniPlayerOpen(true);
+      setIsSeekable(true);
       setPlayingIndex(index);
     }
   };
@@ -80,11 +82,11 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
             return (
               <div
                 key={mixtape.id}
-                className={`overflow-hidden rounded-sm ${
+                className={`group overflow-hidden rounded-md ${
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"
-                } bg-dark/20 dark:bg-gray/60 transition-all duration-200`}
+                } bg-gray/20 dark:bg-gray transition-all duration-500 select-none`}
               >
                 <div className="p-4">
                   <div className="flex flex-row items-center justify-between pb-3">
@@ -93,9 +95,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                       {mixtape.dj?.name}
                     </div>
                   </div>
-                  <div className="bg-gray/60 dark:bg-dark/40 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20">
-                    <div
-                      role="button"
+                  <div  role="button"
                       tabIndex={isActive && isAudioPlaying ? -1 : 0}
                       aria-label={
                         isAudioPlaying && isActive
@@ -112,11 +112,15 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                           e.preventDefault();
                           handlePlay(index);
                         }
-                      }}
+                      }} className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                      isActive ? "cursor-default" : "cursor-pointer"
+                    }`}>
+                    <div
+
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
                         isActive
-                          ? "text-red/80 cursor-default"
-                          : "cursor-pointer"
+                          ? "text-red/80"
+                          : ""
                       }`}
                     >
                       {isAudioPlaying && isActive ? (
