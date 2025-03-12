@@ -14,13 +14,10 @@ const WeatherWidget: React.FC<WeatherClass> = ({ className = "" }) => {
   const locationName = "Mbarara";
   const mararaCoordinates = LOCATION_COORDINATES["Mbarara, Uganda"];
 
-  // Fetch weather data for Mbarara only
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const API_KEY =
-          process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY ||
-          "0a01bcfb8206b29e29c337a2080754ea";
+        const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
         const response = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?lat=${mararaCoordinates.lat}&lon=${mararaCoordinates.lon}&units=metric&appid=${API_KEY}`
         );
