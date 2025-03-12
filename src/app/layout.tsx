@@ -50,7 +50,6 @@ export const metadata: Metadata = {
     "91.2 Crooze FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
   metadataBase: new URL("https://croozefm.geltaverse.com"),
   applicationName: "Crooze FM",
-  authors: [{ name: "Gelthem Mucunguzi", url: "https://geltaverse.com" }],
   creator: "Gelthem Mucunguzi",
   publisher: "Gelthem Mucunguzi",
   icons: {
