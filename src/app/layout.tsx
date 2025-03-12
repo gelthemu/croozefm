@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/google-analytics";
 import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
+import { Big_Shoulders_Display } from "next/font/google";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProviders } from "./components/providers/theme-provider";
@@ -22,6 +23,13 @@ const sans = localFont({
   display: "swap",
   style: "normal",
   preload: true,
+});
+
+const bigShoulders = Big_Shoulders_Display({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-big-shoulders",
 });
 
 const ga_id = "G-RLHVV5YR9Y";
@@ -134,7 +142,9 @@ export default function RootLayout({
           content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
         />
       </head>
-      <body className={`${sans.variable} relative antialiased`}>
+      <body
+        className={`${sans.variable} ${bigShoulders.variable} relative antialiased`}
+      >
         <ThemeProviders>
           <div className="w-full font-sans text-dark dark:text-light">
             <CarouselProvider>

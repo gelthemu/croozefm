@@ -26,6 +26,7 @@ const config: Config = {
           "Arial",
           "sans-serif",
         ],
+        "big-shoulders": ["var(--font-big-shoulders)"],
       },
       backgroundImage: {
         "profile-image":

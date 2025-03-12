@@ -13,7 +13,7 @@ interface MobileMenuProps {
 
 export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
   <div
-    className={`md:hidden w-[100%] fixed inset-0 bg-dark z-40 transition-all duration-[0.5s] ease-in-out ${
+    className={`md:hidden w-[100%] fixed inset-0 bg-gray dark:bg-dark z-40 transition-all duration-[0.5s] ease-in-out ${
       isOpen
         ? "opacity-100 translate-x-0"
         : "opacity-0 -translate-x-full pointer-events-none"
