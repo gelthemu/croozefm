@@ -36,7 +36,7 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="w-full bg-red sticky top-0 z-50 border-b border-dark/50 dark:border-light/50">
+    <div className="w-full bg-red sticky top-0 z-50">
       <nav className="w-full max-w-screen-xl mx-auto">
         <div className="flex flex-wrap items-center justify-between py-5 md:py-0 px-8 sm:px-12 md:px-16">
           <Logo onLogoClick={closeMenu} className="md:py-auto z-[100]" />

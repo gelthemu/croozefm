@@ -521,6 +521,17 @@ export const news: News[] = [
     anchor: anchors.monica,
     audio: "cfm-news-2025-03-12_4pm",
   },
+  {
+    id: 202503141600,
+    aired: {
+      date: "2025-03-14T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "UACE Performance Drops as Candidates Increase, US and Israel Plan to Move Gaza Palestinians to Africa",
+    anchor: anchors.monica,
+    audio: "cfm-news-2025-03-14_4pm",
+  },
   // = = = = = = = = = = = = = = = = = = = 7PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411151900,
