@@ -109,10 +109,6 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                               <FormatCategory category={recording.category} />
                             </span>
                           </Link>
-                          <div className="mx-1.5 font-light opacity-50">
-                            {" • "}
-                          </div>{" "}
-                          <div className="line-clamp-1">{show.name}</div>
                         </>
                       ) : recording.name ? (
                         <>

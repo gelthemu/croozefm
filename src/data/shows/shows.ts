@@ -100,6 +100,12 @@ export const shows: Show[] = [
     isPop: true,
     isFt: true,
     host: [{ name: "Michael" }],
+    recs: [
+      {
+        id: 1741788000,
+        url: "cfm-evening-switch-2025-03-12",
+      },
+    ],
     time: { start: 17, end: 18 },
   },
   {
@@ -130,6 +136,11 @@ export const shows: Show[] = [
       { name: "James" },
     ],
     recs: [
+      {
+        id: 1741788000,
+        url: "cfm-sports-update-2025-03-12_5pm",
+        category: "sports-updates",
+      },
       {
         id: 1732543200,
         url: "cfm-sports-update-2024-11-25_5pm",
