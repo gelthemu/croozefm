@@ -82,6 +82,10 @@ export const shows: Show[] = [
     isFt: true,
     recs: [
       {
+        id: 1741784400,
+        url: "the-african-count-down_2025-03-12",
+      },
+      {
         id: 1731934800,
         url: "the-african-count-down_2024-11-18",
       },
