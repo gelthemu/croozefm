@@ -216,10 +216,7 @@ export const shows: Show[] = [
     summary:
       "Jumpstart your Saturday with 'The Urban Breakfast,' a lively 6am show serving up the freshest urban beats and bold vibes to fuel your weekend. It's your early morning fix of music, chat, and city swagger!",
     isFt: true,
-    host: [
-      { name: "Josy" },
-      { name: "Deejay Stinger", link: "/i/deejay-stinger" },
-    ],
+    host: [{ name: "Deejay Stinger", link: "/i/deejay-stinger" }],
     time: { start: 6, end: 9 },
   },
   {

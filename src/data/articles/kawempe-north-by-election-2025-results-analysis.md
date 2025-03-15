@@ -37,11 +37,8 @@ The official results, announced on March 14, 2025, by Returning Officer Makabayi
 The by-election highlighted several critical issues:
 
 - **Electoral Violence:** Reports of violence surfaced early, with NUP alleging that security forces targeted their supporters with arrests and beatings. The NRM countered with claims of voter intimidation by opposition factions, setting a contentious tone that carried into election day.
-
 - **Press Freedom:** Journalists faced assaults from security personnel, with equipment confiscated and some requiring hospitalization—actions later condemned by the Uganda People's Defense Forces (UPDF).
-
 - **Allegations of Electoral Malpractice:** Concerns about delayed materials and potential vote rigging further eroded trust in the process, though the EC maintained its integrity.
-
 - **Low Voter Turnout:** The significant drop in voter turnout compared to previous elections raised questions about democratic engagement and potential disenfranchisement.
 
 ### Political Context
