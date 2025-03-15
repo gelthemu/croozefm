@@ -138,7 +138,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                         handlePlay(index);
                       }
                     }}
-                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 focus:outline-none ${
                       isActive ? "cursor-default" : "cursor-pointer"
                     }`}
                   >
