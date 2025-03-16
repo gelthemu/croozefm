@@ -137,7 +137,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
                 {selectedNews.headline}
                 {", "}
                 <span className="text-gray/60 dark:text-light/50 font-normal">
-                  and more stories...
+                  plus more headlines...
                 </span>
               </p>
             </div>

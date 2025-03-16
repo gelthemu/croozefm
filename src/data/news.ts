@@ -399,6 +399,17 @@ export const news: News[] = [
     anchor: anchors.monica,
     audio: "cfm-news-2025-02-26_2pm",
   },
+  {
+    id: 202503161400,
+    aired: {
+      date: "2025-03-16T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "Ibanda Municipality Launches Town Beautification Project to Boost Growth and Livelihoods, Minister Musasizi Promotes Skills-Based Education",
+    anchor: anchors.oscar,
+    audio: "cfm-news-2025-03-16_2pm",
+  },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411141600,
