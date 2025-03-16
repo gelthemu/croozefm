@@ -94,6 +94,11 @@ const nextConfig: NextConfig = {
         hostname: "newvision-media.s3.amazonaws.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "a57.foxnews.com",
+        pathname: "/**",
+      },
     ],
   },
 };
