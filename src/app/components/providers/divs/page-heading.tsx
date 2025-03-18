@@ -27,7 +27,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({
 
 const H2Title: React.FC<H2TitleProps> = ({ title }) => {
   return (
-    <h2 className="w-fit text-2xl text-red _912cfm mb-4 pb-1.5 relative after:absolute after:bottom-0 after:left-0 after:w-1/5 after:border-b-[3px] after:border-red">
+    <h2 className="w-fit text-2xl text-red _912cfm mb-4 pb-2 relative after:absolute after:bottom-0 after:left-0 after:w-[15px] after:border-b-[3px] after:border-red">
       {title}
     </h2>
   );

@@ -31,4 +31,4 @@ Local leaders and the public are united in their demand for actionable solutions
 
 For now, Mbarara Central Market remains a symbol of both economic vitality and vulnerability. The theft of electricity meters is a wake-up call for authorities to strengthen security, improve accountability, and ensure that this critical hub continues to serve its vendors and the broader community effectively. As Crooze FM continues to amplify these concerns, the pressure is on Didas Muhanguzi and the Mbarara City Council to deliver tangible solutions before the problem escalates further.
 
-<section className="awakening-mbra-city"></section>
+<section class="tweet1897496107208597898"></section>

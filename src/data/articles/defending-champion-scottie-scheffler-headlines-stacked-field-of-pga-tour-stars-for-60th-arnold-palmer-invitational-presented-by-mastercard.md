@@ -26,7 +26,7 @@ Jason Day (2016) and Rory McIlroy (2018) are the two other former tournament cha
 
 <p className="text-sm font-medium opacity-60">Courtesy Photos</p>
 
-<section className="ap-inv-tee-times"></section>
+<section className="api2"></section>
 
 The Arnold Palmer Invitational features a purse of $20 million, with $4 million and 700 FedExCup points awarded to the 2025 champion. As one of the three player-hosted invitationals among the PGA TOUR’s Signature Events, the tournament features a cut after the second round to the top 50 players and ties, and any additional players within 10 strokes of the lead.
 
@@ -42,4 +42,4 @@ Jackson Koivun, sophomore at Auburn University, earned a sponsor exemption by wi
 
 <p className="text-sm font-medium opacity-60">Courtesy Photos</p>
 
-<section className="ap-inv-course-photos"></section>
+<section className="api1"></section>

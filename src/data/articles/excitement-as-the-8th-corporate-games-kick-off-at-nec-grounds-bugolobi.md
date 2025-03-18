@@ -19,7 +19,7 @@ The day started off cool with the 45 companies that registered for this year’s
 
 <p className="text-sm font-medium opacity-60">Courtesy Photos</p>
 
-<section className="corporate-games-uganda-2025"></section>
+<section className="cgu1"></section>
 
 They all showed up in their very well designed and branded game kits and jerseys exuding enthusiasm and excitement I had not seen in a hot minute geared up to fully represent which lit up my already lit day as I smiled from ear to ear watching them come in.
 

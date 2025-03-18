@@ -29,6 +29,6 @@ Les Parisiens substitute Desire Doue was the latest to force an outstanding save
 
 Having withstood all of that pressure, Liverpool went ahead when Nunez slid the ball across for Elliott to beat Donnarumma with his first touch just 47 seconds after coming off the bench, earning the Reds an advantage to take back to Anfield.
 
-<section className="alisson-elliot-video"></section>
+<section class="tweet1897408292621529254"></section>
 
 In doing so, they also ended PSG’s 22-game unbeaten run and 20-match scoring streak across all competitions.

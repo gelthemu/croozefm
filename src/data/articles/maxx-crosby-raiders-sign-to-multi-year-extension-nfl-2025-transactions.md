@@ -16,7 +16,7 @@ Crosby’s consistency has been a key factor in his rise, earning him four conse
 
 The 27-year-old has made a habit of rewriting franchise records. His 364 tackles are the most by a Raiders defensive lineman in their first six seasons, while his 59.5 sacks rank third in team history. He has also led the NFL in tackles for loss since 2019, further proving his elite status.
 
-<section className="maxx-crosby-tweets"></section>
+<section class="tweet1897358998472712481"></section>
 
 Speaking on his historic deal, Crosby emphasized that his focus remains on football, leadership, and winning. “The money is obviously incredible for my family, my kids, and my future kids. But it doesn’t change my approach. I’m still going to be here the same time every single day and put the work in,” he stated.
 
@@ -24,4 +24,4 @@ This extension marks the third time in four years that the Raiders have upgraded
 
 With this new deal, the Raiders ensure that Crosby remains a dominant force in Silver and Black, anchoring their defensive front as they look to build a championship-caliber team.
 
-<section className="maxx-crosby-video"></section>
+<section class="tweet1897359749236322590"></section>

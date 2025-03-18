@@ -12,12 +12,13 @@ import {
 } from "@/lib/news-parser";
 import RecentNews from "../../components/recent-news";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
-import "@/app/styles/md/profile.css";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 import { markdownComponents } from "../components/markdown-components";
 import ShareArticle from "../components/share-article";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../../components/news-footer";
+import { calculateReadingTime } from "@/lib/reading-time";
+import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
   params,
@@ -120,6 +121,8 @@ export default async function ArticlePage({
     isPinned,
   } = article;
 
+  const { readingTime } = calculateReadingTime(content);
+
   const recentArticles = getRecentNews(6)
     .filter((a) => a.slug !== slug)
     .slice(1, 5);
@@ -172,6 +175,8 @@ export default async function ArticlePage({
                   <span>
                     <FormatSimpleDate epoch={publication_date} />
                   </span>
+                  <span className="mx-1.5 opacity-60">•</span>
+                  <span>{readingTime} read</span>
                 </div>
               </div>
             </div>

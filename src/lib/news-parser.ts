@@ -70,7 +70,7 @@ export function getAllNewsArticles(): NewsArticle[] {
 
 export function getNewsByCategory(category: NewsCategory): NewsArticle[] {
   const allNews = getAllNewsArticles();
-  return allNews.filter((news) => news.category === category);
+  return allNews.filter((news) => news.isPinned || news.category === category);
 }
 
 export function getRecentNews(count: number): NewsArticle[] {

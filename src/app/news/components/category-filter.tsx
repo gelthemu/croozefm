@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { NewsCategory } from "@/types/news";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
+import { ArchiveIcon } from "lucide-react";
 
 interface CategoryFilterProps {
   categories: NewsCategory[];
@@ -65,6 +66,8 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
     if (category === null) {
       router.push("/news");
+    } else if (category === "news-archive") {
+      router.push("/news/news-archive");
     } else {
       router.push(`/news/${category}`);
     }
@@ -104,7 +107,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
         </div>
 
         <div
-          className={`absolute z-10 w-full md:w-96 bg-red rounded-b-sm
+          className={`absolute z-10 w-full md:w-96 bg-red/80 backdrop-blur-md rounded-b-sm
                      transition-all duration-300 ease-in-out overflow-hidden
                      ${
                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -126,9 +129,20 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
                   className="py-2.5 hover:px-4 hover:bg-light/15 cursor-pointer transition-all duration-500"
                   onClick={() => handleCategoryChange(category)}
                 >
-                  {category ? <FormatCategory category={category} /> : ""}
+                  <span>
+                    {category ? <FormatCategory category={category} /> : ""}
+                  </span>
                 </div>
               ))}
+            </div>
+            <div
+              className="py-2.5 hover:px-4 hover:bg-light/15 border-t border-light/30 cursor-pointer transition-all duration-500"
+              onClick={() => handleCategoryChange("news-archive")}
+            >
+              <span className="flex items-center justify-between">
+                <span>News Archive</span>
+                <ArchiveIcon size={16} className="opacity-[0.8]" />
+              </span>
             </div>
           </div>
         </div>

@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "geltaverse.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "croozefm.blob.core.windows.net",
         pathname: "/images/**",
       },
@@ -97,6 +102,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "a57.foxnews.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "golf.com",
         pathname: "/**",
       },
     ],

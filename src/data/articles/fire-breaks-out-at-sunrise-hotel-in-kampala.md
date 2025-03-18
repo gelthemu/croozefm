@@ -13,7 +13,7 @@ Police fire brigade units, supported by Uganda Red Cross personnel, are battling
 
 <p className="text-sm font-medium opacity-60">Courtesy Photos</p>
 
-<section className="sunrise-hotel-photos"></section>
+<section className="srh1"></section>
 
 The cause of the fire is under investigation, with preliminary reports suggesting a possible explosion at a soap-making outlet within the hotel may have sparked the disaster. Kampala Metropolitan Police, led by SSP Moses Nanoka, Regional Police Commander for Kampala Metropolitan North, have yet to release a final casualty count but have pledged a comprehensive report once the situation stabilizes.
 

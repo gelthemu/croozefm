@@ -20,7 +20,8 @@ export type NewsCategory =
   | "politics"
   | "411"
   | "sports-updates"
-  | "business-news";
+  | "business-news"
+  | "news-archive";
 
 export interface NewsArticle {
   slug: string;
