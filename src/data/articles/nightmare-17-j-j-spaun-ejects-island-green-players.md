@@ -64,3 +64,5 @@ Speaking of his shot from the drop zone, though, Spaun said he had moved on from
 <section class="tpcsg1"></section>
 
 <section class="tpcsg2"></section>
+
+![Rory McIlroy has again won @THEPLAYERS! 🏆🏆, via PGA (X)](https://pbs.twimg.com/media/GmP0XFObMAA7YzJ?format=jpg&name=900x900)
