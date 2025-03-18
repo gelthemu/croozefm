@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
@@ -92,9 +93,24 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               >
                 <div className="p-4">
                   <div className="flex flex-row items-center justify-between pb-3">
-                    <div className="text-xs text-gray/90 dark:text-light/80 font-medium">
-                      <i className="fa-solid fa-headphones pr-1.5"></i>{" "}
-                      {mixtape.dj.name}
+                    <div className="text-sm text-gray/90 dark:text-light/80 font-medium flex items-center">
+                      <div className="pr-1.5">
+                        <i className="fa-solid fa-headphones"></i>
+                      </div>
+                      <div>
+                        {mixtape.dj?.link ? (
+                          <Link
+                            href={mixtape.dj.link}
+                            aria-label={`${mixtape.dj?.name}'s Profile`}
+                          >
+                            <span> {mixtape.dj?.name}</span>
+                          </Link>
+                        ) : (
+                          <div>
+                            <span> {mixtape.dj?.name}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <div

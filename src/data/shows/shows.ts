@@ -211,7 +211,10 @@ export const shows: Show[] = [
     summary:
       "Get your Friday night pumping with 'The Fat Friday Mix,' kicking off at 8pm and spinning till late, as DJ Emma drops the fattest beats to keep the party blazing! Expect non-stop vibes and killer mixes to carry you into the weekend!",
     isFt: true,
-    host: [{ name: "Belga MC", link: "/i/belga-mc" }, { name: "Deejay Emma" }],
+    host: [
+      { name: "Belga MC", link: "/i/belga-mc" },
+      { name: "Deejay Emma", link: "/i/deejay-emma" },
+    ],
     time: { start: 20, end: 24 },
   },
   {
@@ -266,7 +269,10 @@ export const shows: Show[] = [
     summary:
       "Turn up your Saturday with 'Saturday Night Live,' where MC Kacheche and DJ Emma ignite your living room with non-stop party vibes from 8pm till the early hours! Expect wild beats, slick rhymes, and a night that never quits!",
     isFt: true,
-    host: [{ name: "MC Kacheche" }, { name: "Deejay Emma" }],
+    host: [
+      { name: "MC Kacheche" },
+      { name: "Deejay Emma", link: "/i/deejay-emma" },
+    ],
     time: { start: 20, end: 24 },
   },
   {

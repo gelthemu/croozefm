@@ -42,7 +42,7 @@ export async function generateMetadata({
       url: `https://croozefm.geltaverse.com/i/${profile.id}`,
       images: [
         {
-          url: profile.imageLink,
+          url: `https://croozefm.blob.core.windows.net/cards/${profile.id}.png`,
           alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
           width: 1200,
           height: 630,
@@ -59,7 +59,7 @@ export async function generateMetadata({
       creator: "@geltaverse",
       images: [
         {
-          url: profile.imageLink,
+          url: `https://croozefm.blob.core.windows.net/cards/${profile.id}.png`,
           alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
         },
       ],

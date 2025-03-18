@@ -3,7 +3,8 @@ import { DJ, Mixtape } from "@/types/mixtape";
 export const djs: Record<string, DJ> = {
   emma: {
     code: "emma",
-    name: "Deejay Emma",
+    name: "DJ Emma",
+    link: "/i/deejay-emma",
   },
   banx: {
     code: "banx",
