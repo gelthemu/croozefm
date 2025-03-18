@@ -67,7 +67,7 @@ const ImgFeed: React.FC<ImgFeedProps> = ({
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 ${
         xl ? "xl:grid-cols-3" : ""
-      } gap-2`}
+      } gap-2 p-1`}
     >
       {array.map((src, index) => (
         <Image

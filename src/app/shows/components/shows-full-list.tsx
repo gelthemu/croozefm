@@ -11,7 +11,9 @@ export default function ShowsFullList() {
     <MainPagination
       items={ftShows}
       itemsPerPage={12}
-      renderItem={(show) => <ShowCard key={show.id} show={show} />}
+      renderItem={(show) => (
+        <ShowCard key={show.id} show={show} srOnly={true} />
+      )}
     />
   );
 }
