@@ -1,10 +1,12 @@
+export interface DJ {
+  code: string;
+  name: string;
+  link?: string;
+}
+
 export interface Mixtape {
   id: number;
   title: string;
-  image?: string;
   url: string;
-  dj?: {
-    name: string;
-    link?: string;
-  };
+  dj: DJ;
 }

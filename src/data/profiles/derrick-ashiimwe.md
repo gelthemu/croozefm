@@ -5,6 +5,7 @@ image-link: "https://croozefm.blob.core.windows.net/images/derrick-ashiimwe.png"
 isPopular: false
 social-links:
   x: "https://x.com/DerrickAshimwe"
+code: "derrick"
 keywords: "Derrick Ashiimwe, Morning Addiction, Weekly Sports RoundUp, local and international football radio show, sports and hip-hop"
 ---
 

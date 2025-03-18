@@ -13,6 +13,7 @@ gallery:
     "https://croozefm.blob.core.windows.net/images/inyaa-clare-2.png",
     "https://instagram.fnbo1-1.fna.fbcdn.net/v/t51.2885-15/96678168_1200245703639999_4264761173341708427_n.jpg?stp=dst-jpg_e35_tt6&_nc_ht=instagram.fnbo1-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2AFdElK8gFWCg54s_Sjq536XBMF3GFQYIh10vWdr4D31WcuOt9JMpcuyE-imnCMzqbA&_nc_ohc=JW6XQicDqgsQ7kNvgF3Vxt7&_nc_gid=b35027760e1e45efaa378ec9bae9320f&edm=AGenrX8BAAAA&ccb=7-5&oh=00_AYEWjxE-rXRoyTHhLzBgSa_qXwdZXMifZLD-dLx_06B4lQ&oe=67D3A68E&_nc_sid=ed990e",
   ]
+code: "inyaa"
 keywords: "Inyaa Clar, CFM Lifestyle Show, Sunday Love, Crooze FM radio host Inyaa Clare, lifestyle"
 ---
 

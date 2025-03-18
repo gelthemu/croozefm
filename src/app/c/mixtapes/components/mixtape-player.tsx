@@ -86,41 +86,43 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                   isActive
                     ? "border-2 border-red/80 dark:border-red/60"
                     : "border-2 border-red/0"
+                } ${
+                  mixtapes.indexOf(mixtape) === 0 ? "md:col-span-2" : ""
                 } bg-gray/20 dark:bg-gray transition-all duration-500 select-none`}
               >
                 <div className="p-4">
                   <div className="flex flex-row items-center justify-between pb-3">
                     <div className="text-xs text-gray/90 dark:text-light/80 font-medium">
                       <i className="fa-solid fa-headphones pr-1.5"></i>{" "}
-                      {mixtape.dj?.name}
+                      {mixtape.dj.name}
                     </div>
                   </div>
-                  <div  role="button"
-                      tabIndex={isActive && isAudioPlaying ? -1 : 0}
-                      aria-label={
-                        isAudioPlaying && isActive
-                          ? "Currently Playing in Miniplayer"
-                          : "Play in Miniplayer"
-                      }
-                      aria-disabled={isActive && isAudioPlaying}
-                      onClick={() => {
-                        if (isActive) return;
+                  <div
+                    role="button"
+                    tabIndex={isActive && isAudioPlaying ? -1 : 0}
+                    aria-label={
+                      isAudioPlaying && isActive
+                        ? "Currently Playing in Miniplayer"
+                        : "Play in Miniplayer"
+                    }
+                    aria-disabled={isActive && isAudioPlaying}
+                    onClick={() => {
+                      if (isActive) return;
+                      handlePlay(index);
+                    }}
+                    onKeyDown={(e) => {
+                      if ((e.key === "Enter" || e.key === " ") && !isActive) {
+                        e.preventDefault();
                         handlePlay(index);
-                      }}
-                      onKeyDown={(e) => {
-                        if ((e.key === "Enter" || e.key === " ") && !isActive) {
-                          e.preventDefault();
-                          handlePlay(index);
-                        }
-                      }} className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
+                      }
+                    }}
+                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
                       isActive ? "cursor-default" : "cursor-pointer"
-                    }`}>
+                    }`}
+                  >
                     <div
-
                       className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive
-                          ? "text-red/80"
-                          : ""
+                        isActive ? "text-red/80" : ""
                       }`}
                     >
                       {isAudioPlaying && isActive ? (

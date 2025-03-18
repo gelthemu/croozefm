@@ -13,5 +13,7 @@ export interface PresenterProfile {
   socialLinks: SocialLinks;
   description: string;
   gallery?: string[] | null;
+  code: string;
+  mixtapeCode?: string | null;
   keywords?: string | null;
 }

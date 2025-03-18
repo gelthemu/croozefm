@@ -31,7 +31,7 @@
 }
 
 .prose a {
-  @apply font-normal text-red;
+  @apply font-normal text-red px-0.5;
 }
 
 .prose img {

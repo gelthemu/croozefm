@@ -47,6 +47,8 @@ export function getProfileData(id: string): PresenterProfile | null {
       gallery: Array.isArray(matterResult.data.gallery)
         ? matterResult.data.gallery
         : null,
+      code: matterResult.data.code || "",
+      mixtapeCode: matterResult.data["mixtape-code"] || "",
       keywords: matterResult.data.keywords || "",
     };
 

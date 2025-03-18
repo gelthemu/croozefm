@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -8,9 +7,11 @@ import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getAllProfileIds, getProfileData } from "@/lib/profiles-parser";
 import SocialLinks from "../team/components/profile/socials";
 import { Metadata } from "next";
+import { markdownComponents } from "../team/components/profile/markdown-components";
 import ProfileGallery from "../team/components/profile/gallery/gallery";
 import Divider from "@/app/components/providers/divs/divider";
 import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
+import LatestMixtapeFeed from "@/app/c/mixtapes/components/latest-mixtape-feed";
 import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
@@ -120,36 +121,25 @@ export default async function ProfilePage({
           <div className="prose prose-lg max-w-none mt-5 select-none">
             <Markdown
               rehypePlugins={[rehypeRaw]}
-              components={{
-                a: ({ href, children }) =>
-                  href?.startsWith("/") ? (
-                    <Link href={href}>{children}</Link>
-                  ) : (
-                    <Link
-                      href={href ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {children}
-                    </Link>
-                  ),
-                iframe: ({ ...props }) => (
-                  <div className="relative w-full aspect-[16/9] rounded overflow-hidden flex flex-col">
-                    <iframe
-                      {...props}
-                      className="absolute top-0 left-0 w-full h-full"
-                    />
-                  </div>
-                ),
-              }}
+              components={markdownComponents}
             >
               {profile.description}
             </Markdown>
           </div>
+          {profile.mixtapeCode && (
+            <>
+              <Divider />
+              <LatestMixtapeFeed code={profile.mixtapeCode} />
+            </>
+          )}
           {profile.gallery && (
             <>
               <Divider />
-              <ProfileGallery gallery={profile.gallery} name={profile.name} />
+              <ProfileGallery
+                gallery={profile.gallery}
+                name={profile.name}
+                code={profile.code}
+              />
             </>
           )}
         </div>

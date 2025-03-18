@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { StreamButton } from "../../stream/stream-btn";
+import { StreamButton } from "../../../components/stream/stream-btn";
 import { Mixtape } from "@/types/mixtape";
 
 interface MixtapeProps {

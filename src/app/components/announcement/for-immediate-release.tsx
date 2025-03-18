@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { mixtapes } from "@/data/mixtapes";
-import MixtapeBtn from "./components/mixtape-btn";
+import MixtapeBtn from "@/app/c/mixtapes/components/mixtape-btn";
 import { H2Title } from "../providers/divs/page-heading";
 import ImgDiv from "../providers/divs/image-div";
 import ViewAllBtn from "../tiny/viewallbtn";
@@ -18,7 +18,7 @@ export default function ImmediateRelease({
 
   return (
     <>
-      <section className="py-1">
+      <section className="p-1">
         <div className="w-full flex items-center -mb-0.5 font-light text-sm opacity-80 dark:opacity-60">
           <span className="uppercase">Latest Release</span>
           <span className="mx-1.5 opacity-60">•</span>
@@ -31,8 +31,8 @@ export default function ImmediateRelease({
             <div className="text-left">
               <H2Title title="CFM Weekly Mixtape" />
               <p className="mb-3">
-                The beats just keep rolling in! Western Uganda&apos;s Biggest
-                Radio Station brings you the Crooze FM Weekly Mixtape every
+                Vibes so lit they never stop! Western Uganda&apos;s Biggest
+                Radio Station rolls out the Crooze FM Weekly Mixtape every
                 Wednesday.{" "}
                 <Link
                   href="/c/mixtapes"
@@ -40,7 +40,7 @@ export default function ImmediateRelease({
                   className="hover:underline"
                   style={{ color: "#3eac75" }}
                 >
-                  #CFMWeeklyMixtapes
+                  #CFMWeeklyMixtape
                 </Link>
               </p>
               <p className="mb-2.5 flex items-center">
