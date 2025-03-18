@@ -130,6 +130,13 @@ export default async function ArticlePage({
   return (
     <>
       <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
+        <div className="mb-4 flex items-center md:text-xs font-light opacity-50">
+          <small>
+            Reading Time:{" "}
+            <span className="ml-1.5">{readingTime}</span>
+          </small>
+        </div>
+
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-y-4 border-red">
           {image_url && (
             <div className="relative w-full overflow-hidden">
@@ -175,8 +182,6 @@ export default async function ArticlePage({
                   <span>
                     <FormatSimpleDate epoch={publication_date} />
                   </span>
-                  <span className="mx-1.5 opacity-60">•</span>
-                  <span>{readingTime} read</span>
                 </div>
               </div>
             </div>
