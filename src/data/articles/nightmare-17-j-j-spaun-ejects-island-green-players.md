@@ -1,9 +1,9 @@
 ---
 headline: "‘Nightmare at 17’: J.J. Spaun ejects at island green to lose Players Championship"
 publication_date: 1742223050
-excerpt: "Scottie Scheffler returns to Bay Hill to defend his Arnold Palmer Invitational title, aiming to join Tiger Woods as the only player to win the event more than twice, after a dominant season that saw him capture seven victories, including the Masters and THE PLAYERS Championship."
+excerpt: "J.J. Spaun’s hopes for a breakthrough victory at THE PLAYERS Championship sank when his 8-iron shot on the 17th hole flew over the green into the water, leading to a triple-bogey 6 and handing Rory McIlroy the title."
 category: "sports-updates"
-keywords: "Scottie Scheffler Arnold Palmer Invitational 2025, Arnold Palmer Invitational Bay Hill, PGA TOUR Signature Event 2025, Scottie Scheffler Masters win, Rory McIlroy Bay Hill performance, Arnold Palmer Invitational purse 2025, FedExCup points Arnold Palmer Invitational, Nick Dunlap PGA TOUR Rookie, Jackson Koivun Palmer Cup exemption, Scottie Scheffler seven wins 2024, Arnold Palmer Invitational top players, Bay Hill Club golf course, Scottie Scheffler title defense, Arnold Palmer Invitational history, Tiger Woods Arnold Palmer wins"
+keywords: "J.J. Spaun, Rory McIlroy, Players Championship, TPC Sawgrass, 17th hole, Golf tournament, Triple bogey, Island green, PGA Tour, Golf shot"
 image_url: "https://golf.com/wp-content/uploads/2025/03/J.J.Spaun_-2.jpg?width=1280"
 author: "Nick Piastowski"
 source: "Golf.com"
@@ -11,7 +11,7 @@ source: "Golf.com"
 
 J.J. Spaun lost his ball.
 
-Playing TPC Sawgrass’ famed island-green 17th on Monday morning, he couldn’t see it after its descent. He’d barrelled an 8-iron on the 130-yard par-3 during the second of three playoff holes with Rory McIlroy to decide the Players Championship, and something good was needed. On overtime’s first hole, on the par-5 16th, Spaun made par, while McIlroy birdied to take a one-stroke lead. But Spaun’s response looked promising. A minute or so earlier, McIlroy had found the green and was about 30 feet away, but Spaun’s ball was tracking toward a spot where it would land, then spin back toward the cup.
+Playing TPC Sawgrass’ famed island-green 17th on Monday morning, he couldn’t see it after its descent. He’d barrelled an 8-iron on the 130-yard par-3 during the second of three playoff holes with Rory McIlroy to decide THE PLAYERS Championship, and something good was needed. On overtime’s first hole, on the par-5 16th, Spaun made par, while McIlroy birdied to take a one-stroke lead. But Spaun’s response looked promising. A minute or so earlier, McIlroy had found the green and was about 30 feet away, but Spaun’s ball was tracking toward a spot where it would land, then spin back toward the cup.
 
 If you were watching on the grounds, or viewing on Golf Channel, you saw it didn’t. But Spaun was bewildered.
 
@@ -45,7 +45,7 @@ But was the club choice a concern? You have to at least wonder that, after Spaun
 
 Then there were the nerves. Spaun’s human. He’d also never been in the spot before, whereas McIlroy, now a 28-time PGA Tour winner and four-time major winner, has. Afterward, Spaun admitted that the moment hit him on the opening tee shot (which he hit a touch right on the 16th hole), and analyst Jim “Bones” Mackay wondered on the broadcast whether Spaun had accounted for adrenaline on the 17th tee shot.
 
-“I think on the 17th here at this amazing, iconic golf course,” Mackay said, “is one of those holes where you get to, like two or three others around the world, where you just hit the club about a half a club farther because you’re just so amped up and it’s just the 17th at the Players.”
+“I think on the 17th here at this amazing, iconic golf course,” Mackay said, “is one of those holes where you get to, like two or three others around the world, where you just hit the club about a half a club farther because you’re just so amped up and it’s just the 17th at THE PLAYERS.”
 
 One must also look at the time to make a decision here, too. A GOLF.com reporter clocked McIlroy’s interaction with caddie Harry Diamond at 17 seconds; Spaun’s conversation with Carens took 50. From the drop zone, Spaun and Carens talked for a minute and 10 seconds.
 
