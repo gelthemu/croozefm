@@ -89,9 +89,9 @@ export default async function ProfilePage({
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-1">
+    <div className="w-full max-w-4xl mx-auto p-1">
       <div className="relative flex flex-col lg:flex-row">
-        <div className="h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-md overflow-hidden">
+        <div className="relative h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-md overflow-hidden">
           <Image
             src={profile.imageLink}
             alt={profile.name}
@@ -100,9 +100,14 @@ export default async function ProfilePage({
             priority={true}
             className="w-full h-full object-cover aspect-[570/696] grayscale-[0.75] _img_"
           />
+          <div className="w-full absolute bottom-0 left-0 z-[0] flex items-center justify-center overflow-hidden">
+            <div className="font-light text-light/20 uppercase text-sm md:text-xs">
+              {profile.name.replace(/\s+/g, "").repeat(10)}
+            </div>
+          </div>
         </div>
 
-        <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0 border-y-4 border-red">
+        <div className="lg:w-full p-6 pt-32 lg:p-10 lg:pl-24 bg-gray/20 dark:bg-gray/50 rounded-md shadow-xl z-0 border-y-4 border-red">
           <div className="pb-6 flex flex-col lg:flex-row lg:justify-between border-b border-gray/40 dark:border-light/20">
             <div>
               <h1 className="text-3xl pb-2.5 text-red _912cfm">
