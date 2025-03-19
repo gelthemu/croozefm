@@ -51,7 +51,7 @@ export const mixtapes: Mixtape[] = [
     dj: djs.natij,
   },
   {
-    id: 1742406446,
+    id: 1742362219,
     title: "DJ Stinger Vol 1",
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Weekly-Mixtapes-DJ-Stinger-19th-March-2025.mp3",
     dj: djs.stinger,
