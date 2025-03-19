@@ -42,7 +42,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "%s | 91.2 Crooze FM",
-    default: "Welcome",
+    default: "Welcome | 91.2 Crooze FM",
   },
   description:
     "Welcome to the Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Browse the Current News Daily, our Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
@@ -88,11 +88,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: {
       template: "%s | 91.2 Crooze FM",
-      default: "Welcome",
+      default: "Welcome | 91.2 Crooze FM",
     },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
-    url: "https://croozefm.geltaverse.com/home",
+    url: "https://croozefm.geltaverse.com",
     type: "website",
     images: [
       {
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
   twitter: {
     title: {
       template: "%s | 91.2 Crooze FM",
-      default: "Welcome",
+      default: "Welcome | 91.2 Crooze FM",
     },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",

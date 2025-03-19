@@ -14,6 +14,38 @@ export const metadata = {
     "Any questions about Crooze FM, get in touch today! Studio lines are always open, call in and say Hi. Email replies faster...",
   keywords:
     "91.2 Crooze FM, Great Music Great Friends, Western Uganda, Contacts, Studio lines, Crooze fm email, Crooze fm stream live, Crooze FM",
+
+  openGraph: {
+    title: "Get In Touch",
+    description:
+      "Any questions about Crooze FM, get in touch today! Studio lines are always open, call in and say Hi. Email replies faster...",
+    url: "https://croozefm.geltaverse.com/c/contact-us",
+    type: "website",
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    title: "Home",
+    description:
+      "Any questions about Crooze FM, get in touch today! Studio lines are always open, call in and say Hi. Email replies faster...",
+    card: "summary_large_image",
+    site: "@geltaverse",
+    creator: "@geltaverse",
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+      },
+    ],
+  },
+
   alternates: {
     canonical: "https://croozefm.geltaverse.com/c/contact-us",
   },

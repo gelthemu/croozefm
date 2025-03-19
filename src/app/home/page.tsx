@@ -12,6 +12,38 @@ export const metadata: Metadata = {
   title: "Home",
   description:
     "Welcome to Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Hit Music Always. Current News Daily. Browse your Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+
+  openGraph: {
+    title: "Home",
+    description:
+      "Welcome to Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Hit Music Always. Current News Daily. Browse your Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+    url: "https://croozefm.geltaverse.com/home",
+    type: "website",
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+
+  twitter: {
+    title: "Home",
+    description:
+      "Welcome to Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Hit Music Always. Current News Daily. Browse your Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+    card: "summary_large_image",
+    site: "@geltaverse",
+    creator: "@geltaverse",
+    images: [
+      {
+        url: "https://croozefm.blob.core.windows.net/images/default.png",
+        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+      },
+    ],
+  },
+
   alternates: {
     canonical: `https://croozefm.geltaverse.com/home`,
   },
