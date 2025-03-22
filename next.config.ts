@@ -109,6 +109,16 @@ const nextConfig: NextConfig = {
         hostname: "golf.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.theeastafrican.co.ke",
+        pathname: "/**",
+      },
     ],
   },
 };

@@ -24,7 +24,7 @@ export default function PlayerHeader({
           }
         }}
         aria-label="Close"
-        className="mb-2 flex flex-row items-center justify-between"
+        className="mb-2 flex flex-row items-center justify-between focus:outline-none"
       >
         <div className="px-1 text-left text-sm font-medium">
           <span className="font-semibod line-clamp-1">{tagLine}</span>

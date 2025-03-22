@@ -89,8 +89,8 @@ export default function MiniPlayer() {
         <div
           className={`flex items-center space-x-2.5 border border-light/10 p-4 ${
             isCollapse && snapShot
-              ? "absolute bottom-1 left-1 right-1 bg-gray/40 dark:bg-dark/80 backdrop-blur-sm rounded-sm"
-              : "w-full bg-gray/40 dark:bg-dark/40 rounded-md"
+              ? "absolute bottom-1 left-1 right-1 bg-light/80 dark:bg-dark/80 backdrop-blur-sm rounded-sm shadow shadow-gray/40"
+              : "w-full bg-light/20 dark:bg-gray/60 dark:bg-dark/40 rounded-sm shadow shadow-gray/40"
           } `}
         >
           <PlayerControls

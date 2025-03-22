@@ -39,17 +39,27 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name, code }) => {
                 openCarousel({ gallery, currentIndex: index, name });
               }
             }}
-            className="relative w-full profile-image rounded-md overflow-hidden cursor-pointer focus:outline-none"
+            className="relative w-full aspect-[570/696] rounded-md border border-gray/80 dark:border-light/20 overflow-hidden cursor-pointer focus:outline-none"
             aria-label="Click to enter full-screen mode"
           >
-            <Image
-              src={photo}
-              width={2280}
-              height={2784}
-              priority={index < 4}
-              alt={`${name} - ${index + 1}`}
-              className="w-full h-full object-cover aspect-[570/696] filter grayscale transition-all duration-300 _img_"
-            />
+            <div
+              className="w-full h-full bg-cover bg-center bg-transparent bg-blend-multiply"
+              style={{
+                aspectRatio: "570 / 696",
+                backgroundImage: `url("https://placehold.co/570x696/transparent/png?text=${encodeURIComponent(
+                  `${name} - ${index + 1}`
+                )}")`,
+              }}
+            >
+              <Image
+                src={photo}
+                width={2280}
+                height={2784}
+                priority={index < 4}
+                alt={`${name} - ${index + 1}`}
+                className="w-full h-full object-cover aspect-[570/696] filter grayscale-[0.85] transition-all duration-300 _img_"
+              />{" "}
+            </div>
             <div
               role="button"
               tabIndex={0}

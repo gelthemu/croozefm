@@ -15,7 +15,7 @@ export default function TimeDisplay({
 
   return (
     <div
-      className={`flex items-center justify-center text-xs text-light dark:text-light/60 flex-shrink-0 ${
+      className={`flex items-center justify-center text-xs ${isStreaming ? "text-red font-medium" : "text-dark dark:text-light/80"} flex-shrink-0 ${
         isLoading ? "hidden" : ""
       } transition-none`}
     >

@@ -22,7 +22,7 @@ export default function ProgressBar({
       }}
       style={{ cursor: isLoading || !isSeekable ? "" : "pointer" }}
     >
-      <div className="w-full h-fit bg-light dark:bg-dark/40 border border-dark/40 dark:border-light/10">
+      <div className="w-full h-fit bg-light dark:bg-dark/40 border border-dark/30 dark:border-light/10">
         <div
           className={`w-full h-[3px] transition-all duration-[0.25s] ${
             isStreaming && isAudioPlaying ? "animate-stream" : ""

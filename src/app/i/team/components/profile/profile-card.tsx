@@ -19,7 +19,7 @@ const PresenterCard: React.FC<PresenterCardProps> = ({ profile }) => {
           href={`/i/${profile.id}`}
           className="relative flex flex-col h-full"
         >
-          <div className="h-80 max-h-[500px] w-full profile-image overflow-hidden">
+          <div className="h-80 max-h-[500px] w-full bg-gray/30 dark:bg-gray/50 overflow-hidden">
             <Image
               src={profile.imageLink}
               alt={profile.name}
