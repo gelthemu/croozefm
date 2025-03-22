@@ -1,6 +1,6 @@
 ---
 headline: "Congo Crisis Back to Square One as Kagame Markets Deniability"
-publication_date: 1742654258
+publication_date: 1742645028
 excerpt: "The Emir of Qatar orchestrated a high-profile meeting between Rwanda’s President Paul Kagame and DRC’s Felix Tshisekedi in Doha, leveraging American pressure to secure a ceasefire in the Democratic Republic of Congo conflict, though M23 rebels remain dismissive and continue their advance."
 keywords: "Congo Crisis, Qatar mediation Congo crisis, DRC Rwanda ceasefire, M23 rebels North Kivu, Sheikh Tamim Bin Hamad Al Thani, Paul Kagame Felix Tshisekedi, Doha meeting Congo conflict, U.S. sanctions Rwanda, Great Lakes region diplomacy, M23/AFC direct dialogue, African mediation efforts"
 image_url: "https://www.theeastafrican.co.ke/resource/image/4974970/landscape_ratio2x1/1280/640/4cfdfb04b5da60076ba07eb9f8c81c72/YY/truce.jpg"
