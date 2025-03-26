@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://croozefm.geltaverse.com
+
+# Sitemaps
+Sitemap: https://croozefm.geltaverse.com/sitemap.xml

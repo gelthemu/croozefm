@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "messages": {
+      ".read": true,
+      ".write": true
+    },
+    "adStats": {
+      "$adId": {
+        ".read": true,
+        ".write": true
+      }
+    }
+  }
+}

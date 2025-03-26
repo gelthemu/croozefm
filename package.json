@@ -1,0 +1,53 @@
+{
+  "name": "croozefm",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 | node src/app/scripts/show-network-url.mjs",
+    "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.mjs",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/video.js": "^7.3.58",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.0.14",
+    "emoji-picker-react": "^4.12.2",
+    "firebase": "^11.5.0",
+    "firebase-admin": "^13.2.0",
+    "firebase-functions": "^6.3.2",
+    "fs": "^0.0.1-security",
+    "gray-matter": "^4.0.3",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.454.0",
+    "next": "^15.0.2",
+    "next-auth": "^4.24.11",
+    "next-share": "^0.27.0",
+    "next-sitemap": "^4.2.3",
+    "next-themes": "^0.4.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.4.0",
+    "react-markdown": "^9.1.0",
+    "react-toastify": "^10.0.6",
+    "react-twitter-embed": "^4.0.4",
+    "rehype-raw": "^7.0.0",
+    "seedrandom": "^3.0.5",
+    "socket.io-client": "^4.8.1",
+    "tailwind-scrollbar-hide": "^2.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/seedrandom": "^3.0.8",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

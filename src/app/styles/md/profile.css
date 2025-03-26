@@ -1,0 +1,51 @@
+@tailwind base;
+
+@layer base {
+  ._img_ {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+.prose h3 {
+  @apply font-semibold;
+  display: inline;
+}
+
+.prose h3::before {
+  @apply w-8 h-1 content-[''] border-t-2 border-red mr-2;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.prose p {
+  @apply my-6;
+}
+
+.prose p strong {
+  @apply font-semibold;
+}
+
+.prose a {
+  @apply font-normal text-red px-0.5;
+}
+
+.prose img {
+  @apply w-full aspect-auto rounded-sm grayscale-[0.5] _img_;
+}
+
+.prose video {
+  @apply w-full aspect-auto;
+}
+
+.prose ul {
+  @apply list-disc list-inside space-y-4 mb-8;
+}
+
+.prose blockquote {
+  @apply w-full my-4 text-sm border-0;
+}

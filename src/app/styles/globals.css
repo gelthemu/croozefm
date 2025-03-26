@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+html {
+  scroll-behavior: smooth;
+  transition-duration: 0s;
+}
+
+:root {
+  --toastify-font-family: var(--fonts-sans), sans-serif;
+}
+
+::selection {
+  background: #b71c1cc1;
+  color: #f5f5f5;
+}
+
+::-moz-selection {
+  background: #b71c1c;
+  color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5b5b5bb8;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Add to your CSS */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+._img_ {
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.profile-image {
+  aspect-ratio: 570 / 696;
+  background-image: url("https://croozefm.blob.core.windows.net/images/profile-bg-image.png");
+  background-size: cover;
+  background-position: center top;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: multiply;
+}
+
+.image-div {
+  aspect-ratio: 1484 / 813;
+  background-image: url("https://placehold.co/1484x813/transparent/png?text=91.2+Crooze+FM");
+  background-size: cover;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0);
+  background-blend-mode: multiply;
+}
+
+audio {
+  color-scheme: dark;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button:focus,
+button:focus-visible,
+button:active,
+button:hover,
+button:selected {
+  outline: none;
+  border: none;
+}
+
+input {
+  pointer-events: auto;
+  outline: none;
+  box-shadow: none;
+}
+
+input:focus,
+input:hover,
+input:active {
+  outline: none;
+  box-shadow: none;
+  background-color: inherit;
+  cursor: default;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #ef4444;
+  border-color: transparent;
+}
+
+h1,
+h2 {
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+  overflow-wrap: break-word;
+  font-weight: 900 !important;
+  color: #b71c1c;
+}
+
+._912cfm {
+  font-feature-settings: "ss02", "ss03";
+  font-variation-settings: "opsz" 500;
+}
+
+.twitter-tweet {
+  padding: 0;
+  margin: 0 auto;
+  background-color: #657786 !important;
+  border-width: 1px !important;
+  border-radius: 14px !important;
+  border-color: #657786 !important;
+  overflow: hidden !important;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0 #fc2a2a;
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px #a31300;
+  }
+  75% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0 #f53a3a;
+  }
+}
+
+@-moz-keyframes heartbeat {
+  0% {
+    transform: scale(1.05);
+    -moz-box-shadow: 0 0 0 0 #fc2a2a;
+    box-shadow: 0 0 0 0 #fc2a2a;
+  }
+  50% {
+    transform: scale(1);
+    -moz-box-shadow: 0 0 0 4px #a31300;
+    box-shadow: 0 0 0 4px #a31300;
+  }
+  75% {
+    transform: scale(1.05);
+    -moz-box-shadow: 0 0 0 0 #f53a3a;
+    box-shadow: 0 0 0 0 #f53a3a;
+  }
+}
+
+.animate-heartbeat {
+  -moz-animation: heartbeat 1.5s ease-in-out infinite;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes stream {
+  0% {
+    width: 10%;
+    opacity: 0.75;
+  }
+  50% {
+    width: 100%;
+    opacity: 0.95;
+  }
+  100% {
+    width: 10%;
+    opacity: 0.75;
+  }
+}
+
+@-moz-keyframes stream {
+  0% {
+    width: 10%;
+    opacity: 0.75;
+  }
+  50% {
+    width: 100%;
+    opacity: 0.95;
+  }
+  100% {
+    width: 10%;
+    opacity: 0.75;
+  }
+}
+
+.animate-stream {
+  -moz-animation: heartbeat 6s ease-in-out infinite;
+  animation: stream 6s ease-in-out infinite;
+}
