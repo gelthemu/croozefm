@@ -1,6 +1,10 @@
-// src\app\components\providers\ads\utils\firebase.ts
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, update } from "firebase/database";
+import {
+  getDatabase,
+  ref,
+  update,
+  increment as firebaseIncrement,
+} from "firebase/database";
 
 // Your Firebase configuration (typically from .env.local)
 const firebaseConfig = {
@@ -22,7 +26,7 @@ export const trackAdImpression = (adId: string) => {
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     update(adStatsRef, {
-      impressions: increment(1),
+      impressions: firebaseIncrement(1),
     });
   } catch (error) {
     console.error("Error tracking ad impression:", error);
@@ -34,20 +38,9 @@ export const trackAdClick = (adId: string) => {
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     update(adStatsRef, {
-      clicks: increment(1),
+      clicks: firebaseIncrement(1),
     });
   } catch (error) {
     console.error("Error tracking ad click:", error);
   }
 };
-
-// Helper function to increment values in Firebase
-function increment(value: number) {
-  return {
-    ".sv": {
-      increment: value,
-    },
-  };
-}
-
-export { database };

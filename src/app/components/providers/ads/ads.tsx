@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { trackAdImpression } from "./utils/firebase";
+import { trackAdClick, trackAdImpression } from "./utils/firebase";
 import { getRandomAd, Ad } from "./utils/adsData";
 
 // Base Ad Component
@@ -21,14 +21,26 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
     }
   }, [size]);
 
+  const handleAdClick = (e: React.MouseEvent, adId: string) => {
+    try {
+      // Client-side tracking
+      trackAdClick(adId);
+    } catch (error) {
+      console.error("Client-side ad click tracking failed", error);
+    }
+  };
+
   if (!ad) return null;
 
   return (
     <a
-      href={`/api/click?ad_id=${ad.id}&redirect=${encodeURIComponent(ad.link)}`}
+      href={`/api/click?ad_id=${encodeURIComponent(
+        ad.id
+      )}&redirect=${encodeURIComponent(ad.link)}`}
       target="_blank"
       rel="noopener noreferrer"
       className="block p-4 bg-gray/5 dark:bg-gray/20 rounded-sm"
+      onClick={(e) => handleAdClick(e, ad.id)}
     >
       <span className="block text-center text-xs opacity-60 uppercase mb-2">
         Advertisement
