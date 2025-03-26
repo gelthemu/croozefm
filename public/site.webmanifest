@@ -2,7 +2,7 @@
   "name": "Crooze FM",
   "short_name": "CFM",
   "description": "Home of Western Uganda's Biggest Radio Station.",
-  "start_url": "/home",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

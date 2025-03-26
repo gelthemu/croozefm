@@ -1,4 +1,3 @@
-// src\app\components\providers\ads\utils\adsData.ts
 export interface Ad {
   id: string;
   imageUrl: string;
@@ -9,7 +8,6 @@ export interface Ad {
   size: "banner" | "rectangle" | "skyscraper";
 }
 
-// Sample ad data - replace with your actual ad configurations
 export const ads: Ad[] = [
   {
     id: "ad001",
@@ -40,7 +38,6 @@ export const ads: Ad[] = [
   },
 ];
 
-// Function to get active ads for a specific size
 export const getActiveAds = (size: Ad["size"]): Ad[] => {
   const now = new Date().toISOString();
   return ads.filter(
@@ -52,7 +49,6 @@ export const getActiveAds = (size: Ad["size"]): Ad[] => {
   );
 };
 
-// Function to get a random ad from active ads
 export const getRandomAd = (size: Ad["size"]): Ad | null => {
   const activeAds = getActiveAds(size);
   return activeAds.length > 0

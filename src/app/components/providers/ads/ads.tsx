@@ -1,34 +1,21 @@
-// src\app\components\providers\ads\ads.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { trackAdClick, trackAdImpression } from "./utils/firebase";
+import { trackAdImpression } from "./utils/firebase";
 import { getRandomAd, Ad } from "./utils/adsData";
 
-// Base Ad Component
 const BaseAd = ({ size }: { size: Ad["size"] }) => {
   const [ad, setAd] = useState<Ad | null>(null);
 
   useEffect(() => {
-    // Get a random ad on component mount
     const randomAd = getRandomAd(size);
     setAd(randomAd);
 
-    // Track impression if ad exists
     if (randomAd) {
       trackAdImpression(randomAd.id);
     }
   }, [size]);
-
-  const handleAdClick = (e: React.MouseEvent, adId: string) => {
-    try {
-      // Client-side tracking
-      trackAdClick(adId);
-    } catch (error) {
-      console.error("Client-side ad click tracking failed", error);
-    }
-  };
 
   if (!ad) return null;
 
@@ -40,7 +27,6 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
       target="_blank"
       rel="noopener noreferrer"
       className="block p-4 bg-gray/5 dark:bg-gray/20 rounded-sm"
-      onClick={(e) => handleAdClick(e, ad.id)}
     >
       <span className="block text-center text-xs opacity-60 uppercase mb-2">
         Advertisement
@@ -62,7 +48,6 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
   );
 };
 
-// Specific Ad Components
 export const BannerAd = () => (
   <div className="w-full">
     <BaseAd size="banner" />

@@ -6,7 +6,6 @@ import {
   increment as firebaseIncrement,
 } from "firebase/database";
 
-// Your Firebase configuration (typically from .env.local)
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -17,11 +16,9 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Utility function to track ad impressions
 export const trackAdImpression = (adId: string) => {
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
@@ -33,7 +30,6 @@ export const trackAdImpression = (adId: string) => {
   }
 };
 
-// Utility function to track ad clicks
 export const trackAdClick = (adId: string) => {
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);

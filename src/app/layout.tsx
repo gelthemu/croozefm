@@ -7,7 +7,6 @@ import { Big_Shoulders_Display } from "next/font/google";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProviders } from "./components/providers/theme-provider";
-import ToastProvider from "./components/providers/toastprovider";
 import Navbar from "./components/header-footer/navbar";
 import Footer from "./components/header-footer/footer";
 import MiniPlayer from "./components/stream/mini-player/mini-player";
@@ -153,7 +152,6 @@ export default function RootLayout({
                 <MiniPlayerProvider>
                   <MiniPlayer />
                   <Navbar />
-                  <ToastProvider />
                   <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
                     <div className="w-full bg-light/80 dark:bg-dark/95">
                       <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16 overflow-hidden">
