@@ -4,6 +4,7 @@ import NewsHeader from "../components/news-header";
 import NewsArchive from "./components/news-archive";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../components/news-footer";
+import { SkyscraperAd } from "@/app/components/providers/ads/ads";
 
 export const metadata = {
   title: "News Archive",
@@ -22,12 +23,19 @@ export default function NewsArchivePage() {
 
   return (
     <div className="p-1">
-      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px]">
+      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[820px]">
         <div>
           <NewsHeader title="News Archive" />
         </div>
-        <div className="my-10 flex flex-col">
-          <NewsArchive news={sortedNews} data={news} />
+        <div className="flex flex-row gap-2 my-10">
+          <div className="w-full">
+            <NewsArchive news={sortedNews} data={news} />
+          </div>
+          <div className="w-[40%]">
+            <div className="sticky top-[calc(0.25rem+80px)]">
+              <SkyscraperAd />
+            </div>
+          </div>
         </div>
       </div>
       <Divider />

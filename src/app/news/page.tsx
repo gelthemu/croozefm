@@ -7,6 +7,7 @@ import { getAllNewsArticles, getAllCategories } from "@/lib/news-parser";
 import NewsFooter from "./components/news-footer";
 import Divider from "../components/providers/divs/divider";
 import WeatherWidget from "../components/providers/weather-widget";
+import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
 
 export const metadata: Metadata = {
   title: "News",
@@ -37,6 +38,10 @@ export default function NewsPage() {
       </div>
       <Divider />
       <NewsFooter />
+      <div className="pt-6">
+        <RectangleAd />
+        <BannerAd />
+      </div>
     </>
   );
 }

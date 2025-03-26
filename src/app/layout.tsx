@@ -154,7 +154,7 @@ export default function RootLayout({
                   <Navbar />
                   <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
                     <div className="w-full bg-light/80 dark:bg-dark/95">
-                      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16 overflow-hidden">
+                      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
                         <div className="container mx-auto">{children}</div>
                       </main>
                     </div>

@@ -16,10 +16,18 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
+const trackAd = () => {
+  return process.env.NODE_ENV === "production";
+};
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 export const trackAdImpression = (adId: string) => {
+  if (!trackAd()) {
+    return;
+  }
+
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     update(adStatsRef, {
@@ -31,6 +39,10 @@ export const trackAdImpression = (adId: string) => {
 };
 
 export const trackAdClick = (adId: string) => {
+  if (!trackAd()) {
+    return;
+  }
+
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     update(adStatsRef, {

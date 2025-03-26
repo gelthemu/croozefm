@@ -7,6 +7,7 @@ import PopularShows from "../shows/components/popShows";
 import PopularProfiles from "../i/team/components/popular";
 import { getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../news/components/recent-news";
+import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -72,6 +73,9 @@ export default function Home() {
       <div className="w-full text-center text-sm font-medium">
         THIS SITE IS UNDER CONSTRUCTION
       </div>
+      <Divider className="my-5" opacity="opacity-0" />
+      <RectangleAd />
+      <BannerAd />
     </>
   );
 }

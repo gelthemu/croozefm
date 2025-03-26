@@ -9,6 +9,7 @@ import { NewsCategory } from "@/types/news";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../components/news-footer";
+import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
 
 export async function generateMetadata({
   params,
@@ -77,6 +78,10 @@ export default async function CategoryPage({
       </div>
       <Divider />
       <NewsFooter />
+      <div className="pt-6">
+        <RectangleAd />
+        <BannerAd />
+      </div>
     </>
   );
 }
