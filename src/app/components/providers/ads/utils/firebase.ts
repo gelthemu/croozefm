@@ -1,4 +1,4 @@
-// lib/firebase.ts
+// src\app\components\providers\ads\utils\firebase.ts
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, update } from "firebase/database";
 

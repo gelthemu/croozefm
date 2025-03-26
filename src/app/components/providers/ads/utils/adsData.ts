@@ -1,4 +1,4 @@
-// lib/adsData.ts
+// src\app\components\providers\ads\utils\adsData.ts
 export interface Ad {
   id: string;
   imageUrl: string;
