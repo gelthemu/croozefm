@@ -9,6 +9,10 @@
         ".read": true,
         ".write": true
       }
+    },
+    "article_views": {
+      ".read": true,
+      ".write": true
     }
   }
 }

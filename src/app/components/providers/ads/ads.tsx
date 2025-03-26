@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { trackAdImpression } from "./utils/firebase";
+import { trackAdImpression } from "./utils/adsTrack";
 import { getRandomAd, Ad } from "./utils/adsData";
 
 const useScreenWidth = () => {

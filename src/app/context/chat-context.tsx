@@ -3,9 +3,8 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Cookies from "js-cookie";
-import { initializeApp } from "firebase/app";
+import { database } from "@/lib/firebase";
 import {
-  getDatabase,
   ref,
   onValue,
   push,
@@ -15,22 +14,7 @@ import {
   limitToLast,
 } from "firebase/database";
 
-
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-};
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
 const CHAT_USERNAME = "chat_username";
-
 
 export interface Message {
   id: string;
@@ -54,7 +38,6 @@ export interface ChatContextType {
   isUsernameFormVisible: boolean;
   isWelcomeBackMode: boolean;
 
-  
   setUsername: (username: string) => void;
   sendMessage: (text: string) => void;
   toggleChatVisibility: () => void;
@@ -62,7 +45,6 @@ export interface ChatContextType {
   leaveChat: () => void;
   startChat: () => void;
 }
-
 
 const INITIAL_STATE: Omit<
   ChatContextType,
@@ -82,9 +64,7 @@ const INITIAL_STATE: Omit<
   isWelcomeBackMode: false,
 };
 
-
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
-
 
 export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -92,7 +72,6 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
   const [state, setState] = useState({
     ...INITIAL_STATE,
   });
-
 
   useEffect(() => {
     const savedUserInfo = Cookies.get(CHAT_USERNAME);
@@ -110,7 +89,6 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
     }
   }, []);
-
 
   useEffect(() => {
     const messagesRef = query(ref(database, "messages"), limitToLast(20));
@@ -140,7 +118,6 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
 
     return () => unsubscribe();
   }, []);
-
 
   const setUsername = (inputUsername: string) => {
     if (!inputUsername.trim()) {
@@ -229,7 +206,6 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
     </ChatContext.Provider>
   );
 };
-
 
 export const useChat = () => {
   const context = useContext(ChatContext);

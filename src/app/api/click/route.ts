@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { trackAdClick } from "@/app/components/providers/ads/utils/firebase";
+import { trackAdClick } from "@/app/components/providers/ads/utils/adsTrack";
 
 export async function GET(request: NextRequest) {
   try {
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.redirect(new URL("/", request.url));
     }
 
-    await trackAdClick(adId);
+    trackAdClick(adId);
 
     return NextResponse.redirect(new URL(decodedRedirectUrl));
   } catch (error) {
