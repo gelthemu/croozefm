@@ -34,7 +34,7 @@ const StreamButton: React.FC<StreamButtonProps> = ({
       tabIndex={isDisabled ? -1 : 0}
       aria-disabled={isDisabled ? "true" : "false"}
       className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-md focus:outline-none select-none ${className} ${
-        isDisabled ? "cursor-default" : "cursor-pointer"
+        isDisabled ? "opacity-80 cursor-default" : "cursor-pointer"
       }`}
       style={style}
       onClick={() => {

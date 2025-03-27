@@ -301,6 +301,17 @@ export const news: News[] = [
     anchor: anchors.oscar,
     audio: "cfm-news-2025-02-24_1pm",
   },
+  {
+    id: 202503271300,
+    aired: {
+      date: "2025-03-27T13:00:00+03:00",
+      time: "1PM",
+    },
+    headline:
+      "Government Explains Current Power Outages, Niger Coup Leader Sworn In As President",
+    anchor: anchors.oscar,
+    audio: "cfm-news-2025-03-27_1pm",
+  },
   // = = = = = = = = = = = = = = = = = = = 2PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411191400,
@@ -433,7 +444,7 @@ export const news: News[] = [
     audio: "cfm-news-2025-03-19_2pm",
   },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
-{
+  {
     id: 202503181600,
     aired: {
       date: "2025-03-18T16:00:00+03:00",

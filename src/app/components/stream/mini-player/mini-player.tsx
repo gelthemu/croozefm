@@ -107,7 +107,7 @@ export default function MiniPlayer() {
           } `}
         >
           {isCollapse && (
-            <div className={`w-full text-sm mt-auto`}>
+            <div className={`w-full mt-auto`}>
               <div className="w-full flex justify-end bg-transparent rounded-sm">
                 <div
                   role="button"
@@ -122,14 +122,14 @@ export default function MiniPlayer() {
                       toggleChatVisibility();
                     }
                   }}
-                  className={`bg-red text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none ${
+                  className={`bg-red text-sm text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none ${
                     isLoading
                       ? "opacity-0 -translate-x-full"
                       : "opacity-100 translate-x-0"
                   } transition-all duration-[0.4s]`}
                 >
                   <span className="">Show Chat</span>{" "}
-                  <span className="text-sm opacity-80">({users.length})</span>
+                  <span className="text-xs opacity-80">({users.length})</span>
                 </div>
               </div>
             </div>

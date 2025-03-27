@@ -70,7 +70,9 @@ export function useAudioControls() {
             .then(() => {
               setIsStreamActive(true);
               setIsAudioPlaying(true);
-              setIsLoading(false);
+              setTimeout(() => {
+                setIsLoading(false);
+              }, 4000);
             })
             .catch((error) => {
               console.error(error);
