@@ -26,7 +26,7 @@ export default function MiniPlayer() {
     setIsAnimating,
     audioRef,
   } = useMiniPlayer();
-  const { toggleChatVisibility } = useChat();
+  const { toggleChatVisibility, users } = useChat();
 
   const { isLoading, handleAudioPlay } = useAudioControls();
 
@@ -128,7 +128,8 @@ export default function MiniPlayer() {
                       : "opacity-100 translate-x-0"
                   } transition-all duration-[0.4s]`}
                 >
-                  Show Chat
+                  <span className="">Show Chat</span>{" "}
+                  <span className="text-sm opacity-60">({users.length})</span>
                 </div>
               </div>
             </div>

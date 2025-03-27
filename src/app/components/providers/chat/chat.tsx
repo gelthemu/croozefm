@@ -23,6 +23,7 @@ export default function Chat() {
     toggleUsernameForm,
     leaveChat,
     startChat,
+    users,
   } = useChat();
   const { isCollapse, setIsCollapse, setIsAnimating } = useMiniPlayer();
 
@@ -67,7 +68,7 @@ export default function Chat() {
     >
       <div className="h-full w-full flex flex-col rounded-md overflow-hidden">
         <div className="relative mx-2 my-1 select-none">
-          <ChatHeader isChatVisible={isChatVisible} hideChat={hideChat} />{" "}
+          <ChatHeader hideChat={hideChat} users={users} />{" "}
           {isChatVisible && (
             <div className="flex flex-col h-full rounded-b-md border border-gray/10 dark:border-light/10 bg-light/5 dark:bg-dark/10 backdrop-blur-sm overflow-hidden">
               <div className="h-[240px] flex flex-col">

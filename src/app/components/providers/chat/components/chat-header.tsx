@@ -1,11 +1,11 @@
 import { X } from "lucide-react";
 
 interface ChatHeaderProps {
-  isChatVisible: boolean;
   hideChat: () => void;
+  users: string[];
 }
 
-export default function ChatHeader({ hideChat }: ChatHeaderProps) {
+export default function ChatHeader({ hideChat, users }: ChatHeaderProps) {
   return (
     <>
       <div
@@ -17,7 +17,10 @@ export default function ChatHeader({ hideChat }: ChatHeaderProps) {
         className="mb-2 flex items-center justify-between cursor-pointer focus:outline-none"
       >
         <div className="flex items-center">
-          <h3 className="font-semibold text-red _912cfm">Live Chat</h3>
+          <h3 className="font-semibold _912cfm">
+            <span className="text-red">Live Chat</span>{" "}
+            <span className="text-sm opacity-60">({users.length})</span>
+          </h3>
         </div>
         <div className="flex items-center">
           <div className="w-6 aspect-square flex items-center justify-center">

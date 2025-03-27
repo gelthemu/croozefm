@@ -37,6 +37,7 @@ export interface ChatContextType {
   isChatVisible: boolean;
   isUsernameFormVisible: boolean;
   isWelcomeBackMode: boolean;
+  users: string[];
 
   setUsername: (username: string) => void;
   sendMessage: (text: string) => void;
@@ -62,6 +63,7 @@ const INITIAL_STATE: Omit<
   isChatVisible: false,
   isUsernameFormVisible: false,
   isWelcomeBackMode: false,
+  users: [],
 };
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
@@ -97,16 +99,28 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
       messagesRef,
       (snapshot) => {
         const data = snapshot.val();
+        const messages = data
+          ? Object.entries(data as Record<string, FirebaseMessage>)
+              .map(([id, message]) => ({
+                id,
+                ...message,
+              }))
+              .sort((a, b) => a.timestamp - b.timestamp)
+          : [];
+
+        const users = Array.from(
+          new Set(
+            messages.map((message) => {
+              const match = message.username.match(/^(.+?)(\s\(\w+\))?$/);
+              return match ? match[1] : message.username;
+            })
+          )
+        );
+
         setState((prevState) => ({
           ...prevState,
-          messages: data
-            ? Object.entries(data as Record<string, FirebaseMessage>)
-                .map(([id, message]) => ({
-                  id,
-                  ...message,
-                }))
-                .sort((a, b) => a.timestamp - b.timestamp)
-            : prevState.messages,
+          messages,
+          users,
           isConnected: true,
         }));
       },
@@ -181,6 +195,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
     setState((prevState) => ({
       ...INITIAL_STATE,
       messages: prevState.messages,
+      users: prevState.users,
     }));
   };
 
