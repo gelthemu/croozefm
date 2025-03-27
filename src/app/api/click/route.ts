@@ -1,5 +1,3 @@
-// src\app\api\click\route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { trackAdClick } from "@/app/components/providers/ads/utils/adsTrack";
 
@@ -9,26 +7,16 @@ export async function GET(request: NextRequest) {
     const adId = searchParams.get("ad_id");
     const redirectUrl = searchParams.get("redirect");
 
-    if (!adId) {
-      console.error("Missing ad_id parameter");
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-
-    if (!redirectUrl) {
-      console.error("Missing redirect parameter");
+    if (!adId || !redirectUrl) {
+      console.error("Missing ad_id or redirect parameter");
       return NextResponse.redirect(new URL("/", request.url));
     }
 
     const decodedRedirectUrl = decodeURIComponent(redirectUrl);
+    new URL(decodedRedirectUrl); // Validate URL
 
-    try {
-      new URL(decodedRedirectUrl);
-    } catch (urlError) {
-      console.error("Invalid redirect URL", urlError);
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-
-    trackAdClick(adId);
+    await trackAdClick(adId); // Ensure tracking completes
+    console.log(`Redirecting to ${decodedRedirectUrl}`);
 
     return NextResponse.redirect(new URL(decodedRedirectUrl));
   } catch (error) {

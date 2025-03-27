@@ -60,12 +60,20 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
     };
   }, [ad]);
 
-  const handleAdClick = () => {
-    // Track ad click before redirecting
-    trackAdClick(ad!.id);
+  // const handleAdClick = () => {
+  //   // Track ad click before redirecting
+  //   trackAdClick(ad!.id);
 
-    // Open the ad link in a new tab
-    window.open(ad!.link, "_blank", "noopener,noreferrer");
+  //   // Open the ad link in a new tab
+  //   window.open(ad!.link, "_blank", "noopener,noreferrer");
+  // };
+
+  const handleAdClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (!ad) return;
+    trackAdClick(ad.id);
+    const redirectUrl = `/api/click?adId=${encodeURIComponent(ad.id)}&url=${encodeURIComponent(ad.link)}`;
+    window.open(redirectUrl, '_blank', 'noopener,noreferrer');
   };
 
   if (!ad) return null;
