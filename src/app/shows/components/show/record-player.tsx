@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { FormatSimpleDate } from "@/app/components/tiny/format-date";
+import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 
 interface RecordPlayerProps {
@@ -22,6 +22,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
     setSnapShot,
     setIsStreaming,
     setIsSeekable,
+    isLoading,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -46,7 +47,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
   };
 
   const handlePlay = (index: number): void => {
-    if (!recordings || !recordings[index]) return;
+    if (!recordings || !recordings[index] || isLoading) return;
 
     const recording = recordings[index];
     const fullAudioUrl = `https://croozefm.blob.core.windows.net/audio/${recording.url}.mp3`;
@@ -119,50 +120,12 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
                       )}
                     </div>
                   </div>
-                  <div
-                    role="button"
-                    tabIndex={isActive && isAudioPlaying ? -1 : 0}
-                    aria-label={
-                      isAudioPlaying && isActive
-                        ? "Currently Playing in Miniplayer"
-                        : "Play in Miniplayer"
-                    }
-                    aria-disabled={isActive && isAudioPlaying}
-                    onClick={() => {
-                      if (isActive) return;
-                      handlePlay(index);
-                    }}
-                    onKeyDown={(e) => {
-                      if ((e.key === "Enter" || e.key === " ") && !isActive) {
-                        e.preventDefault();
-                        handlePlay(index);
-                      }
-                    }}
-                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 focus:outline-none ${
-                      isActive ? "cursor-default" : "cursor-pointer"
-                    }`}
-                  >
-                    <div
-                      className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive ? "text-red/80" : ""
-                      }`}
-                    >
-                      {isAudioPlaying && isActive ? (
-                        <>
-                          <span className="sr-only">Playing...</span>
-                          <i className="fa-solid fa-pause"></i>
-                        </>
-                      ) : (
-                        <>
-                          <span className="sr-only">Play</span>
-                          <i className="fa-solid fa-play"></i>
-                        </>
-                      )}
-                    </div>
-                    <div className="px-4 py-2 text-sm font-normal">
-                      <FormatSimpleDate epoch={recording.id} />
-                    </div>
-                  </div>
+                  <PlayerButton
+                    isActive={isActive}
+                    isAudioPlaying={isAudioPlaying}
+                    epoch={recording.id}
+                    onClick={() => handlePlay(index)}
+                  />
                 </div>
               </div>
             );

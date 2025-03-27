@@ -4,7 +4,7 @@ import NewsHeader from "../components/news-header";
 import NewsArchive from "./components/news-archive";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../components/news-footer";
-import { SkyscraperAd } from "@/app/components/providers/ads/ads";
+import { RectangleAd, SkyscraperAd } from "@/app/components/providers/ads/ads";
 
 export const metadata = {
   title: "News Archive",
@@ -27,10 +27,11 @@ export default function NewsArchivePage() {
         <div>
           <NewsHeader title="News Archive" />
         </div>
-        <div className="flex flex-col lg:flex-row lg:gap-2 my-10">
-          <div className="w-full mx-auto">
+        <div className="flex flex-col  lg:flex-row lg:gap-2 my-10">
+          <div className="w-full mx-auto mb-12 sm:mb-0">
             <NewsArchive news={sortedNews} data={news} />
           </div>
+          <RectangleAd />
           <div className="hidden lg:block lg:w-[40%]">
             <div className="sticky top-[calc(0.25rem+80px)]">
               <SkyscraperAd />

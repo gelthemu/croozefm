@@ -13,7 +13,7 @@ interface NewsPlaylistProps {
   onNewsSelect: (item: News) => void;
 }
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 12;
 const MAX_PAGE_BUTTONS = 5;
 
 export function NewsPlaylist({
@@ -22,7 +22,7 @@ export function NewsPlaylist({
   selectedNews,
   onNewsSelect,
 }: NewsPlaylistProps) {
-  const { currentSource, isMiniPlayerOpen } = useMiniPlayer();
+  const { currentSource, isMiniPlayerOpen, isLoading } = useMiniPlayer();
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -89,74 +89,83 @@ export function NewsPlaylist({
       </div>
 
       <div>
-        {currentItems.map((item) => (
-          <div
-            key={item.id}
-            role="button"
-            tabIndex={selectedNews.id === item.id ? -1 : 0}
-            aria-pressed={selectedNews.id === item.id}
-            aria-disabled={selectedNews.id === item.id}
-            onClick={() => {
-              if (selectedNews.id !== item.id) {
-                onNewsSelect(item);
-              }
-            }}
-            onKeyDown={(e) => {
-              if (
-                (e.key === "Enter" || e.key === " ") &&
-                selectedNews.id !== item.id
-              ) {
-                e.preventDefault();
-                onNewsSelect(item);
-              }
-            }}
-            className={`w-full text-left p-4 transition-all duration-200 ${
-              selectedNews.id === item.id
-                ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60 cursor-default"
-                : "cursor-pointer"
-            } hover:bg-gray/10 dark:hover:bg-light/5 border-b border-b-light/60 dark:border-b-dark/80`}
-          >
-            <div>
-              <div
-                className={`w-fit mb-1.5 text-xs text-light/80 rounded-sm bg-red/80 dark:bg-red/60 py-1 px-2 ${
-                  news.indexOf(item) === 0 ? "show" : "hidden"
-                }`}
-              >
-                Recent
-              </div>
-              <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
-                <span className="line-clamp-2 md:line-clamp-1">
-                  {item.headline}
-                </span>
-              </div>
-              <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/40">
-                <small className="flex-1 flex flex-row items-center line-clamp-1">
-                  <span
-                    className={`line-clamp-1 ${
-                      isMiniPlayerOpen && currentSource === item.audio
-                        ? "text-red/80"
-                        : ""
-                    }`}
-                  >
-                    {item.anchor.name}
+        {currentItems.map((item) => {
+          const isSelected = selectedNews.id === item.id;
+          const isDisabled = isSelected || isLoading; // Disable if selected or loading
+
+          return (
+            <div
+              key={item.id}
+              role="button"
+              tabIndex={isDisabled ? -1 : 0} // Update tabIndex based on isDisabled
+              aria-pressed={isSelected}
+              aria-disabled={isDisabled} // Update aria-disabled
+              onClick={() => {
+                if (!isDisabled) {
+                  onNewsSelect(item);
+                }
+              }}
+              onKeyDown={(e) => {
+                if (
+                  (e.key === "Enter" || e.key === " ") &&
+                  !isDisabled // Check isDisabled here
+                ) {
+                  e.preventDefault();
+                  onNewsSelect(item);
+                }
+              }}
+              className={`w-full text-left p-4 transition-all duration-200 ${
+                isSelected
+                  ? "bg-gray/10 dark:bg-light/5 border-l-4 border-l-red/100 dark:border-l-red/60 cursor-default"
+                  : isLoading
+                  ? "opacity-80 cursor-default" // Visual feedback when loading
+                  : "cursor-pointer hover:bg-gray/10 dark:hover:bg-light/5"
+              } border-b border-b-light/60 dark:border-b-dark/80`}
+            >
+              <div>
+                <div
+                  className={`w-fit mb-1.5 text-xs text-light/80 rounded-sm bg-red/80 dark:bg-red/60 py-1 px-2 ${
+                    news.indexOf(item) === 0 ? "show" : "hidden"
+                  }`}
+                >
+                  Recent
+                </div>
+                <div className="mb-1.5 text-sm text-gray/90 dark:text-light/60 font-medium">
+                  <span className="line-clamp-2 md:line-clamp-1">
+                    {item.headline}
                   </span>
-                </small>
-                <small>
-                  <FormatDate date={item.aired.date} />
-                </small>
+                </div>
+                <div className="flex flex-row items-center justify-between text-gray/60 dark:text-light/40">
+                  <small className="flex-1 flex flex-row items-center line-clamp-1">
+                    <span
+                      className={`line-clamp-1 ${
+                        isMiniPlayerOpen && currentSource === item.audio
+                          ? "text-red/80"
+                          : ""
+                      }`}
+                    >
+                      {item.anchor.name}
+                    </span>
+                  </small>
+                  <small>
+                    <FormatDate date={item.aired.date} />
+                  </small>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {news.length > ITEMS_PER_PAGE && (
         <div className="text-sm flex flex-wrap items-center mt-3 mb-6 p-1 transition-all duration-300">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
+            disabled={currentPage === 1 || isLoading} // Optionally disable pagination during loading
             className={`px-1.5 py-1 m-1.5 rounded-sm ${
-              currentPage === 1 ? "opacity-[0.45]" : ""
+              currentPage === 1 || isLoading
+                ? "opacity-[0.5] cursor-default"
+                : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Previous page"
           >
@@ -175,13 +184,15 @@ export function NewsPlaylist({
                   ? "bg-red text-light"
                   : number === "..."
                   ? "cursor-default opacity-50"
+                  : isLoading
+                  ? "opacity-60 cursor-default"
                   : "bg-gray/10 dark:bg-light/10 hover:bg-gray/20 dark:hover:bg-light/20"
               }`}
               aria-label={
                 typeof number === "number" ? `Page ${number}` : "Ellipsis"
               }
               aria-current={number === currentPage ? "page" : undefined}
-              disabled={number === "..."}
+              disabled={number === "..." || isLoading} // Disable during loading
             >
               {number}
             </button>
@@ -189,9 +200,11 @@ export function NewsPlaylist({
 
           <button
             onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
+            disabled={currentPage === totalPages || isLoading} // Optionally disable during loading
             className={`px-1.5 py-1 m-1.5 rounded-sm ${
-              currentPage === totalPages ? "opacity-[0.45]" : ""
+              currentPage === totalPages || isLoading
+                ? "opacity-[0.5] cursor-default"
+                : ""
             } border border-gray/80 dark:border-light/20`}
             aria-label="Next page"
           >

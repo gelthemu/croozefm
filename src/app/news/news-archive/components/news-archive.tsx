@@ -28,6 +28,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
     isAudioPlaying,
     isMiniPlayerOpen,
     setIsSeekable,
+    isLoading,
   } = useMiniPlayer();
 
   const getAudioIdFromUrl = (url: string | null): string | null => {
@@ -66,6 +67,8 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
     currentSource === buildAudioUrl(selectedNews.audio);
 
   const handlePlay = () => {
+    if (isLoading) return;
+
     const audioUrl = buildAudioUrl(selectedNews.audio);
     setCurrentSource(audioUrl);
     setTagLine(`${selectedNews.anchor.name}${" — "}Crooze FM News`);
@@ -76,8 +79,9 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
   };
 
   const handleNewsSelect = (item: News) => {
-    setSelectedNews(item);
+    if (isLoading) return;
 
+    setSelectedNews(item);
     const audioUrl = buildAudioUrl(item.audio);
     if (audioUrl !== currentSource) {
       setCurrentSource(audioUrl);
@@ -90,7 +94,7 @@ export default function NewsArchive({ news, data }: NewsArchiveProps) {
   };
 
   const isCurrentlyPlaying = () => {
-    if (!isMiniPlayerOpen || !currentSource) return false;
+    if (!isMiniPlayerOpen || !currentSource || isLoading) return false;
     return currentSource === buildAudioUrl(selectedNews.audio);
   };
 

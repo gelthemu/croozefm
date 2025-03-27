@@ -308,7 +308,7 @@ export const news: News[] = [
       time: "1PM",
     },
     headline:
-      "Government Explains Current Power Outages, Niger Coup Leader Sworn In As President",
+      "Government Explains Current Power Outages; Niger Coup Leader Sworn In As President",
     anchor: anchors.oscar,
     audio: "cfm-news-2025-03-27_1pm",
   },
@@ -442,6 +442,17 @@ export const news: News[] = [
       "Farmers in Kasese Face Severe Losses as Elephants Invade Crops; Over 500 Umeme Employees to Lose Jobs as UEDCL Takes Over Power Supply",
     anchor: anchors.monica,
     audio: "cfm-news-2025-03-19_2pm",
+  },
+  {
+    id: 202503271400,
+    aired: {
+      date: "2025-03-27T14:00:00+03:00",
+      time: "2PM",
+    },
+    headline:
+      "East African Crude Oil Pipeline Secures Major Funding from Top African Banks; Tanzania Imposes New Taxes on Kenyan Exports, Sparking Trade Tension Fears; Trump Open to Reducing China Tariffs to Secure TikTok Sale Deal",
+    anchor: anchors.monica,
+    audio: "cfm-news-2025-03-27_2pm",
   },
   // = = = = = = = = = = = = = = = = = = = 4PM = = = = = = = = = = = = = = = = = = = = = =
   {

@@ -5,7 +5,7 @@ import { FaWandMagicSparkles } from "react-icons/fa6";
 import Link from "next/link";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { FormatSimpleDate } from "@/app/components/tiny/format-date";
+import { PlayerButton } from "@/app/components/providers/divs/record-player";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -22,6 +22,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     setIsStreaming,
     setSnapShot,
     setIsSeekable,
+    isLoading,
   } = useMiniPlayer();
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
 
@@ -37,7 +38,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
   }, [currentSource, isMiniPlayerOpen, mixtapes]);
 
   const handlePlay = (index: number) => {
-    if (!mixtapes || mixtapes.length === 0) return;
+    if (!mixtapes || mixtapes.length === 0 || isLoading) return;
 
     const mixtape = mixtapes[index];
     const isActive =
@@ -121,50 +122,12 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                       </div>
                     )}
                   </div>
-                  <div
-                    role="button"
-                    tabIndex={isActive && isAudioPlaying ? -1 : 0}
-                    aria-label={
-                      isAudioPlaying && isActive
-                        ? "Currently Playing in Miniplayer"
-                        : "Play in Miniplayer"
-                    }
-                    aria-disabled={isActive && isAudioPlaying}
-                    onClick={() => {
-                      if (isActive) return;
-                      handlePlay(index);
-                    }}
-                    onKeyDown={(e) => {
-                      if ((e.key === "Enter" || e.key === " ") && !isActive) {
-                        e.preventDefault();
-                        handlePlay(index);
-                      }
-                    }}
-                    className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 ${
-                      isActive ? "cursor-default" : "cursor-pointer"
-                    }`}
-                  >
-                    <div
-                      className={`px-4 py-2 transition-all duration-200 rounded-sm ${
-                        isActive ? "text-red/80" : ""
-                      }`}
-                    >
-                      {isAudioPlaying && isActive ? (
-                        <>
-                          <span className="sr-only">Playing...</span>
-                          <i className="fa-solid fa-pause"></i>
-                        </>
-                      ) : (
-                        <>
-                          <span className="sr-only">Play</span>
-                          <i className="fa-solid fa-play"></i>
-                        </>
-                      )}
-                    </div>
-                    <div className="px-4 py-2 text-sm font-normal">
-                      <FormatSimpleDate epoch={mixtape.id} />
-                    </div>
-                  </div>
+                  <PlayerButton
+                    isActive={isActive}
+                    isAudioPlaying={isAudioPlaying}
+                    epoch={mixtape.id}
+                    onClick={() => handlePlay(index)}
+                  />
                 </div>
               </div>
             );
