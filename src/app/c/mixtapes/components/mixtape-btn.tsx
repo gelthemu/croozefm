@@ -19,10 +19,13 @@ export default function MixtapeBtn({ mixtape }: MixtapeProps) {
     setTagLine,
     setSnapShot,
     setIsSeekable,
+    isLoading,
   } = useMiniPlayer();
   const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
   const handleClick = () => {
+    if (isLoading) return;
+
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {

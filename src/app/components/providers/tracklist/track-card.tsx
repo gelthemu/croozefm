@@ -32,7 +32,8 @@ export default function TrackCard({
           <Image
             src={track.track_image}
             alt={`${track.track_title} cover`}
-            fill
+            width={500}
+            height={500}
             className="w-full h-full object-cover aspect-square _img_"
           />
         ) : (

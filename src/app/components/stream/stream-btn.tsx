@@ -1,6 +1,5 @@
 "use client";
 import { STREAM_URL } from "@/data/stream";
-
 import React from "react";
 import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
@@ -25,22 +24,26 @@ const StreamButton: React.FC<StreamButtonProps> = ({
   isActive = false,
   children,
 }) => {
+  const { isLoading } = useMiniPlayer();
+
+  const isDisabled = isActive || isLoading;
+
   return (
     <div
       role="button"
-      tabIndex={isActive ? -1 : 0}
-      aria-disabled={isActive ? "true" : "false"}
+      tabIndex={isDisabled ? -1 : 0}
+      aria-disabled={isDisabled ? "true" : "false"}
       className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-md focus:outline-none select-none ${className} ${
-        isActive ? "opacity-60 cursor-progress" : "cursor-pointer"
+        isDisabled ? "cursor-default" : "cursor-pointer"
       }`}
       style={style}
       onClick={() => {
-        if (!isActive && onClick) {
+        if (!isDisabled && onClick) {
           onClick();
         }
       }}
       onKeyDown={(e: React.KeyboardEvent<HTMLDivElement>) => {
-        if ((e.key === "Enter" || e.key === " ") && !isActive && onClick) {
+        if ((e.key === "Enter" || e.key === " ") && !isDisabled && onClick) {
           e.preventDefault();
           onClick();
         }
@@ -53,9 +56,7 @@ const StreamButton: React.FC<StreamButtonProps> = ({
 
 StreamButton.displayName = "StreamButton";
 
-const StreamBtn : React.FC<StreamBtnProps> = ({
-  className = ""
-}) => {
+const StreamBtn: React.FC<StreamBtnProps> = ({ className = "" }) => {
   const {
     isMiniPlayerOpen,
     setIsMiniPlayerOpen,
@@ -64,11 +65,14 @@ const StreamBtn : React.FC<StreamBtnProps> = ({
     setIsStreaming,
     setTagLine,
     setIsSeekable,
+    isLoading,
   } = useMiniPlayer();
   const isActive = isMiniPlayerOpen && currentSource === STREAM_URL;
   const currentShow = useCurrentShow();
 
   const handleClick = () => {
+    if (isLoading) return;
+
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {

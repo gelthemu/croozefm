@@ -19,7 +19,7 @@ export default function MiniPlayer() {
     currentSource,
     tagLine,
     snapShot,
-    isStreaming,
+    isLoading,
     isCollapse,
     setIsCollapse,
     isAnimating,
@@ -28,7 +28,7 @@ export default function MiniPlayer() {
   } = useMiniPlayer();
   const { toggleChatVisibility, users } = useChat();
 
-  const { isLoading, handleAudioPlay } = useAudioControls();
+  const { handleAudioPlay } = useAudioControls();
 
   const {
     progress,
@@ -106,7 +106,7 @@ export default function MiniPlayer() {
               : "w-full"
           } `}
         >
-          {isCollapse && isStreaming && (
+          {isCollapse && (
             <div className={`w-full text-sm mt-auto`}>
               <div className="w-full flex justify-end bg-transparent rounded-sm">
                 <div
@@ -129,7 +129,7 @@ export default function MiniPlayer() {
                   } transition-all duration-[0.4s]`}
                 >
                   <span className="">Show Chat</span>{" "}
-                  <span className="text-sm opacity-60">({users.length})</span>
+                  <span className="text-sm opacity-80">({users.length})</span>
                 </div>
               </div>
             </div>

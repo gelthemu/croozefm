@@ -1,9 +1,7 @@
-import { useState, useCallback } from "react";
+import { useCallback } from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 
 export function useAudioControls() {
-  const [isLoading, setIsLoading] = useState(false);
-
   const {
     audioRef,
     currentSource,
@@ -11,6 +9,7 @@ export function useAudioControls() {
     setIsAudioPlaying,
     setIsStreamActive,
     setIsStreaming,
+    setIsLoading,
     setIsCollapse,
   } = useMiniPlayer();
 
@@ -96,17 +95,16 @@ export function useAudioControls() {
     }
   }, [
     audioRef,
-    currentSource,
     setIsAudioPlaying,
     setIsStreamActive,
+    setIsLoading,
     setIsStreaming,
     setIsCollapse,
     setIsMiniPlayerOpen,
+    currentSource,
   ]);
 
   return {
-    isLoading,
-    setIsLoading,
     handleAudioPlay,
   };
 }
