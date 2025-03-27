@@ -598,6 +598,17 @@ export const news: News[] = [
     anchor: anchors.monica,
     audio: "cfm-news-2025-03-14_4pm",
   },
+  {
+    id: 202503271600,
+    aired: {
+      date: "2025-03-27T16:00:00+03:00",
+      time: "4PM",
+    },
+    headline:
+      "Auditor General Slashes Umeme Buyout cost by Over Shs260b; U.S. Embassy Reduces Staff in South Sudan, Demands Machar's Release",
+    anchor: anchors.monica,
+    audio: "cfm-news-2025-03-27_4pm",
+  },
   // = = = = = = = = = = = = = = = = = = = 7PM = = = = = = = = = = = = = = = = = = = = = =
   {
     id: 202411151900,
