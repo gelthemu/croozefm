@@ -1,3 +1,5 @@
+// src\app\api\click\route.ts
+
 import { NextRequest, NextResponse } from "next/server";
 import { trackAdClick } from "@/app/components/providers/ads/utils/adsTrack";
 

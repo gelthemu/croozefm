@@ -12,7 +12,7 @@ export const ads: Ad[] = [
   {
     id: "ad001",
     imageUrl: "https://transaudio.geltaverse.com/ads/transaudio-ad-md.png",
-    link: "https://transaudio.geltaverse.com/",
+    link: "https://transaudio.geltaverse.com",
     startDate: "2025-01-01",
     endDate: "2025-12-31",
     status: "active",
@@ -21,7 +21,7 @@ export const ads: Ad[] = [
   {
     id: "ad002",
     imageUrl: "https://transaudio.geltaverse.com/ads/transaudio-ad-sm.png",
-    link: "https://transaudio.geltaverse.com/",
+    link: "https://transaudio.geltaverse.com",
     startDate: "2025-01-01",
     endDate: "2025-12-31",
     status: "active",
@@ -30,7 +30,7 @@ export const ads: Ad[] = [
   {
     id: "ad003",
     imageUrl: "https://transaudio.geltaverse.com/ads/transaudio-ad-lg.png",
-    link: "https://transaudio.geltaverse.com/",
+    link: "https://transaudio.geltaverse.com",
     startDate: "2025-01-01",
     endDate: "2025-12-31",
     status: "active",
