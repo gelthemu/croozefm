@@ -1,5 +1,3 @@
-// src\app\components\providers\ads\ads.tsx
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";

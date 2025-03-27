@@ -13,9 +13,9 @@ export async function GET(request: NextRequest) {
     }
 
     const decodedRedirectUrl = decodeURIComponent(redirectUrl);
-    new URL(decodedRedirectUrl); // Validate URL
+    new URL(decodedRedirectUrl);
 
-    await trackAdClick(adId); // Ensure tracking completes
+    await trackAdClick(adId);
     console.log(`Redirecting to ${decodedRedirectUrl}`);
 
     return NextResponse.redirect(new URL(decodedRedirectUrl));

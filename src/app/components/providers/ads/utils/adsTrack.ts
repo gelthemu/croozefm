@@ -1,9 +1,15 @@
-// src\app\components\providers\ads\utils\adsTrack.ts
-
 import { database } from "@/lib/firebase";
 import { ref, update, increment as firebaseIncrement } from "firebase/database";
 
+const trackAd = () => {
+  return process.env.NODE_ENV === "production";
+};
+
 export const trackAdImpression = (adId: string) => {
+  if (!trackAd()) {
+    return;
+  }
+
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     update(adStatsRef, {
@@ -15,6 +21,10 @@ export const trackAdImpression = (adId: string) => {
 };
 
 export const trackAdClick = async (adId: string) => {
+  if (!trackAd()) {
+    return;
+  }
+
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
     await update(adStatsRef, {

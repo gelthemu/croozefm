@@ -27,11 +27,11 @@ export default function NewsArchivePage() {
         <div>
           <NewsHeader title="News Archive" />
         </div>
-        <div className="flex flex-row gap-2 my-10">
-          <div className="w-full">
+        <div className="flex flex-col lg:flex-row lg:gap-2 my-10">
+          <div className="w-full mx-auto">
             <NewsArchive news={sortedNews} data={news} />
           </div>
-          <div className="w-[40%]">
+          <div className="hidden lg:block lg:w-[40%]">
             <div className="sticky top-[calc(0.25rem+80px)]">
               <SkyscraperAd />
             </div>
