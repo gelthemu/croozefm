@@ -11,8 +11,10 @@
       }
     },
     "article_views": {
-      ".read": true,
-      ".write": true
+      "$articleId": {
+        ".read": true,
+        ".write": true
+      }
     }
   }
 }

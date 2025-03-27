@@ -129,6 +129,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
 
     Cookies.set(CHAT_USERNAME, `name:${inputUsername}|id:${newUserId}`, {
       expires: 30,
+      path: "/",
     });
 
     setState((prevState) => ({

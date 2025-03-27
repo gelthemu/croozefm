@@ -1,22 +1,38 @@
-// components/ViewTracker.tsx
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { trackArticleView } from './view-counter';
+import { useEffect, useRef, useState } from "react";
+import { trackArticleView } from "./view-counter";
 
 interface ViewTrackerProps {
   slug: string;
 }
 
 export default function ViewTracker({ slug }: ViewTrackerProps) {
+  const trackerRef = useRef<HTMLDivElement>(null);
+  const [isTracked, setIsTracked] = useState(false);
+
   useEffect(() => {
-    // Track view on client-side mount
-    const trackView = async () => {
-      await trackArticleView({ slug });
-    };
+    if (isTracked) return;
 
-    trackView();
-  }, [slug]);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          trackArticleView({ slug }).then((success) => {
+            if (success) setIsTracked(true);
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
 
-  return null; // This component doesn't render anything
+    if (trackerRef.current) {
+      observer.observe(trackerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [slug, isTracked]);
+
+  return <div ref={trackerRef} className="h-[0px] w-full !p-0 !m-0" />;
 }

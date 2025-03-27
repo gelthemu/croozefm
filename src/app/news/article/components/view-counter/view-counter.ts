@@ -1,47 +1,47 @@
-// lib/view-counter.ts
 import { database } from "@/lib/firebase";
 import {
   ref,
   increment as firebaseIncrement,
-  set,
+  update,
+  onValue,
   get,
 } from "firebase/database";
 import Cookies from "js-cookie";
 
-// Interface for view tracking
-interface ViewTrackingOptions {
+const trackView = () => {
+  return process.env.NODE_ENV === "production";
+};
+
+export interface ViewTrackingOptions {
   slug: string;
-  cookieExpiration?: number; // in hours
+  cookieExpiration?: number;
 }
 
-// Generate a unique view tracking cookie name
-const getViewCookieName = (slug: string) => `article_view_${slug}`;
+const getViewCookieName = (slug: string) => `cookie_${slug}`;
 
-// Track article view in Firebase Realtime Database
 export async function trackArticleView({
   slug,
-  cookieExpiration = 24,
-}: ViewTrackingOptions) {
-  // Check if view has been logged recently
+  cookieExpiration = 10,
+}: ViewTrackingOptions): Promise<boolean> {
   const cookieName = getViewCookieName(slug);
   const hasRecentView = Cookies.get(cookieName);
 
   if (hasRecentView) {
-    return false; // Skip tracking if recently viewed
+    return false;
+  }
+
+  if (!trackView()) {
+    return false;
   }
 
   try {
-    // Use the pre-initialized database from firebase.ts
     const viewCountRef = ref(database, `article_views/${slug}`);
+    await update(viewCountRef, { views: firebaseIncrement(1) });
 
-    // Increment view count atomically
-    await set(viewCountRef, firebaseIncrement(1));
-
-    // Set cookie to prevent duplicate views
+    const expiresInDays = cookieExpiration / (24 * 60);
     Cookies.set(cookieName, "true", {
-      expires: cookieExpiration / 24, // Convert hours to days
+      expires: expiresInDays,
       path: "/",
-      sameSite: "strict",
     });
 
     return true;
@@ -51,15 +51,32 @@ export async function trackArticleView({
   }
 }
 
-// Fetch total view count for an article
 export async function getArticleViewCount(slug: string): Promise<number> {
   try {
-    const viewCountRef = ref(database, `article_views/${slug}`);
-
+    const viewCountRef = ref(database, `article_views/${slug}/views`);
     const snapshot = await get(viewCountRef);
     return snapshot.exists() ? snapshot.val() || 0 : 0;
   } catch (error) {
     console.error("Error fetching article view count:", error);
     return 0;
   }
+}
+
+export function subscribeToViewCount(
+  slug: string,
+  callback: (count: number) => void
+) {
+  const viewCountRef = ref(database, `article_views/${slug}/views`);
+  const unsubscribe = onValue(
+    viewCountRef,
+    (snapshot) => {
+      const count = snapshot.exists() ? snapshot.val() || 0 : 0;
+      callback(count);
+    },
+    (error) => {
+      console.error("Error subscribing to view count:", error);
+      callback(0);
+    }
+  );
+  return unsubscribe;
 }
