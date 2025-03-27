@@ -4,7 +4,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { trackAdImpression, trackAdClick } from "./utils/adsTrack";
+import { trackAdImpression } from "./utils/adsTrack";
 import { getRandomAd, Ad } from "./utils/adsData";
 
 const useScreenWidth = () => {
@@ -60,29 +60,17 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
     };
   }, [ad]);
 
-  // const handleAdClick = () => {
-  //   // Track ad click before redirecting
-  //   trackAdClick(ad!.id);
-
-  //   // Open the ad link in a new tab
-  //   window.open(ad!.link, "_blank", "noopener,noreferrer");
-  // };
-
-  const handleAdClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    if (!ad) return;
-    trackAdClick(ad.id);
-    const redirectUrl = `/api/click?adId=${encodeURIComponent(ad.id)}&url=${encodeURIComponent(ad.link)}`;
-    window.open(redirectUrl, '_blank', 'noopener,noreferrer');
-  };
-
   if (!ad) return null;
 
   return (
     <a
       ref={adRef}
-      onClick={handleAdClick}
-      className={`block p-4 bg-gray/5 dark:bg-gray/20 rounded-sm ad-${size} cursor-pointer`}
+      href={`/api/click?ad_id=${encodeURIComponent(
+        ad.id
+      )}&redirect=${encodeURIComponent(ad.link)}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`block p-4 bg-gray/5 dark:bg-gray/20 rounded-sm ad-${size}`}
     >
       <span className="block text-xs opacity-60 uppercase mb-1">
         Advertisement

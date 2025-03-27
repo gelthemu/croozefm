@@ -14,10 +14,10 @@ export const trackAdImpression = (adId: string) => {
   }
 };
 
-export const trackAdClick = (adId: string) => {
+export const trackAdClick = async (adId: string) => {
   try {
     const adStatsRef = ref(database, `adStats/${adId}`);
-    update(adStatsRef, {
+    await update(adStatsRef, {
       clicks: firebaseIncrement(1),
     });
   } catch (error) {
