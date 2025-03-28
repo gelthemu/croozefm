@@ -16,7 +16,6 @@ interface ChatUIProps {
 
 export default function ChatUI({ profiles }: ChatUIProps) {
   const {
-    userId,
     username,
     messages,
     isConnected,
