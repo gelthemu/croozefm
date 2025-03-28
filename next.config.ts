@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         hostname: "geltaverse.com",
         pathname: "/**",
       },
- {
+      {
         protocol: "https",
         hostname: "croozefm.geltaverse.com",
         pathname: "/**",
@@ -67,6 +67,11 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "www.ntv.co.ug",
+        pathname: "/resource/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.monitor.co.ug",
         pathname: "/resource/**",
       },
       {
