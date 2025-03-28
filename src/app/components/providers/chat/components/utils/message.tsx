@@ -19,7 +19,7 @@ export default function Msg({ message, profiles }: MsgProps) {
     <div className="w-full p-2 select-text">
       <div className="flex items-start">
         <div
-          className={`inline w-4 h-4 aspect-square rounded-full mt-1 mr-1.5`}
+          className={`inline w-4 h-4 aspect-square rounded-full mt-1 mr-1.5 flex-shrink-0`}
           style={{ backgroundColor: color }}
         ></div>
         <div className="flex flex-col">
