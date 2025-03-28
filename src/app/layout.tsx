@@ -17,7 +17,6 @@ import MediaSessionHandler from "./components/stream/mini-player/components/medi
 import FullscreenCarousel from "./i/team/components/profile/gallery/fullscreen-gallery";
 import { CarouselProvider } from "./context/carousel-context";
 import "./styles/globals.css";
-import "./styles/other/module.css";
 
 const sans = localFont({
   src: "/fonts/croozefm-geltaverse-912912912912.woff2",
