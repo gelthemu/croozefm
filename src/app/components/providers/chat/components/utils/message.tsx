@@ -3,6 +3,7 @@ import type { PresenterProfile } from "@/types/profile";
 import type { Message } from "@/app/context/chat-context";
 import MessageTimestamp from "./message-timestamp";
 import Mentions from "./mentions-utils";
+import { ColorCircle } from "./color-circle";
 
 interface MsgProps {
   message: Message;
@@ -10,7 +11,8 @@ interface MsgProps {
 }
 
 export default function Msg({ message, profiles }: MsgProps) {
-  const color = message.code ? `#${message.code.slice(-6)}` : "red";
+  const color = message.code ? ColorCircle(message.code) : "red";
+
   const id = message.code.slice(-4);
 
   return (
@@ -23,7 +25,7 @@ export default function Msg({ message, profiles }: MsgProps) {
         <div className="flex flex-col">
           <div className="flex items-center">
             <div className="lowercase">
-              <span className="font-semibold" style={{ color: color }}>
+              <span className="font-medium" style={{ color: color }}>
                 {message.username}
               </span>{" "}
               <span className="text-xs opacity-60">{`(${id})`}</span>

@@ -16,7 +16,7 @@ export function formatTimestamp(timestamp: number): string {
       timeZone: "Africa/Kampala",
     }).format(new Date(timestamp));
   } else if (diff < 2 * day) {
-    return `yesterday`;
+    return "yesterday";
   } else if (diff < week) {
     const daysAgo = Math.floor(diff / day);
     return `${daysAgo}d ago`;
@@ -24,11 +24,10 @@ export function formatTimestamp(timestamp: number): string {
     const weeksAgo = Math.floor(diff / week);
     return `${weeksAgo}wk ago`;
   } else {
-    return new Intl.DateTimeFormat("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      timeZone: "Africa/Kampala",
-    }).format(new Date(timestamp));
+    const date = new Date(timestamp);
+    const dayStr = String(date.getDate()).padStart(2, "0");
+    const monthStr = String(date.getMonth() + 1).padStart(2, "0");
+    const yearStr = date.getFullYear();
+    return `${dayStr}.${monthStr}.${yearStr}`;
   }
 }

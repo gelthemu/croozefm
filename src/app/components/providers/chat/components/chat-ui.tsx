@@ -9,6 +9,7 @@ import UsernameForm from "./username-form";
 import ChatHeader from "./chat-header";
 import MessageList from "./message-list";
 import MessageInput from "./message-input";
+import { ColorCircle } from "./utils/color-circle";
 
 interface ChatUIProps {
   profiles: PresenterProfile[];
@@ -16,6 +17,7 @@ interface ChatUIProps {
 
 export default function ChatUI({ profiles }: ChatUIProps) {
   const {
+    userId,
     username,
     messages,
     isConnected,
@@ -36,22 +38,6 @@ export default function ChatUI({ profiles }: ChatUIProps) {
   const showChatContent = username && !isUsernameFormVisible && isChatVisible;
   const showWelcomeBack = username && isWelcomeBackMode && isChatVisible;
 
-  useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-      if (isChatVisible) {
-        document.body.style.overflow = "hidden";
-      } else {
-        document.body.style.overflow = "";
-      }
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isChatVisible, toggleChatVisibility]);
-
   const hideChat = () => {
     toggleChatVisibility();
 
@@ -63,13 +49,15 @@ export default function ChatUI({ profiles }: ChatUIProps) {
     }
   };
 
+  const color = userId ? ColorCircle(userId) : "#3eac75";
+
   return (
     <FixedDiv
       className={`${
         isChatVisible
           ? "opacity-100 translate-x-0"
           : "opacity-0 translate-x-full"
-      } transition-all duration-[0.6s]`}
+      } transition-all duration-[0.6s] overscroll-none`}
     >
       <div className="h-full w-full flex flex-col rounded-md overflow-hidden">
         <div className="relative mx-2 my-1 select-none">
@@ -91,6 +79,7 @@ export default function ChatUI({ profiles }: ChatUIProps) {
               {showChatContent && !isWelcomeBackMode && (
                 <div className="flex-shrink-0">
                   <MessageInput
+                    code={userId}
                     username={username}
                     onSendMessage={sendMessage}
                     isConnected={isConnected}
@@ -111,7 +100,8 @@ export default function ChatUI({ profiles }: ChatUIProps) {
                         onKeyDown={(e) =>
                           (e.key === "Enter" || e.key === " ") && startChat()
                         }
-                        className="bg-[#3eac75] text-light font-medium _912cfm px-3 py-1 rounded-md focus:outline-none"
+                        className="text-light font-medium _912cfm px-3 py-1 rounded-md focus:outline-none"
+                        style={{ backgroundColor: color }}
                       >
                         {`Hi, ${username.split(" ")[0]}! Start Chatting..`}
                       </div>

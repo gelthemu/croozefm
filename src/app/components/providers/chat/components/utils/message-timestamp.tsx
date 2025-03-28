@@ -15,7 +15,7 @@ const MessageTimestamp: React.FC<MessageProps> = ({ timestamp }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setFormattedTime(formatTimestamp(timestamp));
-    }, 60000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [timestamp]);

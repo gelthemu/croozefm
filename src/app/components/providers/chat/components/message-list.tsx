@@ -78,7 +78,7 @@ export default function MessageList({
     <div className="h-full relative">
       <div
         ref={containerRef}
-        className="h-full overflow-y-auto scrollbar-hide scroll-smooth px-3 py-1"
+        className="h-full overflow-y-auto overscroll-none scrollbar-hide scroll-smooth px-3 py-1"
         onScroll={handleScroll}
       >
         <div className="h-full relative divide-y divide-gray/10 dark:divide-gray/60">

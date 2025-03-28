@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
 import EmojiPicker from "./utils/emoji-picker";
+import { ColorCircle } from "./utils/color-circle";
 
 interface MessageInputProps {
+  code: string;
   username: string;
   onSendMessage: (message: string) => void;
   isConnected: boolean;
@@ -13,6 +15,7 @@ interface MessageInputProps {
 }
 
 export default function MessageInput({
+  code,
   username,
   onSendMessage,
   isConnected,
@@ -24,6 +27,8 @@ export default function MessageInput({
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const emojiBtnRef = useRef<HTMLDivElement>(null);
   const emojiPickerRef = useRef<HTMLDivElement>(null);
+
+  const color = code ? ColorCircle(code) : "red";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,7 +65,9 @@ export default function MessageInput({
     <div className="w-full text-sm">
       <div className="p-3 bg-gray/10 dark:bg-light/5">
         <div className="mb-1 flex items-center justify-between space-x-2">
-          <div className="font-semibold capitalize">{username}</div>
+          <div className="font-semibold capitalize" style={{ color: color }}>
+            {username}
+          </div>
           <div
             role="button"
             tabIndex={0}
