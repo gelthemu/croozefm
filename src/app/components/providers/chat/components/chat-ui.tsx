@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import type { PresenterProfile } from "@/types/profile";
 import { useChat } from "@/app/context/chat-context";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
