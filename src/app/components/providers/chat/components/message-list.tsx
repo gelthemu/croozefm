@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from "react";
+import type { PresenterProfile } from "@/types/profile";
 import type { Message } from "@/app/context/chat-context";
-import { ChevronDown } from "lucide-react";
+import { Bell } from "lucide-react";
 import Msg from "./utils/message";
 
 interface MessageListProps {
   messages: Message[];
   currentUsername: string;
+  profiles: PresenterProfile[];
 }
 
 export default function MessageList({
   messages,
   currentUsername,
+  profiles,
 }: MessageListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
@@ -91,7 +94,7 @@ export default function MessageList({
           ) : (
             messages.map((message) => (
               <div key={message.id}>
-                <Msg message={message} currentUsername={currentUsername} />
+                <Msg message={message} profiles={profiles} />
               </div>
             ))
           )}
@@ -100,13 +103,14 @@ export default function MessageList({
       {unreadCount > 0 && (
         <button
           onClick={scrollToBottom}
-          className="absolute bottom-2 right-2 bg-gray/80 backdrop-blur-md text-light rounded-full text-xs font-medium shadow-md flex flex-col items-center justify-center focus:outline-none"
+          className="absolute bottom-2 right-4 text-light focus:outline-none"
         >
-          <span className="w-6 rounded-full bg-red aspect-square flex items-center justify-center">
-            {unreadCount}
+          <span className="w-8 h-8 bg-gray/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-md animate-wiggle">
+            <Bell size={16} />
           </span>
-          <span className="w-6 rounded-full bg-transparent aspect-square flex items-center justify-center">
-            <ChevronDown size={18} />
+          <span className="absolute -top-2 -end-1 translate-x-1/4 text-nowrap px-1 py-0.5 min-w-5 rounded-full text-center text-xs bg-red rounded-full">
+            <span className="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-red/40 w-full h-full"></span>
+            {unreadCount}
           </span>
         </button>
       )}

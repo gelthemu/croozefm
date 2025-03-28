@@ -1,5 +1,5 @@
 ---
-name: "Belga MC"
+name: "Belga"
 show-hosted: "The Morning Addiction"
 image-link: "https://croozefm.blob.core.windows.net/images/belga-mc.png"
 isPopular: true

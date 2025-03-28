@@ -18,12 +18,14 @@ const CHAT_USERNAME = "chat_username";
 
 export interface Message {
   id: string;
+  code: string;
   username: string;
   text: string;
   timestamp: number;
 }
 
 export interface FirebaseMessage {
+  code: string;
   username: string;
   text: string;
   timestamp: number;
@@ -93,7 +95,7 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   useEffect(() => {
-    const messagesRef = query(ref(database, "messages"), limitToLast(20));
+    const messagesRef = query(ref(database, "messages"), limitToLast(80));
 
     const unsubscribe = onValue(
       messagesRef,
@@ -163,7 +165,8 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
 
     const messagesRef = ref(database, "messages");
     const newMessage = {
-      username: userId ? `${username} (${userId.slice(-4)})` : username,
+      code: userId,
+      username: username,
       text: text.trim(),
       timestamp: serverTimestamp(),
     };

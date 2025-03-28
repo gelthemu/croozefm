@@ -1,5 +1,5 @@
 ---
-name: "Abou Champion"
+name: "Abou"
 show-hosted: "The Weekly Sports RoundUp"
 image-link: "https://croozefm.blob.core.windows.net/images/abou-champion.png"
 isPopular: true

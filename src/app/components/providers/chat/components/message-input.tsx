@@ -82,7 +82,7 @@ export default function MessageInput({
                 }
               }
             }}
-            className="text-sm text-red font-medium cursor-pointer px-1.5 py-1 focus:outline-none"
+            className="text-sm text-red font-medium cursor-pointer px-2 py-1 focus:outline-none"
           >
             {"Leave Chat"}
           </div>

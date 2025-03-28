@@ -1,5 +1,5 @@
 ---
-name: "Inyaa Clare"
+name: "Inyaa"
 show-hosted: "The Life Style Show"
 image-link: "https://croozefm.blob.core.windows.net/images/inyaa-clare.png"
 isPopular: true

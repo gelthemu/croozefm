@@ -89,3 +89,5 @@ export function getPopularProfiles(): PresenterProfile[] {
     return [];
   }
 }
+
+export const profiles = getAllProfiles();

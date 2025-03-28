@@ -32,10 +32,10 @@ export const shows: Show[] = [
     id: "lifestyle",
     name: "The Lifestyle Show",
     summary:
-      "Join Inyaa Clare on The Lifestyle Show from 11am to 2pm for a midday blast of everything you crave—music, tips, and vibes to live your best life. It's your all-in-one package to spice up the day!",
+      "Join Inyaa on The Lifestyle Show from 11am to 2pm for a midday blast of everything you crave—music, tips, and vibes to live your best life. It's your all-in-one package to spice up the day!",
     isPop: true,
     isFt: true,
-    host: [{ name: "Inyaa Clare", link: "/i/inyaa-clare" }],
+    host: [{ name: "Inyaa", link: "/i/inyaa-clare" }],
     recs: [
       {
         id: 1741081800,
@@ -69,7 +69,7 @@ export const shows: Show[] = [
       "Turn up the weekday vibes with 'The Most Wanted Hits,' a high-energy radio show spinning the hottest tracks from 2pm to 4pm. It's your daily afternoon party fix, packed with beats to keep you grooving all week long!",
     isFt: true,
     host: [
-      { name: "Inyaa Clare", link: "/i/inyaa-clare" },
+      { name: "Inyaa", link: "/i/inyaa-clare" },
       { name: "Starcent DJ" },
     ],
     time: { start: 14, end: 16 },
@@ -212,8 +212,8 @@ export const shows: Show[] = [
       "Get your Friday night pumping with 'The Fat Friday Mix,' kicking off at 8pm and spinning till late, as DJ Emma drops the fattest beats to keep the party blazing! Expect non-stop vibes and killer mixes to carry you into the weekend!",
     isFt: true,
     host: [
-      { name: "Belga MC", link: "/i/belga-mc" },
-      { name: "Deejay Emma", link: "/i/deejay-emma" },
+      { name: "Belga", link: "/i/belga-mc" },
+      { name: "DJ Emma", link: "/i/deejay-emma" },
     ],
     time: { start: 20, end: 24 },
   },
@@ -271,7 +271,7 @@ export const shows: Show[] = [
     isFt: true,
     host: [
       { name: "MC Kacheche" },
-      { name: "Deejay Emma", link: "/i/deejay-emma" },
+      { name: "DJ Emma", link: "/i/deejay-emma" },
     ],
     time: { start: 20, end: 24 },
   },
@@ -289,7 +289,7 @@ export const shows: Show[] = [
     summary:
       "Spread the love with 'Sunday Love,' where every Sunday from 9am to noon, Clare Inyaa spins your heartfelt shoutouts and love song requests. It's three hours of pure romance and good vibes to warm your soul!",
     isFt: true,
-    host: [{ name: "Inyaa Clare", link: "/i/inyaa-clare" }],
+    host: [{ name: "Inyaa", link: "/i/inyaa-clare" }],
     recs: [
       {
         id: 1737875100,

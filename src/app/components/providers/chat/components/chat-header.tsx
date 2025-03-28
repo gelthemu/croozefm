@@ -14,16 +14,18 @@ export default function ChatHeader({ hideChat, users }: ChatHeaderProps) {
         onClick={hideChat}
         onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && hideChat()}
         aria-label="Hide Chat"
-        className="mb-2 flex items-center justify-between cursor-pointer focus:outline-none"
+        className="group mb-2 flex items-center justify-between cursor-pointer focus:outline-none"
       >
         <div className="flex items-center">
           <h3 className="font-semibold _912cfm">
             <span className="text-red">Live Chat</span>{" "}
-            <span className="text-sm opacity-60">({users.length})</span>
+            {users.length > 0 && (
+              <span className="text-sm opacity-80">({users.length})</span>
+            )}
           </h3>
         </div>
         <div className="flex items-center">
-          <div className="w-6 aspect-square flex items-center justify-center">
+          <div className="w-6 aspect-square flex items-center justify-center group-hover:rotate-180 transition duration-300">
             {<X size={18} />}
           </div>
         </div>

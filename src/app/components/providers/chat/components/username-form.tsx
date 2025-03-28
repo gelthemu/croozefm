@@ -48,7 +48,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
     <div className="w-full text-sm mt-auto">
       <div className="p-4 bg-gray/10 dark:bg-light/5">
         <form onSubmit={handleSubmit}>
-          <div className="w-full flex flex-row items-center space-x-4">
+          <div className="w-full flex flex-row space-x-2">
             <div className="flex-1">
               <label htmlFor="username" className="sr-only">
                 Name
@@ -65,7 +65,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                     ? "border-red/90"
                     : "border-gray/50 dark:border-light/50"
                 } rounded-sm focus:outline-none p-1`}
-                placeholder="Create a username to chat live..."
+                placeholder="Enter your name..."
                 minLength={4}
                 maxLength={15}
               />
@@ -89,7 +89,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                   !username.trim() ||
                   !termsAccepted
                 }
-                className="w-fit text-sm bg-red text-light font-medium _912cfm px-4 py-2 rounded-md disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
+                className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-md disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
               >
                 Enter Chat
               </button>

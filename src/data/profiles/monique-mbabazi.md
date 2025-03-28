@@ -1,5 +1,5 @@
 ---
-name: "Monique Mbabazi"
+name: "Monique"
 show-hosted: "The Morning Addiction"
 image-link: "https://croozefm.blob.core.windows.net/images/monique-mbabazi.png"
 isPopular: true

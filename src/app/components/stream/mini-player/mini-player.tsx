@@ -129,7 +129,9 @@ export default function MiniPlayer() {
                   } transition-all duration-[0.4s]`}
                 >
                   <span className="">Show Chat</span>{" "}
-                  <span className="text-xs opacity-80">({users.length})</span>
+                  {users.length > 0 && (
+                    <span className="text-sm opacity-80">({users.length})</span>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 ---
-name: "Derrick Ashiimwe"
+name: "Derrick"
 show-hosted: "The Morning Addiction"
 image-link: "https://croozefm.blob.core.windows.net/images/derrick-ashiimwe.png"
 isPopular: false
