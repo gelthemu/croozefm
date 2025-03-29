@@ -4,6 +4,7 @@ import type { Message } from "@/app/context/chat-context";
 import MessageTimestamp from "./message-timestamp";
 import Mentions from "./mentions-utils";
 import { ColorCircle } from "./color-circle";
+import { AdminBadge } from "./emoji-picker";
 import Image from "next/image";
 
 interface MsgProps {
@@ -46,9 +47,14 @@ export default function Msg({ message, profiles }: MsgProps) {
               }`}
             >
               {message.username === "ADMIN" ? (
-                <span className="font-bold text-sm" style={{ color: color }}>
-                  {message.username}
-                </span>
+                <>
+                  <span className="font-bold text-sm" style={{ color: color }}>
+                    {message.username}
+                  </span>
+                  <span>
+                    <AdminBadge />
+                  </span>
+                </>
               ) : (
                 <span className="font-medium" style={{ color: color }}>
                   {message.username}
@@ -58,7 +64,7 @@ export default function Msg({ message, profiles }: MsgProps) {
                 <span className="text-xs opacity-60">{`(${id})`}</span>
               )}
             </div>
-            <div className="mx-2 font-medium opacity-30">•</div>
+            <div className="mx-2 font-medium opacity-30 select-none">•</div>
             <div className="text-xs font-light">
               <MessageTimestamp timestamp={message.timestamp} />
             </div>

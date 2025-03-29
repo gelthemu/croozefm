@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
-import EmojiPicker from "./utils/emoji-picker";
+import {EmojiPicker} from "./utils/emoji-picker";
 import { ColorCircle } from "./utils/color-circle";
 
 interface MessageInputProps {

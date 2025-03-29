@@ -22,6 +22,12 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
     "crooze",
   ];
 
+  const containsEmoji = (text: string): boolean => {
+    const emojiRegex =
+      /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
+    return emojiRegex.test(text);
+  };
+
   const containsRestrictedWord = (value: string) => {
     const lowercaseValue = value.toLowerCase();
     return RESTRICTED_WORDS.some((word) => lowercaseValue.includes(word));
@@ -39,6 +45,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
     } else if (containsRestrictedWord(username)) {
       setError("Username already exists");
       return;
+    } else if (containsEmoji(username)) {
+      setError("No emojis 😄");
     }
 
     if (!termsAccepted) {
@@ -60,6 +68,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
       setError("Cannot contain numbers");
     } else if (containsRestrictedWord(value)) {
       setError("Username already exists");
+    } else if (containsEmoji(value)) {
+      setError("No emojis 😄");
     } else {
       setError("");
     }
@@ -111,7 +121,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                   /\d/.test(username) ||
                   !username.trim() ||
                   !termsAccepted ||
-                  containsRestrictedWord(username)
+                  containsRestrictedWord(username) ||
+                  containsEmoji(username)
                 }
                 className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-md disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
               >
