@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://croozefm.geltaverse.com",
+  siteUrl: "https://cfm.geltaverse.com",
   generateRobotsTxt: true,
   changefreq: "daily",
   priority: 0.7,
@@ -44,7 +44,7 @@ const config = {
         lastmod: new Date().toISOString(),
       },
       {
-        loc: "/news/article/912-crooze-fm-weekly-mixtape-every-wednesday",
+        loc: "/news/article/912-cfm-weekly-mixtape-every-wednesday",
         changefreq: "daily",
         priority: 1.0,
         lastmod: new Date().toISOString(),

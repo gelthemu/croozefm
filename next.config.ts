@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cfm.geltaverse.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "croozefm.geltaverse.com",
         pathname: "/**",
       },

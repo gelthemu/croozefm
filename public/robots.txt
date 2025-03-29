@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://croozefm.geltaverse.com
+Host: https://cfm.geltaverse.com
 
 # Sitemaps
-Sitemap: https://croozefm.geltaverse.com/sitemap.xml
+Sitemap: https://cfm.geltaverse.com/sitemap.xml

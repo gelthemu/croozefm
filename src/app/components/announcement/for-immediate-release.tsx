@@ -34,7 +34,7 @@ export default function ImmediateRelease({
                 The energy is electric and unstoppable!.. A brand new Crooze FM
                 Weekly Mixtape drops every Wednesday.{" "}
                 <Link
-                  href={`/news/article/${sortedMixtapes[0].id}-crooze-fm-weekly-mixtape-every-wednesday`}
+                  href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
                   aria-label="View All Mixtapes"
                   className="hover:underline"
                   style={{ color: "#3eac75" }}

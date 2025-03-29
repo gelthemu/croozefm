@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
-import {EmojiPicker} from "./utils/emoji-picker";
+import { EmojiPicker } from "./utils/emoji-picker";
 import { ColorCircle } from "./utils/color-circle";
 
 interface MessageInputProps {
@@ -71,6 +71,7 @@ export default function MessageInput({
           <div
             role="button"
             tabIndex={0}
+            aria-label="Leave Chat"
             onClick={() => {
               onLeaveChat();
               if (isCollapse) {
