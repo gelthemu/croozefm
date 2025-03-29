@@ -3,6 +3,7 @@ headline: "Veteran Journalist Shaka Ssali is Dead"
 publication_date: 1743099871
 excerpt: "Shaka Ssali, the revered former host of Voice of America’s Straight Talk Africa, passed away on March 27, 2025, at age 71, leaving behind a legacy of impactful journalism and advocacy for African governance and development."
 keywords: "Shaka Ssali, Straight Talk Africa, Voice of America, African journalism, Kabale Kid, Lifetime Achievement Award, Press freedom, Uganda journalist"
+image_url: "https://pbs.twimg.com/media/GnEjDG5W8AAp-ag?format=jpg&name=large"
 source: "Monitor"
 ---
 
