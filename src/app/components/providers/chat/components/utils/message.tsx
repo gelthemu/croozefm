@@ -30,7 +30,7 @@ export default function Msg({ message, profiles }: MsgProps) {
             alt="Geltaverse.com"
             width={60}
             height={60}
-            className="w-4 h-4 rounded-sm mt-1 mr-1.5 flex-shrink-0 border border-red aspect-square _img_"
+            className="w-4 h-4 rounded-sm mt-1 mr-1.5 flex-shrink-0 aspect-square _img_"
           />
         ) : (
           <div

@@ -26,8 +26,10 @@ export default function Mentions({ text, profiles }: MentionsProps) {
   const escapedNames = profileNames.map((name) =>
     name.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&")
   );
+
+  const urlRegex = /(https?:\/\/[^\s]+)/gi;
   const combinedRegex = new RegExp(
-    `(\\b${escapedNames.join("|")}\\b)|(#\\w+)`,
+    `(\\b${escapedNames.join("|")}\\b)|(#\\w+)|(${urlRegex.source})`,
     "gi"
   );
 
@@ -48,6 +50,20 @@ export default function Mentions({ text, profiles }: MentionsProps) {
 
   const formattedText = parts.map((part, index) => {
     if (!part) return null;
+
+    if (typeof part === "string" && part.match(/^https?:\/\/[^\s]+$/i)) {
+      return (
+        <a
+          key={`url-${index}`}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sky-700 hover:underline"
+        >
+          {part}
+        </a>
+      );
+    }
 
     if (typeof part === "string" && part.match(/^#\w+$/)) {
       const hashtag = Hashtags.find((ht: HashTag) =>
