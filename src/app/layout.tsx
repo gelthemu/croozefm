@@ -151,6 +151,7 @@ export default function RootLayout({
               <ChatProvider>
                 <MiniPlayerProvider>
                   <MiniPlayer />
+                  <Chat />
                   <Navbar />
                   <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
                     <div className="w-full bg-light/80 dark:bg-dark/95">
@@ -163,7 +164,6 @@ export default function RootLayout({
                   <SpeedInsights />
                   <Footer />
                   <CookieConsent />
-                  <Chat />
                   <FullscreenCarousel />
                   <MediaSessionHandler />
                 </MiniPlayerProvider>

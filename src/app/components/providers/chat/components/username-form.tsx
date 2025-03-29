@@ -9,6 +9,24 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [error, setError] = useState("");
 
+  const RESTRICTED_WORDS = [
+    "admin",
+    "owner",
+    "manager",
+    "moderator",
+    "supervisor",
+    "administrator",
+    "staff",
+    "official",
+    "office",
+    "crooze",
+  ];
+
+  const containsRestrictedWord = (value: string) => {
+    const lowercaseValue = value.toLowerCase();
+    return RESTRICTED_WORDS.some((word) => lowercaseValue.includes(word));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -17,6 +35,9 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
       return;
     } else if (username.length > 15) {
       setError("Not more than 15 characters");
+      return;
+    } else if (containsRestrictedWord(username)) {
+      setError("Username already exists");
       return;
     }
 
@@ -37,6 +58,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
       setError("Not more than 15 characters");
     } else if (/\d/.test(value)) {
       setError("Cannot contain numbers");
+    } else if (containsRestrictedWord(value)) {
+      setError("Username already exists");
     } else {
       setError("");
     }
@@ -69,7 +92,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                 minLength={4}
                 maxLength={15}
               />
-              <div className="flex justify-between text-xs">
+              <div className="flex justify-between text-xs lowercase">
                 <span className={error ? "text-red/90" : "text-transparent"}>
                   {error || "."}
                 </span>
@@ -87,7 +110,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                   username.length > 15 ||
                   /\d/.test(username) ||
                   !username.trim() ||
-                  !termsAccepted
+                  !termsAccepted ||
+                  containsRestrictedWord(username)
                 }
                 className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-md disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
               >
@@ -123,8 +147,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
               </span>
             </div>
             <label htmlFor="terms" className="text-xs">
-              I promise to behave!.. We&apos;ll remember your name for next
-              time.
+              I promise to behave!.. We&apos;ll store your name in this browser.
             </label>
           </div>
         </form>

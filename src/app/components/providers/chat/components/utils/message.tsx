@@ -4,6 +4,7 @@ import type { Message } from "@/app/context/chat-context";
 import MessageTimestamp from "./message-timestamp";
 import Mentions from "./mentions-utils";
 import { ColorCircle } from "./color-circle";
+import Image from "next/image";
 
 interface MsgProps {
   message: Message;
@@ -11,24 +12,51 @@ interface MsgProps {
 }
 
 export default function Msg({ message, profiles }: MsgProps) {
-  const color = message.code ? ColorCircle(message.code) : "red";
+  const color =
+    message.username === "ADMIN"
+      ? "red"
+      : message.code
+      ? ColorCircle(message.code)
+      : "red";
 
   const id = message.code.slice(-4);
 
   return (
-    <div className="w-full p-2 select-text">
+    <div className="w-full py-2 select-text">
       <div className="flex items-start">
-        <div
-          className={`inline w-4 h-4 aspect-square rounded-full mt-1 mr-1.5 flex-shrink-0`}
-          style={{ backgroundColor: color }}
-        ></div>
+        {message.username === "ADMIN" ? (
+          <Image
+            src="https://geltaverse.com/io/favicon.ico"
+            alt="Geltaverse.com"
+            width={60}
+            height={60}
+            className="w-4 h-4 rounded-sm mt-1 mr-1.5 flex-shrink-0 border border-red aspect-square _img_"
+          />
+        ) : (
+          <div
+            className={`w-4 h-4 aspect-square rounded-full mt-1 mr-1.5 flex-shrink-0`}
+            style={{ backgroundColor: color }}
+          ></div>
+        )}
         <div className="flex flex-col">
           <div className="flex items-center">
-            <div className="lowercase">
-              <span className="font-medium" style={{ color: color }}>
-                {message.username}
-              </span>{" "}
-              <span className="text-xs opacity-60">{`(${id})`}</span>
+            <div
+              className={`${
+                message.username === "ADMIN" ? "uppercase" : "lowercase"
+              }`}
+            >
+              {message.username === "ADMIN" ? (
+                <span className="font-bold text-sm" style={{ color: color }}>
+                  {message.username}
+                </span>
+              ) : (
+                <span className="font-medium" style={{ color: color }}>
+                  {message.username}
+                </span>
+              )}{" "}
+              {message.username !== "ADMIN" && (
+                <span className="text-xs opacity-60">{`(${id})`}</span>
+              )}
             </div>
             <div className="mx-2 font-medium opacity-30">•</div>
             <div className="text-xs font-light">

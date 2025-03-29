@@ -1,6 +1,21 @@
 export function formatTimestamp(timestamp: number): string {
-  const now = Date.now();
-  const diff = now - timestamp;
+  const now = new Date();
+
+  const inputDate = new Date(timestamp);
+
+  const ugandaOptions = { timeZone: "Africa/Kampala" };
+
+  const ugandaNowStr = now.toLocaleString("en-US", ugandaOptions);
+  const ugandaInputStr = inputDate.toLocaleString("en-US", ugandaOptions);
+
+  const ugandaNow = new Date(ugandaNowStr);
+  const ugandaInput = new Date(ugandaInputStr);
+
+  const ugandaMidnightToday = new Date(ugandaNow);
+  ugandaMidnightToday.setHours(0, 0, 0, 0);
+
+  const ugandaMidnightYesterday = new Date(ugandaMidnightToday);
+  ugandaMidnightYesterday.setDate(ugandaMidnightYesterday.getDate() - 1);
 
   const second = 1000;
   const minute = 60 * second;
@@ -8,26 +23,34 @@ export function formatTimestamp(timestamp: number): string {
   const day = 24 * hour;
   const week = 7 * day;
 
-  if (diff < day) {
+  if (ugandaInput >= ugandaMidnightToday) {
     return new Intl.DateTimeFormat("en-US", {
       hour: "numeric",
       minute: "numeric",
       hour12: true,
       timeZone: "Africa/Kampala",
-    }).format(new Date(timestamp));
-  } else if (diff < 2 * day) {
+    }).format(inputDate);
+  } else if (ugandaInput >= ugandaMidnightYesterday) {
     return "yesterday";
-  } else if (diff < week) {
-    const daysAgo = Math.floor(diff / day);
-    return `${daysAgo}d ago`;
-  } else if (diff < 4 * week) {
-    const weeksAgo = Math.floor(diff / week);
-    return `${weeksAgo}wk ago`;
   } else {
-    const date = new Date(timestamp);
-    const dayStr = String(date.getDate()).padStart(2, "0");
-    const monthStr = String(date.getMonth() + 1).padStart(2, "0");
-    const yearStr = date.getFullYear();
-    return `${dayStr}.${monthStr}.${yearStr}`;
+    const diff = ugandaMidnightToday.getTime() - ugandaInput.getTime();
+
+    if (diff < week) {
+      const daysAgo = Math.floor(diff / day);
+      return `${daysAgo}d ago`;
+    } else if (diff < 4 * week) {
+      const weeksAgo = Math.floor(diff / week);
+      return `${weeksAgo}wk ago`;
+    } else {
+      const formattedDate = new Intl.DateTimeFormat("en-US", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        timeZone: "Africa/Kampala",
+      }).format(inputDate);
+
+      const [month, day, year] = formattedDate.split("/");
+      return `${day}.${month}.${year.replace(",", "")}`;
+    }
   }
 }

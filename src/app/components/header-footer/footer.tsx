@@ -59,7 +59,7 @@ export default function Footer() {
                       alt="Geltaverse.com"
                       width={60}
                       height={60}
-                      className="mx-1 size-4 self-center rounded-sm border border-light/20"
+                      className="mx-1 size-4 self-center rounded-sm border border-light/20 aspect-square _img_"
                     />
                     <span>geltaverse.com</span>
                   </Link>
