@@ -8,14 +8,7 @@ interface ChatHeaderProps {
 export default function ChatHeader({ hideChat, users }: ChatHeaderProps) {
   return (
     <>
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={hideChat}
-        onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && hideChat()}
-        aria-label="Hide Chat"
-        className="group mb-2 flex items-center justify-between cursor-pointer focus:outline-none"
-      >
+      <div className="group mb-2 flex items-center justify-between">
         <div className="flex items-center">
           <h3 className="font-semibold _912cfm">
             <span className="text-red">Live Chat</span>{" "}
@@ -24,7 +17,14 @@ export default function ChatHeader({ hideChat, users }: ChatHeaderProps) {
             )}
           </h3>
         </div>
-        <div className="flex items-center">
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={hideChat}
+          onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && hideChat()}
+          aria-label="Hide Chat"
+          className="flex items-center justify-center cursor-pointer focus:outline-nones"
+        >
           <div className="w-6 aspect-square flex items-center justify-center group-hover:rotate-180 transition duration-300">
             {<X size={18} />}
           </div>
