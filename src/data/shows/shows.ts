@@ -68,10 +68,7 @@ export const shows: Show[] = [
     summary:
       "Turn up the weekday vibes with 'The Most Wanted Hits,' a high-energy radio show spinning the hottest tracks from 2pm to 4pm. It's your daily afternoon party fix, packed with beats to keep you grooving all week long!",
     isFt: true,
-    host: [
-      { name: "Inyaa", link: "/i/inyaa-clare" },
-      { name: "Starcent DJ" },
-    ],
+    host: [{ name: "Inyaa", link: "/i/inyaa-clare" }, { name: "Starcent DJ" }],
     time: { start: 14, end: 16 },
   },
   {
@@ -257,6 +254,11 @@ export const shows: Show[] = [
       { name: "Nicholas" },
     ],
     time: { start: 12, end: 14 },
+  },
+  {
+    id: "ekisaawe-live",
+    name: "Ekisaawe",
+    time: { start: 14, end: 18 },
   },
   {
     id: "african-rhythms",

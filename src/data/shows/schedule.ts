@@ -98,6 +98,7 @@ const scheduleMap: Record<ScheduleDay, string[]> = {
     "big-seat",
     "certified-countdown",
     "sports-roundup",
+    "ekisaawe-live",
     "african-rhythms",
     "saturday-night",
   ],
