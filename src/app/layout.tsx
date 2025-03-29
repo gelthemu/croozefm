@@ -19,7 +19,7 @@ import { CarouselProvider } from "./context/carousel-context";
 import "./styles/globals.css";
 
 const sans = localFont({
-  src: "/fonts/croozefm-geltaverse-912912912912.woff2",
+  src: "/fonts/cfm-geltaverse-912912912912.woff2",
   variable: "--fonts-sans",
   display: "swap",
   style: "normal",
@@ -42,13 +42,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | 91.2 Crooze FM",
-    default: "Welcome | 91.2 Crooze FM",
+    template: "%s | CFM Pulse",
+    default: "Welcome | CFM Pulse",
   },
   description:
     "Welcome to the Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Browse the Current News Daily, our Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
   keywords:
-    "91.2 Crooze FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
+    "CFM Pulse, 91.2 Crooze FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
   metadataBase: new URL("https://croozefm.geltaverse.com"),
   applicationName: "Crooze FM",
   creator: "Gelthem Mucunguzi",
@@ -88,8 +88,8 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: {
-      template: "%s | 91.2 Crooze FM",
-      default: "Welcome | 91.2 Crooze FM",
+      template: "%s | CFM Pulse",
+      default: "Welcome | CFM Pulse",
     },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
@@ -107,8 +107,8 @@ export const metadata: Metadata = {
 
   twitter: {
     title: {
-      template: "%s | 91.2 Crooze FM",
-      default: "Welcome | 91.2 Crooze FM",
+      template: "%s | CFM Pulse",
+      default: "Welcome | CFM Pulse",
     },
     description:
       "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",

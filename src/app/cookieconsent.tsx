@@ -40,14 +40,13 @@ export default function CookieConsent() {
     <FixedDiv>
       <div className="p-2 text-sm">
         <Cookie className="w-6 h-6" />
+        <h3 className="font-medium text-lg text-red mb-2 _912cfm">
+          Guess what? Cookies!
+        </h3>
         <p className="my-2.5" id="cookie-consent-title">
-          By continuing to use this site, you’re agreeing to let us use cookies
-          to keep this beast alive and thriving indefinitely.
-        </p>
-        <p className="my-2.5" id="cookie-consent-title">
-          If you’d rather starve it, you can adjust your settings, but be
-          warned—the beast might not be too happy about that! You should know
-          that...
+          By continuing to use this site, you&apos;re agreeing to let us use
+          cookies to keep this beast alive and thriving indefinitely. You should
+          know that...
         </p>
         <button
           onClick={handleAccept}

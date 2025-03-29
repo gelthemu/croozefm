@@ -16,7 +16,6 @@ export default function Tracklist() {
           <h3 className="font-medium text-lg text-red mb-2 _912cfm">
             Recently Played
           </h3>
-
           {currentTrack && (
             <div className="w-full mx-auto mb-2 text-left">
               <TrackCard

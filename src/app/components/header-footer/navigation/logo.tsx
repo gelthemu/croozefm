@@ -12,15 +12,15 @@ export const Logo = ({ onLogoClick, className = "" }: LogoProps) => (
   <Link
     href="/home"
     onClick={onLogoClick}
-    className={`relative flex items-center w-24 ${className}`}
+    className={`relative flex items-center w-16 ${className}`}
   >
     <Image
       src="/cfm-logo.png"
       alt="CroozeFM Logo"
-      width={8192}
-      height={3304}
+      width={5900}
+      height={2860}
       priority={true}
-      className="w-full aspect-[1024/413] _img_"
+      className="w-full aspect-[295/143] _img_"
     />
   </Link>
 );
