@@ -258,7 +258,7 @@ export const shows: Show[] = [
   {
     id: "ekisaawe-live",
     name: "Ekisaawe",
-    time: { start: 14, end: 18 },
+    time: { start: 14, end: 17 },
   },
   {
     id: "african-rhythms",
