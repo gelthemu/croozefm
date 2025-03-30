@@ -16,7 +16,7 @@ export const Logo = ({ onLogoClick, className = "" }: LogoProps) => (
   >
     <Image
       src="/cfm-logo.png"
-      alt="CroozeFM Logo"
+      alt="CFM Pulse Logo"
       width={5900}
       height={2860}
       priority={true}
