@@ -49,7 +49,7 @@ export default function TrackCard({
               height={1652}
               className={`${
                 isCurrent ? "w-14" : "w-10"
-              } aspect-[4096/1652] _img_`}
+              } aspect-[295/143] _img_`}
             />
           </div>
         )}
