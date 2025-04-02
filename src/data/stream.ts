@@ -1,2 +1,1 @@
-export const STREAM_URL =
-  "https://stream-158.zeno.fm/vyxwdk08apxtv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJ2eXh3ZGswOGFweHR2IiwiaG9zdCI6InN0cmVhbS0xNTguemVuby5mbSIsInJ0dGwiOjUsImp0aSI6ImpYTHlMeGFTVGNLREt3bHdMb291R1EiLCJpYXQiOjE3NDMxNzE0ODAsImV4cCI6MTc0MzE3MTU0MH0.PlaVurQzKi_qxgH2fLx7_fN4_exzCDtXSpqv-lUwVi0";
+export const STREAM_URL = "https://stream.zeno.fm/vyxwdk08apxtv";

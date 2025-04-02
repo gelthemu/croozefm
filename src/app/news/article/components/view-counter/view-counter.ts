@@ -21,7 +21,7 @@ const getViewCookieName = (slug: string) => `cookie_${slug}`;
 
 export async function trackArticleView({
   slug,
-  cookieExpiration = 10,
+  cookieExpiration = 5,
 }: ViewTrackingOptions): Promise<boolean> {
   const cookieName = getViewCookieName(slug);
   const hasRecentView = Cookies.get(cookieName);
@@ -46,7 +46,7 @@ export async function trackArticleView({
 
     return true;
   } catch (error) {
-    console.error("Error tracking article view:", error);
+    console.error("Error:", error);
     return false;
   }
 }

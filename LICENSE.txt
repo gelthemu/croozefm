@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Gel
+Copyright (c) 2025 CFM Pulse | Geltaverse
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[Note: CFM Pulse is a fan-made project dedicated to 91.2 Crooze FM lovers. Contributions are welcome!]

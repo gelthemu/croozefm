@@ -55,36 +55,36 @@ export const metadata: Metadata = {
   publisher: "Gelthem Mucunguzi",
   icons: {
     icon: [
-      { url: "https://croozefm.geltaverse.com/favicon.ico" },
+      { url: "/favicon.ico" },
       {
-        url: "https://croozefm.geltaverse.com/favicon-16x16.png",
+        url: "/favicon-16x16.png",
         type: "image/png",
         sizes: "16x16",
       },
       {
-        url: "https://croozefm.geltaverse.com/favicon-32x32.png",
+        url: "/favicon-32x32.png",
         type: "image/png",
         sizes: "32x32",
       },
       {
-        url: "https://croozefm.geltaverse.com/android-chrome-192x192.png",
+        url: "/android-chrome-192x192.png",
         type: "image/png",
         sizes: "192x192",
       },
       {
-        url: "https://croozefm.geltaverse.com/android-chrome-512x512.png",
+        url: "/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
       },
     ],
     apple: [
       {
-        url: "https://croozefm.geltaverse.com/apple-touch-icon.png",
+        url: "/apple-touch-icon.png",
         sizes: "180x180",
       },
     ],
   },
-  manifest: "https://croozefm.geltaverse.com/site.webmanifest",
+  manifest: "/site.webmanifest",
 
   openGraph: {
     title: {

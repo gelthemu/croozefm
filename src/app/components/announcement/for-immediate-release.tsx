@@ -31,7 +31,7 @@ export default function ImmediateRelease({
             <div className="text-left flex flex-col space-y-3">
               <H2Title title="CFM Weekly Mixtape" />
               <p>
-                The energy is electric and unstoppable!.. A brand new Crooze FM
+              Did you miss us? We are back with Volume 2... A brand new Crooze FM
                 Weekly Mixtape drops every Wednesday.{" "}
                 <Link
                   href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
@@ -42,7 +42,7 @@ export default function ImmediateRelease({
                   #CFMWeeklyMixtape
                 </Link>
               </p>
-              <p className="flex items-center">
+              <p className="flex items-center font-medium">
                 <span>{sortedMixtapes[0].title}</span>
                 <span className="ml-1">{"😎🔥🎶"}</span>
               </p>

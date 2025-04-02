@@ -29,10 +29,6 @@ const config: Config = {
         ],
         "big-shoulders": ["var(--font-big-shoulders)"],
       },
-      backgroundImage: {
-        "profile-image":
-          "url('https://croozefm.blob.core.windows.net/images/profile-bg-image.png')",
-      },
     },
   },
   plugins: [scrollbarHide],

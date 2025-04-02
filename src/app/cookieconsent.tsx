@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import { Cookie } from "lucide-react";
 import FixedDiv from "./components/providers/divs/fixed-element";
 
 export default function CookieConsent() {
@@ -39,7 +38,6 @@ export default function CookieConsent() {
   return (
     <FixedDiv>
       <div className="p-2 text-sm">
-        <Cookie className="w-6 h-6" />
         <h3 className="font-medium text-lg text-red mb-2 _912cfm">
           Guess what? Cookies!
         </h3>
@@ -53,7 +51,7 @@ export default function CookieConsent() {
           className="bg-red text-light font-medium py-1 px-3 rounded"
           aria-label="Accept cookies"
         >
-          Okay
+          GOT IT
         </button>
       </div>
     </FixedDiv>

@@ -17,7 +17,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "croozefm.geltaverse.com",
+        hostname: "croozefm.blob.core.windows.net",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cfmpulse-fxavapfdeybedqdt.z01.azurefd.net",
         pathname: "/**",
       },
       {
@@ -27,12 +32,17 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "croozefm.blob.core.windows.net",
+        hostname: "pbs.twimg.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "coverart.instant.audio",
         pathname: "/images/**",
       },
       {
         protocol: "https",
-        hostname: "pbs.twimg.com",
+        hostname: "croozefm.com",
         pathname: "/**",
       },
       {
@@ -44,16 +54,6 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "scontent.fnbo1-1.fna.fbcdn.net",
         pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "coverart.instant.audio",
-        pathname: "/images/**",
-      },
-      {
-        protocol: "https",
-        hostname: "croozefm.com",
-        pathname: "/wp-content/**",
       },
       {
         protocol: "https",

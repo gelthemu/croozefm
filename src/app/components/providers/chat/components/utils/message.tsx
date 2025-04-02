@@ -23,7 +23,7 @@ export default function Msg({ message, profiles }: MsgProps) {
   const id = message.code.slice(-4);
 
   return (
-    <div className="w-full py-2 select-text">
+    <div className="w-full py-2">
       <div className="flex items-start">
         {message.username === "ADMIN" ? (
           <Image
@@ -69,7 +69,7 @@ export default function Msg({ message, profiles }: MsgProps) {
               <MessageTimestamp timestamp={message.timestamp} />
             </div>
           </div>
-          <div className="text-sm">
+          <div className="text-sm select-text">
             <Mentions text={message.text} profiles={profiles} />
           </div>
         </div>

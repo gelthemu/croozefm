@@ -12,7 +12,7 @@ export const Logo = ({ onLogoClick, className = "" }: LogoProps) => (
   <Link
     href="/home"
     onClick={onLogoClick}
-    className={`relative flex items-center w-16 ${className}`}
+    className={`relative flex items-center w-20 ${className}`}
   >
     <Image
       src="/cfm-logo.png"

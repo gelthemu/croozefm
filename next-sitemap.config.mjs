@@ -37,18 +37,6 @@ const config = {
         priority: 1.0,
         lastmod: new Date().toISOString(),
       },
-      {
-        loc: "/c/contact-us",
-        changefreq: "daily",
-        priority: 1.0,
-        lastmod: new Date().toISOString(),
-      },
-      {
-        loc: "/news/article/912-cfm-weekly-mixtape-every-wednesday",
-        changefreq: "daily",
-        priority: 1.0,
-        lastmod: new Date().toISOString(),
-      },
     ];
   },
   robotsTxtOptions: {

@@ -66,4 +66,10 @@ export const mixtapes: Mixtape[] = [
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Mixtapes-DJ-Modern-26th-March-2025.mp3",
     dj: djs.modern,
   },
+  {
+    id: 1743625087,
+    title: "Starcent DJ Vol 2",
+    url: "https://croozefm.com/wp-content/uploads/2025/04/CroozeFM-WeeklyMixtapes-2ndApril2025.mp3",
+    dj: djs.starcent,
+  },
 ];
