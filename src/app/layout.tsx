@@ -141,6 +141,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
         />
+<meta name="msvalidate.01" content="781D56DEEBBD64612B4741E403DBABE7" />
       </head>
       <body
         className={`${sans.variable} ${bigShoulders.variable} relative antialiased`}
