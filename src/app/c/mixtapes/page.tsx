@@ -1,8 +1,7 @@
 import React from "react";
-import { PageHeading } from "@/app/components/providers/divs/page-heading";
-import ImgDiv from "@/app/components/providers/divs/image-div";
 import { mixtapes } from "@/data/mixtapes";
 import MixtapePlayer from "./components/mixtape-player";
+import { RectangleAd, SkyscraperAd } from "@/app/components/providers/ads/ads";
 
 export const metadata = {
   title: "CFM Weekly Mixtapes",
@@ -48,18 +47,26 @@ export default function MixtapesPage() {
   const sortedMixtapes = [...mixtapes].sort((a, b) => b.id - a.id);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-1">
-      <PageHeading
-        heading="CFM Weekly Mixtapes"
-        text=" Get ready for feel-good vibes and epic beats! Western Uganda's Biggest Radio Station presents the Crooze FM Weekly Mixtape every Wednesday."
-      />
-      <ImgDiv
-        url="https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
-        alt="Crooze FM Weekly Mixtape"
-        className="w-full md:w-4/6 mx-auto my-12"
-        text="CFM Weekly Mixtape"
-      />
-      <MixtapePlayer mixtapes={sortedMixtapes} />
+    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[820px] p-1">
+      <div className={`w-full text-left flex flex-col justify-center p-1`}>
+        <h1 className="text-3xl relative mb-4 _912cfm">CFM Weekly Mixtapes</h1>
+        <p className="w-full max-w-2xl">
+          Get ready for feel-good vibes and epic beats! Western Uganda&apos;s
+          Biggest Radio Station presents the Crooze FM Weekly Mixtape every
+          Wednesday.
+        </p>
+      </div>
+      <div className="w-full flex flex-col lg:flex-row lg:space-x-4 my-10">
+        <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 sm:mb-0">
+          <MixtapePlayer mixtapes={sortedMixtapes} />{" "}
+        </div>{" "}
+        <RectangleAd />
+        <div className="hidden lg:block lg:w-[30%] lg:flex-shrink-0">
+          <div className="sticky top-[calc(0.25rem+80px)]">
+            <SkyscraperAd />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

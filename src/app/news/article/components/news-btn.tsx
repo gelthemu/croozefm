@@ -18,7 +18,7 @@ export default function XNewsButton({ view = true }: ArchiveProps) {
   };
 
   const handleArchiveClick = () => {
-    router.push("/news/news-archive");
+    router.push("/c/mixtapes");
   };
 
   return (
@@ -39,9 +39,9 @@ export default function XNewsButton({ view = true }: ArchiveProps) {
         }`}
       >
         <span className="sr-only">
-          Check the available Crooze FM Audio Archive here
+          Check the available Crooze FM Mixtapes Archive here
         </span>
-        Crooze FM Audio Archive
+        Crooze FM Mixtapes Archive
       </button>
     </div>
   );

@@ -3,7 +3,6 @@ headline: "Congo Crisis Back to Square One as Kagame Markets Deniability"
 publication_date: 1742645028
 excerpt: "The Emir of Qatar scored a publicity win on the DRC crisis, though US back channels largely drove the carrot-and-stick approach to the conflict."
 keywords: "Congo Crisis, Qatar mediation Congo crisis, DRC Rwanda ceasefire, M23 rebels North Kivu, Sheikh Tamim Bin Hamad Al Thani, Paul Kagame Felix Tshisekedi, Doha meeting Congo conflict, U.S. sanctions Rwanda, Great Lakes region diplomacy, M23/AFC direct dialogue, African mediation efforts"
-image_url: "https://pbs.twimg.com/card_img/1903410051018067968/7ilW2FYX?format=jpg&name=medium"
 source: "The EastAfrican"
 ---
 

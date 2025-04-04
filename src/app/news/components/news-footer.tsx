@@ -1,5 +1,5 @@
 import React from "react";
-import XNewsButton from "../news-archive/components/news-btn";
+import XNewsButton from "../article/components/news-btn";
 
 interface ArchiveProps {
   view?: boolean;
@@ -8,7 +8,7 @@ interface ArchiveProps {
 export default async function NewsFooter({ view = true }: ArchiveProps) {
   return (
     <>
-      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
+      <div className="w-full sm:w-[95%] text-left">
         <p className="mb-4">
           At 91.2 Crooze FM, we don’t just break stories – we tell real stories
           that matter to you. Tune in hourly to stay ahead with the latest
