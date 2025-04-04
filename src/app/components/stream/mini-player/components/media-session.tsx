@@ -17,7 +17,7 @@ export default function MediaSessionHandler() {
     }
 
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: `${tagLine} | 91.2 Crooze FM`,
+      title: tagLine,
       artist: "CFM Pulse",
       album: "CFM Pulse",
       artwork: [
