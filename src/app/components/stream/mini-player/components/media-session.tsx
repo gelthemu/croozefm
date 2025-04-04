@@ -18,8 +18,15 @@ export default function MediaSessionHandler() {
 
     navigator.mediaSession.metadata = new MediaMetadata({
       title: `${tagLine} | 91.2 Crooze FM`,
-      artist: "Western Uganda's Biggest Radio Station",
-      album: "",
+      artist: "CFM Pulse",
+      album: "CFM Pulse",
+      artwork: [
+        {
+          src: "https://cfm.geltaverse.com/assets/cfm-pulse-official-logo.png",
+          sizes: "512x512",
+          type: "image/jpg",
+        },
+      ],
     });
 
     navigator.mediaSession.setActionHandler("play", () => {

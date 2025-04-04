@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   description:
     "Welcome to the Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Browse the Current News Daily, our Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
   keywords:
-    "CFM Pulse, 91.2 Crooze FM, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
+    "CFM Pulse, 91.2 Crooze FM, crooze fm online, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
   metadataBase: new URL("https://croozefm.geltaverse.com"),
   applicationName: "Crooze FM",
   creator: "Gelthem Mucunguzi",
@@ -141,6 +141,7 @@ export default function RootLayout({
           name="google-site-verification"
           content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
         />
+<meta name="msvalidate.01" content="781D56DEEBBD64612B4741E403DBABE7" />
       </head>
       <body
         className={`${sans.variable} ${bigShoulders.variable} relative antialiased`}

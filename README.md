@@ -1,4 +1,4 @@
-<img src="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/logo/cfm-logo.png" alt="CFM Pulse Logo" width="160"/>
+<img src="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/logo/cfm-logo.png" alt="CFM Pulse Logo" width="120"/>
 
 **_The largest Crooze FM fan base. By CFM Fans, for CFM Diehards._**
 

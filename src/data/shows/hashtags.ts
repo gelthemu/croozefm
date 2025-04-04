@@ -6,7 +6,7 @@ export interface HashTag {
 export const Hashtags: HashTag[] = [
   { tag: ["#CroozeFM", "#912CroozeFM", "#CFM"], url: "/" },
   {
-    tag: ["#CFMWeeklyMixtape", "#CFMCroozeMixtape", "#Mixtape"],
+    tag: ["#CFMWeeklyMixtape", "#CFMCroozeMixtape", "#Mixtape", "#Mixtapes", "#CFMWeeklyMixtapes"],
     url: "/c/mixtapes",
   },
   {
