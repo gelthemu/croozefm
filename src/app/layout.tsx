@@ -16,6 +16,8 @@ import { ChatProvider } from "./context/chat-context";
 import MediaSessionHandler from "./components/stream/mini-player/components/media-session";
 import FullscreenCarousel from "./i/team/components/profile/gallery/fullscreen-gallery";
 import { CarouselProvider } from "./context/carousel-context";
+import { DownloadProvider } from "./context/download-context";
+import DownloadStatus from "./c/mixtapes/components/downloads/download-status";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -146,32 +148,35 @@ export default function RootLayout({
       <body
         className={`${sans.variable} ${bigShoulders.variable} relative antialiased`}
       >
-        <ThemeProviders>
-          <div className="w-full font-sans text-dark dark:text-light">
-            <CarouselProvider>
-              <ChatProvider>
-                <MiniPlayerProvider>
-                  <MiniPlayer />
-                  <Chat />
-                  <Navbar />
-                  <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
-                    <div className="w-full bg-light/80 dark:bg-dark/95">
-                      <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
-                        <div className="container mx-auto">{children}</div>
-                      </main>
+        <DownloadProvider>
+          <ThemeProviders>
+            <div className="w-full font-sans text-dark dark:text-light">
+              <CarouselProvider>
+                <ChatProvider>
+                  <MiniPlayerProvider>
+                    <MiniPlayer />
+                    <Chat />
+                    <DownloadStatus />
+                    <Navbar />
+                    <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
+                      <div className="w-full bg-light/80 dark:bg-dark/95">
+                        <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
+                          <div className="container mx-auto">{children}</div>
+                        </main>
+                      </div>
                     </div>
-                  </div>
-                  <Analytics />
-                  <SpeedInsights />
-                  <Footer />
-                  <CookieConsent />
-                  <FullscreenCarousel />
-                  <MediaSessionHandler />
-                </MiniPlayerProvider>
-              </ChatProvider>
-            </CarouselProvider>
-          </div>
-        </ThemeProviders>
+                    <Analytics />
+                    <SpeedInsights />
+                    <Footer />
+                    <CookieConsent />
+                    <FullscreenCarousel />
+                    <MediaSessionHandler />
+                  </MiniPlayerProvider>
+                </ChatProvider>
+              </CarouselProvider>
+            </div>
+          </ThemeProviders>
+        </DownloadProvider>
       </body>
     </html>
   );

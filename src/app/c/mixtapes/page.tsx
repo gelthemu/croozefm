@@ -56,7 +56,7 @@ export default function MixtapesPage() {
           Wednesday.
         </p>
       </div>
-      <div className="w-full flex flex-col lg:flex-row lg:space-x-4 my-10">
+      <div className="w-full flex flex-col lg:flex-row lg:space-x-4 mt-10">
         <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 sm:mb-0">
           <MixtapePlayer mixtapes={sortedMixtapes} />{" "}
         </div>{" "}

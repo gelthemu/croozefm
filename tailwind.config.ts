@@ -13,6 +13,7 @@ const config: Config = {
       colors: {
         light: "#F5F5F5",
         red: "#B71C1C",
+        turquoise: "#3eac75",
         gray: "#303030",
         dark: "#151515",
       },

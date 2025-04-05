@@ -7,6 +7,7 @@ import ImgDiv from "@/app/components/providers/divs/image-div";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { PlayerButton } from "@/app/components/providers/divs/record-player";
+import ViewerBoard from "./downloads/viewer-board";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -85,8 +86,9 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         text="CFM Weekly Mixtape"
       />
       <div className="grid grid-cols-1 gap-3">
-        {mixtapes.map((mixtape, index) => {
+        {mixtapes.map((mixtape: Mixtape, index: number) => {
           const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
+          const fileName = `${mixtape.title}.mp3`;
 
           return (
             <div
@@ -126,12 +128,17 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                     </div>
                   )}
                 </div>
-                <PlayerButton
-                  isActive={isActive}
-                  isAudioPlaying={isAudioPlaying}
-                  epoch={mixtape.id}
-                  onClick={() => handlePlay(index)}
-                />
+                <div>
+                  <PlayerButton
+                    isActive={isActive}
+                    isAudioPlaying={isAudioPlaying}
+                    epoch={mixtape.id}
+                    onClick={() => handlePlay(index)}
+                  />
+                </div>
+                <div className="mt-2">
+                  <ViewerBoard audioUrl={mixtape.url} fileName={fileName} />
+                </div>
               </div>
             </div>
           );

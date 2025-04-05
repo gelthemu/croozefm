@@ -1,5 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
+import { useDownload } from "@/app/context/download-context";
 
 export function useAudioControls() {
   const {
@@ -13,8 +14,39 @@ export function useAudioControls() {
     setIsCollapse,
   } = useMiniPlayer();
 
+  const { progress } = useDownload();
+
+  useEffect(() => {
+    if (progress > 0 && audioRef.current) {
+      if (!audioRef.current.paused) {
+        audioRef.current.pause();
+        setIsAudioPlaying(false);
+      }
+
+      audioRef.current.src = "";
+
+      setIsStreamActive(false);
+      setIsStreaming(false);
+      setIsCollapse(false);
+
+      setTimeout(() => {
+        setIsMiniPlayerOpen(false);
+      }, 1000);
+      setIsLoading(true);
+    }
+  }, [
+    progress,
+    audioRef,
+    setIsLoading,
+    setIsAudioPlaying,
+    setIsStreamActive,
+    setIsStreaming,
+    setIsCollapse,
+    setIsMiniPlayerOpen,
+  ]);
+
   const handleAudioPlay = useCallback(() => {
-    if (!audioRef.current) return;
+    if (progress > 0 || !audioRef.current) return;
 
     if (audioRef.current.paused) {
       const isResuming =
@@ -104,6 +136,7 @@ export function useAudioControls() {
     setIsCollapse,
     setIsMiniPlayerOpen,
     currentSource,
+    progress,
   ]);
 
   return {

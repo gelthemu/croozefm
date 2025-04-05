@@ -32,7 +32,7 @@ export const djs: Record<string, DJ> = {
 export const mixtapes: Mixtape[] = [
   {
     id: 1739941200,
-    title: "Deejay Emma Vol 1",
+    title: "DJ Emma Vol 1",
     url: "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3",
     dj: djs.emma,
   },

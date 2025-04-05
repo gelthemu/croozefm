@@ -36,8 +36,7 @@ export default function ImmediateRelease({
                 <Link
                   href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
                   aria-label="View All Mixtapes"
-                  className="hover:underline"
-                  style={{ color: "#3eac75" }}
+                  className="hover:underline text-turquoise"
                 >
                   #CFMWeeklyMixtape
                 </Link>
