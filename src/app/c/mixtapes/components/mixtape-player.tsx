@@ -8,8 +8,9 @@ import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { useDownload } from "@/app/context/download-context";
 import { PlayerButton } from "@/app/components/providers/divs/record-player";
-import ViewerBoard from "./downloads/viewer-board";
+import { ViewerBoard } from "./downloads/user-feedback";
 import Download from "./downloads/download";
+import { LiveChatBtn } from "./downloads/user-feedback";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -191,6 +192,9 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               </div>
             );
           })}
+        </div>
+        <div className="mt-8">
+          <LiveChatBtn />
         </div>
       </div>
     </div>

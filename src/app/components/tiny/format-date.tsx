@@ -54,7 +54,7 @@ const FormatSimpleDate = ({
   if (diffInHours < 24) return `${diffInHours}h`;
 
   const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 10) return `${diffInDays}d`;
+  if (diffInDays < 2) return `${diffInDays}d`;
 
   const day = String(dateObj.getDate()).padStart(2, "0");
   const month = String(dateObj.getMonth() + 1).padStart(2, "0");
