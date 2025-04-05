@@ -8,6 +8,7 @@ import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import ViewerBoard from "./downloads/viewer-board";
+import Download from "./downloads/download";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -26,41 +27,47 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     setIsSeekable,
     isLoading,
   } = useMiniPlayer();
-  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+
+  const [selectedMixtape, setSelectedMixtape] = useState<Mixtape | null>(null);
 
   useEffect(() => {
+    // Set the latest mixtape as the default on initial load
+    if (mixtapes && mixtapes.length > 0 && !selectedMixtape) {
+      setSelectedMixtape(mixtapes[0]);
+    }
+  }, [mixtapes, selectedMixtape]);
+
+  useEffect(() => {
+    // Update selected mixtape when player source changes
     if (isMiniPlayerOpen && currentSource && mixtapes?.length > 0) {
-      const index = mixtapes.findIndex(
-        (mixtape) => mixtape.url === currentSource
-      );
-      if (index !== -1) {
-        setPlayingIndex(index);
+      const mixtape = mixtapes.find((m) => m.url === currentSource);
+      if (mixtape) {
+        setSelectedMixtape(mixtape);
       }
     }
   }, [currentSource, isMiniPlayerOpen, mixtapes]);
 
-  const handlePlay = (index: number) => {
-    if (!mixtapes || mixtapes.length === 0 || isLoading) return;
+  const handlePlay = (mixtape: Mixtape) => {
+    if (!mixtape || isLoading) return;
 
-    const mixtape = mixtapes[index];
-    const isActive =
-      isMiniPlayerOpen &&
-      currentSource === mixtape.url &&
-      playingIndex === index;
+    const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
 
     if (isActive) {
       setIsMiniPlayerOpen(false);
     } else {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
-      setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
+      setTagLine(`${mixtape.title}`);
       setSnapShot(
         "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
       );
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
-      setPlayingIndex(index);
     }
+  };
+
+  const handleSelect = (mixtape: Mixtape) => {
+    setSelectedMixtape(mixtape);
   };
 
   if (!mixtapes || mixtapes.length === 0) {
@@ -72,77 +79,113 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
   }
 
   return (
-    <div className="w-full border-y border-gray/40 dark:border-light/10 px-2 py-8">
-      <div className="mb-6">
-        <div className="flex items-center justify-between text-red/80 font-medium">
-          <p>In this PLAYLIST</p>
-          <small>{mixtapes.length} Episodes</small>
-        </div>
-      </div>
-      <ImgDiv
-        url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
-        alt="Crooze FM Weekly Mixtape"
-        className="w-full mb-8"
-        text="CFM Weekly Mixtape"
-      />
-      <div className="grid grid-cols-1 gap-3">
-        {mixtapes.map((mixtape: Mixtape, index: number) => {
-          const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
-          const fileName = `${mixtape.title}.mp3`;
+    <div className="w-full border-y border-gray/40 dark:border-light/10 px-1 py-8">
+      {/* Main Player Section - Featured Mixtape */}
+      <div>
+        <ImgDiv
+          url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
+          alt="Crooze FM Weekly Mixtape"
+          className="w-full mb-6"
+          text="CFM Weekly Mixtape"
+        />
 
-          return (
-            <div
-              key={mixtape.id}
-              className={`group overflow-hidden rounded-md ${
-                isActive
-                  ? "border-2 border-red/80 dark:border-red/60"
-                  : "border-2 border-red/0"
-              } bg-gray/20 dark:bg-gray transition-all duration-500 select-none`}
-            >
-              <div className="p-4">
-                <div className="flex flex-row items-center justify-between pb-3">
-                  <div className="text-sm text-gray/90 dark:text-light/80 font-medium flex items-center">
-                    <div className="pr-1.5">
-                      <i className="fa-solid fa-headphones"></i>
-                    </div>
-                    <div>
-                      {mixtape.dj?.link ? (
-                        <Link
-                          href={mixtape.dj.link}
-                          aria-label={`${mixtape.dj?.name}'s Profile`}
-                        >
-                          <span> {mixtape.dj?.name}</span>
-                        </Link>
+        {selectedMixtape && (
+          <div className="rounded-md bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80">
+            <div className="flex flex-row items-center justify-between mb-1.5">
+              <div className="text-lg font-semibold">
+                {selectedMixtape.title}
+              </div>
+              {mixtapes.indexOf(selectedMixtape) === 0 && (
+                <div className="px-3">
+                  <span title="Latest Mixtape">
+                    <FaWandMagicSparkles size={16} />
+                  </span>
+                </div>
+              )}
+            </div>
+            <div className="flex items-center mb-4 opacity-70">
+              <i className="fa-solid fa-headphones mr-2"></i>
+              {selectedMixtape.dj?.link ? (
+                <Link
+                  href={selectedMixtape.dj.link}
+                  aria-label={`${selectedMixtape.dj?.name}'s Profile`}
+                  className="hover:text-red/80 transition-colors"
+                >
+                  <span>{selectedMixtape.dj?.name}</span>
+                </Link>
+              ) : (
+                <span>{selectedMixtape.dj?.name}</span>
+              )}
+            </div>
+            <div className="mb-2.5">
+              <PlayerButton
+                isActive={
+                  isMiniPlayerOpen && currentSource === selectedMixtape.url
+                }
+                isAudioPlaying={isAudioPlaying}
+                epoch={selectedMixtape.id}
+                onClick={() => handlePlay(selectedMixtape)}
+              />
+            </div>
+            <div className="flex items-center justify-between">
+              <Download
+                audioUrl={selectedMixtape.azureUrl}
+                fileName={`${selectedMixtape.title}.mp3`}
+              />
+              <ViewerBoard count={selectedMixtape.title.length} />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-8">
+        <div className="mb-6">
+          <div className="flex items-center justify-between text-red/80 font-medium">
+            <p>In this PLAYLIST</p>
+            <small>{mixtapes.length} Episodes</small>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 space-y-2 mb-4">
+          {mixtapes.map((mixtape: Mixtape) => {
+            const isSelected = selectedMixtape?.id === mixtape.id;
+            const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
+
+            return (
+              <div
+                key={mixtape.id}
+                onClick={() => handleSelect(mixtape)}
+                className={`group p-3 rounded-md cursor-pointer transition-all duration-300 ${
+                  isSelected
+                    ? "bg-red/10 dark:bg-red/20 border-l-4 border-red"
+                    : "bg-gray/10 dark:bg-gray/40 hover:bg-gray/20 dark:hover:bg-gray/70 border-l-4 border-transparent"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 flex items-center justify-center mr-3">
+                      {isActive && isAudioPlaying ? (
+                        <div className="w-4 h-4 rounded-full bg-red animate-pulse"></div>
                       ) : (
-                        <div>
-                          <span> {mixtape.dj?.name}</span>
-                        </div>
+                        <span className="text-gray/60 dark:text-light/60">
+                          {mixtapes.indexOf(mixtape) + 1}
+                        </span>
                       )}
                     </div>
+                    <div>
+                      <p>{mixtape.title}</p>
+                    </div>
                   </div>
+
                   {mixtapes.indexOf(mixtape) === 0 && (
-                    <div className="px-3 text-xs text-gray/90 dark:text-light/80">
-                      <span>
-                        <FaWandMagicSparkles size={12} />
-                      </span>
+                    <div className="px-2 opacity-70">
+                      <FaWandMagicSparkles size={12} title="Latest Mixtape" />
                     </div>
                   )}
                 </div>
-                <div>
-                  <PlayerButton
-                    isActive={isActive}
-                    isAudioPlaying={isAudioPlaying}
-                    epoch={mixtape.id}
-                    onClick={() => handlePlay(index)}
-                  />
-                </div>
-                <div className="mt-2">
-                  <ViewerBoard audioUrl={mixtape.url} fileName={fileName} />
-                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

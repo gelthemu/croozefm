@@ -47,7 +47,7 @@ export default function MixtapesPage() {
   const sortedMixtapes = [...mixtapes].sort((a, b) => b.id - a.id);
 
   return (
-    <div className="w-full sm:w-[95%] sm:mx-auto max-w-[820px] p-1">
+    <div className="w-full max-w-[820px] p-1">
       <div className={`w-full text-left flex flex-col justify-center p-1`}>
         <h1 className="text-3xl relative mb-4 _912cfm">CFM Weekly Mixtapes</h1>
         <p className="w-full max-w-2xl">

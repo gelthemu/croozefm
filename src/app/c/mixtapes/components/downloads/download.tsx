@@ -2,6 +2,7 @@
 import { useDownload } from "@/app/context/download-context";
 import { PiSpinnerBold } from "react-icons/pi";
 import { MdCheck } from "react-icons/md";
+import { useState, useEffect } from "react";
 
 interface DownloadProps {
   audioUrl: string;
@@ -9,8 +10,29 @@ interface DownloadProps {
 }
 
 export default function Download({ audioUrl, fileName }: DownloadProps) {
-  const { isDownloading, isDownloadMode, progress, downloadFile } =
+  const { isDownloading, isDownloadMode, progress, downloadFile, currentFile } =
     useDownload();
+
+  // Track if this specific download button is active
+  const [isThisDownloading, setIsThisDownloading] = useState(false);
+  const [isThisComplete, setIsThisComplete] = useState(false);
+
+  // Update local state based on context and current URL
+  useEffect(() => {
+    // Check if this specific URL is being downloaded
+    const isActiveDownload = isDownloadMode && currentFile === audioUrl;
+    setIsThisDownloading(isActiveDownload);
+
+    // Set complete status when this file finishes downloading
+    if (isActiveDownload && isDownloading && progress >= 98) {
+      setIsThisComplete(true);
+      // Reset complete status after 4 seconds
+      const timer = setTimeout(() => {
+        setIsThisComplete(false);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [isDownloading, isDownloadMode, progress, currentFile, audioUrl]);
 
   const handleDownload = () => {
     if (isDownloading) return;
@@ -21,17 +43,17 @@ export default function Download({ audioUrl, fileName }: DownloadProps) {
     <div className="w-fit rounded-sm" title={`Download ${fileName} now`}>
       <div
         role="button"
-        tabIndex={isDownloadMode ? -1 : 0}
-        aria-disabled={isDownloadMode ? "true" : "false"}
+        tabIndex={isThisDownloading ? -1 : 0}
+        aria-disabled={isThisDownloading ? "true" : "false"}
         onClick={() => {
-          if (!isDownloadMode && handleDownload) {
+          if (!isThisDownloading && handleDownload) {
             handleDownload();
           }
         }}
         onKeyDown={(e) => {
           if (
             (e.key === "Enter" || e.key === " ") &&
-            !isDownloadMode &&
+            !isThisDownloading &&
             handleDownload
           ) {
             e.preventDefault();
@@ -39,13 +61,13 @@ export default function Download({ audioUrl, fileName }: DownloadProps) {
           }
         }}
         className={`mixtape-download-btn text-sm text-center font-medium _912cfm px-2 py-1 rounded-sm focus:outline-none ${
-          isDownloadMode ? "cursor-default opacity-80" : "cursor-pointer"
+          isThisDownloading ? "cursor-default opacity-80" : "cursor-pointer"
         }`}
       >
         <div className="flex justify-center items-center focus:outline-none">
-          {isDownloadMode && !isDownloading ? (
+          {isThisDownloading && !isThisComplete ? (
             <PiSpinnerBold size={20} className="fa-spin" />
-          ) : isDownloading && progress >= 98 && progress <= 100 ? (
+          ) : isThisComplete ? (
             <MdCheck size={20} className="text-red" />
           ) : (
             <div className="flex items-center">

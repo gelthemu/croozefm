@@ -8,6 +8,7 @@ interface DownloadContextType {
   progress: number;
   error: string | null;
   fileName: string | null;
+  currentFile: string | null;
   downloadFile: (url: string, customFileName?: string) => Promise<void>;
 }
 
@@ -33,6 +34,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
   const [progress, setProgress] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [currentFile, setCurrentFile] = useState<string | null>(null);
 
   const downloadFile = async (url: string, customFileName?: string) => {
     if (isDownloading || isDownloadMode) {
@@ -42,6 +44,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
     setIsDownloadMode(true);
     setProgress(0);
     setError(null);
+    setCurrentFile(url);
 
     const MAX_RETRIES = 3;
     let retryCount = 0;
@@ -122,6 +125,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
           setIsDownloadMode(false);
           setProgress(0);
           setFileName(null);
+          setCurrentFile(null);
         }, 4000);
 
         success = true;
@@ -157,6 +161,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
     progress,
     error,
     fileName,
+    currentFile,
     downloadFile,
   };
 
