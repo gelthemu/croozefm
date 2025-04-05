@@ -255,15 +255,15 @@ export const shows: Show[] = [
     ],
     time: { start: 12, end: 14 },
   },
-  // {
-  //   id: "african-rhythms",
-  //   name: "The African Rhythms",
-  //   time: { start: 17, end: 20 },
-  // },
+  {
+    id: "african-rhythms",
+    name: "The African Rhythms",
+    time: { start: 17, end: 20 },
+  },
   {
     id: "ekisaawe-live",
     name: "Ekisaawe Live",
-    time: { start: 14, end: 20 },
+    time: { start: 14, end: 17 },
   },
   {
     id: "saturday-night",

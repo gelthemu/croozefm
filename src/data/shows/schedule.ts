@@ -99,7 +99,7 @@ const scheduleMap: Record<ScheduleDay, string[]> = {
     "certified-countdown",
     "sports-roundup",
     "ekisaawe-live",
-    // "african-rhythms",
+    "african-rhythms",
     "saturday-night",
   ],
   sunday: [

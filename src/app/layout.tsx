@@ -38,6 +38,10 @@ const bigShoulders = Big_Shoulders_Display({
 const ga_id = "G-RLHVV5YR9Y";
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
   themeColor: "#151515",
   colorScheme: "dark",
 };

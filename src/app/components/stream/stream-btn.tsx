@@ -33,7 +33,7 @@ const StreamButton: React.FC<StreamButtonProps> = ({
       role="button"
       tabIndex={isDisabled ? -1 : 0}
       aria-disabled={isDisabled ? "true" : "false"}
-      className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-md focus:outline-none select-none ${className} ${
+      className={`font-semibold flex items-center space-x-1 transition-all duration-500 rounded-sm focus:outline-none select-none ${className} ${
         isDisabled ? "opacity-80 cursor-default" : "cursor-pointer"
       }`}
       style={style}
@@ -92,7 +92,7 @@ const StreamBtn: React.FC<StreamBtnProps> = ({ className = "" }) => {
       onClick={handleClick}
       isActive={isActive}
     >
-      <span>Start Streaming, Now</span>
+      <span>Stream Live Radio, Now</span>
       <FiArrowDownRight className="w-4 h-4" />
     </StreamButton>
   );

@@ -9,7 +9,7 @@ interface MixtapeProps {
   mixtape: Mixtape;
 }
 
-export default function MixtapeBtn({ mixtape }: MixtapeProps) {
+const MixtapeBtn = ({ mixtape }: MixtapeProps) => {
   const {
     isMiniPlayerOpen,
     setIsMiniPlayerOpen,
@@ -52,4 +52,19 @@ export default function MixtapeBtn({ mixtape }: MixtapeProps) {
       <i className="fa-solid fa-headphones pl-1.5"></i>
     </StreamButton>
   );
-}
+};
+
+const MixtapeDownloadBtn = () => {
+  const handleClick = () => {};
+
+  return (
+    <StreamButton
+      className={`flex-shrink-0 text-sm text-turquoise px-4 py-2 border-[2px] border-turquoise`}
+      onClick={handleClick}
+    >
+      <span>{"Download"}</span>
+    </StreamButton>
+  );
+};
+
+export { MixtapeBtn, MixtapeDownloadBtn };

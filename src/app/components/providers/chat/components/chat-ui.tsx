@@ -64,7 +64,7 @@ export default function ChatUI({ profiles }: ChatUIProps) {
       <div className="relative mx-2 my-1 select-none">
         <ChatHeader hideChat={hideChat} users={users} />{" "}
         {isChatVisible && (
-          <div className="flex flex-col h-full rounded-b-md border border-gray/10 dark:border-light/10 bg-light/5 dark:bg-dark/10 backdrop-blur-sm overflow-hidden">
+          <div className="flex flex-col h-full rounded-sm border border-gray/10 dark:border-light/10 bg-light/5 dark:bg-dark/10 backdrop-blur-sm overflow-hidden">
             <div className="h-[320px] md:h-[280px] flex flex-col">
               <MessageList
                 messages={messages}

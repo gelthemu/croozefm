@@ -18,7 +18,7 @@ const ImgDiv: React.FC<ImgDivProps> = ({
 }) => {
   return (
     <div
-      className={`relative w-full aspect-[1484/813] overflow-hidden rounded-md border-2 border-gray/80 dark:border-light/20 transition-all duration-500 ${className} `}
+      className={`relative w-full aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/20 transition-all duration-500 ${className} `}
     >
       <div
         className="w-full h-full bg-cover bg-center bg-transparent bg-blend-multiply"

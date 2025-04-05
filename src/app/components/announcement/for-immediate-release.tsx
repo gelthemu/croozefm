@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { mixtapes } from "@/data/mixtapes";
-import MixtapeBtn from "@/app/c/mixtapes/components/mixtape-btn";
+import {
+  MixtapeBtn,
+  MixtapeDownloadBtn,
+} from "@/app/c/mixtapes/components/mixtape-btn";
 import { H2Title } from "../providers/divs/page-heading";
 import ImgDiv from "../providers/divs/image-div";
 import ViewAllBtn from "../tiny/viewallbtn";
@@ -31,8 +34,9 @@ export default function ImmediateRelease({
             <div className="text-left flex flex-col space-y-3">
               <H2Title title="CFM Weekly Mixtape" />
               <p>
-              Did you miss us? We are back with Volume 2... A brand new Crooze FM
-                Weekly Mixtape drops every Wednesday.{" "}
+                Guess you’ve been missing out on this series. Volume 2 mixtapes
+                are heating up... A fresh Crooze FM Weekly Mixtape drops every
+                Wednesday!{" "}
                 <Link
                   href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
                   aria-label="View All Mixtapes"
@@ -47,12 +51,12 @@ export default function ImmediateRelease({
               </p>
             </div>
             <div className="mt-4 flex flex-row space-x-3">
-              <MixtapeBtn mixtape={sortedMixtapes[0]} />
+              <MixtapeBtn mixtape={sortedMixtapes[0]} /> <MixtapeDownloadBtn />
             </div>
           </div>
           <div className="relative w-full md:w-[75%] lg:w-[80%] h-full lg:self-end">
             <ImgDiv
-              url="https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
+              url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
               alt="Crooze FM Weekly Mixtape"
               text="Crooze FM Weekly Mixtape"
             />

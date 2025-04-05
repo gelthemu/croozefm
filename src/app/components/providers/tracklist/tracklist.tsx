@@ -27,8 +27,8 @@ export default function Tracklist() {
           )}
 
           {recentTracks && (
-            <div className="w-full p-0.5 rounded-lg border border-gray/10 dark:border-light/10">
-              <div className="relative overflow-hidden rounded-md">
+            <div className="w-full p-0.5 rounded-sm border border-gray/10 dark:border-light/10">
+              <div className="relative overflow-hidden rounded-sm">
                 <Carousel
                   className="gap-2 snap-x snap-mandatory"
                   btnClass="bg-light/80 dark:bg-dark/80"

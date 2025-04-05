@@ -29,12 +29,12 @@ const ViewerBoard = ({ count }: ViewerBoardProps) => {
 };
 
 const LiveChatBtn = () => {
-  const { isChatVisible, toggleChatVisibility, users } = useChat();
+  const { isChatVisible, toggleChatVisibility } = useChat();
   const { progress } = useDownload();
 
   return (
     <>
-      <div className="my-8">
+      <div className="mt-4 text-sm">
         <div
           role="button"
           tabIndex={isChatVisible ? -1 : 0}
@@ -55,7 +55,7 @@ const LiveChatBtn = () => {
               toggleChatVisibility();
             }
           }}
-          className={`w-fit mb-4 bg-red text-sm text-light font-medium _912cfm px-3 py-2 rounded-sm focus:outline-none select-none ${
+          className={`w-fit mb-4 bg-red text-light font-medium _912cfm px-3 py-2 rounded-sm focus:outline-none select-none ${
             isChatVisible && progress === 0
               ? "cursor-default opacity-80"
               : "cursor-pointer"
@@ -64,8 +64,8 @@ const LiveChatBtn = () => {
           <span className="">Leave a comment</span>{" "}
         </div>
         <span>
-          Jump into the chat and see what other {users.length} croozers are
-          saying... Feedback is appreciated.
+          Jump into the chat to check out what the other croozers are talking
+          about... We’d love to hear your feedback!
         </span>
       </div>
     </>

@@ -91,7 +91,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         />
 
         {selectedMixtape && (
-          <div className="relative rounded-md bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80 overflow-hidden">
+          <div className="relative rounded-sm bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80 overflow-hidden">
             <div className="flex flex-row items-center justify-between mb-1.5">
               <div className="text-lg font-semibold">
                 {selectedMixtape.title}
@@ -126,6 +126,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                 isAudioPlaying={isAudioPlaying}
                 epoch={selectedMixtape.id}
                 onClick={() => handlePlay(selectedMixtape)}
+                className="bg-turquoise dark:bg-turquoise"
               />
             </div>
             <div className="flex items-center justify-between">
@@ -161,7 +162,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               <div
                 key={mixtape.id}
                 onClick={() => handleSelect(mixtape)}
-                className={`group p-3 rounded-md cursor-pointer transition-all duration-300 ${
+                className={`group p-3 rounded-sm cursor-pointer transition-all duration-300 ${
                   isSelected
                     ? "bg-red/10 dark:bg-red/20 border-l-4 border-red"
                     : "bg-gray/10 dark:bg-gray/40 hover:bg-gray/20 dark:hover:bg-gray/70 border-l-4 border-transparent"
