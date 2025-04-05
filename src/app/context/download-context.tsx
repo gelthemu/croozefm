@@ -150,7 +150,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
             setTimeout(() => {
               setError(null);
             }, 1000);
-          }, 10000);
+          }, 4000);
         }
       }
     }

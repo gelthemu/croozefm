@@ -6,6 +6,7 @@ import Link from "next/link";
 import ImgDiv from "@/app/components/providers/divs/image-div";
 import type { Mixtape } from "@/types/mixtape";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
+import { useDownload } from "@/app/context/download-context";
 import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import ViewerBoard from "./downloads/viewer-board";
 import Download from "./downloads/download";
@@ -28,17 +29,17 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     isLoading,
   } = useMiniPlayer();
 
+  const { isDownloading, progress, error } = useDownload();
+
   const [selectedMixtape, setSelectedMixtape] = useState<Mixtape | null>(null);
 
   useEffect(() => {
-    // Set the latest mixtape as the default on initial load
     if (mixtapes && mixtapes.length > 0 && !selectedMixtape) {
       setSelectedMixtape(mixtapes[0]);
     }
   }, [mixtapes, selectedMixtape]);
 
   useEffect(() => {
-    // Update selected mixtape when player source changes
     if (isMiniPlayerOpen && currentSource && mixtapes?.length > 0) {
       const mixtape = mixtapes.find((m) => m.url === currentSource);
       if (mixtape) {
@@ -80,7 +81,6 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
 
   return (
     <div className="w-full border-y border-gray/40 dark:border-light/10 px-1 py-8">
-      {/* Main Player Section - Featured Mixtape */}
       <div>
         <ImgDiv
           url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
@@ -90,7 +90,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         />
 
         {selectedMixtape && (
-          <div className="rounded-md bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80">
+          <div className="relative rounded-md bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80 overflow-hidden">
             <div className="flex flex-row items-center justify-between mb-1.5">
               <div className="text-lg font-semibold">
                 {selectedMixtape.title}
@@ -134,6 +134,12 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               />
               <ViewerBoard count={selectedMixtape.title.length} />
             </div>
+            {!error && isDownloading && (
+              <div
+                className="absolute bottom-0 left-0 h-[2px] md:h-[3px] transition-all duration-[0.25s] bg-turquoise z-0"
+                style={{ width: `${progress}%` }}
+              ></div>
+            )}
           </div>
         )}
       </div>

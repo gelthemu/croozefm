@@ -54,7 +54,7 @@ export default function DownloadStatus() {
                     downloads folder soon.
                   </span>
                   <span>
-                    Audio stream & play will PAUSE during this time!!!
+                    Audio stream will PAUSE during this time!!!
                   </span>
                 </div>
               )

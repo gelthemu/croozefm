@@ -16,7 +16,6 @@ const TestBtn = ({ count }: ViewerBoardProps) => {
         viewBox="0 0 24 24"
         aria-hidden="true"
         fill="currentColor"
-        className="opacity-85"
       >
         <g>
           <path d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"></path>
