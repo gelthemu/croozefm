@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { mixtapes } from "@/data/mixtapes";
-import MixtapeBtn from "@/app/c/mixtapes/components/mixtape-btn";
+import { MixtapeBtn } from "@/app/c/mixtapes/components/mixtape-btn";
 
 interface LatestMixtapeFeedProps {
   code: string;
