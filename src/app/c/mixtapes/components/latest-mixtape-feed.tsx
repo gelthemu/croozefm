@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { mixtapes } from "@/data/mixtapes";
-import { MixtapeBtn } from "@/app/c/mixtapes/components/mixtape-btn";
+import { MixtapeBtn, MixtapeDownloadBtn } from "@/app/c/mixtapes/components/mixtape-btn";
 
 interface LatestMixtapeFeedProps {
   code: string;
@@ -29,9 +29,9 @@ export default function LatestMixtapeFeed({ code }: LatestMixtapeFeedProps) {
               <span className="ml-1.5">{"🔥🎶"}</span>
             </p>
           </div>
-          <div className="flex flex-row mb-3">
-            <MixtapeBtn mixtape={sortedMixtapes[0]} />
-          </div>
+          <div className="mb-4 flex flex-row space-x-3">
+                        <MixtapeBtn mixtape={sortedMixtapes[0]} /> <MixtapeDownloadBtn />
+                      </div>
           <div className="flex flex-wrap">
             <p className="mr-1.5">Rewind it! Blast it! OWN IT!</p>
             <Link
@@ -40,7 +40,7 @@ export default function LatestMixtapeFeed({ code }: LatestMixtapeFeedProps) {
               className="hover:underline"
               style={{ color: "#3eac75" }}
             >
-              #CFMWeeklyMixtape
+              #CFMWeeklyMixtapes
             </Link>
           </div>
         </div>

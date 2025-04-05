@@ -130,6 +130,7 @@ export default async function ProfilePage({
             >
               {profile.description}
             </Markdown>
+            <p className="font-light text-sm italic opacity-60">{`"Profile: ${profile.name}," www.croozefm.com, paraphrased.`}</p>
           </div>
           {profile.mixtapeCode && (
             <>
@@ -145,6 +146,7 @@ export default async function ProfilePage({
                 name={profile.name}
                 code={profile.code}
               />
+              <p className="font-light text-sm italic opacity-60 mt-4">{`"Photos courtesy of ${profile.name}," via socials.`}</p>
             </>
           )}
         </div>

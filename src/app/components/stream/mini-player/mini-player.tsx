@@ -122,13 +122,13 @@ export default function MiniPlayer() {
                       toggleChatVisibility();
                     }
                   }}
-                  className={`bg-red text-sm text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none ${
+                  className={`bg-red text-sm text-light font-medium _912cfm px-2 py-1 rounded-sm focus:outline-none ${
                     isLoading
                       ? "opacity-0 -translate-x-full"
                       : "opacity-100 translate-x-0"
                   } transition-all duration-[0.4s]`}
                 >
-                  <span className="">Show Chat</span>{" "}
+                  <span className="">Leave a comment</span>{" "}
                   {users.length > 0 && (
                     <span className="text-sm opacity-80">({users.length})</span>
                   )}

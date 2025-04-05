@@ -91,7 +91,10 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         />
 
         {selectedMixtape && (
-          <div className="relative rounded-sm bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80 overflow-hidden">
+          <div
+            id="download"
+            className="relative rounded-sm bg-gray/20 dark:bg-gray/80 p-4 border-2 border-red/80 overflow-hidden"
+          >
             <div className="flex flex-row items-center justify-between mb-1.5">
               <div className="text-lg font-semibold">
                 {selectedMixtape.title}
@@ -193,6 +196,9 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               </div>
             );
           })}
+        </div>
+        <div>
+          <p className="font-light text-sm italic opacity-60 mt-4">{`Mixtapes obtained from www.croozefm.com, retrieved shortly following their upload to Hostinger.`}</p>
         </div>
         <div className="mt-8">
           <LiveChatBtn />

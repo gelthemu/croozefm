@@ -12,6 +12,8 @@ import { useMiniPlayer } from "@/app/context/mini-player-context";
 export default function Footer() {
   const { isMiniPlayerOpen, isCollapse } = useMiniPlayer();
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="w-full bg-gray/70 dark:bg-gray text-light/80">
       <div
@@ -45,8 +47,10 @@ export default function Footer() {
           <div className="flex items-center justify-between">
             <div>
               <small className="text-light/80 font-medium flex flex-col space-y-1.5 md:flex-row md:space-y-0">
-                <span>Crooze FM Ltd</span>
-                <span className="mx-2 hidden md:inline-flex opacity-[0.5]">{"•"}</span>
+                <span>© {currentYear} CFM Pulse</span>
+                <span className="mx-2 hidden md:inline-flex opacity-[0.5]">
+                  {"•"}
+                </span>
                 <span className="inline-flex items-baseline">
                   <span>Visit</span>
                   <Link
@@ -63,7 +67,6 @@ export default function Footer() {
                     />
                     <span>geltaverse.com</span>
                   </Link>
-                  <span>, today!</span>
                 </span>
               </small>
             </div>

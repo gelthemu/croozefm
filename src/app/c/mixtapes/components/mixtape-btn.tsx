@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { StreamButton } from "../../../components/stream/stream-btn";
 import { Mixtape } from "@/types/mixtape";
@@ -55,11 +56,30 @@ const MixtapeBtn = ({ mixtape }: MixtapeProps) => {
 };
 
 const MixtapeDownloadBtn = () => {
-  const handleClick = () => {};
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/c/mixtapes");
+
+    setTimeout(() => {
+      const element = document.getElementById("download");
+      if (element) {
+        const headerOffset = 120;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 1000);
+  };
 
   return (
     <StreamButton
-      className={`flex-shrink-0 text-sm text-turquoise px-4 py-2 border-[2px] border-turquoise`}
+      className={`flex-shrink-0 text-sm text-turquoise px-4 py-2 border-[1px] border-turquoise`}
       onClick={handleClick}
     >
       <span>{"Download"}</span>

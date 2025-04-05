@@ -42,12 +42,12 @@ export const PlayerButton: React.FC<PlayerButtonProps> = ({
           onClick();
         }
       }}
-      className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/80 font-semibold flex items-center justify-between relative border border-light/20 focus:outline-none ${className} ${
+      className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/90 font-semibold flex items-center justify-between relative border border-light/20 focus:outline-none ${className} ${
         isDisabled ? "opacity-80 cursor-default" : "cursor-pointer"
       }`}
     >
       <div
-        className={`px-4 py-2 transition-all duration-200 rounded-sm ${
+        className={`px-4 py-2 text-lg transition-all duration-200 rounded-sm ${
           isActive ? "text-red/80" : ""
         }`}
       >
@@ -63,7 +63,7 @@ export const PlayerButton: React.FC<PlayerButtonProps> = ({
           </>
         )}
       </div>
-      <div className="px-4 py-2 text-sm font-normal">
+      <div className="px-4 py-2 text-sm font-medium">
         <FormatSimpleDate epoch={epoch} />
       </div>
     </div>

@@ -36,7 +36,7 @@ export default function Download({ audioUrl, fileName }: DownloadProps) {
   };
 
   return (
-    <div className="w-fit rounded-sm" title={`Download ${fileName} now`}>
+    <div className="w-fit rounded-sm" title={`Download ${fileName}`}>
       <div
         role="button"
         tabIndex={isThisDownloading ? -1 : 0}
