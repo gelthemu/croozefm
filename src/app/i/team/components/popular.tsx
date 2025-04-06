@@ -16,7 +16,7 @@ export default function PopularProfiles() {
   return (
     <div className="py-1">
       <div className="text-left">
-        <H2Title title="Meet Our Team" />
+        <H2Title title="Popular Presenters" />
         <p className="mb-3">Swipe, or click to view in detail.</p>
       </div>
       <div className="relative overflow-hidden">
@@ -41,7 +41,9 @@ export default function PopularProfiles() {
                     priority={true}
                     className="w-full h-full object-cover aspect-[570/696] group-hover:scale-105 transition-transform duration-300 grayscale-[0.75] _img_"
                   />
-                  <div className="absolute top-2 right-2 opacity-50 text-light"><FaWandMagicSparkles size={12} /></div>
+                  <div className="absolute top-2 right-2 opacity-50 text-light">
+                    <FaWandMagicSparkles size={12} />
+                  </div>
                 </div>
               </div>
               <div className="p-3.5 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">

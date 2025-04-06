@@ -3,7 +3,6 @@ import Divider from "../components/providers/divs/divider";
 import Hero from "../components/header-footer/hero";
 import OnAir from "../components/stream/on-air";
 import ImmediateRelease from "../components/announcement/for-immediate-release";
-import PopularShows from "../shows/components/popShows";
 import PopularProfiles from "../i/team/components/popular";
 import { getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../news/components/recent-news";
@@ -60,8 +59,6 @@ export default function Home() {
       <OnAir />
       <Divider />
       <ImmediateRelease viewAll={true} />
-      <Divider />
-      <PopularShows />
       <Divider />
       <PopularProfiles />
       <Divider />

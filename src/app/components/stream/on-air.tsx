@@ -19,14 +19,16 @@ export default function OnAir() {
         <Show />
       </div>
       <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:items-start md:space-x-4">
-        <div className="w-full md:w-[42%]">
+        <div className="w-full md:w-[52%] lg:w-[42%]">
           <Schedule />
         </div>
-        <div className="w-full md:w-[58%]">
+        <div className="w-full md:w-[48%] lg:w-[58%]">
           <Tracklist />
         </div>
       </div>
-      <div className="w-full"><LiveChatBtn/></div>
+      <div className="w-full">
+        <LiveChatBtn />
+      </div>
     </div>
   );
 }

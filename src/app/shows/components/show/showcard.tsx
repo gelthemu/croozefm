@@ -3,6 +3,7 @@ import React from "react";
 import ImgDiv from "@/app/components/providers/divs/image-div";
 import { useRouter } from "next/navigation";
 import { Show } from "@/types/show";
+import { ENDPOINT_URL } from "@/data/endpoint";
 
 interface ShowCardProps {
   show: Show;
@@ -19,11 +20,11 @@ export const ShowCard = ({ show, srOnly = false }: ShowCardProps) => {
   return (
     <div
       onClick={handleOnClick}
-      className="group w-full h-full p-0.5 rounded-lg border border-dark/20 dark:border-light/10 cursor-pointer"
+      className="group w-[280px] md:w-[200px] p-0.5 rounded-sm border border-dark/20 dark:border-light/10 cursor-pointer"
     >
       <div className="relative flex flex-col">
         <ImgDiv
-          url={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+          url={`${ENDPOINT_URL}/images/${show.id}.png`}
           alt={show.name}
           imgClass="transition-transform duration-300 group-hover:scale-105"
           text={show.name}
@@ -34,7 +35,6 @@ export const ShowCard = ({ show, srOnly = false }: ShowCardProps) => {
           } text-left text-sm m-2.5 overflow-hidden opacity-[0.8]`}
         >
           <div className="font-semibold mb-0.5">{show.name}</div>
-          <div className="line-clamp-4 leading-[1.25]">{show.summary}</div>
         </div>
       </div>
     </div>

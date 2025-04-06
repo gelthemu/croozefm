@@ -9,6 +9,7 @@ import { H2Title } from "../providers/divs/page-heading";
 import ImgDiv from "../providers/divs/image-div";
 import ViewAllBtn from "../tiny/viewallbtn";
 import { FormatSimpleDate } from "../tiny/format-date";
+import { ENDPOINT_URL } from "@/data/endpoint";
 
 interface ImmediateReleaseProps {
   viewAll?: boolean;
@@ -29,14 +30,13 @@ export default function ImmediateRelease({
             <FormatSimpleDate epoch={sortedMixtapes[0].id} />
           </span>
         </div>
-        <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-4">
-          <div className="w-full flex flex-col justify-start items-start lg:self-start">
+        <div className="w-full flex flex-col md:flex-row md:items-stretch gap-5 md:gap-4">
+          <div className="w-full flex flex-col justify-start items-start md:self-start">
             <div className="text-left flex flex-col space-y-3">
               <H2Title title="CFM Weekly Mixtape" />
               <p>
-                Guess you’ve been missing out on this series. Volume 2 mixtapes
-                are heating up... A fresh Crooze FM Weekly Mixtape drops every
-                Wednesday!{" "}
+                Volume 2 mixtapes are heating up... A fresh Crooze FM Weekly
+                Mixtape drops every Wednesday!{" "}
                 <Link
                   href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
                   aria-label="View All Mixtapes"
@@ -53,10 +53,15 @@ export default function ImmediateRelease({
             <div className="mt-4 flex flex-row space-x-3">
               <MixtapeBtn mixtape={sortedMixtapes[0]} /> <MixtapeDownloadBtn />
             </div>
+            <div
+              className={`flex items-center mt-5 ${viewAll ? "" : "hidden"}`}
+            >
+              <ViewAllBtn href="/c/mixtapes" text="View All Mixtapes" />
+            </div>
           </div>
-          <div className="relative w-full md:w-[75%] lg:w-[80%] h-full lg:self-end">
+          <div className="relative w-full h-full md:self-end">
             <ImgDiv
-              url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
+              url={`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`}
               alt="Crooze FM Weekly Mixtape"
               text="Crooze FM Weekly Mixtape"
             />
@@ -80,13 +85,6 @@ export default function ImmediateRelease({
               )}
             </div>
           </div>
-        </div>
-        <div
-          className={`flex items-center justify-end mx-auto mt-5 ${
-            viewAll ? "" : "hidden"
-          }`}
-        >
-          <ViewAllBtn href="/c/mixtapes" text="View All Mixtapes" />
         </div>
       </section>
     </>
