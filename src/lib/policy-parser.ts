@@ -9,20 +9,20 @@ export function getAllPolicyIds() {
   try {
     const fileNames = fs.readdirSync(policiesDirectory);
 
-    return fileNames
-      .filter((fileName) => fileName.endsWith(".md"))
-      .map((fileName) => fileName.replace(/\.md$/, ""));
+    return fileNames.map((fileName) => {
+      const id = fileName.replace(/\.md$/, "");
+
+      return {
+        policy: id,
+      };
+    });
   } catch (error) {
     console.error("Error:", error);
     return [];
   }
 }
 
-export async function getPolicyData(
-  id: string
-): Promise<PolicyMetadata | null> {
-  if (!id) return null;
-
+export function getPolicyData(id: string): PolicyMetadata | null {
   const fullPath = path.join(policiesDirectory, `${id}.md`);
 
   if (!fs.existsSync(fullPath)) {
@@ -34,18 +34,19 @@ export async function getPolicyData(
     const matterResult = matter(fileContents);
 
     let daysPassed = "";
-    if (matterResult.data.last_update || matterResult.data.last_updated) {
-      const dateString =
-        matterResult.data.last_update || matterResult.data.last_updated;
+    if (matterResult.data.last_update) {
+      const dateString = matterResult.data.last_update;
       daysPassed = calculateDaysPassed(dateString);
     }
 
-    return {
+    const frontmatter = {
       id,
-      title:
-        matterResult.data.title ||
-        id.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      title: matterResult.data.title,
       last_update: daysPassed,
+    };
+
+    return {
+      ...frontmatter,
       content: matterResult.content,
     };
   } catch (error) {
@@ -54,29 +55,22 @@ export async function getPolicyData(
   }
 }
 
-export async function getAllPolicies(): Promise<PolicyMetadata[]> {
+export function getAllPolicies(): PolicyMetadata[] {
   try {
-    const policyIds = getAllPolicyIds();
+    const fileNames = fs.readdirSync(policiesDirectory);
 
-    const allPoliciesData = await Promise.all(
-      policyIds.map(async (id) => {
-        return await getPolicyData(id);
+    const allPoliciesData = fileNames
+      .map((fileName) => {
+        const id = fileName.replace(/\.md$/, "");
+        return getPolicyData(id);
       })
-    );
+      .filter((policy): policy is PolicyMetadata => policy !== null);
 
-    return allPoliciesData
-      .filter((policy): policy is PolicyMetadata => policy !== null)
-      .sort((a, b) => a.title.localeCompare(b.title));
+    return allPoliciesData;
   } catch (error) {
     console.error("Error:", error);
     return [];
   }
-}
-
-export function policyExists(id: string): boolean {
-  if (!id) return false;
-  const fullPath = path.join(policiesDirectory, `${id}.md`);
-  return fs.existsSync(fullPath);
 }
 
 export function calculateDaysPassed(dateString: string): string {
@@ -98,3 +92,5 @@ export function calculateDaysPassed(dateString: string): string {
 export function formatDate(dateString: string): string {
   return calculateDaysPassed(dateString);
 }
+
+export const policies = getAllPolicies();

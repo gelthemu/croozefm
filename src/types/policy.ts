@@ -4,8 +4,3 @@ export interface PolicyMetadata {
   last_update: string;
   content: string;
 }
-
-export interface PolicyContentProps {
-  children: React.ReactNode;
-  className?: string;
-}

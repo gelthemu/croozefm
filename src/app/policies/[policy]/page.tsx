@@ -2,11 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import {
-  getAllPolicyIds,
-  getPolicyData,
-  policyExists,
-} from "@/lib/policy-parser";
+import { getAllPolicyIds, getPolicyData } from "@/lib/policy-parser";
 import { Metadata } from "next";
 import { PolicyContent } from "../components/policy-content";
 import ImgDiv from "@/app/components/providers/divs/image-div";
