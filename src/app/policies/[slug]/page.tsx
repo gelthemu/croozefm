@@ -15,9 +15,9 @@ import "@/app/styles/md/policy.css";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ policy: string }>;
 }): Promise<Metadata> {
-  const policy = await getPolicyData(params.slug);
+  const policy = await getPolicyData((await params).policy);
 
   if (!policy) {
     return {
@@ -34,24 +34,20 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const policyIds = getAllPolicyIds();
-  return policyIds.map((id) => ({
-    slug: id,
+  const policies = await getAllPolicyIds();
+  return policies.map((policy) => ({
+    params: { policy },
   }));
 }
 
 export default async function PolicyPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ policy: string }>;
 }) {
-  if (!policyExists(params.slug)) {
-    return notFound();
-  }
+  const policy = await getPolicyData((await params).policy);
 
-  const policy = await getPolicyData(params.slug);
-
-  if (!policy) {
+  if (!policy || policy === null) {
     return notFound();
   }
 
