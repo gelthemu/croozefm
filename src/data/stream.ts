@@ -1,1 +1,1 @@
-export const STREAM_URL = "https://stream.zeno.fm/vyxwdk08apxtv";
+export const STREAM_URL = "https://zeno.fm/vyxwdk08apxtv";
