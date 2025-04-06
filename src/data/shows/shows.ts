@@ -261,11 +261,6 @@ export const shows: Show[] = [
     time: { start: 17, end: 20 },
   },
   {
-    id: "ekisaawe-live",
-    name: "Ekisaawe Live",
-    time: { start: 14, end: 17 },
-  },
-  {
     id: "saturday-night",
     name: "Saturday Night Live",
     summary:
@@ -317,7 +312,12 @@ export const shows: Show[] = [
   {
     id: "sunday-lounge",
     name: "Sunday Lounge - Timeless Classics",
-    time: { start: 14, end: 20 },
+    time: { start: 14, end: 16 },
+  },
+  {
+    id: "ekisaawe-live",
+    name: "Ekisaawe Live",
+    time: { start: 16, end: 20 },
   },
   {
     id: "total-country-show",
