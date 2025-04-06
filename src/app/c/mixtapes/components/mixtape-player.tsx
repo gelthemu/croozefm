@@ -11,6 +11,7 @@ import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import { ViewerBoard } from "./downloads/user-feedback";
 import Download from "./downloads/download";
 import { LiveChatBtn } from "./downloads/user-feedback";
+import { ENDPOINT_URL } from "@/data/endpoint";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -60,16 +61,28 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title}`);
-      setSnapShot(
-        "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
-      );
+      setSnapShot(`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
     }
   };
 
   const handleSelect = (mixtape: Mixtape) => {
+    if (!mixtape || isLoading) return;
+
     setSelectedMixtape(mixtape);
+    const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
+
+    if (isActive) {
+      setIsMiniPlayerOpen(false);
+    } else {
+      setCurrentSource(mixtape.url);
+      setIsStreaming(false);
+      setTagLine(`${mixtape.title}`);
+      setSnapShot(`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`);
+      setIsMiniPlayerOpen(true);
+      setIsSeekable(true);
+    }
   };
 
   if (!mixtapes || mixtapes.length === 0) {
@@ -84,7 +97,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     <div className="w-full border-y border-gray/40 dark:border-light/10 px-1 py-8">
       <div>
         <ImgDiv
-          url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/cfm-weekly-mixtape.png"
+          url={`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`}
           alt="Crooze FM Weekly Mixtape"
           className="w-full mb-6"
           text="CFM Weekly Mixtape"
@@ -198,7 +211,16 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
           })}
         </div>
         <div>
-          <p className="font-light text-sm italic opacity-60 mt-4">{`Mixtapes obtained from www.croozefm.com, retrieved shortly following their upload to Hostinger.`}</p>
+          <p className="font-light text-sm italic opacity-60 mt-4">
+            {`Mixtapes obtained from www.croozefm.com, retrieved shortly following their upload to Hostinger. For details, see our `}
+            <Link
+              href="/policies/legal-notice"
+              className="underline hover:text-red"
+            >
+              Legal Notice
+            </Link>
+            {`.`}
+          </p>
         </div>
         <div className="mt-8">
           <LiveChatBtn />

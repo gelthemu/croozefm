@@ -1,0 +1,32 @@
+@tailwind base;
+
+.prose h3 {
+  @apply font-bold text-lg;
+  display: inline;
+}
+
+.prose h3::before {
+  @apply w-4 h-1 content-[''] border-t-2 border-red mr-2;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.prose p {
+  @apply my-4;
+}
+
+.prose p strong {
+  @apply font-medium;
+}
+
+.prose a {
+  @apply font-normal text-red px-0.5;
+}
+
+.prose ul {
+  @apply list-disc list-inside space-y-4 mb-8;
+}
+
+.prose blockquote {
+  @apply w-full my-4 text-sm border-0;
+}

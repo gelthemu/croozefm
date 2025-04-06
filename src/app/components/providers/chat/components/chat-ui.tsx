@@ -101,7 +101,7 @@ export default function ChatUI({ profiles }: ChatUIProps) {
                       onKeyDown={(e) =>
                         (e.key === "Enter" || e.key === " ") && startChat()
                       }
-                      className="text-light font-medium _912cfm px-3 py-1 rounded-md focus:outline-none"
+                      className="text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none"
                       style={{ backgroundColor: color }}
                     >
                       {`Hi, ${username.split(" ")[0]}! Start Chatting..`}
@@ -122,7 +122,7 @@ export default function ChatUI({ profiles }: ChatUIProps) {
                         (e.key === "Enter" || e.key === " ") &&
                         toggleUsernameForm()
                       }
-                      className="bg-red text-light font-medium _912cfm px-3 py-1 rounded-md focus:outline-none"
+                      className="bg-red text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none"
                     >
                       {`Join Chat`}
                     </div>

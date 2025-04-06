@@ -50,11 +50,15 @@ export default function MixtapesPage() {
     <div className="w-full mx-auto max-w-[820px] p-1">
       <div className={`w-full text-left flex flex-col justify-center p-1`}>
         <h1 className="text-3xl relative mb-4 _912cfm">CFM Weekly Mixtapes</h1>
-        <p className="w-full max-w-2xl">
-          Get ready for feel-good vibes and epic beats! Western Uganda&apos;s
-          Biggest Radio Station presents the Crooze FM Weekly Mixtape every
-          Wednesday.
+        <p className="w-full max-w-2xl mb-2">
+          Western Uganda&apos;s Biggest Radio Station rolls out the Crooze FM
+          Weekly Mixtape every Wednesday.
         </p>
+        <p className="w-full max-w-2xl mb-2">
+          All the midweek musical vibes are now packed in one place, with pure
+          energy and rhythm—guaranteed to keep your head nodding all week long!
+        </p>
+        <p className="w-full max-w-2xl">Rewind it! Blast it! OWN IT! {"🔥🎶"}</p>
       </div>
       <div className="w-full flex flex-col lg:flex-row lg:space-x-4 mt-10">
         <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 sm:mb-0">

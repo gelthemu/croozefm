@@ -40,7 +40,6 @@ const ga_id = "G-RLHVV5YR9Y";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
-  maximumScale: 1.0,
   userScalable: false,
   themeColor: "#151515",
   colorScheme: "dark",
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
     default: "Welcome | CFM Pulse",
   },
   description:
-    "Welcome to the Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Browse the Current News Daily, our Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+    "CFM Pulse is the largest Crooze FM Fan Base. Home of Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
   keywords:
     "CFM Pulse, 91.2 Crooze FM, crooze fm online, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
   metadataBase: new URL("https://croozefm.geltaverse.com"),

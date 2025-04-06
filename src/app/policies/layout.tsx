@@ -1,6 +1,6 @@
 import "@/app/styles/globals.css";
 
-export default function ContactLayout({
+export default function PolicyLayout({
   children,
 }: {
   children: React.ReactNode;

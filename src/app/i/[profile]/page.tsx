@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -31,7 +32,10 @@ export async function generateMetadata({
     title: `${profile.name}`,
     description: `${profile.description
       .replace(/\s+/g, " ")
-      .slice(0, 180)}... We are Western Uganda's Biggest Radio Station!!!`,
+      .slice(
+        0,
+        180
+      )}... CFM Pulse is the largest Crooze FM Fan Base. By CFM Fans, for CFM Diehards.!!!`,
     keywords: `91.2 Crooze Fm, ${profile.keywords}, Crooze fm team, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm presenters, Crooze fm radio hosts, Crooze fm staff, Crooze fm djs, Crooze fm radio team, Crooze fm on-air talent`,
     openGraph: {
       title: `${profile.name}`,
@@ -130,7 +134,18 @@ export default async function ProfilePage({
             >
               {profile.description}
             </Markdown>
-            <p className="font-light text-sm italic opacity-60">{`"Profile: ${profile.name}," www.croozefm.com, paraphrased.`}</p>
+          </div>
+          <div>
+            <p className="font-light text-sm italic opacity-60">
+              {`"Profile: ${profile.name}," www.croozefm.com, paraphrased. For details, see our `}
+              <Link
+                href="/policies/legal-notice"
+                className="underline hover:text-red"
+              >
+                Legal Notice
+              </Link>
+              {`.`}
+            </p>
           </div>
           {profile.mixtapeCode && (
             <>
@@ -146,7 +161,18 @@ export default async function ProfilePage({
                 name={profile.name}
                 code={profile.code}
               />
-              <p className="font-light text-sm italic opacity-60 mt-4">{`"Photos courtesy of ${profile.name}," via socials.`}</p>
+              <div>
+                <p className="font-light text-sm italic opacity-60 mt-4">
+                  {`"Photos courtesy of ${profile.name}," via socials. For details, see our `}
+                  <Link
+                    href="/policies/legal-notice"
+                    className="underline hover:text-red"
+                  >
+                    Legal Notice
+                  </Link>
+                  {`.`}
+                </p>
+              </div>
             </>
           )}
         </div>

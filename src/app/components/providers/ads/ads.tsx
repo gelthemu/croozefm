@@ -70,9 +70,7 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
       rel="noopener noreferrer"
       className={`block p-2 bg-gray/5 dark:bg-gray/20 rounded-sm ad-${size} select-none`}
     >
-      <span className="block text-xs opacity-60 uppercase mb-1">
-        Advertisement
-      </span>
+      <span className="block text-xs opacity-60 uppercase mb-1">Ad</span>
       <Image
         src={ad.imageUrl}
         alt="Advertisement"

@@ -124,7 +124,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                   containsRestrictedWord(username) ||
                   containsEmoji(username)
                 }
-                className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-md disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
+                className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-sm disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
               >
                 Enter Chat
               </button>

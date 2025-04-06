@@ -146,7 +146,7 @@ export default function MessageInput({
               aria-label="Send message"
               type="submit"
               disabled={!message.trim() || !isConnected}
-              className="w-fit flex items-center space-x-1 text-red disabled:text-gray dark:disabled:text-light/40 font-semibold _912cfm p-2 rounded-md focus:outline-none"
+              className="w-fit flex items-center space-x-1 text-red disabled:text-gray dark:disabled:text-light/40 font-semibold _912cfm p-2 rounded-sm focus:outline-none"
             >
               <span>Send</span>
               <span>

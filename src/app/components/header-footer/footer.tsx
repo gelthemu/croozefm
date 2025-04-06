@@ -12,6 +12,8 @@ import { useMiniPlayer } from "@/app/context/mini-player-context";
 export default function Footer() {
   const { isMiniPlayerOpen, isCollapse } = useMiniPlayer();
 
+  const policies = ["Privacy Policy", "Legal Notice", "Cookies Policy"];
+
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,26 +26,40 @@ export default function Footer() {
           }`,
         }}
       >
-        <div className="flex flex-col md:flex-row md:items-end gap-8 md:gap-6 text-sm">
-          <div className=" w-full max-w-2xl">
+        <div className="flex flex-col md:flex-row md:items-end gap-8 text-sm">
+          <div className="max-w-2xl">
             <Logo />
-            <p className="text-wrap my-4">
-              91.2 Crooze FM is Western Uganda&apos;s Biggest Radio Station,
-              broadcasting from Mbarara to the world. Purely great music, for
-              great friends.
+            <p className="text-wrap my-4 max-w-lg">
+              CFM Pulse is the largest Crooze FM Fan Base. Home to Fans of
+              Western Uganda&apos;s Biggest Radio Station, broadcasting from
+              Mbarara to the world.
             </p>
-            <p className="text-wrap">
-              The Station Other Radio Stations Listen To.
-            </p>
+            <p className="text-wrap">By CFM Fans, for CFM Diehards</p>
           </div>
-          <div className="flex flex-col space-y-4 md:flex-shrink-0">
-            <div className="w-fit mb-4">
+          <div className="flex flex-col space-y-6 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-6 md:flex-shrink-0  md:flex-col md:space-x-0 md:space-y-6 md:items-start">
+            <div>
+              <SocialLinks />
+            </div>
+            <div className="w-fit">
               <StreamBtn className="border border-light/40" />
             </div>
-            <SocialLinks />
           </div>
         </div>
         <div className="mt-8 border-t border-light/30 pt-8 opacity-[0.75]">
+          <div className="flex flex-wrap flex-row space-x-2.5 mb-6">
+            {policies.map((policy, index) => (
+              <small key={index} className="text-light/80 font-medium">
+                <Link
+                  href={`/policies/${policy
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")}`}
+                  className="hover:underline"
+                >
+                  {policy}
+                </Link>
+              </small>
+            ))}
+          </div>
           <div className="flex items-center justify-between">
             <div>
               <small className="text-light/80 font-medium flex flex-col space-y-1.5 md:flex-row md:space-y-0">
