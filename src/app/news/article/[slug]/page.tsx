@@ -86,7 +86,6 @@ export default async function ArticlePage({
               isPinned={isPinned}
             />
             <ArticleContent
-              excerpt={excerpt}
               firstHalf={firstHalf}
               secondHalf={secondHalf}
               slug={slug}
