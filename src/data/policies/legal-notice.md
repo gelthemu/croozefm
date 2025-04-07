@@ -37,7 +37,7 @@ Use this Site at your own risk.
 
 ### Privacy Policy Reference
 
-We care about your privacy. How we handle any data you share with us is explained in our [Privacy Policy](/policies/privacy-policy). Please review it for details.
+We care about your privacy. How we handle any data you share with us is explained in our [Privacy Statement](/policies/privacy-statement). Please review it for details.
 
 ### No Affiliation
 
