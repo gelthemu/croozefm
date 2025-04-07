@@ -1,13 +1,13 @@
 ---
-title: "Privacy Policy"
-last_update: "2025-04-02"
+title: "Privacy Statement"
+last_update: "2025-04-06"
 ---
 
 Welcome to **CFM Pulse** ("the Site"), the largest Crooze FM Fan Base.
 
 Made by fans, this Site celebrates [91.2 Crooze FM](https://www.croozefm.com/), a radio station based in Western Uganda. We believe it to be 'Western Uganda's Biggest Radio', with **CFM Pulse** being the 'Home of Fans of Western Uganda's Biggest Radio'. There is no dispute in that. Our tagline, "By CFM Fans, for CFM Diehards," reflects our mission to unite and entertain the largest Crooze FM fan base.
 
-This Privacy Policy explains how we handle your information now and how that might change as the Site grows. Right now, we don’t collect much, but we’re planning features like authentication (logins) in the future. By using the Site, you agree to this policy. If you do not agree, please do not use the Site. We’ll update it as things evolve, so please check it regularly—continued use after changes means you accept the new terms.
+This Privacy Statement explains how we handle your information now and how that might change as the Site grows. Right now, we don’t collect much, but we’re planning features like authentication (logins) in the future. By using the Site, you agree to this statement. If you do not agree, please do not use the Site. We’ll update it as things evolve, so please check it regularly—continued use after changes means you accept the new terms.
 
 ### Information We Collect
 
@@ -25,7 +25,7 @@ As this Site grows, we plan to add authentication—think logins with an email a
 - **Password**: Stored securely (encrypted) to let you log in.
 - **Optional Info**: We might ask for extras (e.g., a display name or favorites), but you won’t have to share them.
 
-We’ll update this policy before launching authentication and let you know. You’ll need to review it then, and signing up or logging in will mean you’re okay with the new terms.
+We’ll update this statement before launching authentication and let you know. You’ll need to review it then, and signing up or logging in will mean you’re okay with the new terms.
 
 ### How We Use Your Information
 
@@ -56,7 +56,7 @@ We don’t share your info with anyone right now—no third parties, no advertis
 - **Service Providers**: To send account emails or host the Site securely.
 - **Legal Requests**: If Ugandan law requires it (e.g., a court order).
 
-We’ll always tell you first via an updated policy if sharing becomes necessary.
+We’ll always tell you first via an updated statement if sharing becomes necessary.
 
 ### Data Storage and Security
 
@@ -71,7 +71,7 @@ We use standard security (like encryption and access limits), but no system is p
 
 ### Governing Law
 
-This policy follows Ugandan law, including the [Data Protection and Privacy Act, 2019](https://media.ulii.org/media/legislation/18002/source_file/b6ae5cce4290322a/2019-9.pdf) _(Act 9 of 2019)_. Disputes about your info fall under these rules.
+This statement follows Ugandan law, including the [Data Protection and Privacy Act, 2019](https://media.ulii.org/media/legislation/18002/source_file/b6ae5cce4290322a/2019-9.pdf) _(Act 9 of 2019)_. Disputes about your info fall under these rules.
 
 ### Your Rights
 
@@ -97,9 +97,9 @@ Email us at [cfm@geltaverse.com](mailto:cfm@geltaverse.com) to use these rights.
 
 We’re in Uganda, so your info (cookies, technical data, or future account details) is processed here. If you’re outside Uganda, using the Site sends your data to us. Ugandan laws apply wherever you are.
 
-### Changes to This Policy
+### Changes to This Statement
 
-We’ll update this Privacy Policy as **CFM Pulse** grows—like when we add authentication—or if laws change. Updates will be posted here with a new "Last Updated" date. Please review it regularly. Continued use of the Site (browsing now, or logging in later) after changes means you agree to the new terms. We’ll also notify you of big updates (e.g., via email once authentication starts).
+We’ll update this Privacy Statement as **CFM Pulse** grows—like when we add authentication—or if laws change. Updates will be posted here with a new "Last Updated" date. Please review it regularly. Continued use of the Site (browsing now, or logging in later) after changes means you agree to the new terms. We’ll also notify you of big updates (e.g., via email once authentication starts).
 
 ### Contact Us
 
