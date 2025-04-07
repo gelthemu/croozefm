@@ -39,8 +39,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
     if (username.length < 4) {
       setError("At least 4 characters");
       return;
-    } else if (username.length > 15) {
-      setError("Not more than 15 characters");
+    } else if (username.length > 20) {
+      setError("Not more than 20 chars");
       return;
     } else if (containsRestrictedWord(username)) {
       setError("Username already exists");
@@ -62,8 +62,8 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
 
     if (value.length < 4) {
       setError("At least 4 characters");
-    } else if (value.length > 15) {
-      setError("Not more than 15 characters");
+    } else if (value.length > 20) {
+      setError("Not more than 20 chars");
     } else if (/\d/.test(value)) {
       setError("Cannot contain numbers");
     } else if (containsRestrictedWord(value)) {
@@ -79,36 +79,53 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
 
   return (
     <div className="w-full text-sm mt-auto">
-      <div className="p-4 bg-gray/10 dark:bg-light/5">
+      <div className="p-4 relative bg-gray/10 dark:bg-light/5">
         <form onSubmit={handleSubmit}>
           <div className="w-full flex flex-row space-x-2">
             <div className="flex-1">
               <label htmlFor="username" className="sr-only">
                 Name
               </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={username}
-                onChange={handleUsernameChange}
-                required
-                className={`w-full mb-0.5 bg-transparent border-b-2 ${
-                  error
-                    ? "border-red/90"
-                    : "border-gray/50 dark:border-light/50"
-                } rounded-sm focus:outline-none p-1`}
-                placeholder="Enter your name..."
-                minLength={4}
-                maxLength={15}
-              />
-              <div className="flex justify-between text-xs lowercase">
-                <span className={error ? "text-red/90" : "text-transparent"}>
-                  {error || "."}
-                </span>
-                <span className="opacity-50">
-                  {Math.min(username.length, 15)}/15
-                </span>
+              <div className="relative">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={handleUsernameChange}
+                  onPaste={(e) => e.preventDefault()}
+                  onCopy={(e) => e.preventDefault()}
+                  onCut={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onInput={(e) => {
+                    const input = e.target as HTMLInputElement;
+                    if (input.value.length > 20) {
+                      input.value = input.value.slice(0, 20);
+                    }
+                  }}
+                  required
+                  className={`w-full bg-transparent border-b-2 ${
+                    error
+                      ? "border-gray/50 dark:border-light/50"
+                      : "border-red/90"
+                  } rounded-sm focus:outline-none p-1`}
+                  placeholder="Enter your name..."
+                  minLength={4}
+                  maxLength={20}
+                  autoComplete="off"
+                  data-lpignore="true"
+                  style={{
+                    WebkitUserSelect: "none",
+                    MozUserSelect: "none",
+                    msUserSelect: "none",
+                    userSelect: "none",
+                  }}
+                />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 px-1 bg-gray/10 dark:bg-light/5 rounded-sm lowercase">
+                  <span className="opacity-50 text-xs">
+                    {Math.min(username.length, 20)}/20
+                  </span>
+                </div>
               </div>
             </div>{" "}
             <div>
@@ -117,7 +134,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                 type="submit"
                 disabled={
                   username.length < 4 ||
-                  username.length > 15 ||
+                  username.length > 20 ||
                   /\d/.test(username) ||
                   !username.trim() ||
                   !termsAccepted ||
@@ -126,7 +143,7 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
                 }
                 className="w-fit text-sm bg-red text-light font-medium _912cfm px-3 py-1 rounded-sm disabled:bg-gray dark:disabled:bg-light/40 focus:outline-none"
               >
-                Enter Chat
+                Go
               </button>
             </div>
           </div>
@@ -158,10 +175,15 @@ export default function UsernameForm({ onSubmit }: UsernameFormProps) {
               </span>
             </div>
             <label htmlFor="terms" className="text-xs">
-              I promise to behave!.. We&apos;ll store your name in this browser.
+              I promise to behave!..
             </label>
           </div>
         </form>
+        {error && (
+          <div className="absolute top-0 left-2 lowercase transition-all duration-300">
+            <span className="text-red/90 text-xs">{`⁕ ${error}` || "***"}</span>
+          </div>
+        )}
       </div>
     </div>
   );

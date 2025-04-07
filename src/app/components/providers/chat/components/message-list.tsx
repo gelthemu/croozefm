@@ -83,12 +83,14 @@ export default function MessageList({
       >
         <div className="h-full relative divide-y divide-gray/10 dark:divide-gray/60">
           {messages.length === 0 ? (
-            <div className="w-full h-full absolute top-0 left-0 flex flex-col items-center justify-center p-2">
-              <p className="text-center text-sm opacity-80">
-                No messages, yet.
+            <div className="relative w-full h-full absolute top-0 left-0 flex flex-col items-center justify-center p-2">
+              <p className="text-center text-sm opacity-90">JOIN</p>
+              <p className="text-center text-sm opacity-90">
+                Create a Username
               </p>
-              <p className="text-center text-sm opacity-80">
-                Start the conversation!
+              <p className="text-center text-sm opacity-90">Start Chatting</p>
+              <p className="absolute bottom-0 font-light text-sm italic opacity-60 mt-2">
+                By CFM Fans, for CFM Diehards
               </p>
             </div>
           ) : (

@@ -18,6 +18,8 @@ import FullscreenCarousel from "./i/team/components/profile/gallery/fullscreen-g
 import { CarouselProvider } from "./context/carousel-context";
 import { DownloadProvider } from "./context/download-context";
 import DownloadStatus from "./c/mixtapes/components/downloads/download-status";
+import { SuggestionFormProvider } from "./context/suggestion-form-context";
+import SuggestionForm from "./components/providers/suggestion-form";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
   keywords:
     "CFM Pulse, 91.2 Crooze FM, crooze fm online, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
   metadataBase: new URL("https://croozefm.geltaverse.com"),
-  applicationName: "Crooze FM",
+  applicationName: "CFM Pulse",
   creator: "Gelthem Mucunguzi",
   publisher: "Gelthem Mucunguzi",
   icons: {
@@ -157,23 +159,26 @@ export default function RootLayout({
               <CarouselProvider>
                 <ChatProvider>
                   <MiniPlayerProvider>
-                    <MiniPlayer />
-                    <Chat />
-                    <DownloadStatus />
-                    <Navbar />
-                    <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
-                      <div className="w-full bg-light/80 dark:bg-dark/95">
-                        <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
-                          <div className="container mx-auto">{children}</div>
-                        </main>
+                    <SuggestionFormProvider>
+                      <MiniPlayer />
+                      <Chat />
+                      <DownloadStatus />
+                      <SuggestionForm />
+                      <Navbar />
+                      <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
+                        <div className="w-full bg-light/80 dark:bg-dark/95">
+                          <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
+                            <div className="container mx-auto">{children}</div>
+                          </main>
+                        </div>
                       </div>
-                    </div>
-                    <Analytics />
-                    <SpeedInsights />
-                    <Footer />
-                    <CookieConsent />
-                    <FullscreenCarousel />
-                    <MediaSessionHandler />
+                      <Analytics />
+                      <SpeedInsights />
+                      <Footer />
+                      <CookieConsent />
+                      <FullscreenCarousel />
+                      <MediaSessionHandler />
+                    </SuggestionFormProvider>
                   </MiniPlayerProvider>
                 </ChatProvider>
               </CarouselProvider>

@@ -22,7 +22,7 @@ export default function Footer() {
         className={`w-full max-w-screen-xl mx-auto px-4 lg:px-8 pt-12 sm:pt-16 `}
         style={{
           paddingBottom: `${
-            isMiniPlayerOpen ? (isCollapse ? "300px" : "148px") : "60px"
+            isMiniPlayerOpen ? (isCollapse ? "260px" : "140px") : "60px"
           }`,
         }}
       >

@@ -2,9 +2,8 @@
 
 import { useEffect } from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
-import { useChat } from "@/app/context/chat-context";
 import FixedDiv from "../../providers/divs/fixed-element";
-import ImgDiv from "@/app/components/providers/divs/image-div";
+import { ChatBtn, SnapShot } from "./components/snap-shot";
 import { useAudioControls } from "./hooks/use-audio-controls";
 import { useAudioProgress } from "./hooks/use-audio-progress";
 import { useAudioEvents } from "./hooks/use-audio-events";
@@ -26,7 +25,6 @@ export default function MiniPlayer() {
     setIsAnimating,
     audioRef,
   } = useMiniPlayer();
-  const { toggleChatVisibility, users } = useChat();
 
   const { handleAudioPlay } = useAudioControls();
 
@@ -51,18 +49,15 @@ export default function MiniPlayer() {
       }
       handleAudioPlay();
     }
-  }, [isMiniPlayerOpen, currentSource, handleAudioPlay, audioRef]);
+  }, [
+    setIsCollapse,
+    isMiniPlayerOpen,
+    currentSource,
+    handleAudioPlay,
+    audioRef,
+  ]);
 
   const toggleCollapse = () => {
-    if (isCollapse) {
-      setIsCollapse(false);
-      setIsAnimating(true);
-    } else {
-      setIsCollapse(true);
-    }
-  };
-
-  const showChat = () => {
     if (isCollapse) {
       setIsCollapse(false);
       setIsAnimating(true);
@@ -86,62 +81,25 @@ export default function MiniPlayer() {
           toggleCollapse={toggleCollapse}
         />
         {(isCollapse || isAnimating) && snapShot && (
-          <div className="rounded-md shadow shadow-gray/20 dark:shadow-light/5">
-            <ImgDiv
+          <div className="relative rounded-sm overflow-hidden">
+            <SnapShot
               url={snapShot}
-              alt={tagLine}
-              className={`border-none ${
+              className={`border-none transition-all duration-[0.6s] ${
                 isCollapse
-                  ? "opacity-100 max-h-[248px] md:max-h-[278px] translate-x-0 rounded-md shadow shadow-gray/20 dark:shadow-light/5"
-                  : "opacity-0 max-h-0 translate-x-full shadow-none"
+                  ? "mb-2 opacity-100 max-h-[248px] translate-y-0"
+                  : "opacity-0 max-h-0 translate-y-full"
               }`}
-              text={tagLine}
             />
+            {isCollapse && (
+              <div className={`absolute bottom-4 right-0 z-0`}>
+                <ChatBtn />
+              </div>
+            )}
           </div>
         )}
-        <div
-          className={`flex flex-col space-y-1 ${
-            isCollapse && snapShot
-              ? "absolute bottom-1 left-1 right-1"
-              : "w-full"
-          } `}
-        >
-          {isCollapse && (
-            <div className={`w-full mt-auto`}>
-              <div className="w-full flex justify-end bg-transparent rounded-sm">
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => {
-                    showChat();
-                    toggleChatVisibility();
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      showChat();
-                      toggleChatVisibility();
-                    }
-                  }}
-                  className={`bg-red text-sm text-light font-medium _912cfm px-2 py-1 rounded-sm focus:outline-none ${
-                    isLoading
-                      ? "opacity-0 -translate-x-full"
-                      : "opacity-100 translate-x-0"
-                  } transition-all duration-[0.4s]`}
-                >
-                  <span className="">Leave a comment</span>{" "}
-                  {users.length > 0 && (
-                    <span className="text-sm opacity-80">({users.length})</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+        <div className={`w-full flex flex-col space-y-1`}>
           <div
-            className={`flex items-center space-x-2.5 border border-light/10 p-4 ${
-              isCollapse && snapShot
-                ? "bg-light/80 dark:bg-dark/80 backdrop-blur-sm rounded-sm shadow shadow-gray/40"
-                : "bg-light/20 dark:bg-gray/60 dark:bg-dark/40 rounded-sm shadow shadow-gray/40"
-            } `}
+            className={`flex items-center space-x-2.5 border border-light/10 p-4 bg-light/80 dark:bg-gray/80 rounded-sm shadow shadow-gray/40 `}
           >
             <PlayerControls
               isCollapse={isCollapse}

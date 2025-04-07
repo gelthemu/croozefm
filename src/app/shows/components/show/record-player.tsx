@@ -59,11 +59,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
       setCurrentSource(fullAudioUrl);
       setIsStreaming(false);
       setTagLine(recording.name ? `${recording.name}` : `${show.name}`);
-      setSnapShot(
-        recording.cover
-          ? `https://croozefm.blob.core.windows.net/images/${recording.cover}.png`
-          : `https://croozefm.blob.core.windows.net/images/${show.id}.png`
-      );
+      setSnapShot("/assets/snap-shot-default.png");
       setIsMiniPlayerOpen(true);
       setIsSeekable(false);
       setPlayingIndex(index);

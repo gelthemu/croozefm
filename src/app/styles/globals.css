@@ -131,6 +131,10 @@ h2 {
   font-variation-settings: "opsz" 500;
 }
 
+.text-xxs {
+  font-size: 0.25em !important;
+}
+
 .twitter-tweet {
   padding: 0;
   margin: 0 auto;

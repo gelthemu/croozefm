@@ -38,7 +38,7 @@ export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
         <MobileFooter onNavClick={onNavClick} />
         <div className="flex items-center justify-between">
           <div>
-            <small className="text-light/80 font-medium">Crooze FM Ltd</small>
+            <small className="text-light/80 font-medium">CFM Pulse</small>
           </div>
           <div className="flex items-center">
             <ThemeSwitcher />

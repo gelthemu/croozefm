@@ -193,12 +193,11 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({
   const leaveChat = () => {
     Cookies.remove(CHAT_USERNAME);
 
-    toggleChatVisibility();
-
     setState((prevState) => ({
       ...INITIAL_STATE,
       messages: prevState.messages,
       users: prevState.users,
+      isChatVisible: prevState.isChatVisible,
     }));
   };
 

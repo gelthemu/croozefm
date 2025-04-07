@@ -61,7 +61,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title}`);
-      setSnapShot(`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`);
+      setSnapShot(`/assets/snap-shot-cfm-weekly-mixtape.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
     }
@@ -79,7 +79,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title}`);
-      setSnapShot(`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`);
+      setSnapShot(`/assets/snap-shot-cfm-weekly-mixtape.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
     }

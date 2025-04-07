@@ -11,10 +11,10 @@ export const MobileFooter = ({ onNavClick }: MobileFooterProps) => (
     <span onClick={onNavClick}>
       <SocialLinks />
     </span>
-    <div className="flex flex-col text-sm text-light mt-4 py-2 border-y border-light/10">
-      <span>Call Us: </span>
+    <div className="flex flex-row space-x-2 text-sm text-light/70 mt-4 py-4 border-t border-light/10">
+      <span>Contact us: </span>
       <span>
-        <strong className="font-medium">0752-912912{" • "}0780-912910</strong>
+        <strong className="font-medium">cfm@geltaverse.com</strong>
       </span>
     </div>
   </div>

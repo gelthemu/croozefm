@@ -23,7 +23,7 @@ export default function ChatHeader({ hideChat, users }: ChatHeaderProps) {
           onClick={hideChat}
           onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && hideChat()}
           aria-label="Hide Chat"
-          className="flex items-center justify-center cursor-pointer focus:outline-nones"
+          className="flex items-center justify-center cursor-pointer focus:outline-none"
         >
           <div className="w-6 aspect-square flex items-center justify-center group-hover:rotate-180 transition duration-300">
             {<X size={18} />}

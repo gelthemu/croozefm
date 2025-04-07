@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { getNewsArticle } from "@/lib/news-parser";
+import { formatEpochToTimezone } from "@/app/components/tiny/format-date";
 
 export async function generateMetadata({
   params,
@@ -20,13 +21,14 @@ export async function generateMetadata({
     openGraph: {
       title: `${article.headline}`,
       description: article.excerpt,
-      type: "website",
+      type: "article",
+      publishedTime: formatEpochToTimezone(article.publication_date),
       url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
       images: article.image_url
         ? [
             {
               url: article.image_url,
-              alt: `${article.headline} - Crooze FM News, Western Uganda`,
+              alt: `${article.headline} - CFM Pulse`,
               width: 1200,
               height: 630,
             },
@@ -59,7 +61,7 @@ export async function generateMetadata({
         ? [
             {
               url: article.image_url,
-              alt: `${article.headline} - Crooze FM News, Western Uganda`,
+              alt: `${article.headline} - CFM Pulse`,
             },
           ]
         : article.isPinned
@@ -80,6 +82,10 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
+    },
+    other: {
+      "article:published_time": formatEpochToTimezone(article.publication_date),
+      "article:modified_time": formatEpochToTimezone(article.publication_date),
     },
   };
 }

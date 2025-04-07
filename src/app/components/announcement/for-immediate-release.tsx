@@ -70,7 +70,7 @@ export default function ImmediateRelease({
                 <Link
                   href={sortedMixtapes[0].dj.link}
                   aria-label={`${sortedMixtapes[0].dj?.name}'s Profile`}
-                  className="text-xs font-semibold px-2 py-1 rounded-sm hover:bg-dark/40 transition-all duration-300"
+                  className="font-semibold px-2 py-1 rounded-sm hover:bg-dark/40 transition-all duration-300"
                   style={{ color: "#fff" }}
                 >
                   <span>{sortedMixtapes[0].dj?.name}</span>

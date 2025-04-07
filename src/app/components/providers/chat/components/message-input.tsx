@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ChangeEvent, FormEvent } from "react";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { IoMdSend } from "react-icons/io";
 import { EmojiPicker } from "./utils/emoji-picker";
@@ -10,8 +10,6 @@ interface MessageInputProps {
   onSendMessage: (message: string) => void;
   isConnected: boolean;
   onLeaveChat: () => void;
-  isCollapse: boolean;
-  setIsCollapse: (value: boolean) => void;
 }
 
 export default function MessageInput({
@@ -20,17 +18,28 @@ export default function MessageInput({
   onSendMessage,
   isConnected,
   onLeaveChat,
-  isCollapse,
-  setIsCollapse,
 }: MessageInputProps) {
   const [message, setMessage] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const emojiBtnRef = useRef<HTMLDivElement>(null);
   const emojiPickerRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const color = code ? ColorCircle(code) : "red";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  }, [message]);
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setMessage(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!message.trim() || !isConnected) return;
 
@@ -74,20 +83,10 @@ export default function MessageInput({
             aria-label="Leave Chat"
             onClick={() => {
               onLeaveChat();
-              if (isCollapse) {
-                setIsCollapse(false);
-              } else {
-                setIsCollapse(true);
-              }
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 onLeaveChat();
-                if (isCollapse) {
-                  setIsCollapse(false);
-                } else {
-                  setIsCollapse(true);
-                }
               }
             }}
             className="text-sm text-red font-medium cursor-pointer px-2 py-1 focus:outline-none"
@@ -95,62 +94,66 @@ export default function MessageInput({
             {"Leave Chat"}
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-1">
-          <div className="w-full flex flex-col relative">
-            <div className="flex space-x-1">
-              <div className="flex-1 flex flex-col">
-                <label htmlFor="message" className="sr-only">
-                  Message
-                </label>
-                <input
-                  type="text"
-                  id="message"
-                  name="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="mb-0.5 w-full bg-transparent border-b-2 border-gray/50 dark:border-light/50 rounded-sm focus:outline-none p-1"
-                  placeholder="Say something..."
-                  maxLength={200}
-                />
-                <div className="text-xs self-end opacity-50">
-                  {message.length}/200
-                </div>
-              </div>
-              <div
-                role="button"
-                tabIndex={0}
-                ref={emojiBtnRef}
-                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ")
-                    setShowEmojiPicker(!showEmojiPicker);
-                }}
-                className="flex items-center justify-center rounded-full aspect-square cursor-pointer p-1 focus:outline-none"
-                title="Insert emoji"
-              >
-                <MdOutlineEmojiEmotions size={22} />
-              </div>{" "}
-            </div>
-
-            {showEmojiPicker && (
-              <div
-                ref={emojiPickerRef}
-                className="absolute bottom-full right-0 mb-1 z-10"
-              >
-                <EmojiPicker onEmojiSelect={handleEmojiSelect} />
-              </div>
-            )}
+        <form
+          onSubmit={handleSubmit}
+          className="relative flex items-end space-x-1 p-2 bg-gray/5 dark:bg-light/5 rounded-sm"
+        >
+          <div
+            role="button"
+            tabIndex={0}
+            ref={emojiBtnRef}
+            onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ")
+                setShowEmojiPicker(!showEmojiPicker);
+            }}
+            className="flex items-center justify-center rounded-full aspect-square cursor-pointer p-2 focus:outline-none opacity-80"
+            title="Insert emoji"
+          >
+            <MdOutlineEmojiEmotions size={20} />
           </div>
-          <div className="self-end">
+
+          <div className="overflow-hidden flex-1">
+            <label htmlFor="message" className="sr-only">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              ref={textareaRef}
+              value={message}
+              onChange={handleChange}
+              onInput={(e) => {
+                const input = e.target as HTMLInputElement;
+                if (input.value.length > 200) {
+                  input.value = input.value.slice(0, 200);
+                }
+              }}
+              required
+              placeholder="Say something..."
+              className="w-full p-1 text-sm bg-transparent rounded-sm resize-none focus:outline-none max-h-[60px] overflow-y-auto"
+              rows={1}
+              maxLength={200}
+              style={{ height: "auto" }}
+            />
+          </div>
+          {showEmojiPicker && (
+            <div
+              ref={emojiPickerRef}
+              className="absolute bottom-full right-0 mb-1 z-10"
+            >
+              <EmojiPicker onEmojiSelect={handleEmojiSelect} />
+            </div>
+          )}
+          <div>
             <button
               aria-label="Send message"
               type="submit"
               disabled={!message.trim() || !isConnected}
-              className="w-fit flex items-center space-x-1 text-red disabled:text-gray dark:disabled:text-light/40 font-semibold _912cfm p-2 rounded-sm focus:outline-none"
+              className="p-2 rounded-full text-red disabled:text-gray dark:disabled:text-light/40 focus:outline-none"
             >
-              <span>Send</span>
               <span>
-                <IoMdSend size={18} />
+                <IoMdSend size={20} />
               </span>
             </button>
           </div>

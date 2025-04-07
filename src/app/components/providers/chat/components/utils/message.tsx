@@ -24,7 +24,7 @@ export default function Msg({ message, profiles }: MsgProps) {
 
   return (
     <div className="w-full py-2">
-      <div className="flex items-start">
+      <div className="w-full flex items-start">
         {message.username === "ADMIN" ? (
           <Image
             src="https://geltaverse.com/io/favicon.ico"
@@ -39,10 +39,10 @@ export default function Msg({ message, profiles }: MsgProps) {
             style={{ backgroundColor: color }}
           ></div>
         )}
-        <div className="flex flex-col">
-          <div className="flex items-center">
+        <div className="w-full flex flex-col overflow-hidden">
+          <div className="w-full flex items-center overflow-hidden">
             <div
-              className={`${
+              className={`flex items-center min-w-0 ${
                 message.username === "ADMIN" ? "uppercase" : "lowercase"
               }`}
             >
@@ -56,21 +56,26 @@ export default function Msg({ message, profiles }: MsgProps) {
                   </span>
                 </>
               ) : (
-                <span className="font-medium" style={{ color: color }}>
-                  {message.username}
-                </span>
-              )}{" "}
-              {message.username !== "ADMIN" && (
                 <>
-                  <span className="text-xs opacity-60">{`(${id})`}</span>
-                  <span style={{ color: color }}>
+                  <span
+                    className="font-medium overflow-hidden whitespace-nowrap text-ellipsis flex-grow"
+                    style={{ color: color }}
+                  >
+                    {message.username}
+                  </span>
+                  <span className="text-xs opacity-60 flex-shrink-0 ml-1">
+                    {`(${id})`}
+                  </span>
+                  <span className="flex-shrink-0" style={{ color: color }}>
                     <UserBadge />
                   </span>
                 </>
               )}
             </div>
-            <div className="mx-2 font-medium opacity-30 select-none">•</div>
-            <div className="text-xs font-light">
+            <div className="mx-2 font-medium opacity-30 select-none flex-shrink-0">
+              •
+            </div>
+            <div className="text-xs font-light flex-shrink-0">
               <MessageTimestamp timestamp={message.timestamp} />
             </div>
           </div>

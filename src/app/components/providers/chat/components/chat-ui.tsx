@@ -3,7 +3,6 @@
 import React from "react";
 import type { PresenterProfile } from "@/types/profile";
 import { useChat } from "@/app/context/chat-context";
-import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { useDownload } from "@/app/context/download-context";
 import FixedDiv from "../../divs/fixed-element";
 import UsernameForm from "./username-form";
@@ -33,7 +32,6 @@ export default function ChatUI({ profiles }: ChatUIProps) {
     startChat,
     users,
   } = useChat();
-  const { isCollapse, setIsCollapse, setIsAnimating } = useMiniPlayer();
   const { progress } = useDownload();
 
   const showUsernameForm = !username && isUsernameFormVisible && isChatVisible;
@@ -42,13 +40,6 @@ export default function ChatUI({ profiles }: ChatUIProps) {
 
   const hideChat = () => {
     toggleChatVisibility();
-
-    if (isCollapse) {
-      setIsCollapse(false);
-      setIsAnimating(true);
-    } else {
-      setIsCollapse(true);
-    }
   };
 
   const color = userId ? ColorCircle(userId) : "#3eac75";
@@ -85,8 +76,6 @@ export default function ChatUI({ profiles }: ChatUIProps) {
                   onSendMessage={sendMessage}
                   isConnected={isConnected}
                   onLeaveChat={leaveChat}
-                  isCollapse={isCollapse}
-                  setIsCollapse={setIsCollapse}
                 />
               </div>
             )}
@@ -104,7 +93,10 @@ export default function ChatUI({ profiles }: ChatUIProps) {
                       className="text-light font-medium _912cfm px-3 py-1 rounded-sm focus:outline-none"
                       style={{ backgroundColor: color }}
                     >
-                      {`Hi, ${username.split(" ")[0]}! Start Chatting..`}
+                      {`Hi, ${
+                        username.split(" ")[0].charAt(0).toUpperCase() +
+                        username.split(" ")[0].slice(1).toLowerCase()
+                      }! Start Chatting..`}
                     </div>
                   </div>
                 </div>

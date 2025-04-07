@@ -1,6 +1,8 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+// import Head from "next/head";
+// import JsonLd from "@/app/components/providers/feed/json-ld";
 import { getNewsArticle, getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../../components/recent-news";
 import { splitMarkdownContent } from "@/lib/markdown-utils";

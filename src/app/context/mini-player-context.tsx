@@ -52,7 +52,7 @@ export function MiniPlayerProvider({
   const [currentSource, setCurrentSource] = useState<string | undefined>();
   const [tagLine, setTagLine] = useState<string | undefined>();
   const [snapShot, setSnapShot] = useState<string | undefined>();
-  const [isCollapse, setIsCollapse] = useState(true);
+  const [isCollapse, setIsCollapse] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isSeekable, setIsSeekable] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -61,7 +61,7 @@ export function MiniPlayerProvider({
   useEffect(() => {
     if (isStreaming) {
       setTagLine(currentShow.name);
-      setSnapShot(currentShow.img);
+      setSnapShot("/assets/snap-shot-live-radio.png");
     }
   }, [currentShow, isStreaming]);
 

@@ -12,6 +12,7 @@ export function useAudioControls() {
     setIsStreaming,
     setIsLoading,
     setIsCollapse,
+    setIsAnimating,
   } = useMiniPlayer();
 
   const { progress } = useDownload();
@@ -82,7 +83,6 @@ export function useAudioControls() {
 
         setIsAudioPlaying(false);
         setIsLoading(true);
-        setIsCollapse(true);
 
         setTimeout(() => {
           if (!audioRef.current) return;
@@ -102,8 +102,12 @@ export function useAudioControls() {
             .then(() => {
               setIsStreamActive(true);
               setIsAudioPlaying(true);
+              setIsAnimating(true);
               setTimeout(() => {
                 setIsLoading(false);
+                setTimeout(() => {
+                  setIsCollapse(true);
+                }, 2000);
               }, 4000);
             })
             .catch((error) => {
@@ -134,6 +138,7 @@ export function useAudioControls() {
     setIsLoading,
     setIsStreaming,
     setIsCollapse,
+    setIsAnimating,
     setIsMiniPlayerOpen,
     currentSource,
     progress,

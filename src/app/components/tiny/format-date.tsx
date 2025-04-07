@@ -1,3 +1,6 @@
+import { fromUnixTime } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
+
 const FormatDate = ({ date }: { date: string }) => {
   const now = new Date();
   const aired = new Date(date);
@@ -63,4 +66,11 @@ const FormatSimpleDate = ({
   return `${day}.${month}.${year}`;
 };
 
-export { FormatDate, FormatSimpleDate };
+const formatEpochToTimezone = (epoch: number): string =>
+  formatInTimeZone(
+    fromUnixTime(epoch),
+    "Africa/Kampala",
+    "yyyy-MM-dd'T'HH:mm:ssxxx"
+  );
+
+export { FormatDate, FormatSimpleDate, formatEpochToTimezone };

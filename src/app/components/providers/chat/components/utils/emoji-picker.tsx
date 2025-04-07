@@ -8,12 +8,12 @@ const EmojiPicker = ({ onEmojiSelect }: EmojiPickerProps) => {
   const emojis = ["❤️", "🥳", "👏🏼", "🎶", "📻", "🔥"];
 
   return (
-    <div className="bg-light dark:bg-dark rounded-sm shadow shadow-gray/40 dark:shadow-light/20 p-2">
+    <div className="bg-light dark:bg-dark rounded-sm shadow shadow-gray/20 dark:shadow-light/10 p-1">
       <div className="flex flex-wrap spaace-x-2">
         {emojis.map((emoji, index) => (
           <button
             key={index}
-            className="h-8 w-8 flex items-center justify-center text-lg hover:bg-gray/20 rounded cursor-pointer transition-colors focus:outline-none"
+            className="h-8 w-8 flex items-center justify-center text-lg hover:bg-gray/10 dark:hover:bg-light/5 rounded-md cursor-pointer transition-colors focus:outline-none"
             onClick={() => onEmojiSelect(emoji)}
           >
             {emoji}
