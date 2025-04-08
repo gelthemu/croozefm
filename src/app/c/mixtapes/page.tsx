@@ -2,6 +2,7 @@ import React from "react";
 import { mixtapes } from "@/data/mixtapes";
 import MixtapePlayer from "./components/mixtape-player";
 import { RectangleAd, SkyscraperAd } from "@/app/components/providers/ads/ads";
+import { RESOURCES } from "@/data/endpoints";
 
 export const metadata = {
   title: "CFM Weekly Mixtapes",
@@ -17,7 +18,7 @@ export const metadata = {
     url: "https://croozefm.geltaverse.com/c/mixtapes",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png",
+        url: `${RESOURCES}/cfm-weekly-mixtape.png`,
         alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
         width: 1200,
         height: 630,
@@ -33,7 +34,7 @@ export const metadata = {
     creator: "@geltaverse",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png",
+        url: `${RESOURCES}/cfm-weekly-mixtape.png`,
         alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
       },
     ],
@@ -58,7 +59,9 @@ export default function MixtapesPage() {
           All the midweek musical vibes are now packed in one place, with pure
           energy and rhythm—guaranteed to keep your head nodding all week long!
         </p>
-        <p className="w-full max-w-2xl">Rewind it! Blast it! OWN IT! {"🔥🎶"}</p>
+        <p className="w-full max-w-2xl">
+          Rewind it! Blast it! OWN IT! {"🔥🎶"}
+        </p>
       </div>
       <div className="w-full flex flex-col lg:flex-row lg:space-x-4 mt-10">
         <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 sm:mb-0">

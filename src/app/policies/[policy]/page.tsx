@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import { PolicyContent } from "../components/policy-content";
 import ImgDiv from "@/app/components/providers/divs/image-div";
 import "@/app/styles/md/policy.css";
+import { RESOURCES } from "@/data/endpoints";
 
 export async function generateMetadata({
   params,
@@ -49,7 +50,7 @@ export default async function PolicyPage({
 
   return (
     <div className="w-full max-w-3xl mx-auto p-1">
-      <div className="relative p-6 bg-gray/20 dark:bg-gray/50 rounded-sm shadow-xl z-0 border-y-2 border-red">
+      <div className="relative z-0">
         <div className="py-4 mb-10 flex flex-col border-b border-gray/40 dark:border-light/20">
           <div>
             <h1 className="text-3xl pb-4 text-red _912cfm">{policy.title}</h1>
@@ -60,11 +61,16 @@ export default async function PolicyPage({
             </div>
           )}
         </div>
-        <ImgDiv url="https://cfmpulse-fxavapfdeybedqdt.z01.azurefd.net/assets/default.png" />
+        <ImgDiv url={`${RESOURCES}/default.png`} />
         <div className="prose prose-lg max-w-none mt-5 select-none">
           <Markdown rehypePlugins={[rehypeRaw]} components={PolicyContent}>
             {policy.content}
           </Markdown>
+        </div>
+        <div>
+          <p className="font-light text-sm italic opacity-60 mt-8">
+            By CFM Fans, for CFM Diehards
+          </p>
         </div>
       </div>
     </div>

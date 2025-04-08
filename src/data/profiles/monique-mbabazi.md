@@ -11,8 +11,7 @@ gallery:
   [
     "https://croozefm.blob.core.windows.net/images/monique-mbabazi-1.png",
     "https://croozefm.blob.core.windows.net/images/monique-mbabazi-2.png",
-    "https://pbs.twimg.com/media/GliawAOXoAADcsZ?format=jpg&name=large",
-    "https://instagram.fnbo1-1.fna.fbcdn.net/v/t51.2885-15/476181773_18315074809202340_1905596797260455654_n.webp?stp=dst-jpg_e35_p1080x1080_sh0.08_tt6&_nc_ht=instagram.fnbo1-1.fna.fbcdn.net&_nc_cat=100&_nc_oc=Q6cZ2AHShPuWHEt-7JzKFBqmmrlHGawWxVCxhhBZeSTYpiF15fdPf3atdcJpe9BAkgnBJQw&_nc_ohc=b7_zrOIUKdYQ7kNvgGQSwnT&_nc_gid=2832dac29e734ed195071e3d7ca55eda&edm=AGenrX8BAAAA&ccb=7-5&oh=00_AYGQJYwMWWRSWXfDDrGgL8-TXAakX9PeFxc7vfSw5G7kIA&oe=67D37E01&_nc_sid=ed990e",
+    "4444",
   ]
 code: "momo"
 keywords: "Monique Mbabazi, Morning Addiction, Voice-over artist, Crooze FM news editor, Journalism graduate Ndejje University"

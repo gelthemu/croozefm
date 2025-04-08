@@ -13,6 +13,7 @@ import ProfileGallery from "../team/components/profile/gallery/gallery";
 import Divider from "@/app/components/providers/divs/divider";
 import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import LatestMixtapeFeed from "@/app/c/mixtapes/components/latest-mixtape-feed";
+import { RESOURCES } from "@/data/endpoints";
 import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
@@ -46,8 +47,8 @@ export async function generateMetadata({
       url: `https://croozefm.geltaverse.com/i/${profile.id}`,
       images: [
         {
-          url: `https://croozefm.blob.core.windows.net/cards/${profile.id}.png`,
-          alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          url: `${RESOURCES}/default-opengraph.png`,
+          alt: "Home of Fans of Western Uganda's Biggest Radio Station",
           width: 1200,
           height: 630,
         },
@@ -63,8 +64,8 @@ export async function generateMetadata({
       creator: "@geltaverse",
       images: [
         {
-          url: `https://croozefm.blob.core.windows.net/cards/${profile.id}.png`,
-          alt: `${profile.name}, radio host at 91.2 Crooze FM, Western Uganda's Biggest Radio Station`,
+          url: `${RESOURCES}/default-opengraph.png`,
+          alt: "Home of Fans of Western Uganda's Biggest Radio Station",
         },
       ],
     },

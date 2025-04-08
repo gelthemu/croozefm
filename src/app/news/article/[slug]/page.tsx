@@ -36,7 +36,6 @@ export default async function ArticlePage({
   const {
     headline,
     publication_date,
-    excerpt,
     category,
     content,
     image_url,
@@ -86,7 +85,6 @@ export default async function ArticlePage({
               isPinned={isPinned}
             />
             <ArticleContent
-              excerpt={excerpt}
               firstHalf={firstHalf}
               secondHalf={secondHalf}
               slug={slug}

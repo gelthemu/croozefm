@@ -6,6 +6,7 @@ import type { Show } from "@/types/show";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
+import { SNAPSHOTS } from "@/data/endpoints";
 
 interface RecordPlayerProps {
   show: Show;
@@ -59,7 +60,7 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
       setCurrentSource(fullAudioUrl);
       setIsStreaming(false);
       setTagLine(recording.name ? `${recording.name}` : `${show.name}`);
-      setSnapShot("/assets/snap-shot-default.png");
+      setSnapShot(`${SNAPSHOTS}/snap-shot-default.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(false);
       setPlayingIndex(index);

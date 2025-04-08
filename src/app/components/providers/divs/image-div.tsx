@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ENDPOINT_URL } from "@/data/endpoint";
+import { RESOURCES } from "@/data/endpoints";
 
 interface ImgDivProps {
   url?: string;
@@ -31,7 +31,7 @@ const ImgDiv: React.FC<ImgDivProps> = ({
         }}
       >
         <Image
-          src={url ? url : `${ENDPOINT_URL}/assets/default.png`}
+          src={url ? url : `${RESOURCES}/default.png`}
           alt={alt ? alt : "CFM Pulse"}
           width={2968}
           height={1626}

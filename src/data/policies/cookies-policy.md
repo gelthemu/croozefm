@@ -58,5 +58,3 @@ We might tweak this Cookies Policy as the Site grows or laws change. Updates wil
 ### Contact Us
 
 Got questions about cookies or how we use them? Email us at [cfm@geltaverse.com](mailto:cfm@geltaverse.com), or send us a Direct Message on X at [@cfmpulse](https://x.com/cfmpulse). We’re happy to explain and keep things clear for you. Peace!
-
-<p className="font-light text-sm italic opacity-60 mt-8">By CFM Fans, for CFM Diehards</p>

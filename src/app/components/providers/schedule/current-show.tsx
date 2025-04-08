@@ -6,7 +6,7 @@ import {
 } from "@/data/shows/schedule";
 
 export interface CurrentShow {
-  img: string;
+  id: string;
   name: string;
 }
 
@@ -26,20 +26,20 @@ export const getCurrentShow = (): CurrentShow => {
 
   if (currentShow) {
     return {
-      img: currentShow.imgUrl,
+      id: currentShow.id,
       name: currentShow.name,
     };
   }
 
   return {
-    img: "https://croozefm.blob.core.windows.net/images/default.png",
+    id: "",
     name: "Great Music, for Great Friends",
   };
 };
 
 export const useCurrentShow = () => {
   const [currentShow, setCurrentShow] = useState<CurrentShow>({
-    img: "https://croozefm.blob.core.windows.net/images/default.png",
+    id: "",
     name: "Great Music, for Great Friends",
   });
 

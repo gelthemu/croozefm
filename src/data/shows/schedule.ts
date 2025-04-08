@@ -12,7 +12,6 @@ export type ScheduleDay =
 export interface ScheduleShow {
   id: string;
   name: string;
-  imgUrl: string;
   start: number;
   end: number;
 }
@@ -120,7 +119,6 @@ export const getShowsForDay = (day: ScheduleDay): ScheduleShow[] => {
     .map((show) => ({
       id: show.id,
       name: show.name,
-      imgUrl: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
       start: show.time.start,
       end: show.time.end,
     }))

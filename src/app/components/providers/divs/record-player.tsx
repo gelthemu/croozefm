@@ -42,7 +42,7 @@ export const PlayerButton: React.FC<PlayerButtonProps> = ({
           onClick();
         }
       }}
-      className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/90 font-semibold flex items-center justify-between relative border border-light/20 focus:outline-none ${className} ${
+      className={`bg-gray/30 dark:bg-dark/50 p-2 rounded-sm text-light/90 font-semibold flex items-center justify-between relative border border-light/20 select-none focus:outline-none ${className} ${
         isDisabled ? "opacity-80 cursor-default" : "cursor-pointer"
       }`}
     >

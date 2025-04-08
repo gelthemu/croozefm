@@ -37,7 +37,7 @@ Use this Site at your own risk.
 
 ### Privacy Policy Reference
 
-We care about your privacy. How we handle any data you share with us is explained in our [Privacy Policy](/policies/privacy-policy). Please review it for details.
+We care about your privacy. How we handle any data you share with us is explained in our [Privacy Policy](/policies/privacy-statement). Please review it for details.
 
 ### No Affiliation
 
@@ -63,5 +63,3 @@ We may update this Legal Notice as needed. Any changes will be posted on this pa
 ### Contact Us
 
 For questions, takedown requests, or anything else about this Site, email us at [cfm@geltaverse.com](mailto:cfm@geltaverse.com). We’re here to listen and cooperate with all croozers and rights holders alike. Peace!
-
-<p className="font-light text-sm italic opacity-60 mt-8">By CFM Fans, for CFM Diehards</p>

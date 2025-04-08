@@ -12,7 +12,7 @@ import { useMiniPlayer } from "@/app/context/mini-player-context";
 export default function Footer() {
   const { isMiniPlayerOpen, isCollapse } = useMiniPlayer();
 
-  const policies = ["Privacy Policy", "Legal Notice", "Cookies Policy"];
+  const policies = ["Privacy Statement", "Legal Notice", "Cookies Policy"];
 
   const currentYear = new Date().getFullYear();
 

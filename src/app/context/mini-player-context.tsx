@@ -8,6 +8,7 @@ import React, {
   useEffect,
 } from "react";
 import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
+import { SNAPSHOTS } from "@/data/endpoints";
 
 type MiniPlayerContextType = {
   isMiniPlayerOpen: boolean;
@@ -61,7 +62,7 @@ export function MiniPlayerProvider({
   useEffect(() => {
     if (isStreaming) {
       setTagLine(currentShow.name);
-      setSnapShot("/assets/snap-shot-live-radio.png");
+      setSnapShot(`${SNAPSHOTS}/snap-shot-live-radio.png`);
     }
   }, [currentShow, isStreaming]);
 

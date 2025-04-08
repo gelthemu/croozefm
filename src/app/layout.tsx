@@ -20,6 +20,7 @@ import { DownloadProvider } from "./context/download-context";
 import DownloadStatus from "./c/mixtapes/components/downloads/download-status";
 import { SuggestionFormProvider } from "./context/suggestion-form-context";
 import SuggestionForm from "./components/providers/suggestion-form";
+import { RESOURCES } from "@/data/endpoints";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -50,7 +51,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "%s | CFM Pulse",
-    default: "Welcome | CFM Pulse",
+    default: "Hi | CFM Pulse",
   },
   description:
     "CFM Pulse is the largest Crooze FM Fan Base. Home of Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
@@ -96,16 +97,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: {
       template: "%s | CFM Pulse",
-      default: "Welcome | CFM Pulse",
+      default: "Hi | CFM Pulse",
     },
-    description:
-      "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
-    url: "https://croozefm.geltaverse.com",
+    description: "Home of Fans of Western Uganda's Biggest Radio Station",
+    url: "https://cfm.geltaverse.com",
     type: "website",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/default.png",
-        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        url: `${RESOURCES}/default-opengraph.png`,
+        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
         width: 1200,
         height: 630,
       },
@@ -115,17 +115,16 @@ export const metadata: Metadata = {
   twitter: {
     title: {
       template: "%s | CFM Pulse",
-      default: "Welcome | CFM Pulse",
+      default: "Hi | CFM Pulse",
     },
-    description:
-      "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+    description: "Home of Fans of Western Uganda's Biggest Radio Station",
     card: "summary_large_image",
     site: "@geltaverse",
     creator: "@geltaverse",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/default.png",
-        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        url: `${RESOURCES}/default-opengraph.png`,
+        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
       },
     ],
   },
@@ -165,7 +164,7 @@ export default function RootLayout({
                       <DownloadStatus />
                       <SuggestionForm />
                       <Navbar />
-                      <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(/assets/cfm_header.jpg)] bg-blend-soft-light">
+                      <div className="w-full bg-light/90 dark:bg-dark/95 bg-fixed bg-no-repeat bg-cover bg-top bg-[url(https://assets.geltaverse.com/media/cfm_header.jpg)] bg-blend-soft-light">
                         <div className="w-full bg-light/80 dark:bg-dark/95">
                           <main className="w-full max-w-screen-lg mx-auto min-h-screen px-2 py-16">
                             <div className="container mx-auto">{children}</div>

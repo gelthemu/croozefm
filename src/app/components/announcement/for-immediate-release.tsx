@@ -9,7 +9,7 @@ import { H2Title } from "../providers/divs/page-heading";
 import ImgDiv from "../providers/divs/image-div";
 import ViewAllBtn from "../tiny/viewallbtn";
 import { FormatSimpleDate } from "../tiny/format-date";
-import { ENDPOINT_URL } from "@/data/endpoint";
+import { RESOURCES } from "@/data/endpoints";
 
 interface ImmediateReleaseProps {
   viewAll?: boolean;
@@ -61,7 +61,7 @@ export default function ImmediateRelease({
           </div>
           <div className="relative w-full h-full md:self-end">
             <ImgDiv
-              url={`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`}
+              url={`${RESOURCES}/cfm-weekly-mixtape.png`}
               alt="Crooze FM Weekly Mixtape"
               text="Crooze FM Weekly Mixtape"
             />

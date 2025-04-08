@@ -22,7 +22,7 @@ export default function MediaSessionHandler() {
       album: "CFM Pulse",
       artwork: [
         {
-          src: "https://cfm.geltaverse.com/assets/cfm-pulse-official-logo-dark.png",
+          src: "https://assets.geltaverse.com/media/cfm-pulse-official-logo-dark.png",
           sizes: "512x512",
           type: "image/jpg",
         },

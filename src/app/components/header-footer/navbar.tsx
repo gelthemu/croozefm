@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { Logo } from "./navigation/logo";
 import { HamburgerButton } from "./navigation/hamburger-button";
-import { DesktopMenu } from "./navigation/desktop-menu";
 import { MobileMenu } from "./navigation/mobile-menu";
 import { usePathname } from "next/navigation";
 
@@ -70,10 +69,9 @@ export default function Navbar() {
   return (
     <div className="w-full bg-red sticky top-0 z-50">
       <nav className="w-full max-w-screen-xl mx-auto relative">
-        <div className="flex flex-wrap items-center justify-between py-5 md:py-0 px-8 sm:px-12 md:px-16">
-          <Logo onLogoClick={closeMenu} className="md:py-auto z-[100]" />
+        <div className="flex flex-wrap items-center justify-between py-6 px-8 sm:px-12 md:px-16">
+          <Logo onLogoClick={closeMenu} className="z-[100]" />
           <HamburgerButton isOpen={isOpen} onClick={toggleMenu} />
-          <DesktopMenu />
           <MobileMenu isOpen={isOpen} onNavClick={closeMenu} />
         </div>
       </nav>

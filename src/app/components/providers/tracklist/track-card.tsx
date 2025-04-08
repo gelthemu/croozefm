@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { getTimeAgo } from "./tracklist-data";
 import { Track } from "@/types/track";
+import { MEDIA } from "@/data/endpoints";
 
 interface TrackCardProps {
   track: Track;
@@ -32,7 +33,7 @@ export default function TrackCard({
           className="w-full h-full bg-cover bg-center bg-transparent bg-blend-multiply"
           style={{
             aspectRatio: "1/1",
-            backgroundImage: `url("/assets/cfm-pulse-official-logo-dark.png")`,
+            backgroundImage: `url(${MEDIA}/cfm-pulse-official-logo-dark.png)`,
           }}
         >
           {track.track_image ? (

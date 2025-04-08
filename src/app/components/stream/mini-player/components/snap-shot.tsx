@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaRocketchat } from "react-icons/fa";
 import { useChat } from "@/app/context/chat-context";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
+import { SNAPSHOTS } from "@/data/endpoints";
 
 interface SnapShotProps {
   url: string;
@@ -18,7 +19,7 @@ const SnapShot: React.FC<SnapShotProps> = ({ url, className = "" }) => {
 
   const images = [
     { src: url, alt: "First slide" },
-    { src: "/assets/snap-shot-default.png", alt: "Second slide" },
+    { src: `${SNAPSHOTS}/snap-shot-default.png`, alt: "Second slide" },
   ];
 
   useEffect(() => {

@@ -7,7 +7,7 @@ interface HamburgerButtonProps {
 
 export const HamburgerButton = ({ isOpen, onClick }: HamburgerButtonProps) => (
   <div
-    className="relative p-4 focus:outline-none inline-flex items-center justify-center text-light md:hidden cursor-pointer z-[100]"
+    className="relative p-4 focus:outline-none inline-flex items-center justify-center text-light cursor-pointer z-[100]"
     aria-controls="navbar-absolute"
     aria-expanded={isOpen}
     role="button"

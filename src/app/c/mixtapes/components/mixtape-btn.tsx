@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { StreamButton } from "../../../components/stream/stream-btn";
 import { Mixtape } from "@/types/mixtape";
+import { SNAPSHOTS } from "@/data/endpoints";
 
 interface MixtapeProps {
   mixtape: Mixtape;
@@ -33,9 +34,7 @@ const MixtapeBtn = ({ mixtape }: MixtapeProps) => {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title} - CFM Weekly Mixtapes`);
-      setSnapShot(
-        "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png"
-      );
+      setSnapShot(`${SNAPSHOTS}/snap-shot-cfm-weekly-mixtape.png`);
       setIsSeekable(true);
       setIsMiniPlayerOpen(true);
     }

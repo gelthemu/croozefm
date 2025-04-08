@@ -6,35 +6,34 @@ import Link from "next/link";
 import ImgDiv from "../divs/image-div";
 import { FaLink } from "react-icons/fa6";
 import { shows } from "@/data/shows/shows";
+import { RESOURCES } from "@/data/endpoints";
 
 const ftShows = shows.filter((show) => show.isFt);
 
-const getShowUrl = (imgPath: string) => {
-  const imgFileName = imgPath.split("/").pop()?.split(".")?.[0]?.trim();
+const getShowUrl = (id: string) => {
+  const ft_id = id?.trim();
 
-  if (!imgFileName) return "/shows";
+  if (!ft_id) return "/shows";
 
   const matchingShow = ftShows.find((show) => {
-    const showImgFileName =
-      `https://croozefm.blob.core.windows.net/images/${show.id}.png`
-        .split("/")
-        .pop()
-        ?.split(".")?.[0]
-        ?.trim();
-    return showImgFileName === imgFileName;
+    return show.id === ft_id;
   });
 
-  return matchingShow ? `/shows/${imgFileName}` : "/shows";
+  return matchingShow ? `/shows/${ft_id}` : "/shows";
 };
 
 const Schedule = () => {
   const currentShow = useCurrentShow();
-  const showUrl = getShowUrl(currentShow.img);
+  const showUrl = getShowUrl(currentShow.id);
   const hasValidShowUrl = showUrl !== "/shows";
 
   return (
     <div className="relative group">
-      <ImgDiv url={currentShow.img} alt={currentShow.name} text="On-Air" />
+      <ImgDiv
+        url={`${RESOURCES}/on-air.png`}
+        alt={currentShow.name}
+        text="On-Air"
+      />
       {hasValidShowUrl ? (
         <Link
           href={showUrl}
@@ -46,16 +45,14 @@ const Schedule = () => {
             className="group-hover:rotate-180 transition-transform duration-500"
           />
         </Link>
-      ) : (
-        null
-      )}
+      ) : null}
     </div>
   );
 };
 
 const Show = () => {
   const currentShow = useCurrentShow();
-  const showUrl = getShowUrl(currentShow.img);
+  const showUrl = getShowUrl(currentShow.id);
   const hasValidShowUrl = showUrl !== "/shows";
 
   return hasValidShowUrl ? (

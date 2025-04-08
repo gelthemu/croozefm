@@ -13,7 +13,7 @@ interface MobileMenuProps {
 
 export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
   <div
-    className={`md:hidden w-[100%] fixed inset-0 bg-gray dark:bg-dark z-40 transition-all duration-[0.5s] ease-in-out ${
+    className={`w-[100%] fixed inset-0 bg-gray dark:bg-dark z-40 transition-all duration-[0.5s] ease-in-out ${
       isOpen
         ? "opacity-100 translate-x-0"
         : "opacity-0 -translate-x-full pointer-events-none"
@@ -21,20 +21,20 @@ export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
     id="navbar-mobile"
   >
     <div className="flex flex-col justify-between w-full h-full bg-gray/50">
-      <div className="py-5 px-6 sm:px-12 md:px-16 bg-red border-b border-dark/50 dark:border-light/50">
+      <div className="py-6 px-6 sm:px-12 md:px-16 bg-red border-b border-dark/50 dark:border-light/50">
         <div className="opacity-0">
           {" "}
           <Logo />
         </div>
       </div>
-      <ul className="flex flex-col divide-y divide-light/20 px-4">
+      <ul className="flex flex-col divide-y divide-light/10 px-4">
         {navLinks.map((link) => (
           <li key={link.name}>
             <NavLink link={link} onNavClick={onNavClick} isMobile={true} />
           </li>
         ))}
       </ul>
-      <div className="flex flex-col space-y-6 px-4 pb-8">
+      <div className="flex flex-col mb-6 px-4">
         <MobileFooter onNavClick={onNavClick} />
         <div className="flex items-center justify-between">
           <div>

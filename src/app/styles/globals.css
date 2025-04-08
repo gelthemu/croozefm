@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ._img_ {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
 *,
 html {
   scroll-behavior: smooth;
@@ -63,7 +74,7 @@ body {
 
 .profile-image {
   aspect-ratio: 570 / 696;
-  background-image: url("https://croozefm.blob.core.windows.net/images/profile-bg-image.png");
+  background-image: url("https://assets.geltaverse.com/profiles/profile-bg-image.png");
   background-size: cover;
   background-position: center top;
   background-color: rgba(0, 0, 0, 0.4);
@@ -129,6 +140,15 @@ h2 {
 ._912cfm {
   font-feature-settings: "ss02", "ss03";
   font-variation-settings: "opsz" 500;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .text-xxs {

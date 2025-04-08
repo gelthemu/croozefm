@@ -10,8 +10,6 @@ gallery:
   [
     "https://croozefm.blob.core.windows.net/images/wesige-banyagi-1.png",
     "https://croozefm.blob.core.windows.net/images/wesige-banyagi-2.png",
-    "https://instagram.fnbo1-1.fna.fbcdn.net/v/t51.29350-15/280434399_377805274122747_2790530999508770356_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE2MDMuc2RyLmYyOTM1MC5kZWZhdWx0X2ltYWdlIn0&_nc_ht=instagram.fnbo1-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2AGdrSVb-X77VTQcpKPG-jP7G3UdasYRTAJhrMqLtRYOTOUWSgWfN6SrDpyuCEOY2cw&_nc_ohc=OSLzRHGykeQQ7kNvgFP6wwn&_nc_gid=13cbe51ebb0147409b2b3de1f3308b16&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MjgzNjU2MTUwNzM0OTkwMzMxOA%3D%3D.3-ccb7-5&oh=00_AYFrtUAmOHMCAeTBQJZ3XqAP7cG9foQy89ZDnXItbNfWiA&oe=67D3910E&_nc_sid=10d13b",
-    "https://instagram.fnbo1-1.fna.fbcdn.net/v/t51.29350-15/299946232_2914300748870382_3065550214623722175_n.jpg?stp=dst-jpg_e35_p1080x1080_tt6&_nc_ht=instagram.fnbo1-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2AGxkS_PoAOD52QKJwfrFl9OxWIEetM7DameO3HQ6lwwlLP58B6gCiwlqzf7_wADiio&_nc_ohc=rIZlE34FUeYQ7kNvgHWU73K&_nc_gid=f59a9d927daa4fd2a2276ab630db7e6b&edm=AGenrX8BAAAA&ccb=7-5&oh=00_AYH5hnLT0kU5v8RXX5kXp2kWH8zqWJkfghYLKg2CLarP8Q&oe=67D39B44&_nc_sid=ed990e",
   ]
 code: "braga"
 keywords: "Wesige Banyagi, The Big Seat, Ugandan politics radio show, 91.2 Crooze Fm Big Seat"

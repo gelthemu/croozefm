@@ -8,6 +8,7 @@ import ImgDiv from "@/app/components/providers/divs/image-div";
 import Divider from "@/app/components/providers/divs/divider";
 import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import { Metadata } from "next";
+import { RESOURCES } from "@/data/endpoints";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -39,7 +40,7 @@ export async function generateMetadata({
       url: `https://croozefm.geltaverse.com/shows/${show.id}`,
       images: [
         {
-          url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
+          url: `${RESOURCES}/default-opengraph.png`,
           alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
           width: 1200,
           height: 630,
@@ -54,7 +55,7 @@ export async function generateMetadata({
       creator: "@geltaverse",
       images: [
         {
-          url: `https://croozefm.blob.core.windows.net/images/${show.id}.png`,
+          url: `${RESOURCES}/default-opengraph.png`,
           alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
         },
       ],
@@ -109,7 +110,7 @@ export default async function ShowPage({ params }: PageProps) {
         </div>
       )}
       <ImgDiv
-        url={`https://croozefm.blob.core.windows.net/images/${show.id}.png`}
+        url={`${RESOURCES}/default.png`}
         alt={show.name}
         className="w-full max-w-3xl mx-auto mt-10"
       />

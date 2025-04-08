@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import ImgDiv from "@/app/components/providers/divs/image-div";
+import { RESOURCES } from "@/data/endpoints";
 
 interface NotFoundPageProps {
   title: string;
@@ -27,8 +28,7 @@ export default function NotFoundPage({ title, text, link }: NotFoundPageProps) {
           {link.text}
         </Link>
         <ImgDiv
-          url="https://croozefm.blob.core.windows.net/images/default.png"
-          alt="91.2 Crooze FM"
+          url={`${RESOURCES}/default-opengraph.png`}
         />
         <Link href="/home" className="underline text-red">
           Go to Home Page

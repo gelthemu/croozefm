@@ -11,7 +11,7 @@ import { PlayerButton } from "@/app/components/providers/divs/record-player";
 import { ViewerBoard } from "./downloads/user-feedback";
 import Download from "./downloads/download";
 import { LiveChatBtn } from "./downloads/user-feedback";
-import { ENDPOINT_URL } from "@/data/endpoint";
+import { SNAPSHOTS, RESOURCES } from "@/data/endpoints";
 
 interface MixtapePlayerProps {
   mixtapes: Mixtape[];
@@ -61,7 +61,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title}`);
-      setSnapShot(`/assets/snap-shot-cfm-weekly-mixtape.png`);
+      setSnapShot(`${SNAPSHOTS}/snap-shot-cfm-weekly-mixtape.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
     }
@@ -79,7 +79,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       setCurrentSource(mixtape.url);
       setIsStreaming(false);
       setTagLine(`${mixtape.title}`);
-      setSnapShot(`/assets/snap-shot-cfm-weekly-mixtape.png`);
+      setSnapShot(`${SNAPSHOTS}/snap-shot-cfm-weekly-mixtape.png`);
       setIsMiniPlayerOpen(true);
       setIsSeekable(true);
     }
@@ -97,7 +97,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     <div className="w-full border-y border-gray/40 dark:border-light/10 px-1 py-8">
       <div>
         <ImgDiv
-          url={`${ENDPOINT_URL}/assets/cfm-weekly-mixtape.png`}
+          url={`${RESOURCES}/cfm-weekly-mixtape.png`}
           alt="Crooze FM Weekly Mixtape"
           className="w-full mb-6"
           text="CFM Weekly Mixtape"
@@ -147,7 +147,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
             </div>
             <div className="flex items-center justify-between">
               <Download
-                audioUrl={selectedMixtape.azureUrl}
+                audioUrl={selectedMixtape.d_url}
                 fileName={`${selectedMixtape.title}.mp3`}
               />
               <ViewerBoard count={selectedMixtape.title.length} />
@@ -177,15 +177,17 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
             return (
               <div
                 key={mixtape.id}
-                onClick={() => handleSelect(mixtape)}
                 className={`group p-3 rounded-sm cursor-pointer transition-all duration-300 ${
                   isSelected
                     ? "bg-red/10 dark:bg-red/20 border-l-4 border-red"
                     : "bg-gray/10 dark:bg-gray/40 hover:bg-gray/20 dark:hover:bg-gray/70 border-l-4 border-transparent"
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
+                <div className="flex items-center justify-between space-x-2">
+                  <div
+                    onClick={() => handleSelect(mixtape)}
+                    className="flex-1 flex items-center"
+                  >
                     <div className="w-8 h-8 flex items-center justify-center mr-3">
                       {isActive && isAudioPlaying ? (
                         <div className="w-4 h-4 rounded-full bg-red animate-pulse"></div>
@@ -199,12 +201,21 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                       <p>{mixtape.title}</p>
                     </div>
                   </div>
-
-                  {mixtapes.indexOf(mixtape) === 0 && (
-                    <div className="px-2 opacity-70">
-                      <FaWandMagicSparkles size={12} title="Latest Mixtape" />
-                    </div>
-                  )}
+                  <div className="flex-shrink-0">
+                    {mixtapes.indexOf(mixtape) === 0 ? (
+                      <div className="px-2 opacity-70">
+                        <FaWandMagicSparkles size={12} title="Latest Mixtape" />
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center opacity-80">
+                        <Download
+                          audioUrl={mixtape.d_url}
+                          fileName={`${mixtape.title}.mp3`}
+                          sronly={true}
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             );

@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useMiniPlayer } from "@/app/context/mini-player-context";
 import { useDownload } from "@/app/context/download-context";
 
@@ -15,29 +15,29 @@ export function useAudioControls() {
     setIsAnimating,
   } = useMiniPlayer();
 
-  const { progress } = useDownload();
+  const { isDownloadMode, progress } = useDownload();
+
+  const lastPausedTimeRef = useRef<number>(0);
 
   useEffect(() => {
-    if (progress > 0 && audioRef.current) {
+    if (!audioRef.current) return;
+
+    if (isDownloadMode && progress > 0) {
       if (!audioRef.current.paused) {
+        lastPausedTimeRef.current = audioRef.current.currentTime;
         audioRef.current.pause();
         setIsAudioPlaying(false);
+        setIsStreamActive(true);
       }
-
-      audioRef.current.src = "";
-
-      setIsStreamActive(false);
-      setIsStreaming(false);
-      setIsCollapse(false);
-
-      setTimeout(() => {
-        setIsMiniPlayerOpen(false);
-      }, 1000);
       setIsLoading(true);
+    } else if (!isDownloadMode && progress === 0) {
+      // Reset isLoading when download finishes
+      setIsLoading(false);
     }
   }, [
     progress,
     audioRef,
+    isDownloadMode,
     setIsLoading,
     setIsAudioPlaying,
     setIsStreamActive,
@@ -77,7 +77,6 @@ export function useAudioControls() {
           });
       } else {
         audioRef.current.pause();
-
         const previousSource = audioRef.current.src;
         audioRef.current.src = "";
 
@@ -94,7 +93,6 @@ export function useAudioControls() {
           }
 
           audioRef.current.load();
-
           audioRef.current.currentTime = 0;
 
           audioRef.current
@@ -108,7 +106,7 @@ export function useAudioControls() {
                 setTimeout(() => {
                   setIsCollapse(true);
                 }, 2000);
-              }, 4000);
+              }, 3000);
             })
             .catch((error) => {
               console.error(error);

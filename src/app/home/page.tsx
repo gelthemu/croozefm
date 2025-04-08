@@ -7,6 +7,7 @@ import PopularProfiles from "../i/team/components/popular";
 import { getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../news/components/recent-news";
 import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
+import { RESOURCES } from "@/data/endpoints";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Home",
     description:
-      "Welcome to Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Hit Music Always. Current News Daily. Browse your Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+      "CFM Pulse is the largest Crooze FM Fan Base. Home of Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
     url: "https://croozefm.geltaverse.com/home",
     type: "website",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/default.png",
-        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        url: `${RESOURCES}/default-opengraph.png`,
+        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
         width: 1200,
         height: 630,
       },
@@ -32,14 +33,14 @@ export const metadata: Metadata = {
   twitter: {
     title: "Home",
     description:
-      "Welcome to Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends. Stream Live Radio with an Improved Miniplayer. Hit Music Always. Current News Daily. Browse your Popular Shows, Presenter Profiles and the Gallery. Cheers!!!",
+      "CFM Pulse is the largest Crooze FM Fan Base. Home of Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
     card: "summary_large_image",
     site: "@geltaverse",
     creator: "@geltaverse",
     images: [
       {
-        url: "https://croozefm.blob.core.windows.net/images/default.png",
-        alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+        url: `${RESOURCES}/default-opengraph.png`,
+        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
       },
     ],
   },
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const recentArticles = getRecentNews(7).slice(1, 7);
+  const recentArticles = getRecentNews(10).filter((article) => article.image_url).slice(0, 6);
 
   return (
     <>

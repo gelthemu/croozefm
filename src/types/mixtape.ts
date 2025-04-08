@@ -8,6 +8,6 @@ export interface Mixtape {
   id: number;
   title: string;
   url: string;
-  azureUrl: string;
+  d_url: string;
   dj: DJ;
 }
