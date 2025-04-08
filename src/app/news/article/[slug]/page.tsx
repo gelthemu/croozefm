@@ -36,7 +36,6 @@ export default async function ArticlePage({
   const {
     headline,
     publication_date,
-    excerpt,
     category,
     content,
     image_url,
