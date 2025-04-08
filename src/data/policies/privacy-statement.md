@@ -104,3 +104,5 @@ We’ll update this Privacy Statement as **CFM Pulse** grows—like when we add 
 ### Contact Us
 
 Questions about your privacy? Email us at [cfm@geltaverse.com](mailto:cfm@geltaverse.com). We’re here to keep users comfortable and informed.
+
+<p className="font-light text-sm italic opacity-60 mt-8">By CFM Fans, for CFM Diehards</p>
