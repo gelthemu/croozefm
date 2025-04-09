@@ -150,7 +150,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
                 audioUrl={selectedMixtape.d_url}
                 fileName={`${selectedMixtape.title}.mp3`}
               />
-              <ViewerBoard count={selectedMixtape.title.length} />
+              <ViewerBoard count={selectedMixtape.title.length * 2} />
             </div>
             {!error && isDownloading && (
               <div
@@ -223,7 +223,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
         </div>
         <div>
           <p className="font-light text-sm italic opacity-60 mt-4">
-            {`Mixtapes obtained from www.croozefm.com, retrieved shortly following their upload to Hostinger. For details, see our `}
+            {`Mixtapes obtained from www.croozefm.com, retrieved shortly following their upload to Hostinger. See our `}
             <Link
               href="/policies/legal-notice"
               className="underline hover:text-red"

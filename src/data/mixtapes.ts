@@ -36,7 +36,7 @@ export const djs: Record<string, DJ> = {
 export const mixtapes: Mixtape[] = [
   {
     id: 1739941200,
-    title: "DJ Emma Vol 1",
+    title: "DJ Emma Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Emma-Vol-1-19th-Feb-2025_01.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-emma-vol-1-2025-02-19.mp3",
@@ -44,7 +44,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1740545820,
-    title: "DJ Banx Vol 1",
+    title: "DJ Banx Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/02/Crooze-FM-Weekly-Mixtapes-DJ-Banx-Vol-1.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-banx-vol-1-2025-02-26.mp3",
@@ -52,7 +52,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1741153985,
-    title: "Starcent DJ Vol 1",
+    title: "Starcent DJ Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Weekly-Mixtapes-Starcent-DJ-Vol-1.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-starcent-dj-vol-1-2025-03-05.mp3",
@@ -60,7 +60,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1741757450,
-    title: "DJ Nati J Vol 1",
+    title: "DJ Nati J Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/03/CroozeFM-Mixtape-DJNatiJ-1.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-nati-j-vol-1-2025-03-12.mp3",
@@ -68,7 +68,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1742362219,
-    title: "DJ Stinger Vol 1",
+    title: "DJ Stinger Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Weekly-Mixtapes-DJ-Stinger-19th-March-2025.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-stinger-vol-1-2025-03-19.mp3",
@@ -76,7 +76,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1742967019,
-    title: "DJ Modern Vol 1",
+    title: "DJ Modern Volume 1",
     url: "https://croozefm.com/wp-content/uploads/2025/03/Crooze-FM-Mixtapes-DJ-Modern-26th-March-2025.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-modern-vol-1-2025-03-26.mp3",
@@ -84,7 +84,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1743625087,
-    title: "Starcent DJ Vol 2",
+    title: "Starcent DJ Volume 2",
     url: "https://croozefm.com/wp-content/uploads/2025/04/CroozeFM-WeeklyMixtapes-2ndApril2025.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-starcent-dj-vol-2-2025-04-02.mp3",
@@ -92,7 +92,7 @@ export const mixtapes: Mixtape[] = [
   },
   {
     id: 1744176619,
-    title: "DJ Emma Vol 2",
+    title: "DJ Emma Volume 2",
     url: "https://croozefm.com/wp-content/uploads/2025/04/CroozeFM-Weekly-Mixtapes-8thApril2025.mp3",
     d_url:
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-emma-vol-2-2025-04-09.mp3",
