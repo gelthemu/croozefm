@@ -90,4 +90,12 @@ export const mixtapes: Mixtape[] = [
       "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-starcent-dj-vol-2-2025-04-02.mp3",
     dj: djs.starcent,
   },
+  {
+    id: 1744176619,
+    title: "DJ Emma Vol 2",
+    url: "https://croozefm.com/wp-content/uploads/2025/04/CroozeFM-Weekly-Mixtapes-8thApril2025.mp3",
+    d_url:
+      "https://storage.googleapis.com/cfm-weekly-mixtapes-2025/cfm-weekly-mixtape-dj-emma-vol-1-2025-02-19.mp3",
+    dj: djs.emma,
+  },
 ];

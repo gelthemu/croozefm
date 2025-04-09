@@ -35,10 +35,10 @@ export default function ImmediateRelease({
             <div className="text-left flex flex-col space-y-3">
               <H2Title title="CFM Weekly Mixtape" />
               <p>
-                Volume 2 mixtapes are heating up... A fresh Crooze FM Weekly
-                Mixtape drops every Wednesday!{" "}
+                The only Married Deejay in town dropped another mix... Vol 2. A
+                fresh Crooze FM Weekly Mixtape drops every Wednesday!{" "}
                 <Link
-                  href={`/news/article/${sortedMixtapes[0].id}-cfm-weekly-mixtape-every-wednesday`}
+                  href={`/news/article/cfm-weekly-mixtape-every-wednesday`}
                   aria-label="View All Mixtapes"
                   className="hover:underline text-turquoise"
                 >

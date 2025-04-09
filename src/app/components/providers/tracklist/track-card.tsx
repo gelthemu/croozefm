@@ -39,9 +39,10 @@ export default function TrackCard({
           {track.track_image ? (
             <Image
               src={track.track_image}
-              alt={`${track.track_title} cover`}
+              alt=""
               width={512}
               height={512}
+              unoptimized
               className="w-full h-full object-cover aspect-square _img_"
             />
           ) : null}
