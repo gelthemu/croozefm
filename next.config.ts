@@ -17,12 +17,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "croozefm.blob.core.windows.net",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cfmpulse-fxavapfdeybedqdt.z01.azurefd.net",
+        hostname: "assets.geltaverse.com",
         pathname: "/**",
       },
       {
