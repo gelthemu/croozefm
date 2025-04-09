@@ -37,10 +37,10 @@ export function formatTimestamp(timestamp: number): string {
 
     if (diff < week) {
       const daysAgo = Math.floor(diff / day);
-      return `${daysAgo}d ago`;
+      return `${daysAgo}d`;
     } else if (diff < 4 * week) {
       const weeksAgo = Math.floor(diff / week);
-      return `${weeksAgo}wk ago`;
+      return `${weeksAgo}wk`;
     } else {
       const formattedDate = new Intl.DateTimeFormat("en-US", {
         day: "2-digit",
