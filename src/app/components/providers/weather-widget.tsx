@@ -50,7 +50,7 @@ const WeatherWidget: React.FC<WeatherClass> = ({ className = "" }) => {
             <UgTime />
           </div>
         </div>
-        <div className="p-4 bg-gray/5 dark:bg-gray/50 rounded-md shadow shadow-gray/20 dark:shadow-light/5 opacity-[0.85]">
+        <div className="p-4 bg-gray/5 dark:bg-gray/50 rounded-sm shadow shadow-gray/20 dark:shadow-light/5 opacity-[0.85]">
           <div className="flex items-center justify-between space-x-4">
             <div className="flex items-center">
               <FaMapLocationDot className="mr-2" size={14} />

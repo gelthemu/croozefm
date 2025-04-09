@@ -1,16 +1,11 @@
 ---
 name: "Wesige Banyagi"
 show-hosted: "The BIG Seat"
-image-link: "https://croozefm.blob.core.windows.net/images/wesige-banyagi.png"
 isPopular: true
 social-links:
   x: "https://x.com/banyagi"
   insta: "https://www.instagram.com/braga_wesige_banyagi/"
-gallery:
-  [
-    "https://croozefm.blob.core.windows.net/images/wesige-banyagi-1.png",
-    "https://croozefm.blob.core.windows.net/images/wesige-banyagi-2.png",
-  ]
+gallery: ["wesige-banyagi-1.png", "wesige-banyagi-2.png"]
 code: "braga"
 keywords: "Wesige Banyagi, The Big Seat, Ugandan politics radio show, 91.2 Crooze Fm Big Seat"
 ---

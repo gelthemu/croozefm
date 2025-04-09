@@ -7,6 +7,7 @@ import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import { getPopularProfiles } from "@/lib/profiles-parser";
 import { useShuffledArray } from "@/app/components/tiny/fisher-yates-shuffle";
 import Carousel from "@/app/components/tiny/carousel";
+import { PROFILES } from "@/data/endpoints";
 
 export default function PopularProfiles() {
   const profiles = getPopularProfiles();
@@ -29,12 +30,12 @@ export default function PopularProfiles() {
             <Link
               href={`/i/${profile.id}`}
               key={profile.id}
-              className="relative group snap-center bg-gray/20 dark:bg-gray/50 rounded-md overflow-hidden flex-shrink-0 w-64 border-2 border-gray/80 dark:border-light/20"
+              className="relative group snap-center bg-gray/20 dark:bg-gray/50 rounded-sm overflow-hidden flex-shrink-0 w-52 border-2 border-gray/80 dark:border-light/20"
             >
               <div className="w-full aspect-[570/696] profile-image overflow-hidden">
                 <div className="relative w-full aspect-[570/696] bg-dark/60">
                   <Image
-                    src={profile.imageLink}
+                    src={`${PROFILES}/${profile.id}.png`}
                     alt={profile.name}
                     width={2280}
                     height={2784}
@@ -46,7 +47,7 @@ export default function PopularProfiles() {
                   </div>
                 </div>
               </div>
-              <div className="p-3.5 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
+              <div className="p-3 absolute w-full h-[40%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">
                 <div className="h-full w-full flex flex-col items-start justify-end">
                   <h3 className="text-light font-bold line-clamp-1 opacity-80">
                     {profile.name}

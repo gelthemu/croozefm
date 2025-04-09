@@ -1,7 +1,6 @@
 ---
 name: "Abou"
-show-hosted: "The Weekly Sports RoundUp"
-image-link: "https://croozefm.blob.core.windows.net/images/abou-champion.png"
+show-hosted: "Weekly Sports RoundUp"
 isPopular: true
 social-links:
   x: "https://x.com/AbouChampion8"
@@ -9,11 +8,10 @@ social-links:
   insta: "https://www.instagram.com/championabou/"
 gallery:
   [
-    "https://croozefm.blob.core.windows.net/images/abou-champion-1.png",
-    "https://croozefm.blob.core.windows.net/images/abou-champion-2.png",
-    "https://pbs.twimg.com/media/FfGOewuXEAAs4n3?format=jpg&name=medium",
-   6
-   
+    "abou-champion-1.png",
+    "abou-champion-2.png",
+    "abou-champion-3.png",
+    "abou-champion-4.png",
   ]
 code: "abou"
 keywords: "Abou Champion, Sports Bwino, Weekly Sports RoundUp, fun sports talk radio, half-seminarian, best dish washer"

@@ -1,10 +1,10 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-// import Head from "next/head";
-// import JsonLd from "@/app/components/providers/feed/json-ld";
+import Head from "next/head";
 import { getNewsArticle, getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../../components/recent-news";
+import SubmitArticle from "@/app/home/components/submit-article";
 import { splitMarkdownContent } from "@/lib/markdown-utils";
 import { calculateReadingTime } from "@/lib/reading-time";
 import ViewDisplay from "../components/view-counter/view-display";
@@ -15,6 +15,7 @@ import { ArticleFooter } from "./i/footer";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../../components/news-footer";
 import "@/app/styles/md/profile.css";
+import ArticleJsonLd from "./i/json-ld-data";
 
 export default async function ArticlePage({
   params,
@@ -53,7 +54,10 @@ export default async function ArticlePage({
 
   return (
     <>
-      <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
+      <Head>
+        <ArticleJsonLd article={article} />
+      </Head>
+      <div className="w-full sm:w-[95%] mx-auto text-left">
         <div className="mb-4 flex items-center justify-between md:text-xs font-light opacity-50">
           <small>{readingTime} read</small>
           <small>
@@ -99,6 +103,7 @@ export default async function ArticlePage({
             className="md:grid-cols-2 mt-6"
             title="Read More"
           />
+          <SubmitArticle />
         </div>
       </div>
       <Divider />

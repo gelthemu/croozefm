@@ -1,17 +1,12 @@
 ---
 name: "Da Problem Child"
-show-hosted: "The Most Wanted Hits Extra"
-image-link: "https://croozefm.blob.core.windows.net/images/da-problem-child.png"
+show-hosted: "Most Wanted Hits Extra"
 isPopular: true
 social-links:
   x: "https://x.com/ProbChild256"
   fb: "https://www.facebook.com/SteveBukII"
   insta: "https://www.instagram.com/probchild256/"
-gallery:
-  [
-    "https://croozefm.blob.core.windows.net/images/da-problem-child-1.png",
-    "https://croozefm.blob.core.windows.net/images/da-problem-child-2.png",
-  ]
+gallery: ["da-problem-child-1.png", "da-problem-child-2.png"]
 code: "steve"
 keywords: "Da Problem Child, Evening Switch radio show, The Most Wanted Xtra, Steve Da Problem Child bio, Crooze FM radio personality"
 ---

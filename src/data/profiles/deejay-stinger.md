@@ -1,7 +1,6 @@
 ---
 name: "DJ Stinger"
-show-hosted: "The Urban Breakfast"
-image-link: "https://croozefm.blob.core.windows.net/images/deejay-stinger.png"
+show-hosted: "Urban Breakfast"
 isPopular: true
 social-links:
   x: "https://x.com/deejaystingerug"
@@ -9,10 +8,10 @@ social-links:
   insta: "https://www.instagram.com/stinger.dj/"
 gallery:
   [
-    "https://croozefm.blob.core.windows.net/images/deejay-stinger-1.png",
-    "https://croozefm.blob.core.windows.net/images/deejay-stinger-2.png",
-    "https://pbs.twimg.com/media/Gb1dOF-XgAIrWcY?format=jpg&name=large",
-    "https://pbs.twimg.com/media/Gc-D0XtWcAEQPvA?format=jpg&name=large",
+    "deejay-stinger-1.png",
+    "deejay-stinger-2.png",
+    "deejay-stinger-3.png",
+    "deejay-stinger-4.png",
   ]
 code: "stinger"
 mixtape-code: "stinger"

@@ -4,8 +4,7 @@ import Hero from "../components/header-footer/hero";
 import OnAir from "../components/stream/on-air";
 import ImmediateRelease from "../components/announcement/for-immediate-release";
 import PopularProfiles from "../i/team/components/popular";
-import { getRecentNews } from "@/lib/news-parser";
-import RecentNews from "../news/components/recent-news";
+import RecentNews from "./components/recent-news";
 import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
 import { RESOURCES } from "@/data/endpoints";
 
@@ -51,8 +50,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const recentArticles = getRecentNews(10).filter((article) => article.image_url).slice(0, 6);
-
   return (
     <>
       <Hero />
@@ -63,10 +60,7 @@ export default function Home() {
       <Divider />
       <PopularProfiles />
       <Divider />
-      <RecentNews
-        articles={recentArticles}
-        className="md:grid-cols-2 lg:grid-cols-3"
-      />
+      <RecentNews />
       <Divider />
       <div className="w-full text-center text-sm font-medium">
         THIS SITE IS UNDER CONSTRUCTION

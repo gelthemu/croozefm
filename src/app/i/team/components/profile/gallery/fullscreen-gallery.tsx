@@ -173,7 +173,7 @@ const FullscreenCarousel: React.FC = () => {
             fill
             sizes="100vw"
             priority
-            className="object-contain filter grayscale-[0.75] _img_"
+            className="object-contain filter grayscale-[1] _img_"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

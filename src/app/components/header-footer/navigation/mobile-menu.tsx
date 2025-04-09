@@ -27,14 +27,14 @@ export const MobileMenu = ({ isOpen, onNavClick }: MobileMenuProps) => (
           <Logo />
         </div>
       </div>
-      <ul className="flex flex-col divide-y divide-light/10 px-4">
+      <ul className="w-full max-w-screen-xl mx-auto flex flex-col divide-y divide-light/10 px-4">
         {navLinks.map((link) => (
           <li key={link.name}>
             <NavLink link={link} onNavClick={onNavClick} isMobile={true} />
           </li>
         ))}
       </ul>
-      <div className="flex flex-col mb-6 px-4">
+      <div className="w-full max-w-screen-xl mx-auto flex flex-col mb-6 px-4">
         <MobileFooter onNavClick={onNavClick} />
         <div className="flex items-center justify-between">
           <div>

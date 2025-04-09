@@ -1,7 +1,6 @@
 ---
 name: "Derrick"
-show-hosted: "The Morning Addiction"
-image-link: "https://croozefm.blob.core.windows.net/images/derrick-ashiimwe.png"
+show-hosted: "Morning Addiction"
 isPopular: false
 social-links:
   x: "https://x.com/DerrickAshimwe"

@@ -10,10 +10,9 @@ export default async function NewsFooter({ view = true }: ArchiveProps) {
     <>
       <div className="w-full sm:w-[95%] text-left">
         <p className="mb-4">
-          At 91.2 Crooze FM, we don’t just break stories – we tell real stories
-          that matter to you. Tune in hourly to stay ahead with the latest
-          developments, in-depth insights, and the pulse of what’s happening in
-          your world. Your soundtrack to informed listening starts here!
+          We sweep the web to deliver real stories that matter to you. Check in
+          anytime for the latest finds, and user submissions. Got a story?
+          Submit it, anytime... your scoop!
         </p>
         <div className="mb-4">
           <XNewsButton view={view} />

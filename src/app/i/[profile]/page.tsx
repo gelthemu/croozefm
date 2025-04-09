@@ -13,7 +13,7 @@ import ProfileGallery from "../team/components/profile/gallery/gallery";
 import Divider from "@/app/components/providers/divs/divider";
 import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import LatestMixtapeFeed from "@/app/c/mixtapes/components/latest-mixtape-feed";
-import { RESOURCES } from "@/data/endpoints";
+import { RESOURCES, PROFILES } from "@/data/endpoints";
 import "@/app/styles/md/profile.css";
 
 export async function generateMetadata({
@@ -93,12 +93,16 @@ export default async function ProfilePage({
     return notFound();
   }
 
+  const getProfileGallery = (id: string, gallery: string[]) => {
+    return gallery.map((img) => `${PROFILES}/${id}/${img}`);
+  };
+
   return (
     <div className="w-full max-w-4xl mx-auto p-1">
       <div className="relative flex flex-col lg:flex-row">
         <div className="relative h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-md overflow-hidden">
           <Image
-            src={profile.imageLink}
+            src={`${PROFILES}/${profile.id}.png`}
             alt={profile.name}
             width={2280}
             height={2784}
@@ -158,7 +162,7 @@ export default async function ProfilePage({
             <>
               <Divider />
               <ProfileGallery
-                gallery={profile.gallery}
+                gallery={getProfileGallery(profile.id, profile.gallery)}
                 name={profile.name}
                 code={profile.code}
               />

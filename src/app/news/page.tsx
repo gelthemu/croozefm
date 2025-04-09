@@ -28,7 +28,7 @@ export default function NewsPage() {
     <>
       <div className="w-full sm:w-[95%] sm:mx-auto max-w-[740px] text-left">
         <div className=" flex flex-col">
-          <NewsHeader title="Crooze FM News" />
+          <NewsHeader title="Latest" />
           <CategoryFilter categories={categories} />
           <WeatherWidget className="mt-6" />
         </div>

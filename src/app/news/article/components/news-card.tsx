@@ -30,11 +30,11 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
       <div className="group text-left flex flex-col py-6">
         <div className="mb-2 select-none">
           {isPinned ? (
-            <span className="px-2 py-1 text-xs font-semibold rounded bg-red text-light w-fit flex items-center opacity-[0.8]">
+            <span className="px-2 py-1 text-xs font-semibold rounded-sm bg-red text-light w-fit flex items-center opacity-[0.8]">
               Promoted
             </span>
           ) : (
-            <span className="px-2 py-1 text-xs font-semibold rounded bg-gray/10 dark:bg-light/5 opacity-[0.75]">
+            <span className="px-2 py-1 text-xs font-semibold rounded-sm bg-gray/10 dark:bg-light/5 opacity-[0.75]">
               {category === null ? (
                 <FormatCategory category="news" />
               ) : (
@@ -56,7 +56,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
           </div>
           {image_url ? (
             <Link href={`/news/article/${slug}`} className="ml-2">
-              <div className="relative rounded-md overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
+              <div className="relative rounded-sm overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
                 <Image
                   src={image_url}
                   alt={headline}

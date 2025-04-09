@@ -1,18 +1,11 @@
 ---
 name: "Inyaa"
-show-hosted: "The Life Style Show"
-image-link: "https://croozefm.blob.core.windows.net/images/inyaa-clare.png"
+show-hosted: "CFM Lifestyle"
 isPopular: true
 social-links:
   x: "https://x.com/inyaaclare"
   insta: "https://www.instagram.com/inyaaclara/"
-gallery:
-  [
-
-    "https://croozefm.blob.core.windows.net/images/inyaa-clare-1.png",
-    "https://croozefm.blob.core.windows.net/images/inyaa-clare-2.png",
-
-  ]
+gallery: ["inyaa-clare-1.png", "inyaa-clare-2.png"]
 code: "inyaa"
 keywords: "Inyaa Clar, CFM Lifestyle Show, Sunday Love, Crooze FM radio host Inyaa Clare, lifestyle"
 ---

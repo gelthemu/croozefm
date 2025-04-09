@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PresenterProfile } from "@/types/profile";
+import { PROFILES } from "@/data/endpoints";
 
 interface PresenterCardProps {
   profile: PresenterProfile;
@@ -21,12 +22,12 @@ const PresenterCard: React.FC<PresenterCardProps> = ({ profile }) => {
         >
           <div className="h-80 max-h-[500px] w-full bg-gray/30 dark:bg-gray/50 overflow-hidden">
             <Image
-              src={profile.imageLink}
+              src={`${PROFILES}/${profile.id}.png`}
               alt={profile.name}
               width={2280}
               height={2784}
               priority={true}
-              className="w-full object-center-top aspect-[570/696] group-hover:scale-105 transition-transform duration-200 grayscale-[0.75] _img_"
+              className="w-full object-center-top aspect-[570/696] group-hover:scale-105 transition-transform duration-200 grayscale-[0.8] _img_"
             />
           </div>
           <div className="p-3.5 absolute w-full h-[35%] bottom-0 left-0 text-left bg-gradient-to-t from-dark to-transparent">

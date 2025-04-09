@@ -1,7 +1,6 @@
 ---
 name: "Monique"
-show-hosted: "The Morning Addiction"
-image-link: "https://croozefm.blob.core.windows.net/images/monique-mbabazi.png"
+show-hosted: "Morning Addiction"
 isPopular: true
 social-links:
   x: "https://x.com/MomoCrooze"
@@ -9,9 +8,10 @@ social-links:
   insta: "https://www.instagram.com/monica_mbabazi_/"
 gallery:
   [
-    "https://croozefm.blob.core.windows.net/images/monique-mbabazi-1.png",
-    "https://croozefm.blob.core.windows.net/images/monique-mbabazi-2.png",
-    "4444",
+    "monique-mbabazi-1.png",
+    "monique-mbabazi-2.png",
+    "monique-mbabazi-3.png",
+    "monique-mbabazi-4.png",
   ]
 code: "momo"
 keywords: "Monique Mbabazi, Morning Addiction, Voice-over artist, Crooze FM news editor, Journalism graduate Ndejje University"

@@ -25,7 +25,7 @@ const RecentNews: React.FC<RecentNewsProps> = ({
           {articles.map((article) => (
             <div
               key={article.slug}
-              className="group flex flex-row justify-center p-1.5 bg-gray/10 dark:bg-light/5 rounded-md"
+              className="group flex flex-row justify-center p-1.5 bg-gray/10 dark:bg-light/5 rounded-sm"
             >
               {article.image_url ? (
                 <Link href={`/news/article/${article.slug}`} className="mr-2.5">
@@ -55,7 +55,7 @@ const RecentNews: React.FC<RecentNewsProps> = ({
         </div>
 
         <div className="flex items-center justify-end mx-auto mt-5">
-          <ViewAllBtn href="/news" text="Follow All Updates" />
+          <ViewAllBtn href="/news" text="Follow The News" />
         </div>
       </div>
     </>

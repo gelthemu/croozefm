@@ -8,7 +8,6 @@ export interface PresenterProfile {
   id: string;
   name: string;
   showHosted: string;
-  imageLink: string;
   isPopular: boolean;
   socialLinks: SocialLinks;
   description: string;

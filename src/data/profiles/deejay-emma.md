@@ -1,7 +1,6 @@
 ---
 name: "DJ Emma"
-show-hosted: "The Fat Friday Mix"
-image-link: "https://croozefm.blob.core.windows.net/images/deejay-emma.png"
+show-hosted: "Fat Friday Mix"
 isPopular: true
 social-links:
   x: "https://x.com/DeejayEmma_Cfm"
@@ -9,12 +8,12 @@ social-links:
   insta: "https://www.instagram.com/deejay.emma_official/"
 gallery:
   [
-    "https://croozefm.blob.core.windows.net/images/deejay-emma-1.png",
-    "https://croozefm.blob.core.windows.net/images/deejay-emma-2.png",
-    "https://pbs.twimg.com/media/FnfnDbjagAE6AP9?format=jpg&name=medium",
-    "https://pbs.twimg.com/media/GSY2pexWEAE6FF4?format=jpg&name=large",
-    "https://pbs.twimg.com/media/FeAWESPX0AEnq5n?format=jpg&name=large",
-    "https://pbs.twimg.com/media/FFOCBVCX0BA9_hT?format=jpg&name=medium",
+    "deejay-emma-1.png",
+    "deejay-emma-2.png",
+    "deejay-emma-3.png",
+    "deejay-emma-4.png",
+    "deejay-emma-5.png",
+    "deejay-emma-6.png",
   ]
 code: "emma"
 mixtape-code: "emma"

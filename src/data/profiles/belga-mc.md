@@ -1,17 +1,12 @@
 ---
 name: "Belga"
-show-hosted: "The Morning Addiction"
-image-link: "https://croozefm.blob.core.windows.net/images/belga-mc.png"
+show-hosted: "Morning Addiction"
 isPopular: true
 social-links:
   x: "https://x.com/BelgaLive1997"
   fb: "https://www.facebook.com/bulega.deo"
   insta: "https://www.instagram.com/belgalive1/"
-gallery:
-  [
-    "https://croozefm.blob.core.windows.net/images/belga-mc-1.png",
-    "https://croozefm.blob.core.windows.net/images/belga-mc-2.png",
-  ]
+gallery: ["belga-mc-1.png", "belga-mc-2.png"]
 code: "belga"
 keywords: "Belga MC, Crooze FM, Morning Addiction, Western Uganda radio star, Fat Friday Mix, voice-over artist"
 ---

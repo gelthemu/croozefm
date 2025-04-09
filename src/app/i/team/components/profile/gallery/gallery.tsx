@@ -57,7 +57,7 @@ const ProfileGallery: React.FC<GalleryProps> = ({ gallery, name, code }) => {
                 height={2784}
                 priority={index < 4}
                 alt={`${name} - ${index + 1}`}
-                className="w-full h-full object-cover aspect-[570/696] filter grayscale-[0.85] transition-all duration-300 _img_"
+                className="w-full h-full object-cover aspect-[570/696] filter grayscale-[0.95] transition-all duration-300 _img_"
               />{" "}
             </div>
             <div
