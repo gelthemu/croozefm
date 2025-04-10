@@ -74,7 +74,7 @@ body {
 
 .profile-image {
   aspect-ratio: 570 / 696;
-  background-image: url("https://assets.geltaverse.com/profiles/profile-bg-image.png");
+  background-image: url("https://assets.geltaverse.com/profiles/profile-bg-image.webp");
   background-size: cover;
   background-position: center top;
   background-color: rgba(0, 0, 0, 0.4);

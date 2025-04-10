@@ -5,7 +5,7 @@ isPopular: true
 social-links:
   x: "https://x.com/banyagi"
   insta: "https://www.instagram.com/braga_wesige_banyagi/"
-gallery: ["wesige-banyagi-1.png", "wesige-banyagi-2.png"]
+gallery: ["wesige-banyagi-1.webp", "wesige-banyagi-2.webp"]
 code: "braga"
 keywords: "Wesige Banyagi, The Big Seat, Ugandan politics radio show, 91.2 Crooze Fm Big Seat"
 ---

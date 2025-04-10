@@ -8,10 +8,10 @@ social-links:
   insta: "https://www.instagram.com/championabou/"
 gallery:
   [
-    "abou-champion-1.png",
-    "abou-champion-2.png",
-    "abou-champion-3.png",
-    "abou-champion-4.png",
+    "abou-champion-1.webp",
+    "abou-champion-2.webp",
+    "abou-champion-3.webp",
+    "abou-champion-4.webp",
   ]
 code: "abou"
 keywords: "Abou Champion, Sports Bwino, Weekly Sports RoundUp, fun sports talk radio, half-seminarian, best dish washer"

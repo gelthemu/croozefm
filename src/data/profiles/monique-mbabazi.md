@@ -8,10 +8,10 @@ social-links:
   insta: "https://www.instagram.com/monica_mbabazi_/"
 gallery:
   [
-    "monique-mbabazi-1.png",
-    "monique-mbabazi-2.png",
-    "monique-mbabazi-3.png",
-    "monique-mbabazi-4.png",
+    "monique-mbabazi-1.webp",
+    "monique-mbabazi-2.webp",
+    "monique-mbabazi-3.webp",
+    "monique-mbabazi-4.webp",
   ]
 code: "momo"
 keywords: "Monique Mbabazi, Morning Addiction, Voice-over artist, Crooze FM news editor, Journalism graduate Ndejje University"

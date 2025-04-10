@@ -8,10 +8,10 @@ social-links:
   insta: "https://www.instagram.com/stinger.dj/"
 gallery:
   [
-    "deejay-stinger-1.png",
-    "deejay-stinger-2.png",
-    "deejay-stinger-3.png",
-    "deejay-stinger-4.png",
+    "deejay-stinger-1.webp",
+    "deejay-stinger-2.webp",
+    "deejay-stinger-3.webp",
+    "deejay-stinger-4.webp",
   ]
 code: "stinger"
 mixtape-code: "stinger"

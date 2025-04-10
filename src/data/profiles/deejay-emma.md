@@ -8,12 +8,12 @@ social-links:
   insta: "https://www.instagram.com/deejay.emma_official/"
 gallery:
   [
-    "deejay-emma-1.png",
-    "deejay-emma-2.png",
-    "deejay-emma-3.png",
-    "deejay-emma-4.png",
-    "deejay-emma-5.png",
-    "deejay-emma-6.png",
+    "deejay-emma-1.webp",
+    "deejay-emma-2.webp",
+    "deejay-emma-3.webp",
+    "deejay-emma-4.webp",
+    "deejay-emma-5.webp",
+    "deejay-emma-6.webp",
   ]
 code: "emma"
 mixtape-code: "emma"

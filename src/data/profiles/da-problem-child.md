@@ -6,7 +6,7 @@ social-links:
   x: "https://x.com/ProbChild256"
   fb: "https://www.facebook.com/SteveBukII"
   insta: "https://www.instagram.com/probchild256/"
-gallery: ["da-problem-child-1.png", "da-problem-child-2.png"]
+gallery: ["da-problem-child-1.webp", "da-problem-child-2.webp"]
 code: "steve"
 keywords: "Da Problem Child, Evening Switch radio show, The Most Wanted Xtra, Steve Da Problem Child bio, Crooze FM radio personality"
 ---

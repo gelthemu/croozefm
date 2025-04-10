@@ -5,7 +5,7 @@ isPopular: true
 social-links:
   x: "https://x.com/inyaaclare"
   insta: "https://www.instagram.com/inyaaclara/"
-gallery: ["inyaa-clare-1.png", "inyaa-clare-2.png"]
+gallery: ["inyaa-clare-1.webp", "inyaa-clare-2.webp"]
 code: "inyaa"
 keywords: "Inyaa Clar, CFM Lifestyle Show, Sunday Love, Crooze FM radio host Inyaa Clare, lifestyle"
 ---

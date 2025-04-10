@@ -6,7 +6,7 @@ social-links:
   x: "https://x.com/BelgaLive1997"
   fb: "https://www.facebook.com/bulega.deo"
   insta: "https://www.instagram.com/belgalive1/"
-gallery: ["belga-mc-1.png", "belga-mc-2.png"]
+gallery: ["belga-mc-1.webp", "belga-mc-2.webp"]
 code: "belga"
 keywords: "Belga MC, Crooze FM, Morning Addiction, Western Uganda radio star, Fat Friday Mix, voice-over artist"
 ---
