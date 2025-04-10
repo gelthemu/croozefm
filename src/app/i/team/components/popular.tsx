@@ -35,7 +35,7 @@ export default function PopularProfiles() {
               <div className="w-full aspect-[570/696] profile-image overflow-hidden">
                 <div className="relative w-full aspect-[570/696] bg-dark/60">
                   <Image
-                    src={`${PROFILES}/${profile.id}.png`}
+                    src={`${PROFILES}/${profile.id}.webp`}
                     alt={profile.name}
                     width={2280}
                     height={2784}

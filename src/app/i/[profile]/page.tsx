@@ -37,7 +37,7 @@ export async function generateMetadata({
         0,
         180
       )}... CFM Pulse is the largest Crooze FM Fan Base. By CFM Fans, for CFM Diehards.!!!`,
-    keywords: `91.2 Crooze Fm, ${profile.keywords}, Crooze fm team, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm presenters, Crooze fm radio hosts, Crooze fm staff, Crooze fm djs, Crooze fm radio team, Crooze fm on-air talent`,
+    keywords: `CFM Pulse, ${profile.keywords}, Crooze fm team, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm presenters, Crooze fm radio hosts, Crooze fm staff, Crooze fm djs, Crooze fm radio team, Crooze fm on-air talent`,
     openGraph: {
       title: `${profile.name}`,
       description: `${profile.description
@@ -102,7 +102,7 @@ export default async function ProfilePage({
       <div className="relative flex flex-col lg:flex-row">
         <div className="relative h-full w-[90%] profile-image sm:w-[75%] md:w-[70%] mx-auto lg:mx-0 -mb-20 lg:-mb-0 lg:-mr-20 lg:mt-20 z-10 lg:w-[50%] shadow-lg shadow-dark/80 dark:shadow-light/20 rounded-md overflow-hidden">
           <Image
-            src={`${PROFILES}/${profile.id}.png`}
+            src={`${PROFILES}/${profile.id}.webp`}
             alt={profile.name}
             width={2280}
             height={2784}

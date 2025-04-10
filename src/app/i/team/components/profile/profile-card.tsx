@@ -22,7 +22,7 @@ const PresenterCard: React.FC<PresenterCardProps> = ({ profile }) => {
         >
           <div className="h-80 max-h-[500px] w-full bg-gray/30 dark:bg-gray/50 overflow-hidden">
             <Image
-              src={`${PROFILES}/${profile.id}.png`}
+              src={`${PROFILES}/${profile.id}.webp`}
               alt={profile.name}
               width={2280}
               height={2784}
