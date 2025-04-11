@@ -4,7 +4,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { getNewsArticle, getRecentNews } from "@/lib/news-parser";
 import RecentNews from "../../components/recent-news";
-import SubmitArticle from "@/app/home/components/submit-article";
+import SubmitArticle from "@/app/home/components/submit-anything";
 import { splitMarkdownContent } from "@/lib/markdown-utils";
 import { calculateReadingTime } from "@/lib/reading-time";
 import ViewDisplay from "../components/view-counter/view-display";
@@ -64,7 +64,6 @@ export default async function ArticlePage({
             <ViewDisplay slug={slug} initialCount={initialViewCount} />
           </small>
         </div>
-
         <article className="rounded-sm shadow shadow-gray/20 dark:shadow-light/5 overflow-hidden border-y-4 border-red">
           {image_url && (
             <div className="relative w-full overflow-hidden">
@@ -96,14 +95,16 @@ export default async function ArticlePage({
           </div>
           <ArticleFooter title={headline} slug={slug} />
         </article>
-
-        <div className="my-10">
+        <div className="my-10 space-y-6">
+          <SubmitArticle
+            title="Got a Scoop We Missed?"
+            text={`Found a news-worthy article we haven't covered? Submit the link in a text message and we'll scrape it. Don't be selfish—share the story with us, we wanna read it too!`}
+          />
           <RecentNews
             articles={recentArticles}
             className="md:grid-cols-2 mt-6"
             title="Read More"
           />
-          <SubmitArticle />
         </div>
       </div>
       <Divider />

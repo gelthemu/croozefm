@@ -13,6 +13,7 @@ import {
   Tweet1899546714740048029,
   Tweet1901626548081271292,
   Tweet1904593406178828671,
+  Tweet1910471294291787879,
 } from "@/app/components/providers/feed/twitter-feed";
 import {
   Srh1,
@@ -53,6 +54,7 @@ const componentMap: Record<string, React.FC<CustomSectionProps>> = {
   tweet1899546714740048029: () => <Tweet1899546714740048029 />,
   tweet1901626548081271292: () => <Tweet1901626548081271292 />,
   tweet1904593406178828671: () => <Tweet1904593406178828671 />,
+  tweet1910471294291787879: () => <Tweet1910471294291787879 />,
 };
 
 const CustomSection: React.FC<CustomSectionProps> = ({

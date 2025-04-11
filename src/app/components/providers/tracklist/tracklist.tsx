@@ -21,7 +21,7 @@ export default function Tracklist() {
               <TrackCard
                 track={currentTrack}
                 isCurrent={true}
-                className="w-full shadow shadow-gray/40 dark:shadow-light/20"
+                className="w-full shadow shadow-gray/20 dark:shadow-light/10"
               />
             </div>
           )}

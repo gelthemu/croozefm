@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import { mixtapes } from "@/data/mixtapes";
-import { MixtapeBtn, MixtapeDownloadBtn } from "@/app/c/mixtapes/components/mixtape-btn";
+import {
+  MixtapeBtn,
+  MixtapeDownloadBtn,
+} from "@/app/c/mixtapes/components/mixtape-btn";
 
 interface LatestMixtapeFeedProps {
   code: string;
@@ -30,8 +33,8 @@ export default function LatestMixtapeFeed({ code }: LatestMixtapeFeedProps) {
             </p>
           </div>
           <div className="mb-4 flex flex-row space-x-3">
-                        <MixtapeBtn mixtape={sortedMixtapes[0]} /> <MixtapeDownloadBtn />
-                      </div>
+            <MixtapeBtn mixtape={sortedMixtapes[0]} /> <MixtapeDownloadBtn />
+          </div>
           <div className="flex flex-wrap">
             <p className="mr-1.5">Rewind it! Blast it! OWN IT!</p>
             <Link

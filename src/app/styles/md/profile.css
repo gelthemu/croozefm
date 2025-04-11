@@ -11,6 +11,10 @@
   }
 }
 
+.prose div {
+  @apply my-6;
+}
+
 .prose h3 {
   @apply font-semibold;
   display: inline;

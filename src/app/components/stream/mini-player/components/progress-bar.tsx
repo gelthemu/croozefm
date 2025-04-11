@@ -24,14 +24,16 @@ export default function ProgressBar({
     >
       <div className="w-full h-fit bg-light dark:bg-dark/40 border border-dark/30 dark:border-light/10">
         <div
-          className={`w-full h-[3px] transition-all duration-[0.25s] ${
+          className={`relative w-full h-[3px] transition-all duration-[0.25s] ${
             isStreaming && isAudioPlaying ? "animate-stream" : ""
           } bg-red`}
           style={{
             width: isStreaming ? "10%" : `${progress}%`,
           }}
-        />
-      </div>{" "}
+        >
+          <div className="w-[8px] h-[8px] absolute -right-1 top-1/2 -translate-y-1/2 rounded-full bg-red"></div>
+        </div>
+      </div>
     </div>
   );
 }

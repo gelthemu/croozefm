@@ -57,7 +57,7 @@ export default function DownloadStatus() {
           <>
             {error ? (
               <div>
-                <span className="text-red opacity-90">{error}</span>
+                <span className="text-red text-sm leading-[1] opacity-90">{error}</span>
               </div>
             ) : progress > 0 ? (
               <div className="opacity-90 flex flex-col mb-3">
@@ -77,10 +77,23 @@ export default function DownloadStatus() {
                     {progress}%
                   </div>
                 </div>
-                <div className="w-full h-fit bg-light/40 border border-light/40 rounded-sm">
+                <div className="w-full h-fit bg-gray/10 border border-light/40 rounded-sm overflow-hidden relative">
                   <div
-                    className="h-[8px] transition-all duration-[0.25s] bg-red"
-                    style={{ width: `${progress}%` }}
+                    className="relative h-[10px] max-w-full transition-[width] duration-[0.5s] ease-linear"
+                    style={{
+                      width: `${progress}%`,
+                      backgroundImage:
+                        "linear-gradient(90deg, #f37021, #c9234a, #645faa, #0089cf, #00cc99)",
+                    }}
+                  >
+                    <span
+                      className="absolute inset-0 bg-light/20 opacity-0 animate-pulse rounded-sm"
+                      style={{ animation: "pulseGlow 1.25s infinite" }}
+                    ></span>
+                  </div>
+                  <div
+                    className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-transparent via-light/30 to-transparent animate-wave"
+                    style={{ animation: "waveMove 2s infinite linear" }}
                   ></div>
                 </div>
               </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getRecentNews } from "@/lib/news-parser";
 import { FormatSimpleDate } from "@/app/components/tiny/format-date";
 import ViewAllBtn from "@/app/components/tiny/viewallbtn";
-import SubmitArticle from "./submit-article";
+import SubmitAnything from "./submit-anything";
 
 const RecentNews: React.FC = () => {
   const articles = getRecentNews(10)
@@ -75,7 +75,7 @@ const RecentNews: React.FC = () => {
                         alt=""
                         width={600}
                         height={400}
-                        className="w-full object-cover rounded-sm aspect-[1.5/1] grayscale-[0.5] _img_"
+                        className="w-full object-cover rounded-sm aspect-[1.5/1] transition-transform duration-500 group-hover:scale-105 grayscale-[0.5] _img_"
                       />{" "}
                     </div>
                   </div>
@@ -99,7 +99,10 @@ const RecentNews: React.FC = () => {
       </div>
 
       <div>
-        <SubmitArticle />
+        <SubmitAnything
+          title="Got a Scoop We Missed?"
+          text={`Found a news-worthy article we haven't covered? Submit the link in a text message and we'll scrape it. Don't be selfish—share the story with us, we wanna read it too!`}
+        />
       </div>
     </div>
   );

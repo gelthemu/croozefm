@@ -8,7 +8,7 @@ social-links:
   insta: "https://www.instagram.com/probchild256/"
 gallery: ["da-problem-child-1.webp", "da-problem-child-2.webp"]
 code: "steve"
-keywords: "Da Problem Child, Evening Switch radio show, The Most Wanted Xtra, Steve Da Problem Child bio, Crooze FM radio personality"
+keywords: "da problem child, evening switch, the most wanted xtra, steve bukulu"
 ---
 
 Steve, now known as Da Problem Child, is the lively voice you hear on Crooze FM. As a kid, he dreamed big, and with no Netflix back then, radio was his escape. He fell in love with not just listening but creating those magical moments on air.

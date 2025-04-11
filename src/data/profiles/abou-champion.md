@@ -14,7 +14,7 @@ gallery:
     "abou-champion-4.webp",
   ]
 code: "abou"
-keywords: "Abou Champion, Sports Bwino, Weekly Sports RoundUp, fun sports talk radio, half-seminarian, best dish washer"
+keywords: "abou champion, sports bwino, weekly sports roundUp, half-seminarian, best dish washer"
 ---
 
 Abou Champion is a super cool radio host and sports expert with tons of experience. He knows everything about football, basketball, tennis, rugby, and athletics! His shows are the best:

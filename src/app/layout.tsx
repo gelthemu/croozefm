@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/lib/google-analytics";
 import CookieConsent from "./cookieconsent";
 import type { Metadata, Viewport } from "next";
-import { Big_Shoulders_Display } from "next/font/google";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProviders } from "./components/providers/theme-provider";
@@ -21,6 +20,8 @@ import DownloadStatus from "./c/mixtapes/components/downloads/download-status";
 import { SuggestionFormProvider } from "./context/suggestion-form-context";
 import SuggestionForm from "./components/providers/suggestion-form";
 import { RESOURCES } from "@/data/endpoints";
+import PageJsonLd from "./home/components/json-ld-data";
+import { CanonicalUrl } from "./home/components/canonical-url";
 import "./styles/globals.css";
 
 const sans = localFont({
@@ -29,13 +30,6 @@ const sans = localFont({
   display: "swap",
   style: "normal",
   preload: true,
-});
-
-const bigShoulders = Big_Shoulders_Display({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-big-shoulders",
 });
 
 const ga_id = "G-RLHVV5YR9Y";
@@ -54,58 +48,26 @@ export const metadata: Metadata = {
     default: "Hi | CFM Pulse",
   },
   description:
-    "CFM Pulse is the largest Crooze FM Fan Base. Home of Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
+    "CFM Pulse is the largest Crooze FM Fan Base. Home to Fans of Western Uganda's Biggest Radio Station. By CFM Fans, for CFM Diehards.",
   keywords:
-    "CFM Pulse, 91.2 Crooze FM, crooze fm online, Western Uganda's Biggest Radio Station, Great Music, Great Friends, Crooze fm stream live, Western Uganda, Mbarara, Mbarara City, Muti-lane, Ntare Road, Crooze FM Mixtapes, The Morning Addiction, The Lifestyle Show, The Most Wanted Hits, African Countdown, Evening Switch, Hits Selector, Sports Bwino, Fat Friday Mix, Urban Breakfast, Inyaa Clare, Belga MC, Monique Mbabazi, African music, Sports Updates, Bwino, Kafulu wa Bwino, Crooze FM News",
-  metadataBase: new URL("https://croozefm.geltaverse.com"),
+    "cfm pulse, 91.2 crooze fm, crooze fm online, western uganda, crooze fm stream live, mbarara city, crooze fm mixtapes, african music",
+  metadataBase: new URL("https://cfm.geltaverse.com"),
   applicationName: "CFM Pulse",
   creator: "Gelthem Mucunguzi",
   publisher: "Gelthem Mucunguzi",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      {
-        url: "/favicon-16x16.png",
-        type: "image/png",
-        sizes: "16x16",
-      },
-      {
-        url: "/favicon-32x32.png",
-        type: "image/png",
-        sizes: "32x32",
-      },
-      {
-        url: "/android-chrome-192x192.png",
-        type: "image/png",
-        sizes: "192x192",
-      },
-      {
-        url: "/android-chrome-512x512.png",
-        type: "image/png",
-        sizes: "512x512",
-      },
-    ],
-    apple: [
-      {
-        url: "/apple-touch-icon.png",
-        sizes: "180x180",
-      },
-    ],
-  },
-  manifest: "/site.webmanifest",
 
   openGraph: {
     title: {
       template: "%s | CFM Pulse",
-      default: "Hi | CFM Pulse",
+      default: "",
     },
-    description: "Home of Fans of Western Uganda's Biggest Radio Station",
-    url: "https://cfm.geltaverse.com",
+    description: "Home to Fans of Western Uganda's Biggest Radio Station.",
+    url: "https://cfm.geltaverse.com/",
     type: "website",
     images: [
       {
         url: `${RESOURCES}/default-opengraph.png`,
-        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
+        alt: "Home to Fans of Western Uganda's Biggest Radio Station",
         width: 1200,
         height: 630,
       },
@@ -115,16 +77,16 @@ export const metadata: Metadata = {
   twitter: {
     title: {
       template: "%s | CFM Pulse",
-      default: "Hi | CFM Pulse",
+      default: "",
     },
-    description: "Home of Fans of Western Uganda's Biggest Radio Station",
+    description: "Home to Fans of Western Uganda's Biggest Radio Station",
     card: "summary_large_image",
     site: "@geltaverse",
     creator: "@geltaverse",
     images: [
       {
         url: `${RESOURCES}/default-opengraph.png`,
-        alt: "Home of Fans of Western Uganda's Biggest Radio Station",
+        alt: "Home to Fans of Western Uganda's Biggest Radio Station",
       },
     ],
   },
@@ -138,20 +100,72 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://geltaverse.com" />
+        <link rel="dns-prefetch" href="https://geltaverse.com" />
+        <link rel="preconnect" href="https://assets.geltaverse.com" />
+        <link rel="dns-prefetch" href="https://assets.geltaverse.com" />
+        <link rel="preconnect" href="https://transaudio.geltaverse.com/" />
+        <link rel="dns-prefetch" href="https://transaudio.geltaverse.com/" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+        <link rel="mask-icon" href="/cfm-pulse-svg.svg" color="#151515" />
+
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#151515" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144.png" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        <link
+          rel="icon"
+          href="/favicon-16.png"
+          sizes="16x16"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/favicon-32.png"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link rel="icon" href="/cfm-pulse-svg.svg" type="image/svg+xml" />
+        <link
+          rel="icon"
+          href="/favicon-96.png"
+          sizes="96x96"
+          type="image/png"
+        />
+        <CanonicalUrl />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         />
         <GoogleAnalytics ga_id={ga_id} />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="#151515"
+        ></meta>
+        <meta name="msapplication-TileColor" content="#151515" />
+        <meta property="og:site_name" content="CFM Pulse" />
+        <meta property="og:locale" content="en_US" />
         <meta
           name="google-site-verification"
           content="OfHaVPKM9Wu-vYzI9izprYBxt9AaQM7LmbovFBXMTDk"
         />
         <meta name="msvalidate.01" content="781D56DEEBBD64612B4741E403DBABE7" />
+        <PageJsonLd />
       </head>
-      <body
-        className={`${sans.variable} ${bigShoulders.variable} relative antialiased`}
-      >
+      <body className={`${sans.variable} relative antialiased`}>
         <DownloadProvider>
           <ThemeProviders>
             <div className="w-full font-sans text-dark dark:text-light">

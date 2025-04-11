@@ -15,7 +15,7 @@ gallery:
   ]
 code: "stinger"
 mixtape-code: "stinger"
-keywords: "DJ Stinger, 91.2 Crooze Fm dj, Morning Addiction, Urban Breakfast Crooze Fm, Shooters Bar & Grill, resident DJ Shooters Bar & Grill"
+keywords: "dj stinger, crooze fm dj, morning addiction, urban breakfast, shooters bar"
 ---
 
 DJ Stinger is making waves in the radio and club scenes! Known for his dynamic DJ sets and playlists that everyone loves, he plays everything from today's hits to timeless classics. His energy lights up any place he spins.

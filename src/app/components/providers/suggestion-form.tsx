@@ -37,7 +37,7 @@ export default function SuggestionForm() {
     setFormStatus({ isSubmitting: true, isSubmitted: false, isError: false });
 
     try {
-      const response = await fetch("https://fmbold.com/s/9xvzN", {
+      const response = await fetch("https://formbold.com/s/9xvzN", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export default function SuggestionForm() {
             phone: "",
             message: "",
           });
-        }, 1000);
+        }, 2000);
         setTimeout(() => {
           setFormStatus({
             isSubmitting: false,
@@ -68,7 +68,7 @@ export default function SuggestionForm() {
           setTimeout(() => {
             hideForm();
           }, 1500);
-        }, 4000);
+        }, 5000);
       } else {
         throw new Error("Form submission failed");
       }
@@ -82,7 +82,7 @@ export default function SuggestionForm() {
           phone: "",
           message: "",
         });
-      }, 1000);
+      }, 2000);
       setTimeout(() => {
         setFormStatus({
           isSubmitting: false,
@@ -92,27 +92,44 @@ export default function SuggestionForm() {
         setTimeout(() => {
           hideForm();
         }, 1500);
-      }, 4000);
+      }, 5000);
     }
+  };
+
+  const clearForm = () => {
+    hideForm();
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+    setFormStatus({
+      isSubmitting: false,
+      isSubmitted: false,
+      isError: false,
+    });
   };
 
   return (
     <FixedDiv
-      className={`${showForm ? "" : "hidden"} transition-all duration-[0.6s]`}
+      className={`${
+        showForm ? "opacity-100 scale-100" : "opacity-0 scale-0"
+      } origin-bottom-right transition-all duration-[0.6s]`}
     >
-      <div className={`w-full text-sm`}>
-        <div className="group mb-2 flex items-center justify-between">
+      <div className="relative w-full bg-light dark:bg-gray rounded-sm text-sm p-3">
+        <div className="group relative mb-6 px-2 flex items-center justify-between select-none">
           <div className="flex items-center">
             <h3 className="text-xl font-semibold _912cfm">
-              <span className="text-red">{"Text 'Us'"}</span>
+              <span className="text-red">{"Text 'Us' Anything"}</span>
             </h3>
           </div>
           <div
             role="button"
             tabIndex={0}
-            onClick={hideForm}
+            onClick={clearForm}
             onKeyDown={(e) =>
-              (e.key === "Enter" || e.key === " ") && hideForm()
+              (e.key === "Enter" || e.key === " ") && clearForm()
             }
             aria-label="Hide Form"
             className="flex items-center justify-center cursor-pointer focus:outline-none"
@@ -122,14 +139,8 @@ export default function SuggestionForm() {
             </div>
           </div>
         </div>
-        <form
-          onSubmit={handleSubmit}
-          className="font-medium flex flex-col space-y-3 p-3 rounded-sm bg-light/80 dark:bg-dark/80 shadow shadow-gray/20 dark:shadow-light/10"
-        >
-          <div className="">
-            <label htmlFor="name" className="sr-only">
-              Name
-            </label>
+        <form onSubmit={handleSubmit} className="space-y-5 select-none">
+          <div className="relative">
             <input
               type="text"
               id="name"
@@ -138,104 +149,108 @@ export default function SuggestionForm() {
               onChange={handleChange}
               required
               pattern="[A-Za-z ]+"
-              className="w-full p-2 bg-transparent border-b-2 border-gray/50 dark:border-light/50 rounded-sm focus:outline-none"
-              placeholder="Name"
               minLength={4}
               maxLength={20}
+              className="w-full px-4 py-3 bg-transparent rounded-sm border border-gray/30 dark:border-light/20 focus:ring-1 focus:ring-red focus:outline-none focus:border-none transition-all duration-[0.6s] peer"
             />
+            <label
+              htmlFor="name"
+              className="absolute left-2 -top-2 text-xs rounded-sm bg-light dark:bg-gray px-2 transition-all duration-[0.6s] peer-focus:text-red"
+            >
+              Name *
+            </label>
           </div>
-          <div className="flex flex-row items-center space-x-2">
-            <div className="w-full">
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="relative">
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="w-full p-2 bg-transparent border-b-2 border-gray/50 dark:border-light/50 rounded-sm focus:outline-none"
-                placeholder="Email"
+                className="w-full px-4 py-3 bg-transparent rounded-sm border border-gray/30 dark:border-light/20 focus:ring-1 focus:ring-red focus:outline-none focus:border-none transition-all duration-[0.6s] peer"
               />
-            </div>
-
-            <div className="w-full">
-              <label htmlFor="phone" className="sr-only">
-                Phone
+              <label
+                htmlFor="email"
+                className="absolute left-2 -top-2 text-xs rounded-sm bg-light dark:bg-gray px-2 transition-all duration-[0.6s] peer-focus:text-red"
+              >
+                Email
               </label>
+            </div>
+            <div className="relative">
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                required
                 pattern="[0-9+]+"
-                className="w-full p-2 bg-transparent border-b-2 border-gray/50 dark:border-light/50 rounded-sm focus:outline-none"
-                placeholder="Phone"
+                className="w-full px-4 py-3 bg-transparent rounded-sm border border-gray/30 dark:border-light/20 focus:ring-1 focus:ring-red focus:outline-none focus:border-none transition-all duration-[0.6s] peer"
               />
+              <label
+                htmlFor="phone"
+                className="absolute left-2 -top-2 text-xs rounded-sm bg-light dark:bg-gray px-2 transition-all duration-[0.6s] peer-focus:text-red"
+              >
+                Phone
+              </label>
             </div>
           </div>
-
-          <div className="">
-            <label htmlFor="message" className="sr-only">
-              Text Message
-            </label>
+          <div className="relative">
             <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              rows={3}
-              className="w-full p-2 bg-transparent border-b-2 border-gray/50 dark:border-light/50 rounded-sm focus:outline-none"
-              placeholder="Say something..."
-            ></textarea>
+              rows={2}
+              className="w-full px-4 py-3 bg-transparent rounded-sm border border-gray/30 dark:border-light/20 focus:ring-1 focus:ring-red focus:outline-none focus:border-none transition-all duration-[0.6s] peer"
+            />
+            <label
+              htmlFor="message"
+              className="absolute left-2 -top-2 text-xs rounded-sm bg-light dark:bg-gray px-2 transition-all duration-[0.6s] peer-focus:text-red"
+            >
+              Message *
+            </label>
           </div>
-          <div className="self-end">
+          <div className="text-right">
             <button
-              aria-label="Send Text"
               type="submit"
+              aria-label="Send Text"
               disabled={
                 formStatus.isSubmitting ||
                 formStatus.isSubmitted ||
                 formStatus.isError
               }
-              className="w-fit flex items-center space-x-1.5 text-red disabled:text-gray dark:disabled:text-light/40 font-semibold _912cfm p-2 rounded-sm focus:outline-none"
+              className="inline-flex items-center space-x-2 -mt-8 p-3 text-red disabled:text-gray dark:disabled:text-light/40 font-semibold _912cfm p-2 rounded-sm focus:outline-none transition-all duration-300"
             >
               <span>
                 {formStatus.isSubmitting
                   ? "Sending..."
                   : formStatus.isSubmitted
-                  ? "Message Sent"
+                  ? "Sent!"
                   : formStatus.isError
-                  ? "Not Sent, sorry!"
+                  ? "Try Again"
                   : "Send Text"}
               </span>
-              <span>
+              {!formStatus.isSubmitting && !formStatus.isSubmitted && (
                 <IoMdSend size={18} />
-              </span>
+              )}
             </button>
           </div>
         </form>
-        {formStatus.isSubmitted ? (
-          <div className="bg-turquoise/10 border border-turquoise/80 text-turquoise text-sm p-4 rounded mt-4">
-            <div className="flex justify-between space-x-3">
+        {formStatus.isSubmitted && (
+          <div className="bg-turquoise/10 border border-turquoise/80 text-turquoise text-sm p-4 rounded mt-4 animate-fade-in">
+            <div className="flex space-x-3">
               <FaHandsClapping size={24} />
-              <p>
-                Thank you for your text message! Someone will reach out to you
-                soon...
-              </p>
+              <p>Thank you! Your message has been sent.</p>
             </div>
           </div>
-        ) : null}
-        {formStatus.isError ? (
-          <div className="bg-red/10 border border-red/50 text-red text-sm p-4 rounded mt-4">
-            <p>Something went wrong. Please try again later...</p>
+        )}
+        {formStatus.isError && (
+          <div className="bg-red/10 border border-red/50 text-red text-sm p-4 rounded mt-4 animate-fade-in">
+            <p>Oops! Something went wrong...</p>
           </div>
-        ) : null}
+        )}
       </div>
     </FixedDiv>
   );

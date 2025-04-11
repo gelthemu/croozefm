@@ -106,7 +106,7 @@ export function useAudioControls() {
                 setTimeout(() => {
                   setIsCollapse(true);
                 }, 2000);
-              }, 3000);
+              }, 2000);
             })
             .catch((error) => {
               console.error(error);
@@ -120,7 +120,7 @@ export function useAudioControls() {
                   audioRef.current.src = "";
                   setIsMiniPlayerOpen(false);
                 }, 2000);
-              }, 2000);
+              }, 1000);
             });
         }, 2000);
       }

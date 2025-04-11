@@ -81,7 +81,12 @@ export default function RecordPlayer({ show }: RecordPlayerProps) {
         <div className="mb-4">
           <div className="flex items-center justify-between text-red/80 font-normal">
             <p>In this PLAYLIST</p>
-            <small>{recordings.length} Episodes</small>
+            <small>
+              {`
+              ${recordings.length} Episode${
+                recordings.length === 1 ? "" : "s"
+              }`}
+            </small>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">

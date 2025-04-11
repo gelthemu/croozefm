@@ -1,6 +1,6 @@
 import React from "react";
 import ShareArticle from "../../components/share-article";
-import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
+import { SmUnit, MdUnit } from "@/app/components/providers/units/units";
 
 interface ArticleFooterProps {
   title: string;
@@ -14,8 +14,8 @@ export function ArticleFooter({ title, slug }: ArticleFooterProps) {
         <ShareArticle title={title} slug={slug} />
       </div>
       <div>
-        <RectangleAd />
-        <BannerAd />
+      <SmUnit />
+      <MdUnit />
       </div>
     </>
   );

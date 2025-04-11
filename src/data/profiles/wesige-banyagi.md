@@ -7,7 +7,7 @@ social-links:
   insta: "https://www.instagram.com/braga_wesige_banyagi/"
 gallery: ["wesige-banyagi-1.webp", "wesige-banyagi-2.webp"]
 code: "braga"
-keywords: "Wesige Banyagi, The Big Seat, Ugandan politics radio show, 91.2 Crooze Fm Big Seat"
+keywords: "wesige banyagi, the big seat, ugandan politics radio show,"
 ---
 
 Wesige Banyagi is a dynamic Ugandan lawyer and economist who’s all about unlocking Africa’s potential. With roots as a Musigi, he’s got a keen eye for law, communications, and real estate.

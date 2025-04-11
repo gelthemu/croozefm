@@ -35,9 +35,7 @@ const SnapShot: React.FC<SnapShotProps> = ({ url, className = "" }) => {
   }, [isLoading]);
 
   return (
-    <div
-      className={`relative w-full overflow-hidden rounded-sm shadow-lg ${className}`}
-    >
+    <div className={`relative w-full overflow-hidden rounded-sm ${className}`}>
       <div className="relative w-full aspect-[371/100]">
         {images.map((image, index) => {
           let zIndex = 0;
@@ -72,11 +70,11 @@ const SnapShot: React.FC<SnapShotProps> = ({ url, className = "" }) => {
               >
                 <Image
                   src={image.src}
-                  alt={"CFM Pulse"}
+                  alt=""
                   width={2968}
                   height={800}
                   priority={true}
-                  className={`w-full object-cover aspect-[371/100] _img_`}
+                  className={`w-full object-cover aspect-[371/100] _img_ border border-light/10`}
                 />
               </div>
             </div>

@@ -69,7 +69,7 @@ export default function Navbar() {
   return (
     <div className="w-full bg-red sticky top-0 z-50">
       <nav className="w-full max-w-screen-xl mx-auto relative">
-        <div className="flex flex-wrap items-center justify-between py-6 px-8 sm:px-12 md:px-16">
+        <div className="flex items-center justify-between h-20 md:h-24 py-2 px-4 sm:px-12 md:px-16">
           <Logo onLogoClick={closeMenu} className="z-[100]" />
           <HamburgerButton isOpen={isOpen} onClick={toggleMenu} />
           <MobileMenu isOpen={isOpen} onNavClick={closeMenu} />

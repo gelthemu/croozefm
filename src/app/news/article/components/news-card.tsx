@@ -59,7 +59,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, priority = false }) => {
               <div className="relative rounded-sm overflow-hidden w-[80px] sm:w-[172px] xl:max-w-[236px]">
                 <Image
                   src={image_url}
-                  alt={headline}
+                  alt=""
                   width={600}
                   height={400}
                   priority={priority}

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getNewsArticle } from "@/lib/news-parser";
 import { formatEpochToTimezone } from "@/app/components/tiny/format-date";
+import { RESOURCES } from "@/data/endpoints";
 
 export async function generateMetadata({
   params,
@@ -17,13 +18,13 @@ export async function generateMetadata({
   return {
     title: `${article.headline}`,
     description: article.excerpt,
-    keywords: `91.2 Crooze Fm, Western Uganda, ${article.keywords}, News, Crooze Fm news, Crooze Fm updates, Crooze Fm latest news, Crooze Fm 411, Crooze Fm Archive, Crooze Fm local news, Crooze Fm headlines, Crooze Fm media`,
+    keywords: `cfm pulse, ${article.keywords}, western uganda, news, crooze fm news, crooze fm 411, crooze fm headlines, sports updates, politics`,
     openGraph: {
       title: `${article.headline}`,
       description: article.excerpt,
       type: "article",
       publishedTime: formatEpochToTimezone(article.publication_date),
-      url: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
+      url: `https://cfm.geltaverse.com/news/article/${article.slug}`,
       images: article.image_url
         ? [
             {
@@ -36,16 +37,16 @@ export async function generateMetadata({
         : article.isPinned
         ? [
             {
-              url: "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png",
-              alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
+              url: `${RESOURCES}/cfm-weekly-mixtape.png`,
+              alt: "Crooze FM brings you the CFM Weekly Mixtape every Wednesday",
               width: 1200,
               height: 630,
             },
           ]
         : [
             {
-              url: "https://croozefm.blob.core.windows.net/images/news.png",
-              alt: "Crooze FM News, Western Uganda. Home of Western Uganda's Biggest Radio Station.",
+              url: `${RESOURCES}/default-opengraph.png`,
+              alt: "Home to Fans of Western Uganda's Biggest Radio Station",
               width: 1200,
               height: 630,
             },
@@ -67,21 +68,18 @@ export async function generateMetadata({
         : article.isPinned
         ? [
             {
-              url: "https://croozefm.blob.core.windows.net/images/cfm-weekly-mixtape.png",
-              alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
+              url: `${RESOURCES}/cfm-weekly-mixtape.png`,
+              alt: "Crooze FM brings you the CFM Weekly Mixtape every Wednesday",
               width: 1200,
               height: 630,
             },
           ]
         : [
             {
-              url: "https://croozefm.blob.core.windows.net/images/default.png",
-              alt: "Home of Western Uganda's Biggest Radio Station. Great Music, Great Friends.",
+              url: `${RESOURCES}/default-opengraph.png`,
+              alt: "Home to Fans of Western Uganda's Biggest Radio Station",
             },
           ],
-    },
-    alternates: {
-      canonical: `https://croozefm.geltaverse.com/news/article/${article.slug}`,
     },
     other: {
       "article:published_time": formatEpochToTimezone(article.publication_date),

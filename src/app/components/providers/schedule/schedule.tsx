@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useMemo } from "react";
-import { useCurrentShow } from "@/app/components/providers/schedule/current-show";
+import { useRadioSchedule, formatTime } from "@/app/context/use-radio-schedule";
 import Link from "next/link";
-import ImgDiv from "../divs/image-div";
+import { SnapShot } from "./snap-shot";
 import { FaLink } from "react-icons/fa6";
 import { shows } from "@/data/shows/shows";
-import { RESOURCES } from "@/data/endpoints";
 
 const ftShows = shows.filter((show) => show.isFt);
 
@@ -23,21 +22,22 @@ const getShowUrl = (id: string) => {
 };
 
 const Schedule = () => {
-  const currentShow = useCurrentShow();
-  const showUrl = getShowUrl(currentShow.id);
-  const hasValidShowUrl = showUrl !== "/shows";
+  const { currentShow } = useRadioSchedule();
+  let hasValidShowUrl = false;
+  let showUrl = "/shows";
+
+  if (currentShow) {
+    showUrl = getShowUrl(currentShow.id);
+    hasValidShowUrl = showUrl !== "/shows";
+  }
 
   return (
     <div className="relative group">
-      <ImgDiv
-        url={`${RESOURCES}/on-air.png`}
-        alt={currentShow.name}
-        text="On-Air"
-      />
+      <SnapShot />
       {hasValidShowUrl ? (
         <Link
           href={showUrl}
-          className="absolute bottom-2.5 right-2.5 flex items-center justify-center bg-dark/80 border border-light/50 text-light p-1.5 rounded-md"
+          className="absolute bottom-2.5 right-2.5 z-50 flex items-center justify-center bg-dark/80 border border-light/50 text-light p-1.5 rounded-md"
           aria-label="View Details"
         >
           <FaLink
@@ -51,17 +51,63 @@ const Schedule = () => {
 };
 
 const Show = () => {
-  const currentShow = useCurrentShow();
-  const showUrl = getShowUrl(currentShow.id);
+  const { currentShow, nextShow } = useRadioSchedule();
+
+  const DEFAULT_MESSAGE = "Great Music, for Great Friends";
+
+  const displayName = currentShow ? currentShow.name : DEFAULT_MESSAGE;
+  const showUrl = currentShow ? getShowUrl(currentShow.id) : "/shows";
   const hasValidShowUrl = showUrl !== "/shows";
 
-  return hasValidShowUrl ? (
-    <Link href={showUrl} className="font-light _912cfm">
-      <span>{currentShow.name}</span>
-    </Link>
-  ) : (
-    <div className="font-light _912cfm select-none">
-      <span>{currentShow.name}</span>
+  return (
+    <div className="w-full flex flex-col md:flex-row md:space-x-0">
+      <div className="w-full relative font-light p-4 bg-gradient-to-r from-light/60 to-transparent dark:from-gray/20 dark:to-transparent rounded-md shadow shadow-gray/20 dark:shadow-light/10 overflow-hidden select-none">
+        <div className="_912cfm line-clamp-1">
+          {currentShow && hasValidShowUrl ? (
+            <Link href={showUrl}>
+              <span>{displayName}</span>
+            </Link>
+          ) : (
+            <div>
+              <span>{displayName}</span>
+            </div>
+          )}
+        </div>
+        {currentShow && currentShow.host && (
+          <p className="text-sm opacity-60 line-clamp-1">
+            {currentShow.host.map((h, i) => (
+              <span key={i}>
+                {h.name}
+                {i < currentShow.host!.length - 1 && ", "}
+              </span>
+            ))}
+          </p>
+        )}
+        <div
+          className={`absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-red to-turquoise ${
+            currentShow ? "animate-pulse" : ""
+          } `}
+        ></div>
+      </div>
+      {nextShow && (
+        <div className="w-full font-light p-4 bg-gradient-to-l from-light to-transparent dark:from-gray/10 dark:to-transparent rounded-md overflow-hidden select-none">
+          <div className="w-full flex flex-row space-x-2">
+            <div>
+              <span className="inline-block px-2 py-1 text-xs text-light dark:text-dar bg-gray/70 dark:bg-gray/90 rounded-sm select-none">
+                Up Next
+              </span>
+            </div>
+            <div>
+              <div className="text-sm _912cfm line-clamp-1">
+                <span>{nextShow.name}</span>
+              </div>
+              <div className="text-sm opacity-60">
+                <span>{formatTime(nextShow.time.start)}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

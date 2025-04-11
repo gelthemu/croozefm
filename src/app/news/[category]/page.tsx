@@ -9,7 +9,8 @@ import { NewsCategory } from "@/types/news";
 import { FormatCategory } from "@/app/components/tiny/formatCategoryDisplay";
 import Divider from "@/app/components/providers/divs/divider";
 import NewsFooter from "../components/news-footer";
-import { BannerAd, RectangleAd } from "@/app/components/providers/ads/ads";
+import { SmUnit, MdUnit } from "@/app/components/providers/units/units";
+import { RESOURCES } from "@/data/endpoints";
 
 export async function generateMetadata({
   params,
@@ -29,9 +30,25 @@ export async function generateMetadata({
     title:
       category === "411" ? "Entertainment" : `${FormatCategory({ category })}`,
     description: `Browse all our news articles under the ${category} category`,
-    keywords: `${category}, Crooze FM news, 91.2 Crooze Fm, Western Uganda, News, Crooze Fm news, Crooze Fm updates, Crooze Fm latest news, Crooze Fm 411, Crooze Fm Archive, Crooze Fm local news, Crooze Fm headlines, Crooze Fm media`,
-    alternates: {
-      canonical: `https://croozefm.geltaverse.com/news/${category}`,
+    keywords: `cfm pulse, ${category}, western uganda, news, crooze fm news, crooze fm 411, crooze fm headlines, sports updates, politics`,
+    openGraph: {
+      url: `https://cfm.geltaverse.com/news/${category}`,
+      images: [
+        {
+          url: `${RESOURCES}/on-air-2.png`,
+          alt: "Western Uganda's Biggest Radio Station",
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: `${RESOURCES}/on-air-2.png`,
+          alt: "Western Uganda's Biggest Radio Station",
+        },
+      ],
     },
   };
 }
@@ -79,8 +96,8 @@ export default async function CategoryPage({
       <Divider />
       <NewsFooter />
       <div className="pt-6">
-        <RectangleAd />
-        <BannerAd />
+        <SmUnit />
+        <MdUnit />
       </div>
     </>
   );

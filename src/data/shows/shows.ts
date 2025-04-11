@@ -60,6 +60,7 @@ export const shows: Show[] = [
   {
     id: "slowdown-hour",
     name: "The Slow Down Hour on the Lifestyle Show",
+    host: [{ name: "Inyaa", link: "/i/inyaa-clare" }],
     time: { start: 13, end: 14 },
   },
   {

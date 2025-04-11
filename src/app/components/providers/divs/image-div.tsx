@@ -4,7 +4,6 @@ import { RESOURCES } from "@/data/endpoints";
 
 interface ImgDivProps {
   url?: string;
-  alt?: string;
   className?: string;
   imgClass?: string;
   text?: string;
@@ -12,14 +11,13 @@ interface ImgDivProps {
 
 const ImgDiv: React.FC<ImgDivProps> = ({
   url,
-  alt,
   className = "",
   imgClass = "",
   text = "CFM Pulse",
 }) => {
   return (
     <div
-      className={`relative w-full aspect-[1484/813] overflow-hidden rounded-sm border-2 border-gray/80 dark:border-light/20 transition-all duration-500 ${className} `}
+      className={`relative w-full aspect-[1484/813] overflow-hidden rounded-sm border border-gray/80 dark:border-light/20 transition-all duration-500 ${className}`}
     >
       <div
         className="w-full h-full bg-cover bg-center bg-transparent bg-blend-multiply"
@@ -32,7 +30,7 @@ const ImgDiv: React.FC<ImgDivProps> = ({
       >
         <Image
           src={url ? url : `${RESOURCES}/default.png`}
-          alt={alt ? alt : "CFM Pulse"}
+          alt={text ? text : "CFM Pulse"}
           width={2968}
           height={1626}
           priority={true}

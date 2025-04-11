@@ -1,46 +1,33 @@
 import React from "react";
 import { mixtapes } from "@/data/mixtapes";
 import MixtapePlayer from "./components/mixtape-player";
-import { RectangleAd, SkyscraperAd } from "@/app/components/providers/ads/ads";
+import { SmUnit, MdUnit, LgUnit } from "@/app/components/providers/units/units";
 import { RESOURCES } from "@/data/endpoints";
 
 export const metadata = {
   title: "CFM Weekly Mixtapes",
   description:
-    "Brace yourself for uplifting vibes and awesome tunes! Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday. Great Music, Great Friends.",
+    "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday. Great Music, Great Friends.",
   keywords:
-    "Crooze FM Weekly Mixtape, Western Uganda radio, DJ Nati J mixtape, Starcent DJ mixtape, Deejay Emma mixtape, DJ Banx mixtape, Mbarara Uganda music, 91.2 Crooze FM, weekly mixtape, Crooze FM Mbarara, Crooze FM latest release",
+    "cfm weekly mixtape, crooze fm mixtapes, dj nati j, starcent dj, dj emma, dj banx, dj stinger, dj modern, cruz fm, cfm pulse, 91.2 crooze fm, crooze fm online, western uganda, crooze fm stream live, mbarara city, crooze fm mixtapes, african music",
   openGraph: {
-    title: "CFM Weekly Mixtapes",
-    description:
-      "Brace yourself for uplifting vibes and awesome tunes! Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday. Great Music, Great Friends.",
-    type: "website",
-    url: "https://croozefm.geltaverse.com/c/mixtapes",
+    url: "https://cfm.geltaverse.com/c/mixtapes",
     images: [
       {
         url: `${RESOURCES}/cfm-weekly-mixtape.png`,
-        alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
+        alt: "Crooze FM brings you the CFM Weekly Mixtape every Wednesday.",
         width: 1200,
         height: 630,
       },
     ],
   },
   twitter: {
-    title: "CFM Weekly Mixtapes",
-    description:
-      "Brace yourself for uplifting vibes and awesome tunes! Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday. Great Music, Great Friends.",
-    card: "summary_large_image",
-    site: "@geltaverse",
-    creator: "@geltaverse",
     images: [
       {
         url: `${RESOURCES}/cfm-weekly-mixtape.png`,
-        alt: "Western Uganda's Biggest Radio Station brings you the Crooze FM Weekly Mixtape every Wednesday.",
+        alt: "Crooze FM brings you the CFM Weekly Mixtape every Wednesday.",
       },
     ],
-  },
-  alternates: {
-    canonical: "https://croozefm.geltaverse.com/c/mixtapes",
   },
 };
 
@@ -64,13 +51,16 @@ export default function MixtapesPage() {
         </p>
       </div>
       <div className="w-full flex flex-col lg:flex-row lg:space-x-4 mt-10">
-        <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 sm:mb-0">
+        <div className="w-full lg:w-[70%] flex-shrink-0 mb-12 lg:mb-0">
           <MixtapePlayer mixtapes={sortedMixtapes} />{" "}
         </div>{" "}
-        <RectangleAd />
+        <SmUnit />
+        <div className="lg:hidden">
+          <MdUnit />
+        </div>
         <div className="hidden lg:block lg:w-[30%] lg:flex-shrink-0">
           <div className="sticky top-[calc(0.25rem+80px)]">
-            <SkyscraperAd />
+            <LgUnit />
           </div>
         </div>
       </div>

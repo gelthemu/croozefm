@@ -3,21 +3,19 @@
 import React from "react";
 import { useSuggestionForm } from "@/app/context/suggestion-form-context";
 
-const SubmitArticle: React.FC = () => {
+interface SubmitProps {
+  title?: string;
+  text?: string;
+}
+
+const SubmitAnything = ({ title, text }: SubmitProps) => {
   const { showForm, setShowForm } = useSuggestionForm();
 
   return (
     <div className="text-left">
       <div className="mt-8 p-4 bg-gradient-to-br from-gray/10 to-gray/5 dark:from-gray/40 dark:to-transparent rounded-sm">
-        <h3 className="font-semibold text-lg text-red mb-2 _912cfm">
-          Got a Scoop We Missed?
-        </h3>
-        <p className="text-sm mb-4">
-          {`
-          Found a news-worthy article we haven't covered? Submit the link in a text message
-          and we'll scrape it. Don't be selfish—share the story with us, we
-          wanna read it too!`}
-        </p>
+        <h3 className="font-semibold text-lg text-red mb-2 _912cfm">{title}</h3>
+        <p className="text-sm mb-4">{text}</p>
         <div
           role="button"
           tabIndex={0}
@@ -42,4 +40,4 @@ const SubmitArticle: React.FC = () => {
   );
 };
 
-export default SubmitArticle;
+export default SubmitAnything;

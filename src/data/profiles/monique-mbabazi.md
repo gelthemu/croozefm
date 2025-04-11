@@ -14,7 +14,7 @@ gallery:
     "monique-mbabazi-4.webp",
   ]
 code: "momo"
-keywords: "Monique Mbabazi, Morning Addiction, Voice-over artist, Crooze FM news editor, Journalism graduate Ndejje University"
+keywords: "monique mbabazi, momo crooze, morning addiction, voice-over artist, crooze fm news"
 ---
 
 Monique Mbabazi is a lively Ugandan media star known for her work in both TV and radio. She co-hosts the [Morning Addiction](/shows/morning-addiction), weekdays from 6 AM.

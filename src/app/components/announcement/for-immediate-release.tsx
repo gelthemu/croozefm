@@ -62,7 +62,6 @@ export default function ImmediateRelease({
           <div className="relative w-full h-full md:self-end">
             <ImgDiv
               url={`${RESOURCES}/cfm-weekly-mixtape.png`}
-              alt="Crooze FM Weekly Mixtape"
               text="Crooze FM Weekly Mixtape"
             />
             <div className="absolute bottom-3 right-3">

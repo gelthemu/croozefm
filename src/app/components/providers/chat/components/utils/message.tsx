@@ -23,7 +23,7 @@ export default function Msg({ message, profiles }: MsgProps) {
   const id = message.code.slice(-4);
 
   return (
-    <div className="w-full py-2">
+    <div className="w-full py-2 text-sm">
       <div className="w-full flex items-start">
         {message.username === "ADMIN" ? (
           <Image
@@ -58,7 +58,7 @@ export default function Msg({ message, profiles }: MsgProps) {
               ) : (
                 <>
                   <span
-                    className="font-medium overflow-hidden whitespace-nowrap text-ellipsis flex-grow"
+                    className="font-bold overflow-hidden whitespace-nowrap text-sm text-ellipsis flex-grow"
                     style={{ color: color }}
                   >
                     {message.username}

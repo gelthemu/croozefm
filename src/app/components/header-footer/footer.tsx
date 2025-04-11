@@ -31,8 +31,8 @@ export default function Footer() {
             <Logo />
             <p className="text-wrap my-4 max-w-lg">
               CFM Pulse is the largest Crooze FM Fan Base. Home to Fans of
-              Western Uganda&apos;s Biggest Radio Station, broadcasting from
-              Mbarara to the world.
+              Western Uganda&apos;s Biggest Radio Station, from Mbarara to the
+              world.
             </p>
             <p className="text-wrap">By CFM Fans, for CFM Diehards</p>
           </div>

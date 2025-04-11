@@ -8,7 +8,7 @@ social-links:
   insta: "https://www.instagram.com/belgalive1/"
 gallery: ["belga-mc-1.webp", "belga-mc-2.webp"]
 code: "belga"
-keywords: "Belga MC, Crooze FM, Morning Addiction, Western Uganda radio star, Fat Friday Mix, voice-over artist"
+keywords: "belga mc, crooze fm, morning addiction, fat friday mix, voice-over artist"
 ---
 
 Meet Belga MC, a dynamic radio presenter who turned his childhood dream of mimicking broadcasters in Kampala into reality. Now co-hosting the [Morning Addiction](/shows/morning-addiction) on Crooze FM weekdays from 6 AM with [Monique](/i/monique-mbabazi) and [Derrick](/i/derrick-ashiimwe), he’s a Western Uganda favorite.

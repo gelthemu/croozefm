@@ -17,7 +17,7 @@ gallery:
   ]
 code: "emma"
 mixtape-code: "emma"
-keywords: "DJ Emma, Married Deejay, 91.2 Crooze Fm dj, Fat Friday Mix, SNL, SNL Crooze Fm, Deejay Emma"
+keywords: "dj emma, married deejay, crooze fm dj, fat friday mix, snl, snl crooze fm, deejay emma"
 ---
 
 DJ Emma—affectionately dubbed “The Married Deejay”—is a dynamic force in Uganda’s music scene, captivating audiences with his infectious energy and masterful mixes.

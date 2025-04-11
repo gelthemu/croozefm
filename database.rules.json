@@ -4,8 +4,8 @@
       ".read": true,
       ".write": true
     },
-    "adStats": {
-      "$adId": {
+    "unitStats": {
+      "$unitId": {
         ".read": true,
         ".write": true
       }

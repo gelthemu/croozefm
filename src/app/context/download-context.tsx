@@ -302,7 +302,7 @@ export const DownloadProvider = ({ children }: DownloadProviderProps) => {
   };
 
   const downloadFile = async (url: string, customFileName?: string) => {
-    const DOWNLOAD_LIMIT_EXCEEDED_ERROR = `You have exceeded download limit for file: ${customFileName}. Try again later...`;
+    const DOWNLOAD_LIMIT_EXCEEDED_ERROR = `You have exceeded download limit for file: ${customFileName}. Choose another file, or try again later...`;
 
     if (isDownloading || isDownloadMode) return;
 

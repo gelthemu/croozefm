@@ -140,7 +140,7 @@ export default function MessageInput({
           {showEmojiPicker && (
             <div
               ref={emojiPickerRef}
-              className="absolute bottom-full right-0 mb-1 z-10"
+              className="absolute bottom-full right-0 w-full mb-1 z-10"
             >
               <EmojiPicker onEmojiSelect={handleEmojiSelect} />
             </div>

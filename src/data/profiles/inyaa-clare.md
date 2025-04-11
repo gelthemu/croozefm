@@ -7,7 +7,7 @@ social-links:
   insta: "https://www.instagram.com/inyaaclara/"
 gallery: ["inyaa-clare-1.webp", "inyaa-clare-2.webp"]
 code: "inyaa"
-keywords: "Inyaa Clar, CFM Lifestyle Show, Sunday Love, Crooze FM radio host Inyaa Clare, lifestyle"
+keywords: "inyaa clare, cfm lifestyle show, sunday love, inyaa, lifestyle"
 ---
 
 Inyaa Clare is the charismatic voice that lights up the airwaves on Crooze FM. With over a decade of experience, she's not just a radio host but a seasoned voice-over artist who has mastered the art of informing, entertaining, and inspiring her audience.

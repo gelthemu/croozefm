@@ -23,7 +23,6 @@ export const ShowCard = ({ show, srOnly = false }: ShowCardProps) => {
     >
       <div className="relative flex flex-col">
         <ImgDiv
-          alt={show.name}
           imgClass="transition-transform duration-300 group-hover:scale-105"
           text={show.name}
         />

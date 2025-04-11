@@ -31,7 +31,7 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
     isLoading,
   } = useMiniPlayer();
 
-  const { isDownloading, progress, error } = useDownload();
+  const { isDownloading, progress, error, currentFile } = useDownload();
 
   const [selectedMixtape, setSelectedMixtape] = useState<Mixtape | null>(null);
 
@@ -98,7 +98,6 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
       <div>
         <ImgDiv
           url={`${RESOURCES}/cfm-weekly-mixtape.png`}
-          alt="Crooze FM Weekly Mixtape"
           className="w-full mb-6"
           text="CFM Weekly Mixtape"
         />
@@ -152,12 +151,6 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
               />
               <ViewerBoard count={selectedMixtape.title.length * 2} />
             </div>
-            {!error && isDownloading && (
-              <div
-                className="absolute bottom-0 left-0 h-[2px] md:h-[3px] transition-all duration-[0.25s] bg-turquoise z-0"
-                style={{ width: `${progress}%` }}
-              ></div>
-            )}
           </div>
         )}
       </div>
@@ -173,17 +166,33 @@ export default function MixtapePlayer({ mixtapes }: MixtapePlayerProps) {
           {mixtapes.map((mixtape: Mixtape) => {
             const isSelected = selectedMixtape?.id === mixtape.id;
             const isActive = isMiniPlayerOpen && currentSource === mixtape.url;
+            const isCurrentDownload =
+              isDownloading && currentFile === mixtape.d_url;
 
             return (
               <div
                 key={mixtape.id}
-                className={`group p-3 rounded-sm cursor-pointer transition-all duration-300 ${
+                className={`group relative p-3 rounded-sm cursor-pointer transition-all duration-300 overflow-hidden ${
                   isSelected
-                    ? "bg-red/10 dark:bg-red/20 border-l-4 border-red"
-                    : "bg-gray/10 dark:bg-gray/40 hover:bg-gray/20 dark:hover:bg-gray/70 border-l-4 border-transparent"
+                    ? "bg-red/30 dark:bg-red/20 border-l-4 border-red"
+                    : "bg-gray/10 dark:bg-gray/40 hover:bg-gray/20 dark:hover:bg-gray/70"
                 }`}
               >
-                <div className="flex items-center justify-between space-x-2">
+                {!error && isDownloading && isCurrentDownload && (
+                  <>
+                  <div
+                    className="absolute inset-0 h-full transition-all duration-[0.25s] bg-turquoise/80 z-0"
+                    style={{ width: `${progress}%` }}
+                  ><span
+                  className="absolute inset-0 bg-light/20 opacity-0 animate-pulse rounded-sm"
+                  style={{ animation: "pulseGlow 1.25s infinite" }}
+                ></span></div>
+                 <div
+                    className="absolute inset-0 z-0 h-full w-full bg-gradient-to-r from-transparent via-light/30 to-transparent animate-wave"
+                    style={{ animation: "waveMove 2s infinite linear" }}
+                  ></div> </>
+                )}
+                <div className="relative flex items-center justify-between space-x-2 z-10">
                   <div
                     onClick={() => handleSelect(mixtape)}
                     className="flex-1 flex items-center"

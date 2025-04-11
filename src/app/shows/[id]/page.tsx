@@ -4,7 +4,6 @@ import ViewAllBtn from "@/app/components/tiny/viewallbtn";
 import RecordPlayer from "@/app/shows/components/show/record-player";
 import Link from "next/link";
 import { PageHeading } from "@/app/components/providers/divs/page-heading";
-import ImgDiv from "@/app/components/providers/divs/image-div";
 import Divider from "@/app/components/providers/divs/divider";
 import ImmediateRelease from "@/app/components/announcement/for-immediate-release";
 import { Metadata } from "next";
@@ -32,36 +31,25 @@ export async function generateMetadata({
   return {
     title: `${show.name}`,
     description: show.summary,
-    keywords: `91.2 Crooze Fm, ${show.name}, Western Uganda's Biggest Radio Station, Crooze fm radio, Crooze fm schedule, Crooze fm programs, Crooze fm stream live, Crooze fm shows, Crooze FM mixtapes`,
+    keywords: `cfm pulse, ${show.name}, western uganda, crooze fm online, shows schedule, cruz fm, crooze fm stream live, crooze fm shows, crooze fm mixtapes`,
     openGraph: {
-      title: `${show.name}`,
-      description: show.summary,
-      type: "website",
       url: `https://croozefm.geltaverse.com/shows/${show.id}`,
       images: [
         {
-          url: `${RESOURCES}/default-opengraph.png`,
-          alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
+          url: `${RESOURCES}/on-air-2.png`,
+          alt: "Western Uganda's Biggest Radio Station",
           width: 1200,
           height: 630,
         },
       ],
     },
     twitter: {
-      title: `${show.name}`,
-      description: show.summary,
-      card: "summary_large_image",
-      site: "@geltaverse",
-      creator: "@geltaverse",
       images: [
         {
-          url: `${RESOURCES}/default-opengraph.png`,
-          alt: `${show.name}, one of the popular shows on 91.2 Crooze Fm`,
+          url: `${RESOURCES}/on-air-2.png`,
+          alt: "Western Uganda's Biggest Radio Station",
         },
       ],
-    },
-    alternates: {
-      canonical: `https://croozefm.geltaverse.com/shows/${show.id}`,
     },
   };
 }
@@ -109,15 +97,10 @@ export default async function ShowPage({ params }: PageProps) {
           </div>
         </div>
       )}
-      <ImgDiv
-        url={`${RESOURCES}/default.png`}
-        alt={show.name}
-        className="w-full max-w-3xl mx-auto mt-10"
-      />
       <div>
         <RecordPlayer show={show} />
       </div>
-      <div className="flex items-center justify-center mx-auto">
+      <div className="flex items-center justify-end mx-auto">
         <ViewAllBtn href="/shows" text="View All Shows" />
       </div>
       <Divider />

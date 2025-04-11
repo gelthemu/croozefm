@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { trackAdImpression } from "./utils/adsTrack";
-import { getRandomAd, Ad } from "./utils/adsData";
+import { trackUnitImpression } from "./utils/unitsTrack";
+import { getRandomUnit, Unit } from "./utils/unitsData";
 
 const useScreenWidth = () => {
   const [width, setWidth] = useState<number>(0);
@@ -21,24 +21,24 @@ const useScreenWidth = () => {
   return width;
 };
 
-const BaseAd = ({ size }: { size: Ad["size"] }) => {
-  const [ad, setAd] = useState<Ad | null>(null);
-  const adRef = useRef<HTMLAnchorElement>(null);
+const BaseUnit = ({ size }: { size: Unit["size"] }) => {
+  const [unit, setUnit] = useState<Unit | null>(null);
+  const unitRef = useRef<HTMLAnchorElement>(null);
   const impressionTrackedRef = useRef(false);
 
   useEffect(() => {
-    const randomAd = getRandomAd(size);
-    setAd(randomAd);
+    const randomUnit = getRandomUnit(size);
+    setUnit(randomUnit);
   }, [size]);
 
   useEffect(() => {
-    if (!ad || !adRef.current) return;
+    if (!unit || !unitRef.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !impressionTrackedRef.current) {
-            trackAdImpression(ad.id);
+            trackUnitImpression(unit.id);
             impressionTrackedRef.current = true;
 
             observer.disconnect();
@@ -51,36 +51,36 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
       }
     );
 
-    observer.observe(adRef.current);
+    observer.observe(unitRef.current);
 
     return () => {
       observer.disconnect();
     };
-  }, [ad]);
+  }, [unit]);
 
-  if (!ad) return null;
+  if (!unit) return null;
 
   return (
     <a
-      ref={adRef}
-      href={`/api/click?ad_id=${encodeURIComponent(
-        ad.id
-      )}&redirect=${encodeURIComponent(ad.link)}`}
+      ref={unitRef}
+      href={`/api/unit?unit_id=${encodeURIComponent(
+        unit.id
+      )}&redirect=${encodeURIComponent(unit.link)}`}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block p-2 bg-gray/5 dark:bg-gray/20 rounded-sm ad-${size} select-none`}
+      className={`block p-2 bg-gray/5 dark:bg-gray/20 rounded-sm unit-${size} select-none`}
     >
-      <span className="block text-xs opacity-60 uppercase mb-1">Ad</span>
+      <span className="block text-xs opacity-60 uppercase mb-1">Promoted</span>
       <Image
-        src={ad.imageUrl}
-        alt="Advertisement"
-        width={size === "banner" ? 6400 : size === "rectangle" ? 4000 : 1600}
-        height={size === "banner" ? 800 : size === "rectangle" ? 1600 : 5600}
+        src={unit.imageUrl}
+        alt=""
+        width={size === "md" ? 6400 : size === "sm" ? 4000 : 1600}
+        height={size === "md" ? 800 : size === "sm" ? 1600 : 5600}
         className={`
           w-full
-          ${size === "banner" ? "aspect-[8/1]" : ""}
-          ${size === "rectangle" ? "aspect-[5/2]" : ""}
-          ${size === "skyscraper" ? "aspect-[2/7]" : ""}
+          ${size === "md" ? "aspect-[8/1]" : ""}
+          ${size === "sm" ? "aspect-[5/2]" : ""}
+          ${size === "lg" ? "aspect-[2/7]" : ""}
           object-cover
         `}
       />
@@ -88,40 +88,40 @@ const BaseAd = ({ size }: { size: Ad["size"] }) => {
   );
 };
 
-export const RectangleAd = () => {
+export const SmUnit = () => {
   const width = useScreenWidth();
 
   if (width >= 640) return null;
 
   return (
     <div className="w-full">
-      <BaseAd size="rectangle" />
+      <BaseUnit size="sm" />
     </div>
   );
 };
 
-export const BannerAd = () => {
+export const MdUnit = () => {
   const width = useScreenWidth();
 
   if (width < 640) return null;
 
   return (
     <div className="w-full">
-      <BaseAd size="banner" />
+      <BaseUnit size="md" />
     </div>
   );
 };
 
-export const SkyscraperAd = () => {
+export const LgUnit = () => {
   const width = useScreenWidth();
 
   if (width < 1024) return null;
 
   return (
     <div className="w-full">
-      <BaseAd size="skyscraper" />
+      <BaseUnit size="lg" />
     </div>
   );
 };
 
-export default BaseAd;
+export default BaseUnit;

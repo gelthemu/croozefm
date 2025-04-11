@@ -17,7 +17,7 @@ export function ArticleContent({
 }: ArticleContentProps) {
   return (
     <>
-      <div className="prose prose-lg max-w-none border-t border-gray/10 dark:border-light/10 pt-6">
+      <div className="prose prose-lg max-w-none border-t border-gray/10 dark:border-light/10">
         <Markdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
           {firstHalf}
         </Markdown>

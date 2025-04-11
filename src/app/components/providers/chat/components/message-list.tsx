@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { PresenterProfile } from "@/types/profile";
 import type { Message } from "@/app/context/chat-context";
 import { Bell } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 import Msg from "./utils/message";
 
 interface MessageListProps {
@@ -102,7 +103,7 @@ export default function MessageList({
           )}
         </div>
       </div>
-      {unreadCount > 0 && (
+      {/* {unreadCount > 0 && (
         <button
           onClick={scrollToBottom}
           className="absolute bottom-2 right-4 text-light focus:outline-none"
@@ -115,7 +116,47 @@ export default function MessageList({
             {unreadCount}
           </span>
         </button>
-      )}
+      )} */}
+      <div className="absolute bottom-1 right-2 flex flex-row items-center space-x-1.5">
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label={`CFM Pulse WhatsApp Channel`}
+          onClick={() => {
+            window.open(
+              "https://whatsapp.com/channel/0029Vb8mMX78aKvKCmxMsj1y",
+              "_blank",
+              "noopener,noreferrer"
+            );
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              window.open(
+                "https://whatsapp.com/channel/0029Vb8mMX78aKvKCmxMsj1y",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }
+          }}
+          className="w-6 h-6 flex items-center justify-center text-light bg-[#25D366] backdrop-blur-md rounded-full"
+        >
+          <FaWhatsapp size={14} />
+        </div>
+        {unreadCount > 0 && (
+          <button
+            onClick={scrollToBottom}
+            className="relative text-light focus:outline-none"
+          >
+            <span className="w-8 h-8 bg-gray/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-md animate-wiggle">
+              <Bell size={16} />
+            </span>
+            <span className="absolute -top-2 -end-0 translate-x-1/4 text-nowrap px-1 py-0.5 min-w-5 rounded-full text-center text-xs bg-red rounded-full">
+              <span className="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-red/40 w-full h-full"></span>
+              {unreadCount}
+            </span>
+          </button>
+        )}
+      </div>
     </div>
   );
 }

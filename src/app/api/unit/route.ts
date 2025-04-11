@@ -1,21 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
-import { trackAdClick } from "@/app/components/providers/ads/utils/adsTrack";
+import { trackUnitClick } from "@/app/components/providers/units/utils/unitsTrack";
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const adId = searchParams.get("ad_id");
+    const unitId = searchParams.get("unit_id");
     const redirectUrl = searchParams.get("redirect");
 
-    if (!adId || !redirectUrl) {
-      console.error("Missing ad_id or redirect parameter");
+    if (!unitId || !redirectUrl) {
+      console.error("Missing unit_id or redirect parameter");
       return NextResponse.redirect(new URL("/", request.url));
     }
 
     const decodedRedirectUrl = decodeURIComponent(redirectUrl);
     new URL(decodedRedirectUrl);
 
-    await trackAdClick(adId);
+    await trackUnitClick(unitId);
     console.log(`Redirecting to ${decodedRedirectUrl}`);
 
     return NextResponse.redirect(new URL(decodedRedirectUrl));
